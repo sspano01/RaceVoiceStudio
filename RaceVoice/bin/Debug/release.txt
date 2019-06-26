@@ -1,0 +1,13 @@
+04-25-19
+===================================
+Fixup exception occurs with value "600" on a clean install without RaceVoice hardware connection
+Fixup new segments can be overlapped into existing segments, causing crash/exception
+Fixup crash event if new segments have bee added and then a track with less segments is restored
+Fixup "Restore-All-Tracks" menu option
+Change track rendering to show segments as GRAY for valid segments that do not have performance data selected.
+Change so that first start defaults all splits to not-enabled
+Add in release notes under About->Release
+
+04-15-19
+===================================
+Release with updated track rendering and framework

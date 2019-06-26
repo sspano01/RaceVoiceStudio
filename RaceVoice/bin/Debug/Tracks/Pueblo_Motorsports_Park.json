@@ -1,0 +1,29 @@
+{
+  "TrackName": "Pueblo Motorsports Park",
+  "DataBitfields": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "Rotation": 88,
+  "Zoom": 76,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 1,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    false,
+    false,
+    true,
+    false,
+    false,
+    false
+  ]
+}

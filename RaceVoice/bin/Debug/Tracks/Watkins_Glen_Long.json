@@ -1,0 +1,30 @@
+{
+  "TrackName": "Watkins Glen Long",
+  "DataBitfields": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    4,
+    1,
+    1,
+    0
+  ],
+  "Rotation": 236,
+  "Zoom": 82,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 4,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}

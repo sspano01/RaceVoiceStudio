@@ -1,0 +1,15 @@
+{
+  "TrackName": "Brainerd International Raceway",
+  "DataBitfields": [],
+  "Rotation": 307,
+  "Zoom": 84,
+  "XPan": -5,
+  "YPan": 0,
+  "ClusterSize": 1,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    true,
+    true,
+    true
+  ]
+}

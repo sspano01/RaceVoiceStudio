@@ -1,0 +1,36 @@
+06-14-19
+===================================
+Add support for RaceVoice Pro and RaceVoice Lite
+Improve startup detection of RaceVOice unit
+Fix issue with missing communication link when using one RaceVoice Studio to control multiple units
+
+
+05-08-19
+===================================
+Fixup exception addition "600" exception on clean installs
+Improve remote track download and syncrhonization code
+Improved track selection so that it will find a track by name OR index number when synchronizing with the RaceVoice unit
+Added ability to restore the currently selected track, instead of all tracks at once
+Added Tracks->Import menu with ability to import a CSV track map (column1 = lattitude, column2 = longitude) and Aim's ZTRACK format
+Added Tracks->Delete, Clone methods for track managemenet
+Added Advanced->Preferences menu with controllable options for startup and sharing imported tracks with RaceVoice users
+Changed split markers to follow convention of segments. Blue=Active and Gray=NOT-Active splits
+Updated license check routine to provide version data back to server to improve in-field updates
+Firmware updated to correct a low-signal gps condition that could also cause corner segments to fail to report
+Firmware changed to announce "GPS VALID" once the gps signal becomes valid AFTER it a "GPS ERROR" was reported
+Firmware changed to improve segment based lateral-g force announcement
+
+
+04-25-19
+===================================
+Fixup exception occurs with value "600" on a clean install without RaceVoice hardware connection
+Fixup new segments can be overlapped into existing segments, causing crash/exception
+Fixup crash event if new segments have bee added and then a track with less segments is restored
+Fixup "Restore-All-Tracks" menu option
+Change track rendering to show segments as GRAY for valid segments that do not have performance data selected.
+Change so that first start defaults all splits to not-enabled
+Add in release notes under About->Release
+
+04-15-19
+===================================
+Release with updated track rendering and framework

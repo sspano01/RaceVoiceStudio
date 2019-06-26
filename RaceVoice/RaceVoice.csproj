@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A73A847-29B8-45A4-93E6-9A2536515515}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RaceVoice</RootNamespace>
+    <AssemblyName>RaceVoice</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>helmet_pdg_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.12.1.2\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.13.3.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.3\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="FTD2XX_NET">
+      <HintPath>.\FTD2XX_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data">
+      <HintPath>.\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aim_Raw_import.cs" />
+    <Compile Include="BASE36.cs" />
+    <Compile Include="CanBusSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CanBusSettings.Designer.cs">
+      <DependentUpon>CanBusSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Charting.cs" />
+    <Compile Include="DataSampler.cs" />
+    <Compile Include="email.cs" />
+    <Compile Include="firmware.cs" />
+    <Compile Include="GpsSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GpsSettings.Designer.cs">
+      <DependentUpon>GpsSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageTriggers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageTriggers.Designer.cs">
+      <DependentUpon>MessageTriggers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CarMetadata.cs" />
+    <Compile Include="Models\ComboBoxItem.cs" />
+    <Compile Include="downloader.cs" />
+    <Compile Include="IntelHexFormatReader\Extensions.cs" />
+    <Compile Include="FlexibleMessageBox.cs" />
+    <Compile Include="HardwareInfo.cs" />
+    <Compile Include="IntelHexFormatReader\HexFileLineParser.cs" />
+    <Compile Include="IntelHexFormatReader\HexFileReader.cs" />
+    <Compile Include="IntelHexFormatReader\IntelHexRecord.cs" />
+    <Compile Include="licenseemail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="licenseemail.Designer.cs">
+      <DependentUpon>licenseemail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntelHexFormatReader\MemoryBlock.cs" />
+    <Compile Include="IntelHexFormatReader\MemoryCell.cs" />
+    <Compile Include="Models\DynamicsData.cs" />
+    <Compile Include="Models\EcuType.cs" />
+    <Compile Include="Models\EngineData.cs" />
+    <Compile Include="ftdi.cs" />
+    <Compile Include="globals.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HardwareData.cs" />
+    <Compile Include="Models\MessageTrigger.cs" />
+    <Compile Include="Models\PointD.cs" />
+    <Compile Include="Models\ShiftNotificationType.cs" />
+    <Compile Include="Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preferences.Designer.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="racevoicecom.cs" />
+    <Compile Include="RealTimeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RealTimeView.Designer.cs">
+      <DependentUpon>RealTimeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntelHexFormatReader\RecordType.cs" />
+    <Compile Include="splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splash.designer.cs">
+      <DependentUpon>splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrackColor.cs" />
+    <Compile Include="Models\TrackMetadata.cs" />
+    <Compile Include="Models\TrackModel.cs" />
+    <Compile Include="Models\TrackPoint.cs" />
+    <Compile Include="sqldatabase.cs" />
+    <Compile Include="TrackRenderer.cs" />
+    <Compile Include="Models\TrackRendererSettings.cs" />
+    <Compile Include="Models\TrackSegment.cs" />
+    <Compile Include="Models\TrackTag.cs" />
+    <Compile Include="Models\Waypoint.cs" />
+    <Compile Include="VoiceAdjust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoiceAdjust.Designer.cs">
+      <DependentUpon>VoiceAdjust.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CanBusSettings.resx">
+      <DependentUpon>CanBusSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GpsSettings.resx">
+      <DependentUpon>GpsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="licenseemail.resx">
+      <DependentUpon>licenseemail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageTriggers.resx">
+      <DependentUpon>MessageTriggers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preferences.resx">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RealTimeView.resx">
+      <DependentUpon>RealTimeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splash.resx">
+      <DependentUpon>splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceAdjust.resx">
+      <DependentUpon>VoiceAdjust.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="helmet_pdg_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RaceVoiceLib\RaceVoiceLib.csproj">
+      <Project>{cdcf4a53-b149-463f-8651-8f1bd342fc3e}</Project>
+      <Name>RaceVoiceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
