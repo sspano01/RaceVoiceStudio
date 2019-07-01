@@ -933,8 +933,9 @@
             // 
             this.cmbEcuType.FormattingEnabled = true;
             this.cmbEcuType.Items.AddRange(new object[] {
-            "AIM",
-            "MoTec"});
+            "AIM MXL2/MXG/MXP/MXS",
+            "MoTec C1XX",
+            "SmartyCam Emulation"});
             this.cmbEcuType.Location = new System.Drawing.Point(5, 16);
             this.cmbEcuType.Margin = new System.Windows.Forms.Padding(1);
             this.cmbEcuType.Name = "cmbEcuType";

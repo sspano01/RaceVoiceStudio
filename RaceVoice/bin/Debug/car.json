@@ -1,7 +1,7 @@
 {
   "EngineData": {
     "EcuType": 0,
-    "OverRevEnabled": false,
+    "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
@@ -13,10 +13,10 @@
     "OilPressureRpm": 1500,
     "TemperatureEnabled": true,
     "Temperature": 215,
-    "VoltageEnabled": false,
+    "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 37,
-    "TrackSelectionName": "NJMP Thunderbolt",
+    "TrackSelectionIndex": 0,
+    "TrackSelectionName": "Arizona Motorsports Park (1)",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -26,7 +26,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 9,
+    "WheelSpeedPercentDifference": 1,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -34,54 +34,54 @@
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 900,
+    "BrakeToneHz": 1500,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1C8ZPP7-132G1W-103RFOR-1YV6XSD",
     "Name": "AC01T8OV",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
-    "Version": "RACE VOICE,  VERSION,  APRIL 12, 2019, A1",
+    "Version": "RACE VOICE,  VERSION,  JUNE 27, 2019, A1",
     "Volume": 5,
-    "SWVersion": "06-02-2019-A1",
+    "SWVersion": "06-14-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 1,
+    "BaudRate": 3,
     "Trace": 0,
     "GetConfigAtStart": false,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "0",
+      "Phrase": "BLANK0",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK1",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK2",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK3",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK4",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK5",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK6",
       "Repeat": 0
     },
     {
-      "Phrase": "0",
+      "Phrase": "BLANK7",
       "Repeat": 0
     }
   ]

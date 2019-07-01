@@ -1,0 +1,31 @@
+{
+  "TrackName": "Charlotte Motor Speedway (1)",
+  "DataBitfields": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "Rotation": 0,
+  "Zoom": 90,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 1,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}

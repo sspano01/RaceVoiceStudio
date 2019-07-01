@@ -3,6 +3,7 @@
     public enum EcuType
     {
         AIM,
-        MoTec
+        MoTec,
+        SmartyCam
     }
 }
