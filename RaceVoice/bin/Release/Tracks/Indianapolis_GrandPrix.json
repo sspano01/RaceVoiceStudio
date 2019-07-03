@@ -1,11 +1,20 @@
 {
   "TrackName": "Indianapolis GrandPrix",
   "DataBitfields": [],
-  "Rotation": 277,
+  "Rotation": 291,
   "Zoom": 90,
-  "XPan": 0,
+  "XPan": -2,
   "YPan": 0,
   "ClusterSize": 1,
   "UseCurveRendering": false,
-  "SplitEnabledStates": []
+  "SplitEnabledStates": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ]
 }
