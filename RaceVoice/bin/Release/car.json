@@ -1,11 +1,11 @@
 {
   "EngineData": {
-    "EcuType": 0,
-    "OverRevEnabled": false,
+    "EcuType": 1,
+    "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6620,
+    "UpShift": 6550,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
@@ -13,10 +13,10 @@
     "OilPressureRpm": 1500,
     "TemperatureEnabled": true,
     "Temperature": 215,
-    "VoltageEnabled": false,
+    "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 27,
-    "TrackSelectionName": "Indianapolis GrandPrix",
+    "TrackSelectionIndex": 0,
+    "TrackSelectionName": "Arizona Motorsports Park",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -26,22 +26,22 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 1,
-    "AnnounceSpeed": false,
-    "SpeedThreshold": 105,
+    "WheelSpeedPercentDifference": 3,
+    "AnnounceSpeed": true,
+    "SpeedThreshold": 110,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 1500,
+    "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AC01T8OV",
     "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  MAY 8, 2019, A1",
+    "Version": "RACE VOICE,  VERSION,  JULY 5, 2019, A1",
     "Volume": 5,
     "SWVersion": "06-14-2019-A1",
     "Pitch": 50,
@@ -53,35 +53,35 @@
   },
   "MessageTriggers": [
     {
-      "Phrase": "BLANK0",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK1",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK2",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK3",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK4",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK5",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK6",
+      "Phrase": "0",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK7",
+      "Phrase": "0",
       "Repeat": 0
     }
   ]

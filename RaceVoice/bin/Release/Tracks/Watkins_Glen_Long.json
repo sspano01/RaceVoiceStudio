@@ -2,14 +2,14 @@
   "TrackName": "Watkins Glen Long",
   "DataBitfields": [
     1,
+    0,
+    65,
+    0,
     1,
+    0,
     1,
-    1,
-    1,
-    4,
-    1,
-    1,
-    0
+    0,
+    4
   ],
   "Rotation": 261,
   "Zoom": 91,
@@ -18,12 +18,12 @@
   "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
     false,
     false
   ]

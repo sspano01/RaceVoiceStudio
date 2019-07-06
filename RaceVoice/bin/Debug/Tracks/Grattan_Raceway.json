@@ -1,7 +1,7 @@
 {
   "TrackName": "Grattan Raceway",
   "DataBitfields": [
-    2,
+    0,
     0,
     0,
     0,
@@ -18,9 +18,9 @@
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false
   ]
 }

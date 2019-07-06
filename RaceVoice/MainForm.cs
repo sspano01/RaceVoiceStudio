@@ -125,7 +125,7 @@ namespace RaceVoice
                 }
             }
 
-            if (_carMetadata.EngineData.TrackSelectionIndex > cmbTracks.Items.Count)
+            if (_carMetadata.EngineData.TrackSelectionIndex >= cmbTracks.Items.Count)
             {
                 cmbTracks.SelectedIndex = 0;
             }

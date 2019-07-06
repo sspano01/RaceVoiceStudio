@@ -11,16 +11,16 @@
     0,
     0
   ],
-  "Rotation": 150,
-  "Zoom": 94,
+  "Rotation": 0,
+  "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
-  "ClusterSize": 1,
+  "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false
   ]
 }
