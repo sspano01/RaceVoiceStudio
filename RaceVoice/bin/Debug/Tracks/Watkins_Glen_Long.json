@@ -19,7 +19,7 @@
   "UseCurveRendering": false,
   "SplitEnabledStates": [
     false,
-    false,
+    true,
     false,
     false,
     false,

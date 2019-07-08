@@ -313,9 +313,15 @@ namespace RaceVoice
                     globals.fwtrace("settings.segment_start_lng[" + (i) + "] = " + segmentStart.Longitude,false);
                     globals.fwtrace("settings.segment_stop_lat[" + (i) + "] = " + segmentStop.Latitude,false);
                     globals.fwtrace("settings.segment_stop_lng[" + (i) + "] = " + segmentStop.Longitude,false);
+                    if (svalid)
                     globals.fwtrace("settings.segment_enable[" + (i) + "] = " + track.Segments[i].DataBits.ToString(),false);
+                    else
+                        globals.fwtrace("settings.segment_enable[" + (i) + "] = 0", false);
+
                 }
             }
+
+            globals.WriteLine("!!!");
 
             // send splits
             for (int i = 0; i < globals.MAX_SPLITS; i++)
@@ -339,6 +345,13 @@ namespace RaceVoice
 
                     string enabledstr = "SET SPLITS " + (i + 1) + " ENABLE " + yn;  // send down a "1" or "0"
                     SendSerial(enabledstr);
+                }
+                else
+                {
+                    globals.fwtrace("settings.split_lat[" + (i) + "] = " +waypoint.Latitude,false);
+                    globals.fwtrace("settings.split_lng[" + (i) + "] = " + waypoint.Longitude,false);
+                    globals.fwtrace("settings.split_enable[" + (i) + "] = " + yn , false);
+
                 }
             }
 
@@ -551,6 +564,10 @@ namespace RaceVoice
                         if (fields[0].Contains("WHEELLOCKSPEED"))
                         {
                             carMetadata.DynamicsData.WheelSpeedPercentDifference = 1 + Convert.ToInt32(fields[3]);
+                            if (carMetadata.DynamicsData.WheelSpeedPercentDifference>=20)
+                            {
+                                carMetadata.DynamicsData.WheelSpeedPercentDifference = 20;
+                            }
                         }
 
                         if (fields[0].Contains("BRAKE"))

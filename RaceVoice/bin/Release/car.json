@@ -1,6 +1,6 @@
 {
   "EngineData": {
-    "EcuType": 1,
+    "EcuType": 0,
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -15,35 +15,35 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "Arizona Motorsports Park",
+    "TrackSelectionIndex": 59,
+    "TrackSelectionName": "Watkins Glen Long",
     "FindTrackByName": false
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
-    "LateralGForceThreshold": 1.0,
+    "LateralGForceThreshold": 1.5,
     "AnnounceLinearGForce": false,
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 3,
-    "AnnounceSpeed": true,
-    "SpeedThreshold": 110,
+    "WheelSpeedPercentDifference": 2,
+    "AnnounceSpeed": false,
+    "SpeedThreshold": 0,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
-    "BrakeThresholdMin": 500,
-    "BrakeThresholdMax": 600,
+    "BrakeThresholdMin": 100,
+    "BrakeThresholdMax": 100,
     "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AC01T8OV",
+    "Name": "AC022PSN",
     "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  JULY 5, 2019, A1",
-    "Volume": 5,
-    "SWVersion": "06-14-2019-A1",
+    "Version": "RACE VOICE,  VERSION,  MAY 8, 2019, A1",
+    "Volume": 9,
+    "SWVersion": "07-06-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
@@ -53,36 +53,36 @@
   },
   "MessageTriggers": [
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "1",
+      "Repeat": 1
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "2",
+      "Repeat": 2
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "3",
+      "Repeat": 3
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "4",
+      "Repeat": 4
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "5",
+      "Repeat": 5
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "6",
+      "Repeat": 6
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "7",
+      "Repeat": 7
     },
     {
-      "Phrase": "0",
-      "Repeat": 0
+      "Phrase": "8",
+      "Repeat": 8
     }
   ]
 }
