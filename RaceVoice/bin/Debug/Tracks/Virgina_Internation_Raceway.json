@@ -1,19 +1,18 @@
 {
   "TrackName": "Virgina Internation Raceway",
   "DataBitfields": [
-    1,
-    2,
-    4,
-    8,
-    16,
-    64,
-    32,
-    2
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
   ],
-  "Rotation": 271,
-  "Zoom": 84,
+  "Rotation": 0,
+  "Zoom": 90,
   "XPan": 0,
-  "YPan": 3,
+  "YPan": 0,
   "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [

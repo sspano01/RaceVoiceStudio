@@ -19,8 +19,8 @@
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true
+    false,
+    false,
+    false
   ]
 }
