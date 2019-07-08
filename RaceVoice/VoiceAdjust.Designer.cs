@@ -143,7 +143,6 @@
         private System.Windows.Forms.Button testVoice;
         private System.Windows.Forms.ComboBox volumeBox;
         private System.Windows.Forms.Label label1;
-        private System.IO.Ports.SerialPort _serialPort;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TrackBar sldPitch;
         private System.Windows.Forms.Label label2;

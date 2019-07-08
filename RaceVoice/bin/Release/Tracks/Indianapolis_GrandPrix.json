@@ -1,6 +1,16 @@
 {
   "TrackName": "Indianapolis GrandPrix",
-  "DataBitfields": [],
+  "DataBitfields": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
   "Rotation": 291,
   "Zoom": 90,
   "XPan": -2,

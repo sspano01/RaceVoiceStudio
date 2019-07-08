@@ -680,7 +680,7 @@ namespace RaceVoice
 
                                     if (fields.Count()>4)
                                     {
-                                        carMetadata.EngineData.TrackSelectionName = fields[4].Replace(' ', ' ');
+                                        carMetadata.EngineData.TrackSelectionName = fields[4].Replace('_', ' ');
                                         carMetadata.EngineData.FindTrackByName = true;
                                     }
                                 } 

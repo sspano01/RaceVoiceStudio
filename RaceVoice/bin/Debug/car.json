@@ -5,84 +5,84 @@
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6620,
+    "UpShift": 6500,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
     "OilPressurePsi": 10,
-    "OilPressureRpm": 1500,
+    "OilPressureRpm": 1200,
     "TemperatureEnabled": true,
-    "Temperature": 215,
+    "Temperature": 220,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "Arizona Motorsports Park (1)",
-    "FindTrackByName": false
+    "TrackSelectionIndex": 112,
+    "TrackSelectionName": "Watkins Glen Long",
+    "FindTrackByName": true
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
-    "LateralGForceThreshold": 1.0,
+    "LateralGForceThreshold": 1.5,
     "AnnounceLinearGForce": false,
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 1,
+    "WheelSpeedPercentDifference": 16,
     "AnnounceSpeed": false,
-    "SpeedThreshold": 105,
-    "AnnounceBestLap": false,
+    "SpeedThreshold": 0,
+    "AnnounceBestLap": true,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
-    "BrakeThresholdMin": 500,
-    "BrakeThresholdMax": 600,
-    "BrakeToneHz": 1500,
+    "BrakeThresholdMin": 100,
+    "BrakeThresholdMax": 100,
+    "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AC01T8OV",
+    "Name": "AC01T8OE",
     "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  JUNE 27, 2019, A1",
-    "Volume": 5,
+    "Version": "RACE VOICE,  VERSION,  MAY 8, 2019, A1",
+    "Volume": 9,
     "SWVersion": "06-14-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 3,
+    "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": false,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "BLANK0",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 1
     },
     {
-      "Phrase": "BLANK1",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 2
     },
     {
-      "Phrase": "BLANK2",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 3
     },
     {
-      "Phrase": "BLANK3",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 4
     },
     {
-      "Phrase": "BLANK4",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 5
     },
     {
-      "Phrase": "BLANK5",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 6
     },
     {
-      "Phrase": "BLANK6",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 7
     },
     {
-      "Phrase": "BLANK7",
-      "Repeat": 0
+      "Phrase": "0",
+      "Repeat": 8
     }
   ]
 }

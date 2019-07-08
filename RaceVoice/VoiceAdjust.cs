@@ -68,11 +68,10 @@ namespace RaceVoice
                 {
                     _meta.HardwareData.Pitch = sldPitch.Value;
                 }
-                _serialPort.Close();
-                _serialPort = null;
-
+ 
                 if (valid)
                 {
+                    rvcom.CloseSerial();
                     MessageBox.Show("Voice Has Been Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
