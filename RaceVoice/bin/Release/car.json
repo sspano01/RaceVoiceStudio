@@ -26,7 +26,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 2,
+    "WheelSpeedPercentDifference": 22,
     "AnnounceSpeed": false,
     "SpeedThreshold": 0,
     "AnnounceBestLap": false,

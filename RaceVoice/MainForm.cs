@@ -1004,7 +1004,11 @@ namespace RaceVoice
 
             numWheelSpeedDiff.Enabled = numBrakePSI.Enabled = chkActiveWheelLockDetection.Checked = _carMetadata.DynamicsData.ActiveWheelLockDetectionEnabled;
             numBrakePSI.Value = _carMetadata.DynamicsData.BrakeThresholdPsi;
-            numWheelSpeedDiff.Value = _carMetadata.DynamicsData.WheelSpeedPercentDifference;
+
+            if (_carMetadata.DynamicsData.WheelSpeedPercentDifference < numWheelSpeedDiff.Maximum)
+            {
+                numWheelSpeedDiff.Value = _carMetadata.DynamicsData.WheelSpeedPercentDifference;
+            }
 
             numAnnounceSpeed.Enabled = chkAnnounceSpeed.Checked = _carMetadata.DynamicsData.AnnounceSpeed;
             numAnnounceSpeed.Value = _carMetadata.DynamicsData.SpeedThreshold;
