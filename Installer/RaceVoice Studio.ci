@@ -190,6 +190,13 @@ Please make sure this computer has Internet Access before continuing</>
                            <exclude ></>
                         </>
                         <_ >
+                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex</>
+                           <recurse >0</>
+                           <justfile >0</>
+                           <emptydir >0</>
+                           <exclude ></>
+                        </>
+                        <_ >
                            <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\release.txt</>
                            <recurse >0</>
                            <justfile >0</>
