@@ -1008,7 +1008,7 @@ namespace RaceVoice
             if (_carMetadata.DynamicsData.WheelSpeedPercentDifference < numWheelSpeedDiff.Maximum)
             {
                 numWheelSpeedDiff.Value = _carMetadata.DynamicsData.WheelSpeedPercentDifference;
-            }
+            } 
 
             numAnnounceSpeed.Enabled = chkAnnounceSpeed.Checked = _carMetadata.DynamicsData.AnnounceSpeed;
             numAnnounceSpeed.Value = _carMetadata.DynamicsData.SpeedThreshold;
