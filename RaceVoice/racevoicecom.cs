@@ -231,6 +231,7 @@ namespace RaceVoice
                 if (carMetadata.EngineData.EcuType == EcuType.AIM) DASH = "AIM";
                 if (carMetadata.EngineData.EcuType == EcuType.MoTec) DASH = "MOTEC";
                 if (carMetadata.EngineData.EcuType == EcuType.SmartyCam) DASH = "SMARTY";
+                if (carMetadata.EngineData.EcuType == EcuType.VBOX) DASH = "VBOX";
                 SendSerial("SET DASH " + DASH);
 
 
@@ -595,6 +596,7 @@ namespace RaceVoice
                             if (theDASH.Contains("AIM")) carMetadata.EngineData.EcuType = EcuType.AIM;
                             if (theDASH.Contains("MOTEC")) carMetadata.EngineData.EcuType = EcuType.MoTec;
                             if (theDASH.Contains("SMARTY")) carMetadata.EngineData.EcuType = EcuType.SmartyCam;
+                            if (theDASH.Contains("VBOX")) carMetadata.EngineData.EcuType = EcuType.VBOX;
                         }
 
                         if (fields[0].Contains("GPS"))

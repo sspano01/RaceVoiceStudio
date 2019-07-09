@@ -933,9 +933,10 @@
             // 
             this.cmbEcuType.FormattingEnabled = true;
             this.cmbEcuType.Items.AddRange(new object[] {
-            "AIM MXL2/MXG/MXP/MXS",
+            "AIM EVO5,MXL2,MXP/G/S,DL2",
             "MoTec C1XX",
-            "SmartyCam Emulation"});
+            "AIM SmartyCam Emulation",
+            "RaceLogic VBOX"});
             this.cmbEcuType.Location = new System.Drawing.Point(5, 16);
             this.cmbEcuType.Margin = new System.Windows.Forms.Padding(1);
             this.cmbEcuType.Name = "cmbEcuType";
@@ -963,7 +964,7 @@
             this.tabDynamics.Margin = new System.Windows.Forms.Padding(1);
             this.tabDynamics.Name = "tabDynamics";
             this.tabDynamics.Padding = new System.Windows.Forms.Padding(1);
-            this.tabDynamics.Size = new System.Drawing.Size(214, 486);
+            this.tabDynamics.Size = new System.Drawing.Size(233, 486);
             this.tabDynamics.TabIndex = 1;
             this.tabDynamics.Text = "Dynamics";
             this.tabDynamics.UseVisualStyleBackColor = true;

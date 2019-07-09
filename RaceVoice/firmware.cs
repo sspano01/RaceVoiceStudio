@@ -95,6 +95,7 @@ namespace RaceVoice
             bool abort = false;
             DialogResult dr;
             bool flash_only = false ;
+            int apply_patch = 0;
             string fwmsg = "CRITICAL ERROR";
             System.IO.StreamReader file = null;
             racevoicecom rvcom = new racevoicecom();
@@ -113,16 +114,31 @@ namespace RaceVoice
                 return -1;
             }
 
-            fwm = "New firmware for your RaceVoice is available\r\n";
-            fwm += "Current Firmware -> " + fw_unit_month + " " + fw_unit_day + " " + fw_unit_year + " " + fw_unit_version + "\r\n";
-            fwm += "New Firmware -> " + fw_file_month + " " + fw_file_day + " " + fw_file_year + " " + fw_file_version + "\r\n";
-            fwm += "Press YES to Update or No to Continue\r\n";
-            fwm += "Note: Some features of RaceVoice Studio may not be available if you do not update\r\n";
+            if (fw_unit_month.ToUpper().Equals("MAY") && fw_unit_year.ToUpper().Equals("2019") && fw_unit_version.ToUpper().Equals("A1"))
+            {
+                fwm = "New Firmware is available for your RaceVoice unit\r\n";
+                fwm += "In order to update from your current May 8,2019 A1 Firmware\r\n";
+                fwm += "A two-step update process is required.\r\n";
+                fwm += "Press YES to Update or No to Abort\r\n";
+                apply_patch = 1;
+            }
+            else
+            {
+                fwm = "New firmware for your RaceVoice is available\r\n";
+                fwm += "Current Firmware -> " + fw_unit_month + " " + fw_unit_day + " " + fw_unit_year + " " + fw_unit_version + "\r\n";
+                fwm += "New Firmware -> " + fw_file_month + " " + fw_file_day + " " + fw_file_year + " " + fw_file_version + "\r\n";
+                fwm += "Press YES to Update or No to Abort\r\n";
+                fwm += "Note: Some features of RaceVoice Studio may not be available if you do not update\r\n";
+            }
             dr = MessageBox.Show(fwm, "Firmware Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 splash isplash = new splash(1);
                 string fn = globals.LocalFolder() + "\\firmware.hex";
+                if (apply_patch==1)
+                {
+                    fn = globals.LocalFolder() + "\\050819patch.hex";
+                }
                 isplash.Show();
                 rvcom.OpenSerial();
                 isplash.setlabel("Erasing memory....");
@@ -133,7 +149,7 @@ namespace RaceVoice
                 message = message.ToUpper();
 
                 globals.WriteLine("FWErase Reply Message->" + message);
-                if (message.Contains("PASS"))
+                if (message.Contains("PASS") || (apply_patch==1 && message.Contains("DONE")))
                 {
                     isplash.setlabel("Downloading....");
                     message = rvcom.SendSerial("fwupdate");
@@ -282,6 +298,15 @@ namespace RaceVoice
             else
             {
                 reboot_good = 0;
+            }
+
+            if (reboot_good==1)
+            {
+                if (apply_patch==1)
+                {
+                    MessageBox.Show("RaceVoice Studio will now close.\r\nPlease restart RaceVoice studio to complete the second step of the update process\r\nYou will be prompted for an additional firmware update.", "Step-Two", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
             }
             return reboot_good;
         }

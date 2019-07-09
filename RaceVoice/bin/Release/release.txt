@@ -1,3 +1,13 @@
+07-09-19
+===================================
+Fixed a bug where last corner performance triggers could be missed depending on distance to start/finish
+Fixed a bug where split-time announcements could be dropped under certain conditions
+Fixed a bug where wheel speed rate value could cause an exception error
+Added support to sync tracks by name between the RaceVoice unit and RaceVoice Studio, not just numerical index
+Changed UI to provide a button to set the CANBus baud rate, this is no longer downloaded with "SendConfiguration"
+Added support for SmartyCam emulation
+Added support for VBOX Motorola Data Frame
+
 06-14-19
 ===================================
 Add support for RaceVoice Pro and RaceVoice Lite

@@ -5,7 +5,7 @@
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6550,
+    "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
@@ -15,74 +15,74 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 59,
-    "TrackSelectionName": "Watkins Glen Long",
+    "TrackSelectionIndex": 0,
+    "TrackSelectionName": "NO-SELECTION",
     "FindTrackByName": false
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
-    "LateralGForceThreshold": 1.5,
+    "LateralGForceThreshold": 1.0,
     "AnnounceLinearGForce": false,
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 22,
+    "WheelSpeedPercentDifference": 9,
     "AnnounceSpeed": false,
-    "SpeedThreshold": 0,
+    "SpeedThreshold": 105,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
-    "BrakeThresholdMin": 100,
-    "BrakeThresholdMax": 100,
+    "BrakeThresholdMin": 500,
+    "BrakeThresholdMax": 600,
     "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AC022PSN",
-    "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  MAY 8, 2019, A1",
-    "Volume": 9,
-    "SWVersion": "07-06-2019-A1",
+    "LicenseState": "1C8ZPP7-132G1W-103RFOR-1YV6XSD",
+    "Name": "AC01T8OV",
+    "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
+    "Version": "RACE VOICE,  VERSION,  JULY 9, 2019, A1",
+    "Volume": 5,
+    "SWVersion": "07-09-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 1,
+    "BaudRate": 3,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "1",
-      "Repeat": 1
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "2",
-      "Repeat": 2
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "3",
-      "Repeat": 3
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "4",
-      "Repeat": 4
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "5",
-      "Repeat": 5
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "6",
-      "Repeat": 6
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "7",
-      "Repeat": 7
+      "Phrase": "0",
+      "Repeat": 0
     },
     {
-      "Phrase": "8",
-      "Repeat": 8
+      "Phrase": "0",
+      "Repeat": 0
     }
   ]
 }
