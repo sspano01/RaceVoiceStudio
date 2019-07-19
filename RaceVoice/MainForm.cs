@@ -1106,6 +1106,7 @@ namespace RaceVoice
                 return;
             }
 
+
             _engineValuesUpdating = true;
 
             _carMetadata.EngineData.OverRevEnabled = numOverRev.Enabled = chkOverRev.Checked;
@@ -1126,7 +1127,10 @@ namespace RaceVoice
             _carMetadata.EngineData.EcuType = (EcuType)cmbEcuType.SelectedIndex;
             _carMetadata.EngineData.ShiftNotificationType = rdoSpeechNotify.Checked ? ShiftNotificationType.Speech : ShiftNotificationType.Tone;
 
+            AdjustUIForFeatures();
+
             _carMetadata.Save(_carMetafile);
+
 
             _engineValuesUpdating = false;
         }
@@ -1643,6 +1647,64 @@ namespace RaceVoice
                 rdoSpeechNotify.Enabled = false;
                 rdoToneNotify.Enabled = false;
                 rdoSpeechNotify.Checked = true;
+
+            }
+
+            switch(_carMetadata.EngineData.EcuType)
+            {
+                case EcuType.SmartyCam:
+                    splitsBox.Visible = false;
+                    wheelLockbox.Visible = false;
+                    braketonebox.Visible = false;
+                    chkBrakeThreshold.Enabled = false;
+                    chkActiveWheelLockDetection.Enabled = false;
+                    chkAnnounceBestLap.Enabled = chkAnnounceBestLap.Checked = false;
+                    chkAnnounceLapDelta.Enabled = chkAnnounceLapDelta.Checked = false;
+
+                    chkOverRev.Enabled = chkOverRev.Checked = true;
+                    chkTemperature.Enabled = chkTemperature.Checked = true;
+                    chkVoltage.Enabled = chkVoltage.Checked = true;
+                    chkOilPressure.Enabled = chkOilPressure.Checked = true;
+                    chkUpShift.Enabled = chkUpShift.Checked = true;
+                    chkDownShift.Enabled = chkDownShift.Checked = true;
+
+                    break;
+
+                case EcuType.VBOX:
+                    splitsBox.Visible = false;
+                    wheelLockbox.Visible = false;
+                    braketonebox.Visible = false;
+                    chkBrakeThreshold.Enabled = false;
+                    chkActiveWheelLockDetection.Enabled = false;
+                    chkAnnounceBestLap.Enabled = chkAnnounceBestLap.Checked = false;
+                    chkAnnounceLapDelta.Enabled = chkAnnounceLapDelta.Checked = false;
+                    chkOverRev.Enabled = chkOverRev.Checked = false;
+                    chkTemperature.Enabled = chkTemperature.Checked = false;
+                    chkVoltage.Enabled = chkVoltage.Checked = false;
+                    chkOilPressure.Enabled = chkOilPressure.Checked = false;
+                    chkUpShift.Enabled = chkUpShift.Checked = false;
+                    chkDownShift.Enabled = chkDownShift.Checked = false;
+
+                    break;
+                default:
+                    splitsBox.Visible = true;
+                    chkAnnounceBestLap.Enabled = true;
+                    chkAnnounceLapDelta.Enabled = true;
+                    wheelLockbox.Visible =true;
+                    braketonebox.Visible = true;
+                    chkBrakeThreshold.Enabled = true;
+                    chkActiveWheelLockDetection.Enabled = true;
+
+                    chkOverRev.Enabled = chkOverRev.Checked = true;
+                    chkTemperature.Enabled = chkTemperature.Checked = true;
+                    chkVoltage.Enabled = chkVoltage.Checked = true;
+                    chkOilPressure.Enabled = chkOilPressure.Checked = true;
+                    chkUpShift.Enabled = chkUpShift.Checked = true;
+                    chkDownShift.Enabled = chkDownShift.Checked = true;
+
+
+                    break;
+
 
             }
 

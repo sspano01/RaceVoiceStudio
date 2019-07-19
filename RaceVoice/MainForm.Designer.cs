@@ -34,7 +34,7 @@
             this.addSegmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedSegmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSplitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.splitsBox = new System.Windows.Forms.GroupBox();
             this.btnHideAllSplits = new System.Windows.Forms.Button();
             this.lstSplits = new System.Windows.Forms.CheckedListBox();
             this.btnSplitDelete = new System.Windows.Forms.Button();
@@ -100,7 +100,7 @@
             this.cmbEcuType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabDynamics = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.braketonebox = new System.Windows.Forms.GroupBox();
             this.numMaxBrakeThreshold = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -111,7 +111,7 @@
             this.chkAnnounceBestLap = new System.Windows.Forms.CheckBox();
             this.numAnnounceSpeed = new System.Windows.Forms.NumericUpDown();
             this.chkAnnounceSpeed = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.wheelLockbox = new System.Windows.Forms.GroupBox();
             this.numWheelSpeedDiff = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.numBrakePSI = new System.Windows.Forms.NumericUpDown();
@@ -136,7 +136,7 @@
             this.webCharts = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.rendererRightClickMenu.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpData.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -151,12 +151,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUpShift)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOverRev)).BeginInit();
             this.tabDynamics.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.braketonebox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxBrakeThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinBrakeThreshold)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAnnounceSpeed)).BeginInit();
-            this.groupBox5.SuspendLayout();
+            this.wheelLockbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWheelSpeedDiff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrakePSI)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -204,20 +204,20 @@
             this.addSplitToolStripMenuItem.Text = "Add Split";
             this.addSplitToolStripMenuItem.Click += new System.EventHandler(this.addSplitToolStripMenuItem_Click);
             // 
-            // groupBox1
+            // splitsBox
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.btnHideAllSplits);
-            this.groupBox1.Controls.Add(this.lstSplits);
-            this.groupBox1.Controls.Add(this.btnSplitDelete);
-            this.groupBox1.Location = new System.Drawing.Point(820, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Size = new System.Drawing.Size(183, 174);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Splits";
+            this.splitsBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitsBox.Controls.Add(this.btnHideAllSplits);
+            this.splitsBox.Controls.Add(this.lstSplits);
+            this.splitsBox.Controls.Add(this.btnSplitDelete);
+            this.splitsBox.Location = new System.Drawing.Point(820, 2);
+            this.splitsBox.Margin = new System.Windows.Forms.Padding(1);
+            this.splitsBox.Name = "splitsBox";
+            this.splitsBox.Padding = new System.Windows.Forms.Padding(1);
+            this.splitsBox.Size = new System.Drawing.Size(183, 174);
+            this.splitsBox.TabIndex = 7;
+            this.splitsBox.TabStop = false;
+            this.splitsBox.Text = "Splits";
             // 
             // btnHideAllSplits
             // 
@@ -956,32 +956,32 @@
             // 
             // tabDynamics
             // 
-            this.tabDynamics.Controls.Add(this.groupBox7);
+            this.tabDynamics.Controls.Add(this.braketonebox);
             this.tabDynamics.Controls.Add(this.groupBox6);
-            this.tabDynamics.Controls.Add(this.groupBox5);
+            this.tabDynamics.Controls.Add(this.wheelLockbox);
             this.tabDynamics.Controls.Add(this.groupBox3);
             this.tabDynamics.Location = new System.Drawing.Point(4, 22);
             this.tabDynamics.Margin = new System.Windows.Forms.Padding(1);
             this.tabDynamics.Name = "tabDynamics";
             this.tabDynamics.Padding = new System.Windows.Forms.Padding(1);
-            this.tabDynamics.Size = new System.Drawing.Size(233, 486);
+            this.tabDynamics.Size = new System.Drawing.Size(214, 486);
             this.tabDynamics.TabIndex = 1;
             this.tabDynamics.Text = "Dynamics";
             this.tabDynamics.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // braketonebox
             // 
-            this.groupBox7.Controls.Add(this.numMaxBrakeThreshold);
-            this.groupBox7.Controls.Add(this.label10);
-            this.groupBox7.Controls.Add(this.label9);
-            this.groupBox7.Controls.Add(this.numMinBrakeThreshold);
-            this.groupBox7.Controls.Add(this.chkBrakeThreshold);
-            this.groupBox7.Location = new System.Drawing.Point(5, 340);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(205, 99);
-            this.groupBox7.TabIndex = 18;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Brake Threshold Tone";
+            this.braketonebox.Controls.Add(this.numMaxBrakeThreshold);
+            this.braketonebox.Controls.Add(this.label10);
+            this.braketonebox.Controls.Add(this.label9);
+            this.braketonebox.Controls.Add(this.numMinBrakeThreshold);
+            this.braketonebox.Controls.Add(this.chkBrakeThreshold);
+            this.braketonebox.Location = new System.Drawing.Point(5, 340);
+            this.braketonebox.Name = "braketonebox";
+            this.braketonebox.Size = new System.Drawing.Size(205, 99);
+            this.braketonebox.TabIndex = 18;
+            this.braketonebox.TabStop = false;
+            this.braketonebox.Text = "Brake Threshold Tone";
             // 
             // numMaxBrakeThreshold
             // 
@@ -1127,19 +1127,19 @@
             this.chkAnnounceSpeed.UseVisualStyleBackColor = true;
             this.chkAnnounceSpeed.CheckedChanged += new System.EventHandler(this.DynamicsDataValueChanged);
             // 
-            // groupBox5
+            // wheelLockbox
             // 
-            this.groupBox5.Controls.Add(this.numWheelSpeedDiff);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.numBrakePSI);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.chkActiveWheelLockDetection);
-            this.groupBox5.Location = new System.Drawing.Point(5, 89);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(206, 142);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Wheel Lockup Announce";
+            this.wheelLockbox.Controls.Add(this.numWheelSpeedDiff);
+            this.wheelLockbox.Controls.Add(this.label5);
+            this.wheelLockbox.Controls.Add(this.numBrakePSI);
+            this.wheelLockbox.Controls.Add(this.label4);
+            this.wheelLockbox.Controls.Add(this.chkActiveWheelLockDetection);
+            this.wheelLockbox.Location = new System.Drawing.Point(5, 89);
+            this.wheelLockbox.Name = "wheelLockbox";
+            this.wheelLockbox.Size = new System.Drawing.Size(206, 142);
+            this.wheelLockbox.TabIndex = 1;
+            this.wheelLockbox.TabStop = false;
+            this.wheelLockbox.Text = "Wheel Lockup Announce";
             // 
             // numWheelSpeedDiff
             // 
@@ -1308,7 +1308,7 @@
             this.tabTrack.Controls.Add(this.hScroll);
             this.tabTrack.Controls.Add(this.label2);
             this.tabTrack.Controls.Add(this.label1);
-            this.tabTrack.Controls.Add(this.groupBox1);
+            this.tabTrack.Controls.Add(this.splitsBox);
             this.tabTrack.Controls.Add(this.grpData);
             this.tabTrack.Controls.Add(this.groupBox2);
             this.tabTrack.Location = new System.Drawing.Point(4, 22);
@@ -1475,7 +1475,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.rendererRightClickMenu.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.splitsBox.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.grpData.ResumeLayout(false);
             this.grpData.PerformLayout();
@@ -1493,15 +1493,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUpShift)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOverRev)).EndInit();
             this.tabDynamics.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
+            this.braketonebox.ResumeLayout(false);
+            this.braketonebox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxBrakeThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinBrakeThreshold)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAnnounceSpeed)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.wheelLockbox.ResumeLayout(false);
+            this.wheelLockbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWheelSpeedDiff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrakePSI)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -1527,7 +1527,7 @@
         private System.Windows.Forms.ToolStripMenuItem addSegmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteSelectedSegmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addSplitToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox splitsBox;
         private System.Windows.Forms.Button btnSplitDelete;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSegmentDelete;
@@ -1582,7 +1582,7 @@
         private System.Windows.Forms.ToolStripMenuItem dataTraceToolStripMenuItem;
         private System.Windows.Forms.CheckedListBox lstSplits;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox wheelLockbox;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox chkAnnounceBestLap;
         private System.Windows.Forms.NumericUpDown numAnnounceSpeed;
@@ -1607,7 +1607,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numOilPressureRpm;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox braketonebox;
         private System.Windows.Forms.NumericUpDown numMaxBrakeThreshold;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

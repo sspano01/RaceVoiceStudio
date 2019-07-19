@@ -1,23 +1,23 @@
 {
   "EngineData": {
-    "EcuType": 0,
-    "OverRevEnabled": true,
+    "EcuType": 2,
+    "OverRevEnabled": false,
     "OverRev": 8000,
-    "ShiftNotificationType": 0,
+    "ShiftNotificationType": 1,
     "UpShiftEnabled": true,
-    "UpShift": 6600,
-    "DownShiftEnabled": false,
-    "DownShift": 4200,
+    "UpShift": 6620,
+    "DownShiftEnabled": true,
+    "DownShift": 4000,
     "OilPressureEnabled": true,
-    "OilPressurePsi": 15,
-    "OilPressureRpm": 2000,
+    "OilPressurePsi": 10,
+    "OilPressureRpm": 1500,
     "TemperatureEnabled": true,
-    "Temperature": 220,
+    "Temperature": 215,
     "VoltageEnabled": true,
-    "Voltage": 11.0,
-    "TrackSelectionIndex": 56,
-    "TrackSelectionName": "Thompson Motor Speedway",
-    "FindTrackByName": false
+    "Voltage": 11.5,
+    "TrackSelectionIndex": 0,
+    "TrackSelectionName": "Arizona Motorsports Park",
+    "FindTrackByName": true
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
@@ -26,25 +26,25 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 7,
-    "AnnounceSpeed": true,
-    "SpeedThreshold": 112,
+    "WheelSpeedPercentDifference": 1,
+    "AnnounceSpeed": false,
+    "SpeedThreshold": 105,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
-    "BrakeThresholdMin": 100,
-    "BrakeThresholdMax": 100,
-    "BrakeToneHz": 900,
+    "BrakeThresholdMin": 500,
+    "BrakeThresholdMax": 600,
+    "BrakeToneHz": 1500,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AC01T8OL",
-    "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  APRIL 12, 2019, A1",
-    "Volume": 9,
-    "SWVersion": "07-09-2019-A1",
-    "Pitch": 75,
+    "LicenseState": "1C8ZPP7-132G1W-103RFOR-1YV6XSD",
+    "Name": "AC022PSL",
+    "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
+    "Version": "RACE VOICE,  VERSION,  JULY 17, 2019, A1",
+    "Volume": 5,
+    "SWVersion": "07-17-2019-A1",
+    "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
     "Trace": 0,
@@ -53,35 +53,35 @@
   },
   "MessageTriggers": [
     {
-      "Phrase": "1",
+      "Phrase": "BLANK0",
       "Repeat": 0
     },
     {
-      "Phrase": "2",
+      "Phrase": "BLANK1",
       "Repeat": 0
     },
     {
-      "Phrase": "3",
+      "Phrase": "BLANK2",
       "Repeat": 0
     },
     {
-      "Phrase": "4",
+      "Phrase": "BLANK3",
       "Repeat": 0
     },
     {
-      "Phrase": "5",
+      "Phrase": "BLANK4",
       "Repeat": 0
     },
     {
-      "Phrase": "6",
+      "Phrase": "BLANK5",
       "Repeat": 0
     },
     {
-      "Phrase": "7",
+      "Phrase": "BLANK6",
       "Repeat": 0
     },
     {
-      "Phrase": "8",
+      "Phrase": "BLANK7",
       "Repeat": 0
     }
   ]
