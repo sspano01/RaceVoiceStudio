@@ -1,12 +1,12 @@
 {
   "TrackName": "Thompson Motor Speedway",
   "DataBitfields": [
+    1,
     0,
+    5,
     0,
-    0,
-    0,
-    0,
-    0
+    2,
+    4
   ],
   "Rotation": 0,
   "Zoom": 90,
@@ -15,8 +15,8 @@
   "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true
+    false,
+    false,
+    false
   ]
 }
