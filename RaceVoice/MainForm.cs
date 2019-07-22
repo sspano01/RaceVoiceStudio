@@ -1255,7 +1255,7 @@ namespace RaceVoice
 
         private void sendConfigButton(object sender, EventArgs e)
         {
-             WriteDataToFwTrace();
+            // WriteDataToFwTrace();
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -1652,7 +1652,8 @@ namespace RaceVoice
 
             switch(_carMetadata.EngineData.EcuType)
             {
-                case EcuType.SmartyCam:
+                case EcuType.SmartyCam1:
+                case EcuType.SmartyCam2:
                     splitsBox.Visible = false;
                     wheelLockbox.Visible = false;
                     braketonebox.Visible = false;

@@ -4,7 +4,8 @@
     {
         AIM,
         MoTec,
-        SmartyCam,
+        SmartyCam1,
+        SmartyCam2,
         VBOX
     }
 }

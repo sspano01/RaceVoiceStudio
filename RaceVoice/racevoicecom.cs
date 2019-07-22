@@ -162,6 +162,14 @@ namespace RaceVoice
 
             if (fw_trace == false)
             {
+                // configure the dash first
+                if (carMetadata.EngineData.EcuType == EcuType.AIM) DASH = "AIM";
+                if (carMetadata.EngineData.EcuType == EcuType.MoTec) DASH = "MOTEC";
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) DASH = "SMARTY 0";
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) DASH = "SMARTY 1";
+                if (carMetadata.EngineData.EcuType == EcuType.VBOX) DASH = "VBOX";
+                SendSerial("SET DASH " + DASH);
+                
                 // iterate and send all values
                 SendSerial("SET RPM OVERREV THRESHOLD " + carMetadata.EngineData.OverRev.ToString());
                 SendSerial("SET RPM HIGH THRESHOLD " + carMetadata.EngineData.UpShift.ToString());
@@ -228,14 +236,11 @@ namespace RaceVoice
                 else
                     SendSerial("SET TRACK INDEX " + carMetadata.EngineData.TrackSelectionIndex.ToString());
 
-                if (carMetadata.EngineData.EcuType == EcuType.AIM) DASH = "AIM";
-                if (carMetadata.EngineData.EcuType == EcuType.MoTec) DASH = "MOTEC";
-                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam) DASH = "SMARTY";
-                if (carMetadata.EngineData.EcuType == EcuType.VBOX) DASH = "VBOX";
-                SendSerial("SET DASH " + DASH);
-
-
-                if (carMetadata.MessageTriggers.Count != 0)
+              
+                bool allow_messages = true;
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) allow_messages = false;
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) allow_messages = false;
+                if (carMetadata.MessageTriggers.Count != 0 && allow_messages)
                 {
                     for (int i = 0; i < 8; i++)
                     {
@@ -249,6 +254,7 @@ namespace RaceVoice
                         {
                             if (current_phrase[j] == ' ') new_phrase += "_"; else new_phrase += current_phrase[j];
                         }
+                        if (new_phrase.Length == 0) new_phrase = "NONE";
                         SendSerial("SET PHRASE " + (i + 1).ToString() + " " + new_phrase + " " + carMetadata.MessageTriggers[i].Repeat.ToString());
                     }
                 }
@@ -595,7 +601,14 @@ namespace RaceVoice
                             string theDASH = fields[3].Trim().ToUpper();
                             if (theDASH.Contains("AIM")) carMetadata.EngineData.EcuType = EcuType.AIM;
                             if (theDASH.Contains("MOTEC")) carMetadata.EngineData.EcuType = EcuType.MoTec;
-                            if (theDASH.Contains("SMARTY")) carMetadata.EngineData.EcuType = EcuType.SmartyCam;
+                            if (theDASH.Contains("SMARTY"))
+                            {
+                                carMetadata.EngineData.EcuType = EcuType.SmartyCam1;
+                                if (fields[4].Trim().ToUpper().Contains("1"))
+                                {
+                                    carMetadata.EngineData.EcuType = EcuType.SmartyCam2;
+                                }
+                            }
                             if (theDASH.Contains("VBOX")) carMetadata.EngineData.EcuType = EcuType.VBOX;
                         }
 

@@ -935,7 +935,8 @@
             this.cmbEcuType.Items.AddRange(new object[] {
             "AIM EVO5,MXL2,MXP/G/S,DL2",
             "MoTec C1XX",
-            "AIM SmartyCam Emulation",
+            "AIM SmartyCam1 Emulation",
+            "AIM SmartyCam2 Emulation",
             "RaceLogic VBOX"});
             this.cmbEcuType.Location = new System.Drawing.Point(5, 16);
             this.cmbEcuType.Margin = new System.Windows.Forms.Padding(1);
