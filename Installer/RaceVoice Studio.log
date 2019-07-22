@@ -1,11 +1,11 @@
 
-Processing D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\Installer\RaceVoice Studio.ci 7/19/2019 3:04:14 PM
+Processing D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\Installer\RaceVoice Studio.ci 7/22/2019 4:24:59 PM
 Log file: D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\Installer\RaceVoice Studio.log 
 Generating Sources... 
 Compiling Gentee Sources... 
 Build setup file: D:\flcgoogledrive\racevoice\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Adding temporary file(s) to EXE 
-C:\Users\steve\AppData\Local\Temp\gentee01\english.lng 7/19/2019 3:04:15 PM 3273  46.01%
+C:\Users\steve\AppData\Local\Temp\gentee01\english.lng 7/22/2019 4:25:00 PM 3273  46.01%
 D:\FingerLakesEngineering\Racing\Logos\helmet.jpg 9/5/2018 3:20:06 PM 19654  64.21%
 C:\Program Files (x86)\CreateInstall Free\res\logo\default - 1.bmp 3/20/2018 12:19:53 PM 7308  52.55%
 C:\Program Files (x86)\CreateInstall Free\res\leftimg\install\install - 1.bmp 3/20/2018 12:19:53 PM 20678  33.44%
@@ -44,18 +44,18 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdibu
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdiport.cat 6/27/2019 9:13:27 AM 17974  10.90%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdiport.inf 6/27/2019 9:13:27 AM 16486  6.41%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll 6/27/2019 9:13:26 AM 73336  33.12%
-D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll 7/19/2019 3:00:00 PM 12288  42.74%
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll 7/22/2019 3:41:44 PM 12288  42.67%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll 6/27/2019 9:13:27 AM 431104  40.97%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll 6/27/2019 9:13:27 AM 675240  38.39%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll 6/27/2019 9:13:28 AM 79208  36.92%
-D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex 7/19/2019 2:58:47 PM 261705  33.78%
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex 7/22/2019 4:19:04 PM 289628  33.69%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex 7/9/2019 2:19:23 PM 236231  33.65%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\release.txt 7/9/2019 3:50:15 PM 2825  48.35%
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\flag.png 6/27/2019 9:13:27 AM 1665  54.29%
-D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 7/19/2019 3:01:49 PM 821248  27.43%
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 7/22/2019 4:20:09 PM 822272  27.41%
 ================================ 
-All files: 36 [ 7500KB => 2434KB ] 
+All files: 36 [ 7528KB => 2443KB ] 
 Code signing: D:\flcgoogledrive\racevoice\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Code signing result: 0  OK 
-File Size D:\flcgoogledrive\racevoice\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 2589 KB 
-Finish Successful 7/19/2019 3:04:48 PM
+File Size D:\flcgoogledrive\racevoice\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 2598 KB 
+Finish Successful 7/22/2019 4:25:33 PM
