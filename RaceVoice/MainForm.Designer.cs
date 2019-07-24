@@ -135,6 +135,7 @@
             this.tabCharts = new System.Windows.Forms.TabPage();
             this.webCharts = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.chkSegmentSpeed = new System.Windows.Forms.CheckBox();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -287,6 +288,7 @@
             // grpData
             // 
             this.grpData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpData.Controls.Add(this.chkSegmentSpeed);
             this.grpData.Controls.Add(this.btnClearAllData);
             this.grpData.Controls.Add(this.chkLateralG);
             this.grpData.Controls.Add(this.chkMaxLinearG);
@@ -299,14 +301,14 @@
             this.grpData.Margin = new System.Windows.Forms.Padding(1);
             this.grpData.Name = "grpData";
             this.grpData.Padding = new System.Windows.Forms.Padding(1);
-            this.grpData.Size = new System.Drawing.Size(183, 171);
+            this.grpData.Size = new System.Drawing.Size(183, 195);
             this.grpData.TabIndex = 9;
             this.grpData.TabStop = false;
             this.grpData.Text = "Data";
             // 
             // btnClearAllData
             // 
-            this.btnClearAllData.Location = new System.Drawing.Point(7, 139);
+            this.btnClearAllData.Location = new System.Drawing.Point(7, 164);
             this.btnClearAllData.Margin = new System.Windows.Forms.Padding(1);
             this.btnClearAllData.Name = "btnClearAllData";
             this.btnClearAllData.Size = new System.Drawing.Size(168, 23);
@@ -426,51 +428,51 @@
             this.restoreAllTracksToolStripMenuItem,
             this.restoreCurrentTrackToolStripMenuItem});
             this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(53, 22);
+            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.updatesToolStripMenuItem.Text = "Tracks";
             // 
             // importTrackMapsToolStripMenuItem1
             // 
             this.importTrackMapsToolStripMenuItem1.Name = "importTrackMapsToolStripMenuItem1";
-            this.importTrackMapsToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.importTrackMapsToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.importTrackMapsToolStripMenuItem1.Text = "Import Track Maps";
             this.importTrackMapsToolStripMenuItem1.Click += new System.EventHandler(this.importTrackMapsToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(184, 6);
             // 
             // cloneCurrentTrackToolStripMenuItem
             // 
             this.cloneCurrentTrackToolStripMenuItem.Name = "cloneCurrentTrackToolStripMenuItem";
-            this.cloneCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cloneCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.cloneCurrentTrackToolStripMenuItem.Text = "Clone Track";
             this.cloneCurrentTrackToolStripMenuItem.Click += new System.EventHandler(this.cloneCurrentTrackToolStripMenuItem_Click);
             // 
             // deleteTrackToolStripMenuItem
             // 
             this.deleteTrackToolStripMenuItem.Name = "deleteTrackToolStripMenuItem";
-            this.deleteTrackToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.deleteTrackToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.deleteTrackToolStripMenuItem.Text = "Delete Track";
             this.deleteTrackToolStripMenuItem.Click += new System.EventHandler(this.deleteTrackToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(184, 6);
             // 
             // restoreAllTracksToolStripMenuItem
             // 
             this.restoreAllTracksToolStripMenuItem.Name = "restoreAllTracksToolStripMenuItem";
-            this.restoreAllTracksToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.restoreAllTracksToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.restoreAllTracksToolStripMenuItem.Text = "Restore All Tracks";
             this.restoreAllTracksToolStripMenuItem.Click += new System.EventHandler(this.restoreAllTracksToolStripMenuItem_Click);
             // 
             // restoreCurrentTrackToolStripMenuItem
             // 
             this.restoreCurrentTrackToolStripMenuItem.Name = "restoreCurrentTrackToolStripMenuItem";
-            this.restoreCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.restoreCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.restoreCurrentTrackToolStripMenuItem.Text = "Restore Current Track";
             this.restoreCurrentTrackToolStripMenuItem.Click += new System.EventHandler(this.restoreCurrentTrackToolStripMenuItem_Click);
             // 
@@ -485,7 +487,7 @@
             // loadMoTecCSVToolStripMenuItem
             // 
             this.loadMoTecCSVToolStripMenuItem.Name = "loadMoTecCSVToolStripMenuItem";
-            this.loadMoTecCSVToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.loadMoTecCSVToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.loadMoTecCSVToolStripMenuItem.Text = "Load MoTec CSV";
             this.loadMoTecCSVToolStripMenuItem.Click += new System.EventHandler(this.loadMoTecCSVToolStripMenuItem_Click);
             // 
@@ -505,42 +507,42 @@
             // voiceSettingsToolStripMenuItem
             // 
             this.voiceSettingsToolStripMenuItem.Name = "voiceSettingsToolStripMenuItem";
-            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.voiceSettingsToolStripMenuItem.Text = "Voice Settings";
             this.voiceSettingsToolStripMenuItem.Click += new System.EventHandler(this.voiceSettingsToolStripMenuItem_Click);
             // 
             // dataTraceToolStripMenuItem
             // 
             this.dataTraceToolStripMenuItem.Name = "dataTraceToolStripMenuItem";
-            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.dataTraceToolStripMenuItem.Text = "Data Trace";
             this.dataTraceToolStripMenuItem.Click += new System.EventHandler(this.dataTraceToolStripMenuItem_Click);
             // 
             // gPSSettingsToolStripMenuItem
             // 
             this.gPSSettingsToolStripMenuItem.Name = "gPSSettingsToolStripMenuItem";
-            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.gPSSettingsToolStripMenuItem.Text = "GPS Settings";
             this.gPSSettingsToolStripMenuItem.Click += new System.EventHandler(this.gPSSettingsToolStripMenuItem_Click);
             // 
             // messageTriggersToolStripMenuItem
             // 
             this.messageTriggersToolStripMenuItem.Name = "messageTriggersToolStripMenuItem";
-            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.messageTriggersToolStripMenuItem.Text = "Message Triggers";
             this.messageTriggersToolStripMenuItem.Click += new System.EventHandler(this.messageTriggersToolStripMenuItem_Click);
             // 
             // baudRateToolStripMenuItem
             // 
             this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
-            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.baudRateToolStripMenuItem.Text = "Baud Rate";
             this.baudRateToolStripMenuItem.Click += new System.EventHandler(this.baudRateToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -557,21 +559,21 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // gotoRaceVoiceComToolStripMenuItem
             // 
             this.gotoRaceVoiceComToolStripMenuItem.Name = "gotoRaceVoiceComToolStripMenuItem";
-            this.gotoRaceVoiceComToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.gotoRaceVoiceComToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.gotoRaceVoiceComToolStripMenuItem.Text = "Goto RaceVoice.Com";
             this.gotoRaceVoiceComToolStripMenuItem.Click += new System.EventHandler(this.gotoRaceVoiceComToolStripMenuItem_Click);
             // 
             // releaseNotesToolStripMenuItem
             // 
             this.releaseNotesToolStripMenuItem.Name = "releaseNotesToolStripMenuItem";
-            this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.releaseNotesToolStripMenuItem.Text = "Release Notes";
             this.releaseNotesToolStripMenuItem.Click += new System.EventHandler(this.releaseNotesToolStripMenuItem_Click);
             // 
@@ -1325,7 +1327,7 @@
             // 
             this.btnSaveTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTrack.Enabled = false;
-            this.btnSaveTrack.Location = new System.Drawing.Point(820, 508);
+            this.btnSaveTrack.Location = new System.Drawing.Point(820, 529);
             this.btnSaveTrack.Name = "btnSaveTrack";
             this.btnSaveTrack.Size = new System.Drawing.Size(183, 30);
             this.btnSaveTrack.TabIndex = 18;
@@ -1455,6 +1457,18 @@
             // 
             this.openFileDialog.Filter = "MoTec CSV Files|*.csv";
             this.openFileDialog.InitialDirectory = ".";
+            // 
+            // chkSegmentSpeed
+            // 
+            this.chkSegmentSpeed.AutoSize = true;
+            this.chkSegmentSpeed.Location = new System.Drawing.Point(9, 139);
+            this.chkSegmentSpeed.Margin = new System.Windows.Forms.Padding(1);
+            this.chkSegmentSpeed.Name = "chkSegmentSpeed";
+            this.chkSegmentSpeed.Size = new System.Drawing.Size(95, 17);
+            this.chkSegmentSpeed.TabIndex = 9;
+            this.chkSegmentSpeed.Text = "Segment MPH";
+            this.chkSegmentSpeed.UseVisualStyleBackColor = true;
+            this.chkSegmentSpeed.CheckedChanged += new System.EventHandler(this.DataCheckbox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -1629,6 +1643,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteTrackToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.CheckBox chkSegmentSpeed;
     }
 }
 

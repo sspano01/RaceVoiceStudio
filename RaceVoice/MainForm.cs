@@ -617,6 +617,7 @@ namespace RaceVoice
                 chkMaxLateralG,
                 chkMaxLinearG,
                 chkLateralG,
+                chkSegmentSpeed
             };
 
             _carMetadata = CarMetadata.Load(_carMetafile);

@@ -16,7 +16,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionName": "Arizona Motorsports Park",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -38,9 +38,9 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1C8ZPP7-132G1W-103RFOR-1YV6XSD",
+    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AC022PSL",
-    "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
+    "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
     "Version": "RACE VOICE,  VERSION,  JULY 22, 2019, A1",
     "Volume": 5,
     "SWVersion": "07-22-2019-A1",
