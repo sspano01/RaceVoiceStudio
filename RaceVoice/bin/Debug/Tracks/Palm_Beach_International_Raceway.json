@@ -1,18 +1,14 @@
 {
-  "TrackName": "Arizona Motorsports Park",
+  "TrackName": "Palm Beach International Raceway",
   "DataBitfields": [
-    0,
-    0,
-    0,
-    0,
-    128,
+    1,
     0,
     0,
     0,
     0,
     0
   ],
-  "Rotation": 0,
+  "Rotation": 65,
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
@@ -20,9 +16,7 @@
   "UseCurveRendering": false,
   "SplitEnabledStates": [
     false,
-    false,
-    false,
-    false,
+    true,
     false,
     false
   ]

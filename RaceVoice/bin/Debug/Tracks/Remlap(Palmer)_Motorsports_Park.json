@@ -1,11 +1,11 @@
 {
-  "TrackName": "Arizona Motorsports Park",
+  "TrackName": "Remlap(Palmer) Motorsports Park",
   "DataBitfields": [
     0,
     0,
     0,
     0,
-    128,
+    0,
     0,
     0,
     0,
@@ -19,8 +19,6 @@
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    false,
-    false,
     false,
     false,
     false,

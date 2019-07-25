@@ -1,11 +1,10 @@
 {
-  "TrackName": "Arizona Motorsports Park",
+  "TrackName": "Pocono Internation Full",
   "DataBitfields": [
     0,
     0,
     0,
     0,
-    128,
     0,
     0,
     0,
@@ -16,14 +15,16 @@
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
-  "ClusterSize": 1,
+  "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
   ]
 }

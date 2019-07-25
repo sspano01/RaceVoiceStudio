@@ -1,29 +1,26 @@
 {
-  "TrackName": "Arizona Motorsports Park",
+  "TrackName": "Laguna Seca",
   "DataBitfields": [
     0,
     0,
     0,
     0,
-    128,
     0,
     0,
     0,
     0,
     0
   ],
-  "Rotation": 0,
+  "Rotation": 238,
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true,
+    true
   ]
 }

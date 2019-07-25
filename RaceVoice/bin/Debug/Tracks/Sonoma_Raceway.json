@@ -1,11 +1,9 @@
 {
-  "TrackName": "Arizona Motorsports Park",
+  "TrackName": "Sonoma Raceway",
   "DataBitfields": [
     0,
     0,
     0,
-    0,
-    128,
     0,
     0,
     0,
@@ -19,11 +17,14 @@
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
   ]
 }
