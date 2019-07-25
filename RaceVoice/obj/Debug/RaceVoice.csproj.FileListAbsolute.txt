@@ -31,3 +31,4 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.Prefer
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csprojAssemblyReference.cache
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Debug\RaceVoiceLib.dll
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Debug\RaceVoiceLib.pdb
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.tracer.resources

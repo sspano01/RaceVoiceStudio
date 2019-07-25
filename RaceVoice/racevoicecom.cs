@@ -5,6 +5,8 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Linq;
 
+
+
 namespace RaceVoice
 {
     internal class racevoicecom
@@ -125,9 +127,48 @@ namespace RaceVoice
         public bool WriteSingleCmd(SerialPort _sp, string cmd)
         {
             string message = "";
+            int steps = 0;
             globals.WriteLine("SENDING--->" + cmd);
             _sp.WriteLine(cmd + "\r");
             if (cmd.ToUpper().Contains("VERSION TALK")) return true;
+            if (cmd.ToUpper().Contains("FLASH RESET")) return true;
+            if (cmd.ToUpper().Contains("FLASH READ")) return true;
+            if (cmd.ToUpper().Contains("FLASH ERASE"))
+            {
+                splash isplash = new splash(1);
+                isplash.Show();
+                try
+                {
+                    isplash.setlabel("Erasing data log memory....");
+                    while (true)
+                    {
+                        message = Convert.ToChar(_sp.ReadChar()).ToString();
+                        Thread.Sleep(10);
+                        message = message.ToUpper();
+                        globals.WriteLine(message);
+                        globals.last_rx = message;
+                        steps++;
+                        double pct = Convert.ToDouble(steps) / Convert.ToDouble(70);
+                        pct *= Convert.ToDouble(100);
+                        isplash.setbar(Convert.ToInt32(pct));
+                        if (message.Contains("G"))
+                        {
+                            isplash.Close();
+                            return true;
+                        }
+                    }
+                }
+                catch (Exception ee)
+                {
+                    globals.WriteLine(ee.Message);
+                    globals.WriteLine(message);
+
+                }
+
+                isplash.Close();
+                return true;
+
+            }
             try
             {
                 while (true)
@@ -369,7 +410,7 @@ namespace RaceVoice
             }
             else
             {
-                globals.fwtrace("settings.checker_lattitde=" + track.StartLinePosition.Latitude, false);
+                globals.fwtrace("settings.checker_lattitude=" + track.StartLinePosition.Latitude, false);
                 globals.fwtrace("settings.checker_longitude=" + track.StartLinePosition.Longitude, false);
             }
 

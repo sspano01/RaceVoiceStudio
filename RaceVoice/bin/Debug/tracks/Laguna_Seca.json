@@ -1,0 +1,26 @@
+{
+  "TrackName": "Laguna Seca",
+  "DataBitfields": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "Rotation": 238,
+  "Zoom": 90,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 1,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    true,
+    true,
+    true,
+    true
+  ]
+}

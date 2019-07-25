@@ -1,0 +1,26 @@
+{
+  "TrackName": "New Hampshire Motor Speedway Chicane",
+  "DataBitfields": [
+    1,
+    1,
+    0,
+    9,
+    0,
+    0,
+    0,
+    1
+  ],
+  "Rotation": 254,
+  "Zoom": 90,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 4,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    false,
+    false,
+    false,
+    true,
+    false
+  ]
+}

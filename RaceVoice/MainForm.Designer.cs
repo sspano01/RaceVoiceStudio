@@ -135,6 +135,10 @@
             this.tabCharts = new System.Windows.Forms.TabPage();
             this.webCharts = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataLoggingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearDataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableDataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readDataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -406,7 +410,8 @@
             this.updatesToolStripMenuItem,
             this.chartsMenuItem,
             this.advancedToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.dataLoggingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
@@ -505,42 +510,42 @@
             // voiceSettingsToolStripMenuItem
             // 
             this.voiceSettingsToolStripMenuItem.Name = "voiceSettingsToolStripMenuItem";
-            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.voiceSettingsToolStripMenuItem.Text = "Voice Settings";
             this.voiceSettingsToolStripMenuItem.Click += new System.EventHandler(this.voiceSettingsToolStripMenuItem_Click);
             // 
             // dataTraceToolStripMenuItem
             // 
             this.dataTraceToolStripMenuItem.Name = "dataTraceToolStripMenuItem";
-            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dataTraceToolStripMenuItem.Text = "Data Trace";
             this.dataTraceToolStripMenuItem.Click += new System.EventHandler(this.dataTraceToolStripMenuItem_Click);
             // 
             // gPSSettingsToolStripMenuItem
             // 
             this.gPSSettingsToolStripMenuItem.Name = "gPSSettingsToolStripMenuItem";
-            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gPSSettingsToolStripMenuItem.Text = "GPS Settings";
             this.gPSSettingsToolStripMenuItem.Click += new System.EventHandler(this.gPSSettingsToolStripMenuItem_Click);
             // 
             // messageTriggersToolStripMenuItem
             // 
             this.messageTriggersToolStripMenuItem.Name = "messageTriggersToolStripMenuItem";
-            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.messageTriggersToolStripMenuItem.Text = "Message Triggers";
             this.messageTriggersToolStripMenuItem.Click += new System.EventHandler(this.messageTriggersToolStripMenuItem_Click);
             // 
             // baudRateToolStripMenuItem
             // 
             this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
-            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.baudRateToolStripMenuItem.Text = "Baud Rate";
             this.baudRateToolStripMenuItem.Click += new System.EventHandler(this.baudRateToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -1456,6 +1461,37 @@
             this.openFileDialog.Filter = "MoTec CSV Files|*.csv";
             this.openFileDialog.InitialDirectory = ".";
             // 
+            // dataLoggingToolStripMenuItem
+            // 
+            this.dataLoggingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearDataLogToolStripMenuItem,
+            this.enableDataLogToolStripMenuItem,
+            this.readDataLogToolStripMenuItem});
+            this.dataLoggingToolStripMenuItem.Name = "dataLoggingToolStripMenuItem";
+            this.dataLoggingToolStripMenuItem.Size = new System.Drawing.Size(87, 22);
+            this.dataLoggingToolStripMenuItem.Text = "DataLogging";
+            // 
+            // clearDataLogToolStripMenuItem
+            // 
+            this.clearDataLogToolStripMenuItem.Name = "clearDataLogToolStripMenuItem";
+            this.clearDataLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearDataLogToolStripMenuItem.Text = "Clear Data Log";
+            this.clearDataLogToolStripMenuItem.Click += new System.EventHandler(this.clearDataLogToolStripMenuItem_Click);
+            // 
+            // enableDataLogToolStripMenuItem
+            // 
+            this.enableDataLogToolStripMenuItem.Name = "enableDataLogToolStripMenuItem";
+            this.enableDataLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enableDataLogToolStripMenuItem.Text = "Enable Data Log";
+            this.enableDataLogToolStripMenuItem.Click += new System.EventHandler(this.enableDataLogToolStripMenuItem_Click);
+            // 
+            // readDataLogToolStripMenuItem
+            // 
+            this.readDataLogToolStripMenuItem.Name = "readDataLogToolStripMenuItem";
+            this.readDataLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readDataLogToolStripMenuItem.Text = "Read Data Log";
+            this.readDataLogToolStripMenuItem.Click += new System.EventHandler(this.readDataLogToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 687);
@@ -1629,6 +1665,10 @@
         private System.Windows.Forms.ToolStripMenuItem deleteTrackToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem dataLoggingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearDataLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enableDataLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readDataLogToolStripMenuItem;
     }
 }
 

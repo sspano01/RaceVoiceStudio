@@ -1255,7 +1255,7 @@ namespace RaceVoice
 
         private void sendConfigButton(object sender, EventArgs e)
         {
-            // WriteDataToFwTrace();
+             WriteDataToFwTrace();
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -1711,5 +1711,100 @@ namespace RaceVoice
 
         }
 
+        private void clearDataLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool valid = false;
+            racevoicecom rvcom = new racevoicecom();
+            if (!globals.IsRaceVoiceConnected())
+            {
+                return;
+            }
+
+            if (rvcom.OpenSerial())
+            {
+                if (rvcom.WriteSingleCmd("FLASH ERASE")) valid = true;
+                rvcom.CloseSerial();
+            }
+
+            if (valid)
+            {
+                MessageBox.Show("Data Log Has Been Erased", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Data Log Erase Failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void enableDataLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool valid = false;
+            racevoicecom rvcom = new racevoicecom();
+            if (!globals.IsRaceVoiceConnected())
+            {
+                return;
+            }
+
+            if (rvcom.OpenSerial())
+            {
+                if (rvcom.WriteSingleCmd("FLASH RECORD ENABLE")) valid = true;
+                rvcom.CloseSerial();
+            }
+
+            if (valid)
+            {
+                MessageBox.Show("Data Log Has Been Enabled", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Data Log Failed To Enable", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void readDataLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            racevoicecom rvcom = new racevoicecom();
+            if (!globals.IsRaceVoiceConnected())
+            {
+                return;
+            }
+
+            if (rvcom.OpenSerial())
+            {
+                tracer trace = new tracer();
+                trace.Show();
+                Thread.Sleep(1000);
+                rvcom.WriteSingleCmd("FLASH RESET");
+                Thread.Sleep(1000);
+                rvcom.WriteSingleCmd("FLASH READ");
+                try
+                {
+                    while(true)
+                    {
+                        string line = rvcom.ReadLine();
+                        globals.WriteLine(line);
+                        Thread.Sleep(10);
+                        Application.DoEvents();
+                        trace.addline(line);
+                        if (line.ToUpper().Contains("COMPLETE"))
+                        {
+                            MessageBox.Show("Data Log Has Been Read Back", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ee)
+                {
+                    globals.WriteLine(ee.Message);
+                    MessageBox.Show("Data Log Failed To Read", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                rvcom.CloseSerial();
+            }
+
+        }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "TrackName": "NJMP Thunderbolt",
+  "DataBitfields": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0
+  ],
+  "Rotation": 0,
+  "Zoom": 90,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 4,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ]
+}

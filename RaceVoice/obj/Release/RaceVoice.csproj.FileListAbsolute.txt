@@ -31,3 +31,4 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.xml
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.Preferences.resources
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.pdb
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.tracer.resources
