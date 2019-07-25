@@ -1662,12 +1662,12 @@ namespace RaceVoice
                     chkAnnounceBestLap.Enabled = chkAnnounceBestLap.Checked = false;
                     chkAnnounceLapDelta.Enabled = chkAnnounceLapDelta.Checked = false;
 
-                    chkOverRev.Enabled = chkOverRev.Checked = true;
-                    chkTemperature.Enabled = chkTemperature.Checked = true;
-                    chkVoltage.Enabled = chkVoltage.Checked = true;
-                    chkOilPressure.Enabled = chkOilPressure.Checked = true;
-                    chkUpShift.Enabled = chkUpShift.Checked = true;
-                    chkDownShift.Enabled = chkDownShift.Checked = true;
+                    chkOverRev.Enabled = true;
+                    chkTemperature.Enabled  = true;
+                    chkVoltage.Enabled  = true;
+                    chkOilPressure.Enabled  = true;
+                    chkUpShift.Enabled  = true;
+                    chkDownShift.Enabled =  true;
 
                     break;
 
@@ -1696,12 +1696,12 @@ namespace RaceVoice
                     chkBrakeThreshold.Enabled = true;
                     chkActiveWheelLockDetection.Enabled = true;
 
-                    chkOverRev.Enabled = chkOverRev.Checked = true;
-                    chkTemperature.Enabled = chkTemperature.Checked = true;
-                    chkVoltage.Enabled = chkVoltage.Checked = true;
-                    chkOilPressure.Enabled = chkOilPressure.Checked = true;
-                    chkUpShift.Enabled = chkUpShift.Checked = true;
-                    chkDownShift.Enabled = chkDownShift.Checked = true;
+                    chkOverRev.Enabled =  true;
+                    chkTemperature.Enabled =  true;
+                    chkVoltage.Enabled =  true;
+                    chkOilPressure.Enabled = true;
+                    chkUpShift.Enabled =  true;
+                    chkDownShift.Enabled =  true;
 
 
                     break;
