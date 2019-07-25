@@ -42,6 +42,7 @@
             this.lstSegments = new System.Windows.Forms.ListBox();
             this.btnSegmentDelete = new System.Windows.Forms.Button();
             this.grpData = new System.Windows.Forms.GroupBox();
+            this.chkSegmentSpeed = new System.Windows.Forms.CheckBox();
             this.btnClearAllData = new System.Windows.Forms.Button();
             this.chkLateralG = new System.Windows.Forms.CheckBox();
             this.chkMaxLinearG = new System.Windows.Forms.CheckBox();
@@ -135,7 +136,6 @@
             this.tabCharts = new System.Windows.Forms.TabPage();
             this.webCharts = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.chkSegmentSpeed = new System.Windows.Forms.CheckBox();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -305,6 +305,18 @@
             this.grpData.TabIndex = 9;
             this.grpData.TabStop = false;
             this.grpData.Text = "Data";
+            // 
+            // chkSegmentSpeed
+            // 
+            this.chkSegmentSpeed.AutoSize = true;
+            this.chkSegmentSpeed.Location = new System.Drawing.Point(9, 139);
+            this.chkSegmentSpeed.Margin = new System.Windows.Forms.Padding(1);
+            this.chkSegmentSpeed.Name = "chkSegmentSpeed";
+            this.chkSegmentSpeed.Size = new System.Drawing.Size(95, 17);
+            this.chkSegmentSpeed.TabIndex = 9;
+            this.chkSegmentSpeed.Text = "Segment MPH";
+            this.chkSegmentSpeed.UseVisualStyleBackColor = true;
+            this.chkSegmentSpeed.CheckedChanged += new System.EventHandler(this.DataCheckbox_CheckedChanged);
             // 
             // btnClearAllData
             // 
@@ -929,6 +941,7 @@
             this.chkOverRev.TabIndex = 2;
             this.chkOverRev.Text = "OverRev";
             this.chkOverRev.UseVisualStyleBackColor = true;
+            this.chkOverRev.CheckedChanged += new System.EventHandler(this.chkOverRev_CheckedChanged);
             this.chkOverRev.CheckStateChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
             // cmbEcuType
@@ -1457,18 +1470,6 @@
             // 
             this.openFileDialog.Filter = "MoTec CSV Files|*.csv";
             this.openFileDialog.InitialDirectory = ".";
-            // 
-            // chkSegmentSpeed
-            // 
-            this.chkSegmentSpeed.AutoSize = true;
-            this.chkSegmentSpeed.Location = new System.Drawing.Point(9, 139);
-            this.chkSegmentSpeed.Margin = new System.Windows.Forms.Padding(1);
-            this.chkSegmentSpeed.Name = "chkSegmentSpeed";
-            this.chkSegmentSpeed.Size = new System.Drawing.Size(95, 17);
-            this.chkSegmentSpeed.TabIndex = 9;
-            this.chkSegmentSpeed.Text = "Segment MPH";
-            this.chkSegmentSpeed.UseVisualStyleBackColor = true;
-            this.chkSegmentSpeed.CheckedChanged += new System.EventHandler(this.DataCheckbox_CheckedChanged);
             // 
             // MainForm
             // 
