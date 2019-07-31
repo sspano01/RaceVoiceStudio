@@ -15,7 +15,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "07-25-2019-A2";
+        public static string UIVersion = "07-31-2019-A2";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
 
@@ -50,6 +50,8 @@ namespace RaceVoice
         public static int ENABLE_GAIN_LAP = 2;
         public static bool network_ok = false;
         public static int MAX_TRACK_NAME = 48;
+
+        public static bool all_stop = false;
 
         public enum FeatureState
         {

@@ -2006,3 +2006,658 @@ Download finished!
 7/25/2019 5:28:53 PM:Could not find file 'D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\uploads.txt'.
 7/25/2019 5:28:53 PM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
 7/25/2019 5:29:00 PM:The following serial ports were found:
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM: 
+7/31/2019 8:25:24 AM:****** STARTUP
+7/31/2019 8:25:24 AM:The following serial ports were found:
+7/31/2019 8:25:31 AM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+7/31/2019 8:25:32 AM:Downloading file:
+7/31/2019 8:25:33 AM:
+Download finished!
+7/31/2019 8:25:33 AM:Done  - success: True
+7/31/2019 8:25:33 AM:Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,April 29 2019 13:16:11
+7/31/2019 8:25:33 AM:Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,April 29 2019 13:16:11
+7/31/2019 8:25:33 AM:Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,April 29 2019 13:16:11
+7/31/2019 8:25:33 AM:Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,July 03 2019 12:49:55
+7/31/2019 8:25:33 AM:Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,April 29 2019 13:27:57
+7/31/2019 8:25:33 AM:Limerock_Park.csv,90c30cc5a3264af220c379178888405d,June 16 2019 15:16:31
+7/31/2019 8:25:33 AM:MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Mid_Ohio_Sports.csv,4aca191c77215e69a41d5273ce4ff138,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,June 16 2019 16:04:15
+7/31/2019 8:25:33 AM:NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,April 25 2019 20:09:33
+7/31/2019 8:25:33 AM:New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,April 24 2019 12:26:21
+7/31/2019 8:25:33 AM:Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,April 29 2019 13:27:57
+7/31/2019 8:25:33 AM:Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,April 29 2019 13:16:11
+7/31/2019 8:25:33 AM:Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,May 24 2019 13:21:52
+7/31/2019 8:25:33 AM:Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,April 29 2019 13:27:57
+7/31/2019 8:25:33 AM:Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,May 24 2019 13:21:52
+7/31/2019 8:25:33 AM:Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,April 27 2019 21:09:26
+7/31/2019 8:25:33 AM:Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Watkins_Glen_Short.csv,fb4865afe7bde6aa279ec4b4198e3ac1,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,April 15 2019 21:59:40
+7/31/2019 8:25:33 AM:Local Scan->Arizona_Motorsports_Park.csv,b4818b20cce7a4096adb62dd198f5a56,07/25/2019
+7/31/2019 8:25:33 AM:Local Scan->Atlanta_Motorsport_Park_Kart.csv,cb78ef9f68287071af43d8c58e3fb12d,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Atlanta_Motorsports_Park_Main.csv,b0e4657dfda2728b7439fd79915dd1e1,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Auto_Club_Speedway_Sport_Cars.csv,ee1bcead2e8e4b17eae72bb23d8a8d69,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Autobahn_Country_Club_Full_Circuit.csv,e053c79a6fc9f895dc9c21cb1bfffc81,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Barber_Motorsport_Park.csv,468c824fbf8daf7689a519c501e7e6fe,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Blackhawk_Farms.csv,35a40c76d41636fe20c9e583fdcbebb4,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Brainerd_International_Raceway.csv,e56f03cef00fcdc4f7ccff617edf2283,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Brainerd_International_Raceway_Long_Track.csv,7bebc9d0491fe0fa927892e0d53f8ba2,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Buttonwillow_Raceway_Park.csv,822c160ecb67fcbc24e598cfbafa9ab7,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Carolina_Motorsports_Park.csv,9fadc2c0c436ca80fb8b316d2f590285,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Charlotte_Motor_Speedway.csv,af7589775318a25099f0be484c45b6d3,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Chuckwalla_Valley_Raceway.csv,d71e26a09924235aa175e80c252bc358,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Circuit_Of_The_Americas.csv,c0ce6403785ae74268663da322487030,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Club_Motorsports.csv,a217bc6cf150e002620a16d423f5b972,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Daytona_International.csv,14eeb184d7e64ff7ff5fec159bfda657,06/27/2019
+7/31/2019 8:25:33 AM:Local Scan->Dominion_Raceway.csv,bfbef0d4163826e2b23e3ba1728d9fe5,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Exotics_Racing.csv,014859473a10243c281c48c152e29d7c,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Firebird_International_Raceway.csv,5586c3d91ed5a62874229333ac35cec9,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Giants_Despair_Hillclimb.csv,4c7de06091b9b8bc9789f14db4e7be06,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->GingerMan_Raceway.csv,dff7a459fe3accc7c3bdaa99e1a666e8,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Grattan_Raceway.csv,9f98451678a605cdd07f905a57143d61,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Hallett_Motor_Racing_Circuit.csv,a070da97f8897781132272d8b91b5575,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Heartland_Park_Topeka.csv,67ef9a0cd2ec9cf940915477c2ea663b,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->High_Plains_Raceway.csv,a2d7928c1ddaeb35d66a40999660e6f4,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Homestead-Miami_Speedway.csv,f0645f30feea5b1c275488dcad929aa2,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Inde_Motorsport_Ranch.csv,48fa6744858ab495d9e0f7ac400567a1,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Indianapolis_GrandPrix.csv,067b6542c66f0f49d35e8ad15f1d7b53,07/03/2019
+7/31/2019 8:25:34 AM:Local Scan->Laguna_Seca.csv,aa4aa3aece0adfec8b3fb12a4ee5bfd0,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Limerock_Park.csv,120c3138ed7115669f14107a7e4dfa1e,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Mid_Ohio_Sports.csv,bd34c499822b172eac9005c709cead2e,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Mont_Tremblant.csv,c9d6b37072220b0e6143349b11dc4380,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->MSR_Houston.csv,105752d2f7c663d531a706205bf7de59,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->New_Hampshire_Motor_Speedway.csv,db44116db48f1e26d1368980d7cadb14,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->New_Hampshire_Motor_Speedway_Chicane.csv,6608014cda3741f9408fed429b5609f8,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->NJMP_Lightning.csv,0d3aadcef485c8121feb96c908a1a264,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->NJMP_Thunderbolt.csv,dc65b969f9d91e3874c69747773e4e93,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Nola_Motorsports_Park.csv,b07f0396da993fec905c94669df2e247,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->NYST_New_York_Safety_Track (1).csv,48ea671b4c0208b1c0dddbf53ef9f301,07/09/2019
+7/31/2019 8:25:34 AM:Local Scan->NYST_New_York_Safety_Track.csv,e18b4877cc1c42ca88e448ca4222c4cc,07/08/2019
+7/31/2019 8:25:34 AM:Local Scan->Palm_Beach_International_Raceway.csv,8277d732630daf96998be9fa62e804cd,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Palmer_Motorsports_Park.csv,7667482d662d720eb5ef85ab5dcd3199,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Pittsburg_International.csv,3af02aab8eec516349e024fbab04aae5,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Pocono_Internation_Full.csv,b73a2bb3dce2a9d5b86ef79d361fe263,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Pocono_International_North.csv,02404e072a03f509cba4aa3b02fa2214,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Portland_International_Raceway.csv,8e5d487f795e1c1f803fd601c5ef37b8,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Pueblo_Motorsports_Park.csv,b508283b52dc0ee41634fb3ec330c30b,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Remlap(Palmer)_Motorsports_Park.csv,9d91ff1a0d9cb69774ae19f9ee86e1b0,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Road_America.csv,56a1278051cb3198cc58037b926fefa8,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Road_Atlanta.csv,1285e6ee88ba0895973c1c9bcf4a71fd,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Roebling_Road.csv,9365b43342a7d5c2cafdfb3af3fa6a1d,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Sebring_Full_Course.csv,062f4945c2503f399fdc5c2a8a37397c,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Silverstone_GP.csv,5eb19c411a9dc74dfde54a5f4a22d823,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Sonoma_Raceway.csv,033698015579806fb4bd342f5647c359,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Summit_Point_Shenandoah_NoCarousel.csv,0d8cd5432384f3e5931c794c80982d2b,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Summit_Pointe_Raceway.csv,a7dccf0c8e7f583cf33cc803e6ad19f0,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Thompson_Motor_Speedway.csv,f66743cfd5532b3cb074286b06928246,07/12/2019
+7/31/2019 8:25:34 AM:Local Scan->Thunderhill_Long.csv,b13c77c5d617a519155106ffd81e4810,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Thunderhill_Short.csv,73f95fd9d7ea19237accbd69f259ff7f,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Virgina_Internation_Raceway.csv,f56a566d4f843691cb935a0f914356da,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Watkins_Glen_Long.csv,715f480725c1a4f4952d61f9f0e0cc80,07/05/2019
+7/31/2019 8:25:34 AM:Local Scan->Watkins_Glen_Short.csv,e0cc45d2cce12faa6feaaec10ac0c59a,06/27/2019
+7/31/2019 8:25:34 AM:Local Scan->Willow_Springs_International_Raceway.csv,95d8352365bb92691a61ef0e7fdf429c,06/27/2019
+7/31/2019 8:25:34 AM:Arizona_Motorsports_Park.csv DATE Local=07/25/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Atlanta_Motorsport_Park_Kart.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Atlanta_Motorsports_Park_Main.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Auto_Club_Speedway_Sport_Cars.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Autobahn_Country_Club_Full_Circuit.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Barber_Motorsport_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Blackhawk_Farms.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Brainerd_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Brainerd_International_Raceway_Long_Track.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Buttonwillow_Raceway_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Carolina_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Charlotte_Motor_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Chuckwalla_Valley_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Circuit_Of_The_Americas.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Club_Motorsports.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Daytona_International.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Dominion_Raceway.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Exotics_Racing.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Firebird_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Giants_Despair_Hillclimb.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:GingerMan_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Grattan_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Hallett_Motor_Racing_Circuit.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Heartland_Park_Topeka.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:High_Plains_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Homestead-Miami_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Inde_Motorsport_Ranch.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Indianapolis_GrandPrix.csv DATE Local=07/03/2019 vs 07/03/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Laguna_Seca.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Limerock_Park.csv DATE Local=06/27/2019 vs 06/16/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:MSR_Houston.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Mid_Ohio_Sports.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Mont_Tremblant.csv DATE Local=06/27/2019 vs 06/16/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:NJMP_Lightning.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:NJMP_Thunderbolt.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:NYST_New_York_Safety_Track.csv DATE Local=07/08/2019 vs 04/25/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:New_Hampshire_Motor_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:New_Hampshire_Motor_Speedway_Chicane.csv DATE Local=06/27/2019 vs 04/24/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Nola_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Palm_Beach_International_Raceway.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Palmer_Motorsports_Park.csv DATE Local=06/27/2019 vs 05/24/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Pittsburg_International.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Pocono_Internation_Full.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Pocono_International_North.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Portland_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Pueblo_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Remlap(Palmer)_Motorsports_Park.csv DATE Local=06/27/2019 vs 05/24/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Road_America.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Road_Atlanta.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Roebling_Road.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Sebring_Full_Course.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Silverstone_GP.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Sonoma_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Summit_Point_Shenandoah_NoCarousel.csv DATE Local=06/27/2019 vs 04/27/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Summit_Pointe_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Thompson_Motor_Speedway.csv DATE Local=07/12/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Thunderhill_Long.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Thunderhill_Short.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Virgina_Internation_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Watkins_Glen_Long.csv DATE Local=07/05/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Watkins_Glen_Short.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Willow_Springs_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:34 AM:Load Track:Tracks\Arizona_Motorsports_Park.csv
+7/31/2019 8:25:34 AM:Could not find file 'D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\uploads.txt'.
+7/31/2019 8:25:34 AM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM: 
+7/31/2019 8:25:48 AM:****** STARTUP
+7/31/2019 8:25:48 AM:The following serial ports were found:
+7/31/2019 8:25:55 AM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+7/31/2019 8:25:56 AM:Downloading file:
+7/31/2019 8:25:57 AM:
+Download finished!
+7/31/2019 8:25:57 AM:Done  - success: True
+7/31/2019 8:25:57 AM:Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,April 29 2019 13:16:11
+7/31/2019 8:25:57 AM:Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,April 29 2019 13:16:11
+7/31/2019 8:25:57 AM:Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,April 29 2019 13:16:11
+7/31/2019 8:25:57 AM:Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,July 03 2019 12:49:55
+7/31/2019 8:25:57 AM:Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,April 29 2019 13:27:57
+7/31/2019 8:25:57 AM:Limerock_Park.csv,90c30cc5a3264af220c379178888405d,June 16 2019 15:16:31
+7/31/2019 8:25:57 AM:MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Mid_Ohio_Sports.csv,4aca191c77215e69a41d5273ce4ff138,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,June 16 2019 16:04:15
+7/31/2019 8:25:57 AM:NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,April 25 2019 20:09:33
+7/31/2019 8:25:57 AM:New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,April 24 2019 12:26:21
+7/31/2019 8:25:57 AM:Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,April 29 2019 13:27:57
+7/31/2019 8:25:57 AM:Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,April 29 2019 13:16:11
+7/31/2019 8:25:57 AM:Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,May 24 2019 13:21:52
+7/31/2019 8:25:57 AM:Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,April 29 2019 13:27:57
+7/31/2019 8:25:57 AM:Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,May 24 2019 13:21:52
+7/31/2019 8:25:57 AM:Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,April 27 2019 21:09:26
+7/31/2019 8:25:57 AM:Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Watkins_Glen_Short.csv,fb4865afe7bde6aa279ec4b4198e3ac1,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,April 15 2019 21:59:40
+7/31/2019 8:25:57 AM:Local Scan->Arizona_Motorsports_Park.csv,b4818b20cce7a4096adb62dd198f5a56,07/25/2019
+7/31/2019 8:25:57 AM:Local Scan->Atlanta_Motorsport_Park_Kart.csv,cb78ef9f68287071af43d8c58e3fb12d,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Atlanta_Motorsports_Park_Main.csv,b0e4657dfda2728b7439fd79915dd1e1,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Auto_Club_Speedway_Sport_Cars.csv,ee1bcead2e8e4b17eae72bb23d8a8d69,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Autobahn_Country_Club_Full_Circuit.csv,e053c79a6fc9f895dc9c21cb1bfffc81,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Barber_Motorsport_Park.csv,468c824fbf8daf7689a519c501e7e6fe,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Blackhawk_Farms.csv,35a40c76d41636fe20c9e583fdcbebb4,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Brainerd_International_Raceway.csv,e56f03cef00fcdc4f7ccff617edf2283,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Brainerd_International_Raceway_Long_Track.csv,7bebc9d0491fe0fa927892e0d53f8ba2,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Buttonwillow_Raceway_Park.csv,822c160ecb67fcbc24e598cfbafa9ab7,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Carolina_Motorsports_Park.csv,9fadc2c0c436ca80fb8b316d2f590285,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Charlotte_Motor_Speedway.csv,af7589775318a25099f0be484c45b6d3,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Chuckwalla_Valley_Raceway.csv,d71e26a09924235aa175e80c252bc358,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Circuit_Of_The_Americas.csv,c0ce6403785ae74268663da322487030,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Club_Motorsports.csv,a217bc6cf150e002620a16d423f5b972,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Daytona_International.csv,14eeb184d7e64ff7ff5fec159bfda657,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Dominion_Raceway.csv,bfbef0d4163826e2b23e3ba1728d9fe5,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Exotics_Racing.csv,014859473a10243c281c48c152e29d7c,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Firebird_International_Raceway.csv,5586c3d91ed5a62874229333ac35cec9,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Giants_Despair_Hillclimb.csv,4c7de06091b9b8bc9789f14db4e7be06,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->GingerMan_Raceway.csv,dff7a459fe3accc7c3bdaa99e1a666e8,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Grattan_Raceway.csv,9f98451678a605cdd07f905a57143d61,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Hallett_Motor_Racing_Circuit.csv,a070da97f8897781132272d8b91b5575,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Heartland_Park_Topeka.csv,67ef9a0cd2ec9cf940915477c2ea663b,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->High_Plains_Raceway.csv,a2d7928c1ddaeb35d66a40999660e6f4,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Homestead-Miami_Speedway.csv,f0645f30feea5b1c275488dcad929aa2,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Inde_Motorsport_Ranch.csv,48fa6744858ab495d9e0f7ac400567a1,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Indianapolis_GrandPrix.csv,067b6542c66f0f49d35e8ad15f1d7b53,07/03/2019
+7/31/2019 8:25:57 AM:Local Scan->Laguna_Seca.csv,aa4aa3aece0adfec8b3fb12a4ee5bfd0,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Limerock_Park.csv,120c3138ed7115669f14107a7e4dfa1e,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Mid_Ohio_Sports.csv,bd34c499822b172eac9005c709cead2e,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Mont_Tremblant.csv,c9d6b37072220b0e6143349b11dc4380,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->MSR_Houston.csv,105752d2f7c663d531a706205bf7de59,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->New_Hampshire_Motor_Speedway.csv,db44116db48f1e26d1368980d7cadb14,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->New_Hampshire_Motor_Speedway_Chicane.csv,6608014cda3741f9408fed429b5609f8,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->NJMP_Lightning.csv,0d3aadcef485c8121feb96c908a1a264,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->NJMP_Thunderbolt.csv,dc65b969f9d91e3874c69747773e4e93,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Nola_Motorsports_Park.csv,b07f0396da993fec905c94669df2e247,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->NYST_New_York_Safety_Track (1).csv,48ea671b4c0208b1c0dddbf53ef9f301,07/09/2019
+7/31/2019 8:25:57 AM:Local Scan->NYST_New_York_Safety_Track.csv,e18b4877cc1c42ca88e448ca4222c4cc,07/08/2019
+7/31/2019 8:25:57 AM:Local Scan->Palm_Beach_International_Raceway.csv,8277d732630daf96998be9fa62e804cd,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Palmer_Motorsports_Park.csv,7667482d662d720eb5ef85ab5dcd3199,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Pittsburg_International.csv,3af02aab8eec516349e024fbab04aae5,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Pocono_Internation_Full.csv,b73a2bb3dce2a9d5b86ef79d361fe263,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Pocono_International_North.csv,02404e072a03f509cba4aa3b02fa2214,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Portland_International_Raceway.csv,8e5d487f795e1c1f803fd601c5ef37b8,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Pueblo_Motorsports_Park.csv,b508283b52dc0ee41634fb3ec330c30b,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Remlap(Palmer)_Motorsports_Park.csv,9d91ff1a0d9cb69774ae19f9ee86e1b0,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Road_America.csv,56a1278051cb3198cc58037b926fefa8,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Road_Atlanta.csv,1285e6ee88ba0895973c1c9bcf4a71fd,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Roebling_Road.csv,9365b43342a7d5c2cafdfb3af3fa6a1d,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Sebring_Full_Course.csv,062f4945c2503f399fdc5c2a8a37397c,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Silverstone_GP.csv,5eb19c411a9dc74dfde54a5f4a22d823,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Sonoma_Raceway.csv,033698015579806fb4bd342f5647c359,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Summit_Point_Shenandoah_NoCarousel.csv,0d8cd5432384f3e5931c794c80982d2b,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Summit_Pointe_Raceway.csv,a7dccf0c8e7f583cf33cc803e6ad19f0,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Thompson_Motor_Speedway.csv,f66743cfd5532b3cb074286b06928246,07/12/2019
+7/31/2019 8:25:57 AM:Local Scan->Thunderhill_Long.csv,b13c77c5d617a519155106ffd81e4810,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Thunderhill_Short.csv,73f95fd9d7ea19237accbd69f259ff7f,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Virgina_Internation_Raceway.csv,f56a566d4f843691cb935a0f914356da,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Watkins_Glen_Long.csv,715f480725c1a4f4952d61f9f0e0cc80,07/05/2019
+7/31/2019 8:25:57 AM:Local Scan->Watkins_Glen_Short.csv,e0cc45d2cce12faa6feaaec10ac0c59a,06/27/2019
+7/31/2019 8:25:57 AM:Local Scan->Willow_Springs_International_Raceway.csv,95d8352365bb92691a61ef0e7fdf429c,06/27/2019
+7/31/2019 8:25:57 AM:Arizona_Motorsports_Park.csv DATE Local=07/25/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Atlanta_Motorsport_Park_Kart.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Atlanta_Motorsports_Park_Main.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Auto_Club_Speedway_Sport_Cars.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Autobahn_Country_Club_Full_Circuit.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Barber_Motorsport_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Blackhawk_Farms.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Brainerd_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Brainerd_International_Raceway_Long_Track.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Buttonwillow_Raceway_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Carolina_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Charlotte_Motor_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Chuckwalla_Valley_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Circuit_Of_The_Americas.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Club_Motorsports.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Daytona_International.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Dominion_Raceway.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Exotics_Racing.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Firebird_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Giants_Despair_Hillclimb.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:GingerMan_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Grattan_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Hallett_Motor_Racing_Circuit.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Heartland_Park_Topeka.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:High_Plains_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Homestead-Miami_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Inde_Motorsport_Ranch.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Indianapolis_GrandPrix.csv DATE Local=07/03/2019 vs 07/03/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Laguna_Seca.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Limerock_Park.csv DATE Local=06/27/2019 vs 06/16/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:MSR_Houston.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Mid_Ohio_Sports.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Mont_Tremblant.csv DATE Local=06/27/2019 vs 06/16/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:NJMP_Lightning.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:NJMP_Thunderbolt.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:NYST_New_York_Safety_Track.csv DATE Local=07/08/2019 vs 04/25/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:New_Hampshire_Motor_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:New_Hampshire_Motor_Speedway_Chicane.csv DATE Local=06/27/2019 vs 04/24/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Nola_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Palm_Beach_International_Raceway.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Palmer_Motorsports_Park.csv DATE Local=06/27/2019 vs 05/24/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Pittsburg_International.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Pocono_Internation_Full.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Pocono_International_North.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Portland_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Pueblo_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Remlap(Palmer)_Motorsports_Park.csv DATE Local=06/27/2019 vs 05/24/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Road_America.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Road_Atlanta.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Roebling_Road.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Sebring_Full_Course.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Silverstone_GP.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Sonoma_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Summit_Point_Shenandoah_NoCarousel.csv DATE Local=06/27/2019 vs 04/27/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Summit_Pointe_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Thompson_Motor_Speedway.csv DATE Local=07/12/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Thunderhill_Long.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Thunderhill_Short.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Virgina_Internation_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Watkins_Glen_Long.csv DATE Local=07/05/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Watkins_Glen_Short.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:57 AM:Willow_Springs_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:25:58 AM:Load Track:Tracks\Arizona_Motorsports_Park.csv
+7/31/2019 8:25:58 AM:Could not find file 'D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\uploads.txt'.
+7/31/2019 8:25:58 AM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM: 
+7/31/2019 8:28:27 AM:****** STARTUP
+7/31/2019 8:28:27 AM:The following serial ports were found:
+7/31/2019 8:28:34 AM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+7/31/2019 8:28:35 AM:Downloading file:
+7/31/2019 8:28:37 AM:
+Download finished!
+7/31/2019 8:28:37 AM:Done  - success: True
+7/31/2019 8:28:37 AM:Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,April 29 2019 13:16:11
+7/31/2019 8:28:37 AM:Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,April 29 2019 13:16:11
+7/31/2019 8:28:37 AM:Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,April 29 2019 13:16:11
+7/31/2019 8:28:37 AM:Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,July 03 2019 12:49:55
+7/31/2019 8:28:37 AM:Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,April 29 2019 13:27:57
+7/31/2019 8:28:37 AM:Limerock_Park.csv,90c30cc5a3264af220c379178888405d,June 16 2019 15:16:31
+7/31/2019 8:28:37 AM:MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Mid_Ohio_Sports.csv,4aca191c77215e69a41d5273ce4ff138,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,June 16 2019 16:04:15
+7/31/2019 8:28:37 AM:NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,April 25 2019 20:09:33
+7/31/2019 8:28:37 AM:New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,April 24 2019 12:26:21
+7/31/2019 8:28:37 AM:Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,April 29 2019 13:27:57
+7/31/2019 8:28:37 AM:Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,April 29 2019 13:16:11
+7/31/2019 8:28:37 AM:Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,May 24 2019 13:21:52
+7/31/2019 8:28:37 AM:Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,April 29 2019 13:27:57
+7/31/2019 8:28:37 AM:Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,May 24 2019 13:21:52
+7/31/2019 8:28:37 AM:Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,April 27 2019 21:09:26
+7/31/2019 8:28:37 AM:Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Watkins_Glen_Short.csv,fb4865afe7bde6aa279ec4b4198e3ac1,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,April 15 2019 21:59:40
+7/31/2019 8:28:37 AM:Local Scan->Arizona_Motorsports_Park.csv,b4818b20cce7a4096adb62dd198f5a56,07/25/2019
+7/31/2019 8:28:37 AM:Local Scan->Atlanta_Motorsport_Park_Kart.csv,cb78ef9f68287071af43d8c58e3fb12d,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Atlanta_Motorsports_Park_Main.csv,b0e4657dfda2728b7439fd79915dd1e1,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Auto_Club_Speedway_Sport_Cars.csv,ee1bcead2e8e4b17eae72bb23d8a8d69,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Autobahn_Country_Club_Full_Circuit.csv,e053c79a6fc9f895dc9c21cb1bfffc81,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Barber_Motorsport_Park.csv,468c824fbf8daf7689a519c501e7e6fe,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Blackhawk_Farms.csv,35a40c76d41636fe20c9e583fdcbebb4,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Brainerd_International_Raceway.csv,e56f03cef00fcdc4f7ccff617edf2283,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Brainerd_International_Raceway_Long_Track.csv,7bebc9d0491fe0fa927892e0d53f8ba2,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Buttonwillow_Raceway_Park.csv,822c160ecb67fcbc24e598cfbafa9ab7,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Carolina_Motorsports_Park.csv,9fadc2c0c436ca80fb8b316d2f590285,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Charlotte_Motor_Speedway.csv,af7589775318a25099f0be484c45b6d3,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Chuckwalla_Valley_Raceway.csv,d71e26a09924235aa175e80c252bc358,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Circuit_Of_The_Americas.csv,c0ce6403785ae74268663da322487030,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Club_Motorsports.csv,a217bc6cf150e002620a16d423f5b972,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Daytona_International.csv,14eeb184d7e64ff7ff5fec159bfda657,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Dominion_Raceway.csv,bfbef0d4163826e2b23e3ba1728d9fe5,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Exotics_Racing.csv,014859473a10243c281c48c152e29d7c,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Firebird_International_Raceway.csv,5586c3d91ed5a62874229333ac35cec9,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Giants_Despair_Hillclimb.csv,4c7de06091b9b8bc9789f14db4e7be06,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->GingerMan_Raceway.csv,dff7a459fe3accc7c3bdaa99e1a666e8,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Grattan_Raceway.csv,9f98451678a605cdd07f905a57143d61,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Hallett_Motor_Racing_Circuit.csv,a070da97f8897781132272d8b91b5575,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Heartland_Park_Topeka.csv,67ef9a0cd2ec9cf940915477c2ea663b,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->High_Plains_Raceway.csv,a2d7928c1ddaeb35d66a40999660e6f4,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Homestead-Miami_Speedway.csv,f0645f30feea5b1c275488dcad929aa2,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Inde_Motorsport_Ranch.csv,48fa6744858ab495d9e0f7ac400567a1,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Indianapolis_GrandPrix.csv,067b6542c66f0f49d35e8ad15f1d7b53,07/03/2019
+7/31/2019 8:28:37 AM:Local Scan->Laguna_Seca.csv,aa4aa3aece0adfec8b3fb12a4ee5bfd0,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Limerock_Park.csv,120c3138ed7115669f14107a7e4dfa1e,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Mid_Ohio_Sports.csv,bd34c499822b172eac9005c709cead2e,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Mont_Tremblant.csv,c9d6b37072220b0e6143349b11dc4380,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->MSR_Houston.csv,105752d2f7c663d531a706205bf7de59,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->New_Hampshire_Motor_Speedway.csv,db44116db48f1e26d1368980d7cadb14,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->New_Hampshire_Motor_Speedway_Chicane.csv,6608014cda3741f9408fed429b5609f8,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->NJMP_Lightning.csv,0d3aadcef485c8121feb96c908a1a264,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->NJMP_Thunderbolt.csv,dc65b969f9d91e3874c69747773e4e93,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Nola_Motorsports_Park.csv,b07f0396da993fec905c94669df2e247,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->NYST_New_York_Safety_Track (1).csv,48ea671b4c0208b1c0dddbf53ef9f301,07/09/2019
+7/31/2019 8:28:37 AM:Local Scan->NYST_New_York_Safety_Track.csv,e18b4877cc1c42ca88e448ca4222c4cc,07/08/2019
+7/31/2019 8:28:37 AM:Local Scan->Palm_Beach_International_Raceway.csv,8277d732630daf96998be9fa62e804cd,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Palmer_Motorsports_Park.csv,7667482d662d720eb5ef85ab5dcd3199,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Pittsburg_International.csv,3af02aab8eec516349e024fbab04aae5,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Pocono_Internation_Full.csv,b73a2bb3dce2a9d5b86ef79d361fe263,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Pocono_International_North.csv,02404e072a03f509cba4aa3b02fa2214,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Portland_International_Raceway.csv,8e5d487f795e1c1f803fd601c5ef37b8,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Pueblo_Motorsports_Park.csv,b508283b52dc0ee41634fb3ec330c30b,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Remlap(Palmer)_Motorsports_Park.csv,9d91ff1a0d9cb69774ae19f9ee86e1b0,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Road_America.csv,56a1278051cb3198cc58037b926fefa8,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Road_Atlanta.csv,1285e6ee88ba0895973c1c9bcf4a71fd,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Roebling_Road.csv,9365b43342a7d5c2cafdfb3af3fa6a1d,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Sebring_Full_Course.csv,062f4945c2503f399fdc5c2a8a37397c,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Silverstone_GP.csv,5eb19c411a9dc74dfde54a5f4a22d823,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Sonoma_Raceway.csv,033698015579806fb4bd342f5647c359,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Summit_Point_Shenandoah_NoCarousel.csv,0d8cd5432384f3e5931c794c80982d2b,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Summit_Pointe_Raceway.csv,a7dccf0c8e7f583cf33cc803e6ad19f0,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Thompson_Motor_Speedway.csv,f66743cfd5532b3cb074286b06928246,07/12/2019
+7/31/2019 8:28:37 AM:Local Scan->Thunderhill_Long.csv,b13c77c5d617a519155106ffd81e4810,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Thunderhill_Short.csv,73f95fd9d7ea19237accbd69f259ff7f,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Virgina_Internation_Raceway.csv,f56a566d4f843691cb935a0f914356da,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Watkins_Glen_Long.csv,715f480725c1a4f4952d61f9f0e0cc80,07/05/2019
+7/31/2019 8:28:37 AM:Local Scan->Watkins_Glen_Short.csv,e0cc45d2cce12faa6feaaec10ac0c59a,06/27/2019
+7/31/2019 8:28:37 AM:Local Scan->Willow_Springs_International_Raceway.csv,95d8352365bb92691a61ef0e7fdf429c,06/27/2019
+7/31/2019 8:28:37 AM:Arizona_Motorsports_Park.csv DATE Local=07/25/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Atlanta_Motorsport_Park_Kart.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Atlanta_Motorsports_Park_Main.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Auto_Club_Speedway_Sport_Cars.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Autobahn_Country_Club_Full_Circuit.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Barber_Motorsport_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Blackhawk_Farms.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Brainerd_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Brainerd_International_Raceway_Long_Track.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Buttonwillow_Raceway_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Carolina_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Charlotte_Motor_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Chuckwalla_Valley_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Circuit_Of_The_Americas.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Club_Motorsports.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Daytona_International.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Dominion_Raceway.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Exotics_Racing.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Firebird_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Giants_Despair_Hillclimb.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:GingerMan_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Grattan_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Hallett_Motor_Racing_Circuit.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Heartland_Park_Topeka.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:High_Plains_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Homestead-Miami_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Inde_Motorsport_Ranch.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Indianapolis_GrandPrix.csv DATE Local=07/03/2019 vs 07/03/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Laguna_Seca.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Limerock_Park.csv DATE Local=06/27/2019 vs 06/16/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:MSR_Houston.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Mid_Ohio_Sports.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Mont_Tremblant.csv DATE Local=06/27/2019 vs 06/16/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:NJMP_Lightning.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:NJMP_Thunderbolt.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:NYST_New_York_Safety_Track.csv DATE Local=07/08/2019 vs 04/25/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:New_Hampshire_Motor_Speedway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:New_Hampshire_Motor_Speedway_Chicane.csv DATE Local=06/27/2019 vs 04/24/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Nola_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Palm_Beach_International_Raceway.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Palmer_Motorsports_Park.csv DATE Local=06/27/2019 vs 05/24/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Pittsburg_International.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Pocono_Internation_Full.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Pocono_International_North.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Portland_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Pueblo_Motorsports_Park.csv DATE Local=06/27/2019 vs 04/29/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Remlap(Palmer)_Motorsports_Park.csv DATE Local=06/27/2019 vs 05/24/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Road_America.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Road_Atlanta.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Roebling_Road.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Sebring_Full_Course.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Silverstone_GP.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Sonoma_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Summit_Point_Shenandoah_NoCarousel.csv DATE Local=06/27/2019 vs 04/27/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Summit_Pointe_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Thompson_Motor_Speedway.csv DATE Local=07/12/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Thunderhill_Long.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Thunderhill_Short.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Virgina_Internation_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Watkins_Glen_Long.csv DATE Local=07/05/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Watkins_Glen_Short.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Willow_Springs_International_Raceway.csv DATE Local=06/27/2019 vs 04/15/2019 Local Is Newer=True
+7/31/2019 8:28:37 AM:Load Track:Tracks\Arizona_Motorsports_Park.csv
+7/31/2019 8:28:37 AM:Could not find file 'D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\uploads.txt'.
+7/31/2019 8:28:37 AM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+7/31/2019 8:28:50 AM:Load Track:Tracks\Atlanta_Motorsports_Park_Main.csv
+7/31/2019 8:29:04 AM:Load Track:Tracks\Arizona_Motorsports_Park.csv
+7/31/2019 8:29:15 AM:Load Track:Tracks\Chuckwalla_Valley_Raceway.csv
+7/31/2019 8:29:23 AM:Load Track:Tracks\Arizona_Motorsports_Park.csv

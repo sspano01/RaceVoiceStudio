@@ -1,13 +1,14 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.IO;
+using System.Data;
 using System.Windows.Forms;
 
 namespace RaceVoice
 {
     internal class sqldatabase
     {
-       
+
 
         public bool ValidateUUID(string uuid,bool set, CarMetadata cm)
         {
@@ -18,6 +19,7 @@ namespace RaceVoice
             string email_address = "none";
             string user_name = "";
             int access_count = 0;
+            bool all_stop = false;
             connetionString = "Data Source=" + globals.racevoice_sqlserver + "; Initial Catalog = racevoice;Integrated Security=False;User ID=root;Password=#RaceVoice01;connection timeout=30";
 
             //connectionString="Data Source=104.155.20.171;Initial Catalog=bookshelf;Integrated Security=False;User ID=dotnetapp;Password=test;MultipleActiveResultSets=True"
@@ -59,37 +61,56 @@ namespace RaceVoice
                     }
                 }
                 reader.Close();
+                sqlConnection1.Close();
 
-                if (!match_uuid)
+
+                try
                 {
-                    globals.WriteLine("UUID was not found");
-                    // try by email address
-                    licenseemail getemail = new licenseemail();
-                    getemail.ShowDialog();
-                    email_address = getemail.user_email;
-                    user_name = getemail.user_name;
-                    //email_address = "steve@fl-eng.com";
-                    //email_address = "jamesr@pointsw.com";
-                    cmd.CommandText = "SELECT * FROM license where email = '" + email_address + "'";
-                    //cmd.CommandType = Command
-                    cmd.Connection = sqlConnection1;
-
-                    reader = cmd.ExecuteReader();
-                    // Data is accessible through the DataReader object here.
-                    while (reader.Read())
+                    if (!match_uuid)
                     {
-                        string dbname = reader.GetValue(0).ToString();
-                        dbuuid = reader.GetValue(1).ToString().ToUpper().Trim();
-                        string dblastaccess = reader.GetValue(2).ToString();
-                        string dbemail = reader.GetValue(3).ToString().ToUpper().Trim();
-                        dbauth = reader.GetValue(4).ToString().ToUpper().Trim();
-                        if (dbemail == email_address.ToUpper().Trim())
+                        globals.WriteLine("UUID was not found");
+                        // try by email address
+                        licenseemail getemail = new licenseemail();
+                        getemail.ShowDialog();
+                        email_address = getemail.user_email;
+                        user_name = getemail.user_name;
+                        //email_address = "steve@fl-eng.com";
+                        //email_address = "jamesr@pointsw.com";
+                        sqlConnection1.Open();
+                        cmd.CommandText = "SELECT * FROM license where email = '" + email_address + "'";
+                        //cmd.CommandType = Command
+                        cmd.Connection = sqlConnection1;
+
+                        reader = cmd.ExecuteReader();
+                        // Data is accessible through the DataReader object here.
+                        while (reader.Read())
                         {
-                            match_email = true;
+                            string dbname = reader.GetValue(0).ToString();
+                            dbuuid = reader.GetValue(1).ToString().ToUpper().Trim();
+                            string dblastaccess = reader.GetValue(2).ToString();
+                            string dbemail = reader.GetValue(3).ToString().ToUpper().Trim();
+                            dbauth = reader.GetValue(4).ToString().ToUpper().Trim();
+                            if (dbemail == email_address.ToUpper().Trim())
+                            {
+                                match_email = true;
+                            }
                         }
                     }
+                    reader.Close();
+
+                   
                 }
-                reader.Close();
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                    globals.WriteLine(ee.Message);
+                }
+
+                if (sqlConnection1.State != ConnectionState.Open)
+                {
+                    sqlConnection1.Close();
+                    sqlConnection1.Open();
+                }
 
                 if (match_uuid && set)
                 {
@@ -145,7 +166,7 @@ namespace RaceVoice
                         MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         globals.license_state = "REVOKE";
                         sqlConnection1.Close();
-                        return false;
+                        Application.Exit();
                     }
 
                    globals.license_state = "EXPIRED";
@@ -203,6 +224,7 @@ namespace RaceVoice
                     {
                         globals.WriteLine(ee.Message);
                         MessageBox.Show("License Registration Failed. Plese contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        all_stop = true;
                         val_status = false;
                     }
                 }
@@ -211,7 +233,8 @@ namespace RaceVoice
                 {
                     // tell the user they are not in the database, contact support for licensing
                     // end program
-                    MessageBox.Show("Your system identification and email has not been found.Please contact support@racevoice.com for assitance with licensing", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    all_stop = true;
+                    MessageBox.Show("Your system identification and email has not been found.Please contact support@racevoice.com for assistance with licensing", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     val_status = false;
                 }
             }
@@ -222,6 +245,11 @@ namespace RaceVoice
 
             sqlConnection1.Close();
 
+            if (all_stop)
+            {
+                globals.all_stop = true;
+                Application.Exit();
+            }
             return val_status;
         }
     }

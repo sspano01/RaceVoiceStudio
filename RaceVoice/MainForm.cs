@@ -125,13 +125,20 @@ namespace RaceVoice
                 }
             }
 
-            if (_carMetadata.EngineData.TrackSelectionIndex >= cmbTracks.Items.Count)
+            try
             {
-                cmbTracks.SelectedIndex = 0;
+                if (_carMetadata.EngineData.TrackSelectionIndex >= cmbTracks.Items.Count)
+                {
+                    cmbTracks.SelectedIndex = 0;
+                }
+                else
+                {
+                    cmbTracks.SelectedIndex = _carMetadata.EngineData.TrackSelectionIndex;
+                }
             }
-            else
+            catch (Exception ee)
             {
-                cmbTracks.SelectedIndex = _carMetadata.EngineData.TrackSelectionIndex;
+                globals.WriteLine(ee.Message);
             }
         }
 
@@ -511,6 +518,8 @@ namespace RaceVoice
         private bool CheckLicensedUser()
         {
             bool state = false;
+            if (globals.all_stop) return false;
+
             globals.theUUID = HardwareInfo.GenerateUID("RACEVOICE");
             globals.WriteLine("UUID==" + globals.theUUID);
             sqldatabase sql = new sqldatabase();
@@ -617,6 +626,7 @@ namespace RaceVoice
                 chkMaxLateralG,
                 chkMaxLinearG,
                 chkLateralG,
+                chKsegmentRollingMph
             };
 
             _carMetadata = CarMetadata.Load(_carMetafile);
@@ -700,6 +710,7 @@ namespace RaceVoice
             UpdateSegments();
             UpdateEngineDataValues();
             UpdateDynamicsDataValues();
+            UpdateDataCheckboxes();
 
             zoom.Value = Math.Max(zoom.Minimum, Math.Min(zoom.Maximum, _trackMetadata.Zoom));
             rotation.Value = Math.Max(rotation.Minimum, Math.Min(rotation.Maximum, _trackMetadata.Rotation));
@@ -847,13 +858,6 @@ namespace RaceVoice
         }
 
 
-        private void deleteSelectedSegmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_renderer.SelectedSegment != null)
-            {
-                _renderer.DeleteSegment(_renderer.SelectedSegment);
-            }
-        }
 
         private void rendererRightClickMenu_Opening(object sender, CancelEventArgs e)
         {
@@ -921,6 +925,16 @@ namespace RaceVoice
             }
         }
 
+
+        private void deleteSelectedSegmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_renderer.SelectedSegment != null)
+            {
+                _renderer.DeleteSegment(_renderer.SelectedSegment);
+                ReRender();
+                UpdateSegments();
+            }
+        }
         private void TrackScroll(object sender, EventArgs e)
         {
             _trackMetadata.XPan = hScroll.Value;
