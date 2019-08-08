@@ -1,9 +1,10 @@
-07-09-19
+08-08-19
 ===================================
 Fixed a bug where last corner performance triggers could be missed depending on distance to start/finish
 Fixed a bug where split-time announcements could be dropped under certain conditions
 Fixed a bug where wheel speed rate value could cause an exception error
 Fixed a bug where CANBus could hang at boot with multiple devices or transmission timing
+Further improved GPS matching algorithim for both segment and split time locations
 Added support to sync tracks by name between the RaceVoice unit and RaceVoice Studio, not just numerical index
 Changed UI to provide a button to set the CANBus baud rate, this is no longer downloaded with "SendConfiguration"
 Added support for SmartyCam emulation

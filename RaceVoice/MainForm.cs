@@ -1224,12 +1224,12 @@ namespace RaceVoice
         }
 
 
-        private void ReadDataFromRaceVoice(bool version_only)
+        private bool ReadDataFromRaceVoice(bool version_only)
         {
             if (!globals.IsRaceVoiceConnected())
             {
                 AdjustUIForFeatures();
-                return;
+                return false;
             }
 
             rvcom.OpenSerial();
@@ -1263,6 +1263,7 @@ namespace RaceVoice
                 rvcom.Bar(0);
             }
             AdjustUIForFeatures();
+            return true;
 
 
         }
@@ -1819,6 +1820,26 @@ namespace RaceVoice
                 rvcom.CloseSerial();
             }
 
+        }
+
+        private void firmwareUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            firmware updater = new firmware();
+            int update_stat = 0;
+            if (ReadDataFromRaceVoice(true)) // get the version from the unit
+            {
+                _carMetadata.Save(_carMetafile); // save what we read ... should jsut be version and name
+                updater.ComparePackagedFirmwareVersion(_carMetadata);
+                update_stat = updater.UpdateFirmware();
+                if (update_stat < 0)
+                {
+                    Application.Exit();
+                }
+                if (update_stat == 1)
+                {
+                    ReadDataFromRaceVoice(true); // get the new version
+                }
+            }
         }
     }
 }
