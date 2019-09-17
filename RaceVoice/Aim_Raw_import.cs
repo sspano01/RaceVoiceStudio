@@ -126,7 +126,8 @@ namespace RaceVoice
             dlng = Convert.ToDouble(lng) / 1e7;
             txt = dlat.ToString() + "," + dlng.ToString() + ",0,0";
 
-            if (lat > 100 && lng > 100) txt = "";
+            if (dlat > 100 && dlng > 100) txt = "";
+            //Console.WriteLine("GPS->" + txt);
             return txt;
         }
 
@@ -145,7 +146,8 @@ namespace RaceVoice
                 }
 
                 Console.WriteLine("Generating->" + ztrackname+"--->"+trackname);
-                System.IO.StreamWriter ofile = new System.IO.StreamWriter(globals.LocalFolder() + "//tracks//" + trackname.Replace(' ', '_') + ".csv");
+                string oname = globals.LocalFolder() + "\\tracks\\" + trackname.Replace(' ', '_') + ".csv";
+                System.IO.StreamWriter ofile = new System.IO.StreamWriter(oname);
 
 
                 offset = 0x448;
@@ -169,12 +171,13 @@ namespace RaceVoice
                     {
                         if (fdata[i] == 0 && fdata[i + 1] == 0 && fdata[i + 2] == 0 && fdata[i + 3] == 0)
                         {
-                            //globals.WriteLine("Mark @ " + i);
+                            globals.WriteLine("Mark @ " + i);
 
                             wl = toGPS(fdata, (i + 4));
                             if (wl.Length > 0)
                             {
 
+                                globals.WriteLine("Writing @ " + i);
                                 ofile.WriteLine(wl);
                             }
 
@@ -182,7 +185,8 @@ namespace RaceVoice
                         }
                         else
                         {
-                            break;
+                            globals.WriteLine("Skipping @ " + i);
+                            //break;
                         }
 
                     }

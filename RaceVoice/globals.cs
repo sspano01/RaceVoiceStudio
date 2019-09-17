@@ -25,9 +25,9 @@ namespace RaceVoice
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
-        public static bool no_unit_check = false;
+        public static bool no_unit_check = true;
         public static string forcePort = "";
-        public static bool no_track_check = false;
+        public static bool no_track_check = true;
         public static bool no_license_check =false;
 
         public static bool disabled_charts = true;
@@ -57,7 +57,8 @@ namespace RaceVoice
         {
             NONE,
             FULL,
-            LITE
+            LITE,
+            DEMO
         }
 
         public static string ToTrackName(string ascii_name)

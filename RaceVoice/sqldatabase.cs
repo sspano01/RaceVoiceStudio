@@ -161,6 +161,12 @@ namespace RaceVoice
                         sqlConnection1.Close();
                         return true;
                     }
+                    if (dbauth.Contains("DEMO"))
+                    {
+                            globals.license_state = "DEMO";
+                            sqlConnection1.Close();
+                            return true;
+                    }
                     if (dbauth.Contains("REVOKE") || dbauth.Contains("NONE"))
                     {
                         MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -231,11 +237,56 @@ namespace RaceVoice
 
                 if (!match_email && !match_uuid)
                 {
-                    // tell the user they are not in the database, contact support for licensing
-                    // end program
-                    all_stop = true;
-                    MessageBox.Show("Your system identification and email has not been found.Please contact support@racevoice.com for assistance with licensing", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    val_status = false;
+                    if (dbuuid.Length > 0 && dbuuid.Contains("NONE") == false)
+                    {
+                        uuid = dbuuid + "," + uuid; // append a computer ID
+                    }
+                    // tell the user we are going to license them for the first time
+                    MessageBox.Show("Your email was not found\r\nRaceVoice Studio will be activated in Demonstration Mode.\r\n", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int ac = 1;
+                    string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
+                    cmd.CommandText = "INSERT INTO license VALUES (@name, @uuid, @lastaccess, @email, @authorization, @purchasedate, @accesscount, @swversion, @unitversion)";
+                    dbauth = "demo";
+                    cmd.Parameters.AddWithValue("@name", user_name);
+                    cmd.Parameters.AddWithValue("@uuid", uuid);
+                    cmd.Parameters.AddWithValue("@lastaccess", timedate);
+                    cmd.Parameters.AddWithValue("@email", email_address);
+                    cmd.Parameters.AddWithValue("@authorization", dbauth);
+                    cmd.Parameters.AddWithValue("@purchasedate", timedate);
+                    cmd.Parameters.AddWithValue("@accesscount", ac);
+                    cmd.Parameters.AddWithValue("@swversion", globals.UIVersion);
+                    cmd.Parameters.AddWithValue("@unitversion",dbauth);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        val_status = true;
+                        string trackPath = globals.LocalFolder() + "\\tracks";
+                        try
+                        {
+                            System.IO.DirectoryInfo di = new DirectoryInfo(trackPath);
+
+                            foreach (FileInfo file in di.GetFiles())
+                            {
+                                globals.WriteLine("DELETE->" + file.Name);
+                               // file.Delete();
+                            }
+                        }
+                        catch (Exception ee)
+                        {
+                            globals.WriteLine(ee.Message);
+                        }
+                        globals.virgin_load = true;
+                        globals.license_state = "RELOAD";
+                        MessageBox.Show("Demo Mode Enabled - Thank You", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    catch (Exception ee)
+                    {
+                        globals.WriteLine(ee.Message);
+                        MessageBox.Show("License Registration Failed. Plese contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        all_stop = true;
+                        val_status = false;
+                    }
                 }
             }
             catch (Exception ee)

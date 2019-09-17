@@ -15,8 +15,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 40,
-    "TrackSelectionName": "NCM Grand Course",
+    "TrackSelectionIndex": 34,
+    "TrackSelectionName": "Mid-Ohio Club Chicane",
     "FindTrackByName": false
   },
   "DynamicsData": {

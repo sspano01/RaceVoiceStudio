@@ -39,9 +39,10 @@ namespace RaceVoice
         public MainForm()
         {
             //import aim_import = new import();
-            //string file = globals.LocalFolder() + "\\aim\\palmbeach.ztracks";
-           // aim_import.ImportZTRACK(file);
-           // aim_import.Parse(true);
+            //string file = globals.LocalFolder() + "\\aim\\mugello.ztracks";
+            //string oname ="mugello";
+            //aim_import.ImportZTRACK(file,oname);
+            //aim_import.Parse(true);
 
             InitializeComponent();
 
@@ -166,6 +167,7 @@ namespace RaceVoice
         {
             string key_lite = EncodeFeature("VALID LITE");
             string key_full = EncodeFeature("VALID");
+            string key_demo = EncodeFeature("DEMO");
             globals.license_feature = 0;
             string local_key = _carMetadata.HardwareData.FeatureCode.Trim().ToUpper();
 
@@ -174,6 +176,7 @@ namespace RaceVoice
                 globals.license_feature = (int)globals.FeatureState.FULL; // assume we have full version
                 
             }
+            if (local_key.Contains(key_demo)) globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
             if (local_key.Contains(key_full)) globals.license_feature = (int)globals.FeatureState.FULL; // full version
             if (local_key.Contains(key_lite)) globals.license_feature = (int)globals.FeatureState.LITE; // lite version
 
@@ -265,77 +268,79 @@ namespace RaceVoice
                     isplash.Close();
                     return;
                 }
-                if (globals.no_track_check)
+                if (!globals.no_track_check)
                 {
-                    isplash.Close();
-                    return;
-                }
-                isplash.setbar(80);
-                isplash.setlabel("Checking For Updates ....");
+                    isplash.setbar(80);
+                    isplash.setlabel("Checking For Updates ....");
 
-                fd.DownloadFile("tracks.php", "remotetracks.php");
-                //MessageBox.Show("hi");
+                    fd.DownloadFile("tracks.php", "remotetracks.php");
+                    //MessageBox.Show("hi");
 
-                // now load the data into an array
-                try
-                {
-                    path += "remotetracks.php";
-                    System.IO.StreamReader file = new System.IO.StreamReader(path);
-                    while ((line = file.ReadLine()) != null)
+                    // now load the data into an array
+                    try
                     {
-                        globals.WriteLine(line);
-                        remotetracks[ri] = line;
-                        ri++;
+                        path += "remotetracks.php";
+                        System.IO.StreamReader file = new System.IO.StreamReader(path);
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            globals.WriteLine(line);
+                            remotetracks[ri] = line;
+                            ri++;
+                        }
+                        file.Close();
+                        System.IO.File.Delete(path);
+
                     }
-                    file.Close();
-                    System.IO.File.Delete(path);
+                    catch (Exception e)
+                    {
+                        globals.WriteLine(e.Message);
+                        isplash.Close();
+                        return;
+                    }
 
+                    path = globals.LocalFolder() + "\\tracks";
+                    // MessageBox.Show("!");
+                    if (Directory.Exists(path) == false)
+                    {
+                        Directory.CreateDirectory(path);
+                        Thread.Sleep(1000);
+                    }
+                    // Take a snapshot of the file system.
+                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
+
+                    // This method assumes that the application has discovery permissions
+                    // for all folders under the specified path.
+                    IEnumerable<System.IO.FileInfo> fileList = dir.GetFiles("*.*", System.IO.SearchOption.AllDirectories);
+
+                    //Create the query
+                    IEnumerable<System.IO.FileInfo> fileQuery =
+                    from file in fileList
+                    where file.Extension == ".csv"
+                    orderby file.Name
+                    select file;
+
+                    //Execute the query. This might write out a lot of files!
+                    foreach (System.IO.FileInfo fi in fileQuery)
+                    {
+                        string hash = globals.CalculateMD5(fi.FullName);
+                        DateTime lastModified = System.IO.File.GetLastWriteTime(fi.FullName);
+                        string tn = fi.Name + "," + hash + "," + lastModified.ToString("MM/dd/yyyy");
+                        localtracks[li] = tn;
+                        li++;
+                        globals.WriteLine("Local Scan->" + tn);
+                    }
+                    // now also add firmware and exe local hashes into this mix
+                    //path = globals.LocalFolder() + "\\racevoice.exe";
+                    //localtracks[li] = "racevoice.exe,"+globals.CalculateMD5(path);
+                    //li++;
+                    //path = globals.LocalFolder() + "\\firmware.hex";
+                    //localtracks[li] = "firmware.hex," + globals.CalculateMD5(path);
+                    //li++;
                 }
-                catch (Exception e)
+                else
                 {
-                    globals.WriteLine(e.Message);
                     isplash.Close();
-                    return;
                 }
-
-                path = globals.LocalFolder() + "\\tracks";
-                // MessageBox.Show("!");
-                if (Directory.Exists(path) == false)
-                {
-                    Directory.CreateDirectory(path);
-                    Thread.Sleep(1000);
-                }
-                // Take a snapshot of the file system.
-                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
-
-                // This method assumes that the application has discovery permissions
-                // for all folders under the specified path.
-                IEnumerable<System.IO.FileInfo> fileList = dir.GetFiles("*.*", System.IO.SearchOption.AllDirectories);
-
-                //Create the query
-                IEnumerable<System.IO.FileInfo> fileQuery =
-                from file in fileList
-                where file.Extension == ".csv"
-                orderby file.Name
-                select file;
-
-                //Execute the query. This might write out a lot of files!
-                foreach (System.IO.FileInfo fi in fileQuery)
-                {
-                    string hash = globals.CalculateMD5(fi.FullName);
-                    DateTime lastModified = System.IO.File.GetLastWriteTime(fi.FullName);
-                    string tn = fi.Name + "," + hash + "," + lastModified.ToString("MM/dd/yyyy");
-                    localtracks[li] = tn;
-                    li++;
-                    globals.WriteLine("Local Scan->" + tn);
-                }
-                // now also add firmware and exe local hashes into this mix
-                //path = globals.LocalFolder() + "\\racevoice.exe";
-                //localtracks[li] = "racevoice.exe,"+globals.CalculateMD5(path);
-                //li++;
-                //path = globals.LocalFolder() + "\\firmware.hex";
-                //localtracks[li] = "firmware.hex," + globals.CalculateMD5(path);
-                //li++;
 
 
             }
@@ -480,8 +485,10 @@ namespace RaceVoice
         {
             string debug = "";
             string MainFormText = "RaceVoice Studio ";
-            if (globals.license_feature == (int)globals.FeatureState.LITE) MainFormText += "Lite "; else MainFormText += "Pro ";
-            MainFormText+="Version "+ globals.UIVersion;
+            if (globals.license_feature == (int)globals.FeatureState.LITE) MainFormText += "Lite ";
+            else if (globals.license_feature == (int)globals.FeatureState.DEMO) MainFormText += "Demo Mode "; else MainFormText += "Pro ";
+
+            MainFormText += "Version "+ globals.UIVersion;
             if (globals.no_track_check) debug += " DEBUG:NO TRACK CHECKING";
             if (globals.no_unit_check) debug += " DEBUG:NO UNIT COMMUNICATION";
             /*
@@ -553,12 +560,13 @@ namespace RaceVoice
             firmware updater = new firmware();
             int update_stat = 0;
             _carMetadata.HardwareData.SWVersion = globals.UIVersion;
+
             if (!atboot)
             {
                 if (!globals.IsRaceVoiceConnected()) return;
             }
 
-            if (globals.thePort.Length == 0)
+            if (globals.thePort.Length == 0 || IsDemoMode(false))
             {
 
                 _carMetadata.Save(_carMetafile); // save what we read
@@ -1268,9 +1276,26 @@ namespace RaceVoice
 
         }
 
+        private bool IsDemoMode(bool nag)
+        {
+
+            if (globals.license_feature == (int)globals.FeatureState.DEMO)
+            {
+                if (nag)
+                {
+                    MessageBox.Show("RaceVoice Studio is in Demonstration Mode\r\n\r\nGoto www.RaceVoice.com\r\nto purchase a unit for full access to RaceVoice Studio", "RaceVoice Demo Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                return true;
+            }
+            return false;
+
+        }
         private void sendConfigButton(object sender, EventArgs e)
         {
-             WriteDataToFwTrace();
+            if (IsDemoMode(true)) return;
+                
+            WriteDataToFwTrace();
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -1280,6 +1305,7 @@ namespace RaceVoice
 
         private void getConfigButton(object sender, EventArgs e)
         {
+            if (IsDemoMode(true)) return;
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -1619,6 +1645,7 @@ namespace RaceVoice
         private bool FeatureAllowed()
         {
             if (globals.license_feature == (int)globals.FeatureState.FULL) return true;
+            if (globals.license_feature == (int)globals.FeatureState.DEMO) return true;
             MessageBox.Show("Sorry, this feature is not available in RaceVoice Lite\r\nContact RaceVoice to upgrade your license", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
 
@@ -1826,6 +1853,7 @@ namespace RaceVoice
         {
             firmware updater = new firmware();
             int update_stat = 0;
+            if (IsDemoMode(true)) return;
             if (ReadDataFromRaceVoice(true)) // get the version from the unit
             {
                 _carMetadata.Save(_carMetafile); // save what we read ... should jsut be version and name
