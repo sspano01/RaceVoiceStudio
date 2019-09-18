@@ -30,6 +30,7 @@ namespace RaceVoice
         private void saveSettings_Click(object sender, EventArgs e)
         {
             bool valid = false;
+            if (globals.IsDemoMode(true)) return;
             racevoicecom rvcom = new racevoicecom();
             if (!globals.IsRaceVoiceConnected())
             {

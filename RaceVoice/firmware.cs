@@ -305,7 +305,8 @@ namespace RaceVoice
                 if (apply_patch==1)
                 {
                     MessageBox.Show("RaceVoice Studio will now close.\r\nPlease restart RaceVoice studio to complete the second step of the update process\r\nYou will be prompted for an additional firmware update.", "Step-Two", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Application.Exit();
+                    globals.Terminate();
+
                 }
             }
             return reboot_good;

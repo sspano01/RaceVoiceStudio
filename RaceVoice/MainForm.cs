@@ -256,7 +256,8 @@ namespace RaceVoice
                     _carMetadata.HardwareData.LicenseState = EncodeLicense(false);
                     _carMetadata.Save(_carMetafile);
                     isplash.Close();
-                    Application.Exit();
+                    globals.Terminate();
+                    
                     return;
                 }
 
@@ -352,7 +353,8 @@ namespace RaceVoice
                 {
                     MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     _carMetadata.Save(_carMetafile);
-                    Application.Exit();
+                    globals.Terminate();
+
 
                 }
             }
@@ -566,7 +568,7 @@ namespace RaceVoice
                 if (!globals.IsRaceVoiceConnected()) return;
             }
 
-            if (globals.thePort.Length == 0 || IsDemoMode(false))
+            if (globals.thePort.Length == 0 || globals.IsDemoMode(false))
             {
 
                 _carMetadata.Save(_carMetafile); // save what we read
@@ -591,9 +593,10 @@ namespace RaceVoice
                             }
                             if (update_stat < 0)
                             {
-                                Application.Exit();
-                            }
+                            globals.Terminate();
+
                         }
+                    }
                         globals.WriteLine("done");
 
                 }
@@ -606,7 +609,8 @@ namespace RaceVoice
                         update_stat = updater.UpdateFirmware();
                         if (update_stat < 0)
                         {
-                            Application.Exit();
+                            globals.Terminate();
+
                         }
                         if (update_stat==1)
                         {
@@ -1186,6 +1190,8 @@ namespace RaceVoice
         }
         private void dataTraceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (globals.IsDemoMode(true)) return;
+
             try
             {
                 RealTimeView rtv = new RealTimeView();
@@ -1276,24 +1282,10 @@ namespace RaceVoice
 
         }
 
-        private bool IsDemoMode(bool nag)
-        {
-
-            if (globals.license_feature == (int)globals.FeatureState.DEMO)
-            {
-                if (nag)
-                {
-                    MessageBox.Show("RaceVoice Studio is in Demonstration Mode\r\n\r\nGoto www.RaceVoice.com\r\nto purchase a unit for full access to RaceVoice Studio", "RaceVoice Demo Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                return true;
-            }
-            return false;
-
-        }
+       
         private void sendConfigButton(object sender, EventArgs e)
         {
-            if (IsDemoMode(true)) return;
+            if (globals.IsDemoMode(true)) return;
                 
             WriteDataToFwTrace();
             if (!globals.first_connected)
@@ -1305,7 +1297,7 @@ namespace RaceVoice
 
         private void getConfigButton(object sender, EventArgs e)
         {
-            if (IsDemoMode(true)) return;
+            if (globals.IsDemoMode(true)) return;
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -1851,9 +1843,9 @@ namespace RaceVoice
 
         private void firmwareUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (globals.IsDemoMode(true)) return;
             firmware updater = new firmware();
             int update_stat = 0;
-            if (IsDemoMode(true)) return;
             if (ReadDataFromRaceVoice(true)) // get the version from the unit
             {
                 _carMetadata.Save(_carMetafile); // save what we read ... should jsut be version and name
@@ -1861,7 +1853,8 @@ namespace RaceVoice
                 update_stat = updater.UpdateFirmware();
                 if (update_stat < 0)
                 {
-                    Application.Exit();
+                    globals.Terminate();
+
                 }
                 if (update_stat == 1)
                 {

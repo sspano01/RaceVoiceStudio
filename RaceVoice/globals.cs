@@ -15,7 +15,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "08-08-2019-A1";
+        public static string UIVersion = "09-18-2019-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
 
@@ -285,17 +285,89 @@ namespace RaceVoice
             return dir;
         }
 
+        public static bool IsNetworkAvailable()
+        {
+            return IsNetworkAvailable(0);
+        }
+
+        /// <summary>
+        /// Indicates whether any network connection is available.
+        /// Filter connections below a specified speed, as well as virtual network cards.
+        /// </summary>
+        /// <param name="minimumSpeed">The minimum speed required. Passing 0 will not filter connection using speed.</param>
+        /// <returns>
+        ///     <c>true</c> if a network connection is available; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsNetworkAvailable(long minimumSpeed)
+        {
+            if (!NetworkInterface.GetIsNetworkAvailable())
+                return false;
+
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                // discard because of standard reasons
+                if ((ni.OperationalStatus != OperationalStatus.Up) ||
+                    (ni.NetworkInterfaceType == NetworkInterfaceType.Loopback) ||
+                    (ni.NetworkInterfaceType == NetworkInterfaceType.Tunnel))
+                    continue;
+
+                // this allow to filter modems, serial, etc.
+                // I use 10000000 as a minimum speed for most cases
+                if (ni.Speed < minimumSpeed)
+                    continue;
+
+                // discard virtual cards (virtual box, virtual pc, etc.)
+                if ((ni.Description.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    (ni.Name.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0))
+                    continue;
+
+                // discard "Microsoft Loopback Adapter", it will not show as NetworkInterfaceType.Loopback but as Ethernet Card.
+                if (ni.Description.Equals("Microsoft Loopback Adapter", StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                return true;
+            }
+            return false;
+        }
+
+        public static bool IsDemoMode(bool nag)
+        {
+
+            if (globals.license_feature == (int)globals.FeatureState.DEMO)
+            {
+                if (nag)
+                {
+                    MessageBox.Show("RaceVoice Studio is in Demonstration Mode\r\n\r\nGoto www.RaceVoice.com\r\nto purchase a unit for full access to RaceVoice Studio", "RaceVoice Demo Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                return true;
+            }
+            return false;
+
+        }
+
+        public static void Terminate()
+        {
+            Environment.Exit(0);
+        }
         public static bool PingTest()
         {
             try
             {
+                if (!IsNetworkAvailable()) return false;
+
                 Ping myPing = new Ping();
-                String host = "google.com";
+                String host = "www.google.com";
                 byte[] buffer = new byte[32];
-                int timeout = 1000;
-                PingOptions pingOptions = new PingOptions();
-                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                return (reply.Status == IPStatus.Success);
+                int i;
+                for (i = 0; i < 5; i++)
+                {
+                    int timeout = 1000;
+                    PingOptions pingOptions = new PingOptions();
+                    PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                    if (reply.Status == IPStatus.Success) return true;
+                }
+                return false;
             }
             catch (Exception)
             {

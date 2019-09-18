@@ -298,7 +298,7 @@ namespace RaceVoice
                 catch (Exception ee)
                 {
                    MessageBox.Show("ERROR: Cannot load track files\r\n" + ee, "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   Application.Exit();
+                    globals.Terminate();
                 }
 
                 //trackList.SelectedIndex = 0;

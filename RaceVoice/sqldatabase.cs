@@ -74,6 +74,11 @@ namespace RaceVoice
                         getemail.ShowDialog();
                         email_address = getemail.user_email;
                         user_name = getemail.user_name;
+                        if (user_name.Contains("end"))
+                        {
+                            globals.Terminate();
+
+                        }
                         //email_address = "steve@fl-eng.com";
                         //email_address = "jamesr@pointsw.com";
                         sqlConnection1.Open();
@@ -172,10 +177,11 @@ namespace RaceVoice
                         MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         globals.license_state = "REVOKE";
                         sqlConnection1.Close();
-                        Application.Exit();
+                        globals.Terminate();
+
                     }
 
-                   globals.license_state = "EXPIRED";
+                    globals.license_state = "EXPIRED";
                    MessageBox.Show("Your RaceVoice License has expired.\r\nYou can still continue to use RaceVoice\r\nbut you will no longer get track updates or new features.\r\nPlease goto RaceVoice.com to renew your license.", "License Expired", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                    sqlConnection1.Close();
                    return true;
@@ -299,7 +305,8 @@ namespace RaceVoice
             if (all_stop)
             {
                 globals.all_stop = true;
-                Application.Exit();
+                globals.Terminate();
+
             }
             return val_status;
         }

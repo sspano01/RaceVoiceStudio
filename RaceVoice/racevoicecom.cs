@@ -235,7 +235,13 @@ namespace RaceVoice
                 SendSerial("SET ANNOUNCE LATGFORCE " + CheckString(carMetadata.DynamicsData.AnnounceLateralGForce));
                 SendSerial("SET ANNOUNCE LINGFORCE " + CheckString(carMetadata.DynamicsData.AnnounceLinearGForce));
                 SendSerial("SET ANNOUNCE MPH " + CheckString(carMetadata.DynamicsData.AnnounceSpeed));
-                SendSerial("SET ANNOUNCE WHEELLOCK " + CheckString(carMetadata.DynamicsData.ActiveWheelLockDetectionEnabled));
+
+                string wheel = "0";
+                wheel = CheckString(carMetadata.DynamicsData.ActiveWheelLockDetectionEnabled);
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) wheel = "0";
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) wheel = "0";
+
+                SendSerial("SET ANNOUNCE WHEELLOCK " +wheel);
                 /*
                  * 
                 SendSerial("SET GPS WINDOW " + carMetadata.HardwareData.GPSWindow.ToString());
@@ -251,6 +257,9 @@ namespace RaceVoice
                 val = 0;
                 if (carMetadata.DynamicsData.AnnounceBestLap) val |= globals.ENABLE_BEST_LAP;
                 if (carMetadata.DynamicsData.AnnounceLapDelta) val |= globals.ENABLE_GAIN_LAP;
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) val = 0;
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) val = 0;
+
                 SendSerial("SET ANNOUNCE LAP " + val.ToString());
                 SendSerial("SET WHEELLOCKSPEED THRESHOLD " + carMetadata.DynamicsData.WheelSpeedPercentDifference.ToString());
                 SendSerial("SET WHEELLOCKBRAKE THRESHOLD " + carMetadata.DynamicsData.BrakeThresholdPsi.ToString());
@@ -263,7 +272,13 @@ namespace RaceVoice
                 carMetadata.DynamicsData.BrakeToneDuration = 50; // half a second
                 sendout += carMetadata.DynamicsData.BrakeToneHz.ToString() + " ";
                 sendout += carMetadata.DynamicsData.BrakeToneDuration.ToString() + " ";
-                sendout += CheckString(carMetadata.DynamicsData.AnnounceBrakeThreshold);
+
+                string bt = "0";
+                bt = CheckString(carMetadata.DynamicsData.AnnounceBrakeThreshold);
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) bt = "0";
+                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) bt = "0";
+
+                sendout +=bt;
                 SendSerial(sendout);
 
 
@@ -390,6 +405,9 @@ namespace RaceVoice
                     splitstr += waypoint.Longitude;
                     globals.WriteLine(splitstr);
                     SendSerial(splitstr);
+
+                    if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) yn = "0"; // smarty cam  does not have timing on canbus
+                    if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) yn = "0"; // smarty cam  does not have timing on canbus
 
                     string enabledstr = "SET SPLITS " + (i + 1) + " ENABLE " + yn;  // send down a "1" or "0"
                     SendSerial(enabledstr);

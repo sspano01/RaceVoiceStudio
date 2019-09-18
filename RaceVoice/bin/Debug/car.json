@@ -1,6 +1,6 @@
 {
   "EngineData": {
-    "EcuType": 0,
+    "EcuType": 2,
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -38,13 +38,13 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1C8ZPP7-132G1W-103RFOR-1YV6XSD",
+    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "NONE",
-    "FeatureCode": "1COFE6Z-1M7TT7T-1J0PPZZ-1L2T1A5",
+    "FeatureCode": "5UUUHS-DUCWY1-ZLEUH9-W4ZJGR",
     "Version": "NONE",
     "Volume": 5,
-    "SWVersion": "08-08-2019-A1",
-    "Pitch": 50,
+    "SWVersion": "09-18-2019-A1",
+    "Pitch": 60,
     "GPSWindow": 1,
     "BaudRate": 1,
     "Trace": 0,
