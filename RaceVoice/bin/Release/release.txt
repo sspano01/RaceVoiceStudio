@@ -1,3 +1,9 @@
+09-18-19
+===================================
+Fixed a bug where SmartyCam mode would sometimes allow split timing to be reported even though no data is present
+Added support for RaceVoice Studio DEMO mode
+
+
 08-08-19
 ===================================
 Fixed a bug where last corner performance triggers could be missed depending on distance to start/finish
@@ -13,7 +19,7 @@ Added support for VBOX Motorola Data Frame
 06-14-19
 ===================================
 Add support for RaceVoice Pro and RaceVoice Lite
-Improve startup detection of RaceVOice unit
+Improve startup detection of RaceVoice unit
 Fix issue with missing communication link when using one RaceVoice Studio to control multiple units
 
 
