@@ -1636,6 +1636,7 @@ namespace RaceVoice
 
         private bool FeatureAllowed()
         {
+            if (globals.no_license_check) return true;
             if (globals.license_feature == (int)globals.FeatureState.FULL) return true;
             if (globals.license_feature == (int)globals.FeatureState.DEMO) return true;
             MessageBox.Show("Sorry, this feature is not available in RaceVoice Lite\r\nContact RaceVoice to upgrade your license", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
