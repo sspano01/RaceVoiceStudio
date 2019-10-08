@@ -1865,5 +1865,53 @@ namespace RaceVoice
                 }
             }
         }
+
+
+        private void DriverUpdate()
+        {
+
+        }
+
+        bool  DoesDriverExist(string drivername)
+        {
+            bool found = false;
+            Console.WriteLine("Searching for driver...");
+
+            System.Management.SelectQuery query = new System.Management.SelectQuery("Win32_SystemDriver");
+            query.Condition = "Name = 'SomeDriverName'";
+            System.Management.ManagementObjectSearcher searcher = new System.Management.ManagementObjectSearcher(query);
+            var drivers = searcher.Get();
+
+            if (drivers.Count > 0) Console.WriteLine("Driver exists.");
+            else Console.WriteLine("Driver could not be found.");
+
+            Console.ReadLine();
+
+            return found;
+        }
+
+        private void DriverInstall(string driverPath)
+        {
+
+                var process = new System.Diagnostics.Process();
+                string windows_path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.System)).ToString();
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.FileName = "cmd.exe";
+
+                process.StartInfo.Arguments = "/c C:\\Windows\\System32\\InfDefaultInstall.exe " + driverPath; // where driverPath is path of .inf file
+                process.Start();
+                process.WaitForExit();
+                process.Dispose();
+                MessageBox.Show(@"Driver has been installed");
+            
+        }
+
+        private void installUSBDriversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

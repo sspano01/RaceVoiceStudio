@@ -15,7 +15,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "09-18-2019-A1";
+        public static string UIVersion = "10-08-2019-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
 
