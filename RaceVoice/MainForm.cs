@@ -238,6 +238,7 @@ namespace RaceVoice
             int ri = 0;
             int li = 0;
             int changes = 0;
+            bool ping_good = false;
             string[] remotetracks = new string[2000];
             string[] localtracks = new string[2000];
             string[] updates = new string[2000];
@@ -246,7 +247,8 @@ namespace RaceVoice
 
             isplash.setbar(30);
             isplash.setlabel("Communicating ....");
-            if (globals.PingTest())
+            ping_good = globals.PingTest();
+            if (ping_good || globals.no_license_check)
             {
                 globals.network_ok = true;
                 isplash.setbar(60);

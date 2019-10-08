@@ -94,6 +94,7 @@ namespace RaceVoice
 
             string fileUrl = "http://" + globals.racevoice_http + "/" + filename;
             string savefile = globals.LocalFolder() + "\\" + localname;
+            globals.WriteLine("Read [" + fileUrl + "] and save to [" + savefile + "]");
             var success = xDownloadFile(fileUrl, savefile);
             globals.WriteLine("Done  - success: " + success);
             return (Convert.ToBoolean(success));

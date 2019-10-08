@@ -300,11 +300,16 @@ namespace RaceVoice
         /// </returns>
         public static bool IsNetworkAvailable(long minimumSpeed)
         {
+            bool valid = false;
             if (!NetworkInterface.GetIsNetworkAvailable())
+            {
+                Console.WriteLine("IsNetworkAvailable - Not Found Error 1");
                 return false;
+            }
 
             foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
+                globals.WriteLine("Checking Network Card " + ni.Description);
                 // discard because of standard reasons
                 if ((ni.OperationalStatus != OperationalStatus.Up) ||
                     (ni.NetworkInterfaceType == NetworkInterfaceType.Loopback) ||
@@ -317,17 +322,29 @@ namespace RaceVoice
                     continue;
 
                 // discard virtual cards (virtual box, virtual pc, etc.)
-                if ((ni.Description.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0) ||
-                    (ni.Name.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0))
-                    continue;
+                //if ((ni.Description.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0) ||
+                //    (ni.Name.IndexOf("virtual", StringComparison.OrdinalIgnoreCase) >= 0))
+                //    continue;
 
                 // discard "Microsoft Loopback Adapter", it will not show as NetworkInterfaceType.Loopback but as Ethernet Card.
                 if (ni.Description.Equals("Microsoft Loopback Adapter", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                return true;
+                valid = true;
+                break;
             }
-            return false;
+
+            if (valid)
+            {
+                globals.WriteLine("Network Card Validated!");
+            }
+            else
+            {
+                globals.WriteLine("*** NO CARD AVAILABLE ***");
+
+            }
+
+            return valid;
         }
 
         public static bool IsDemoMode(bool nag)
