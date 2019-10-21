@@ -16,7 +16,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 70,
-    "TrackSelectionName": "Watkins Glen Short",
+    "TrackSelectionName": "Watkins Glen Long",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -40,10 +40,10 @@
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AC01T8MI",
-    "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
+    "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
     "Version": "RACE VOICE,  VERSION,  AUGUST 8, 2019, A1",
     "Volume": 9,
-    "SWVersion": "09-18-2019-A1",
+    "SWVersion": "10-21-2019-A2",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 3,

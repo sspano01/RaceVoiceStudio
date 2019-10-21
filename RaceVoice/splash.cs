@@ -23,7 +23,7 @@ namespace RaceVoice
             {
                 string debug_mode = globals.LocalFolder() + "\\admin.txt";
                 string line;
-                if (File.Exists(debug_mode))
+                if (File.Exists(debug_mode) && globals.NO_ADIM_FILES==false)
                 {
                     System.IO.StreamReader file = new System.IO.StreamReader(debug_mode);
                     while ((line = file.ReadLine()) != null)

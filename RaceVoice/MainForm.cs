@@ -51,6 +51,9 @@ namespace RaceVoice
                 tabMain.TabPages.Remove(tabCharts);
                 menuStrip1.Items.Remove(chartsMenuItem);
             }
+
+            toolStripSeparator3.Visible = false;
+            installUSBDriversToolStripMenuItem.Visible = false;
         }
 
         private void PopulateTracks()
@@ -1894,6 +1897,7 @@ namespace RaceVoice
         {
 
                 var process = new System.Diagnostics.Process();
+                string infrun = "";
                 string windows_path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.System)).ToString();
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.CreateNoWindow = false;
@@ -1901,17 +1905,22 @@ namespace RaceVoice
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.FileName = "cmd.exe";
 
-                process.StartInfo.Arguments = "/c C:\\Windows\\System32\\InfDefaultInstall.exe " + driverPath; // where driverPath is path of .inf file
+                infrun = "/c C:\\Windows\\System32\\InfDefaultInstall.exe " + driverPath;
+                globals.WriteLine("InstallDriver->" + infrun);
+                process.StartInfo.Arguments = infrun;
                 process.Start();
                 process.WaitForExit();
                 process.Dispose();
-                MessageBox.Show(@"Driver has been installed");
             
         }
 
         private void installUSBDriversToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string path = globals.LocalFolder() + "\\drivers\\ftdibus.inf";
+            DriverInstall(path);
+            path = globals.LocalFolder() + "\\drivers\\ftdiport.inf";
+            DriverInstall(path);
+            MessageBox.Show("Driver has been installed.\r\n Please disconnect and reconnect the RaceVoice USB\r\nYour PC should then find RaceVoice.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

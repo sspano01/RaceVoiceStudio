@@ -15,20 +15,21 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "10-08-2019-A1";
+        public static string UIVersion = "10-21-2019-A2";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
 
         public static string racevoice_http = "racevoice.serveftp.com";
 
         public static string racevoice_sqlserver = "racevoicesql.servep2p.com";
+        public static bool NO_ADIM_FILES = true;
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
         public static bool no_unit_check = false;
         public static string forcePort = "";
-        public static bool no_track_check = true;
-        public static bool no_license_check =true;
+        public static bool no_track_check = false;
+        public static bool no_license_check = false;
 
         public static bool disabled_charts = true;
 
@@ -39,7 +40,7 @@ namespace RaceVoice
         public const string track_folder = "Tracks";
 
         public static bool fake_connection = false;
-        public static bool trace = false; 
+        public static bool trace = true; 
 
 
         public static string last_rx = "";
@@ -371,7 +372,12 @@ namespace RaceVoice
         {
             try
             {
-                if (!IsNetworkAvailable()) return false;
+                globals.WriteLine("Starting PING Test..\r\n");
+                if (!IsNetworkAvailable())
+                {
+                    globals.WriteLine("Network was not available");
+                    return false;
+                }
 
                 Ping myPing = new Ping();
                 String host = "www.google.com";
@@ -382,8 +388,15 @@ namespace RaceVoice
                     int timeout = 1000;
                     PingOptions pingOptions = new PingOptions();
                     PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                    if (reply.Status == IPStatus.Success) return true;
+                    globals.WriteLine("Ping " + i);
+                    if (reply.Status == IPStatus.Success)
+                    {
+                        globals.WriteLine("SUCCESS!");
+                        return true;
+                    }
+
                 }
+                globals.WriteLine("Fail!");
                 return false;
             }
             catch (Exception)
