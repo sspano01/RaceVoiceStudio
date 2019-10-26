@@ -250,7 +250,7 @@ namespace RaceVoice
 
             isplash.setbar(30);
             isplash.setlabel("Communicating ....");
-            ping_good = globals.PingTest();
+            ping_good = globals.IsOnlineTest();
             if (ping_good || globals.no_license_check)
             {
                 globals.network_ok = true;

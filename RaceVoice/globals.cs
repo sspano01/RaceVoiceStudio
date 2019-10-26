@@ -2,7 +2,9 @@
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,10 +17,10 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "10-21-2019-A2";
+        public static string UIVersion = "10-24-2019-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
-
+       
         public static string racevoice_http = "racevoice.serveftp.com";
 
         public static string racevoice_sqlserver = "racevoicesql.servep2p.com";
@@ -368,7 +370,33 @@ namespace RaceVoice
         {
             Environment.Exit(0);
         }
-        public static bool PingTest()
+
+       
+
+        public static  bool IsOnlineTest()
+        {
+            globals.WriteLine("Starting OnlineTest Test..\r\n");
+
+            System.Net.WebRequest req = System.Net.WebRequest.Create("https://www.google.com");
+            System.Net.WebResponse resp = default(System.Net.WebResponse);
+            try
+            {
+                resp = req.GetResponse();
+                resp.Close();
+                req = null;
+                globals.WriteLine("PASS..\r\n");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                globals.WriteLine("FAIL..\r\n");
+                req = null;
+                return false;
+            }
+        }
+
+
+        public static bool OnlinePingTest()
         {
             try
             {

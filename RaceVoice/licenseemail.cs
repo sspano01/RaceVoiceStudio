@@ -67,9 +67,11 @@ namespace RaceVoice
         {
             user_name = username.Text.Trim();
             user_email = emailaddr.Text.Trim();
-
+            
+            /*
             user_name = "steve spano";
             user_email = "s@s.com";
+            */
             if (!IsName(user_name))
             {
                 MessageBox.Show("Your name is not in the correct format", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
