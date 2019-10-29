@@ -70,6 +70,9 @@
     <Reference Include="DotNetZip, Version=1.13.3.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.13.3\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
+    <Reference Include="EmailValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmailValidation.1.0.3\lib\net45\EmailValidation.dll</HintPath>
+    </Reference>
     <Reference Include="FTD2XX_NET">
       <HintPath>.\FTD2XX_NET.dll</HintPath>
     </Reference>

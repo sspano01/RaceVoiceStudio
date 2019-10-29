@@ -17,7 +17,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "10-24-2019-A1";
+        public static string UIVersion = "10-29-2019-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -42,7 +42,7 @@ namespace RaceVoice
         public const string track_folder = "Tracks";
 
         public static bool fake_connection = false;
-        public static bool trace = true; 
+        public static bool trace = false; 
 
 
         public static string last_rx = "";

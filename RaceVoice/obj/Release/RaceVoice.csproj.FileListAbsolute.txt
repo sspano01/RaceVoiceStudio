@@ -32,3 +32,5 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.Pref
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.pdb
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.tracer.resources
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.xml
