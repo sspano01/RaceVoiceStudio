@@ -1,7 +1,8 @@
-09-18-19
+10-29-19
 ===================================
 Fixed a bug where SmartyCam mode would sometimes allow split timing to be reported even though no data is present
 Added support for RaceVoice Studio DEMO mode
+Improved compatibility for use with Windows on Mac/Parallels
 
 
 08-08-19
