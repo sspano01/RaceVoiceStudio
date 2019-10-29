@@ -12,11 +12,10 @@ namespace RaceVoice
     class email
     {
 
-        public Thread xEmailTrackFile(string path)
+        public bool SendRegEmail(string str)
         {
-            var t = new Thread(() => SendEmail("New Track Has Been Added", path));
-            t.Start();
-            return t;
+            SendEmail(str,"");
+            return true;
         }
 
         public bool EmailTrackFile(string path)
@@ -25,7 +24,7 @@ namespace RaceVoice
             return true;
         }
 
-        private bool SendEmail(string subject,string path)
+        private  bool SendEmail(string subject,string path)
         {
             bool good = true;
             MailMessage mail = new MailMessage();
@@ -33,14 +32,32 @@ namespace RaceVoice
             System.Net.Mail.Attachment attachment;
             try
             {
-                path=globals.LocalFolder()+"\\tracks\\" + path;
+                if (path.Length > 0)
+                { 
+                path = globals.LocalFolder() + "\\tracks\\" + path;
+                }
                 mail.From = new MailAddress("racevoicestudio@racevoice.com");
                 mail.To.Add("steve@racevoice.com");
-                mail.Subject = subject +"Site="+globals.theUUID;
-                mail.Body = subject+"\r\nmail with attachment";
+                if (subject.ToUpper().Contains("REGISTER"))
+                {
 
-                attachment = new System.Net.Mail.Attachment(path);
-                mail.Attachments.Add(attachment);
+                    mail.To.Add("dave@racevoice.com");
+                    mail.To.Add("jamesr@pointsw.com");
+
+                }
+                mail.Subject = subject +"Site="+globals.theUUID;
+                if (path.Length > 0)
+                {
+                    mail.Body = subject + "\r\nmail with attachment";
+                    attachment = new System.Net.Mail.Attachment(path);
+                    mail.Attachments.Add(attachment);
+
+                }
+                else
+                {
+                    mail.Body = subject;
+             
+                }
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("racevoicestudio@racevoice.com", "#InFieldUpdate#");

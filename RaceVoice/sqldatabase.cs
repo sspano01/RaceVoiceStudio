@@ -229,6 +229,9 @@ namespace RaceVoice
                         }
                         globals.virgin_load = true;
                         globals.license_state = "RELOAD";
+                        email em = new email();
+                        string demostring = "User:[" + user_name + "] Email=[" + email_address + "] Has Registered RaceVoice";
+                        em.SendRegEmail(demostring);
                         MessageBox.Show("Successfully Licensed - Thank You", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     }
@@ -274,7 +277,7 @@ namespace RaceVoice
                             foreach (FileInfo file in di.GetFiles())
                             {
                                 globals.WriteLine("DELETE->" + file.Name);
-                               // file.Delete();
+                                // file.Delete();
                             }
                         }
                         catch (Exception ee)
@@ -283,6 +286,9 @@ namespace RaceVoice
                         }
                         globals.virgin_load = true;
                         globals.license_state = "RELOAD";
+                        email em = new email();
+                        string demostring = "User:[" + user_name + "] Email=[" + email_address + "] Has Registered RaceVoice *Demo*";
+                        em.SendRegEmail(demostring);
                         MessageBox.Show("Demo Mode Enabled - Thank You", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
