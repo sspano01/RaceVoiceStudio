@@ -32,3 +32,5 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CopyComplete
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.exe
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.pdb
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Debug\EmailValidation.dll
+D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Debug\EmailValidation.xml

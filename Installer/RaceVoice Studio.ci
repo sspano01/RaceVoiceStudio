@@ -162,6 +162,13 @@ Please make sure this computer has Internet Access before continuing</>
                            <exclude ></>
                         </>
                         <_ >
+                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll</>
+                           <recurse >0</>
+                           <justfile >0</>
+                           <emptydir >0</>
+                           <exclude ></>
+                        </>
+                        <_ >
                            <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll</>
                            <recurse >0</>
                            <justfile >0</>

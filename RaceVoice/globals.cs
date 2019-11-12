@@ -24,7 +24,7 @@ namespace RaceVoice
         public static string racevoice_http = "racevoice.serveftp.com";
 
         public static string racevoice_sqlserver = "racevoicesql.servep2p.com";
-        public static bool NO_ADIM_FILES = true;
+        public static bool NO_ADIM_FILES = false;
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
@@ -389,7 +389,7 @@ namespace RaceVoice
             }
             catch (Exception ex)
             {
-                globals.WriteLine("FAIL..\r\n");
+                globals.WriteLine("FAIL.."+ex.Message);
                 req = null;
                 return false;
             }
