@@ -1,6 +1,6 @@
 {
   "EngineData": {
-    "EcuType": 0,
+    "EcuType": 6,
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,7 +16,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionName": "Arizona Motorsports Park",
     "FindTrackByName": false
   },
   "DynamicsData": {

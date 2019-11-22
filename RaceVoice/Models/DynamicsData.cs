@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaceVoice
 {
+    
     public class DynamicsData
     {
         public bool AnnounceLateralGForce { get; set; }

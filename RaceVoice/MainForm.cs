@@ -8,7 +8,7 @@ using System.Threading;
 using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
-
+using Newtonsoft.Json;
 using JR.Utils.GUI.Forms;
 
 namespace RaceVoice
@@ -56,6 +56,7 @@ namespace RaceVoice
             installUSBDriversToolStripMenuItem.Visible = false;
         }
 
+       
         private void PopulateTracks()
         {
             if (Directory.Exists(globals.track_folder))
@@ -634,6 +635,7 @@ namespace RaceVoice
       
         private void MainForm_Load(object sender, EventArgs e)
         {
+            EcuMetadata ecuMetadata = new EcuMetadata();
             _dataCheckboxes = new CheckBox[]
             {
                 chkMinimumSpeed,
@@ -651,6 +653,7 @@ namespace RaceVoice
 
             CheckNewTracks(false,false, "");
             PopulateTracks();
+            ecuMetadata.PopulateECU(cmbEcuType);
             SendNewTracksToServer();
 
             rvcom = new racevoicecom();

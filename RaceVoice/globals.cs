@@ -28,10 +28,10 @@ namespace RaceVoice
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
-        public static bool no_unit_check = false;
+        public static bool no_unit_check = true;
         public static string forcePort = "";
-        public static bool no_track_check = false;
-        public static bool no_license_check = false;
+        public static bool no_track_check = true;
+        public static bool no_license_check = true;
 
         public static bool disabled_charts = true;
 
@@ -40,6 +40,7 @@ namespace RaceVoice
         public static int license_feature = 0;
 
         public const string track_folder = "Tracks";
+        public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
         public static bool trace = false; 
