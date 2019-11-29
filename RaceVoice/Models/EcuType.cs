@@ -7,9 +7,11 @@ using System.IO;
 using System.Threading;
 using System.Collections;
 using System.Linq;
+#if (!APP)
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using JR.Utils.GUI.Forms;
+#endif
+using Newtonsoft.Json;
 
 
 namespace RaceVoice
@@ -37,7 +39,9 @@ namespace RaceVoice
 
     public class EcuMetadata
     {
+#if (APP)
 
+#else
         public void PopulateECU(ComboBox ecuType)
         {
             EcuData metadata = null;
@@ -62,6 +66,8 @@ namespace RaceVoice
 
             }
         }
+
+#endif
     }
 
 

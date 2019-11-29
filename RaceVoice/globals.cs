@@ -30,7 +30,7 @@ namespace RaceVoice
         public static bool first_connected = false;
         public static bool no_unit_check = true;
         public static string forcePort = "";
-        public static bool no_track_check = true;
+        public static bool no_track_check = false;
         public static bool no_license_check = true;
 
         public static bool disabled_charts = true;

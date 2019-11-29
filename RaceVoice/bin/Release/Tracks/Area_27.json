@@ -7,5 +7,10 @@
   "YPan": 0,
   "ClusterSize": 1,
   "UseCurveRendering": false,
-  "SplitEnabledStates": []
+  "SplitEnabledStates": [
+    true,
+    true,
+    true,
+    true
+  ]
 }

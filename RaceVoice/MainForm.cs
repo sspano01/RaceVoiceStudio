@@ -7,17 +7,22 @@ using System.IO;
 using System.Threading;
 using System.Collections;
 using System.Linq;
-using System.Windows.Forms;
 using Newtonsoft.Json;
+#if (!APP) 
+using System.Windows.Forms;
 using JR.Utils.GUI.Forms;
+#endif
 
 namespace RaceVoice
 {
+#if (!APP)
     public partial class MainForm : Form
+#else
+    public class RaceVoicePCMain
+#endif
     {
         private const string METADATA_EXTENSION = ".json";
 
-        private Bitmap _renderTarget;
         private TrackRenderer _renderer;
         private TrackModel _trackModel;
 
@@ -26,15 +31,19 @@ namespace RaceVoice
 
         public string _trackFile;
 
+#if (!APP)
+
+        private Bitmap _renderTarget;
+        
         private CarMetadata _carMetadata;
         private const string _carMetafile = "car.json";
 
+        private racevoicecom rvcom = null;
         private CheckBox[] _dataCheckboxes;
         private bool _engineValuesUpdating;
         private bool _dynamicsValuesUpdating;
         private bool _dataCheckboxesUpdating;
 
-        private racevoicecom rvcom = null;
 
         public MainForm()
         {
@@ -63,13 +72,13 @@ namespace RaceVoice
             {
                 cmbTracks.Items.Clear();
                 var files = Directory.GetFiles(globals.track_folder, "*.csv");
-                bool no_json = false;
                 foreach (var f in files)
                 {
                     var trackModel = TrackRenderer.LoadFile(f);
                     var metaFile = GetMetaFileForCsv(f);
                     var metadata = TrackMetadata.Load(metaFile);
-
+                    metadata = CheckTrackMetaData(f,metaFile,metadata,trackModel);
+/*
                     if (metadata == null)
                     {
                         no_json = true;
@@ -127,6 +136,7 @@ namespace RaceVoice
                     }
 
                     cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = f });
+                    */
                 }
             }
 
@@ -147,10 +157,6 @@ namespace RaceVoice
             }
         }
 
-        private static string GetMetaFileForCsv(string filepath)
-        {
-            return filepath.Replace(".csv", METADATA_EXTENSION);
-        }
 
         private bool DecodeLicense()
         {
@@ -236,7 +242,7 @@ namespace RaceVoice
         private void CheckNewTracks(bool pushversions,bool force,string download_name)
         {
 
-            FileDownloader fd = new FileDownloader("0", "0");
+            FileDownloader fd = new FileDownloader();
             string path = globals.LocalFolder() + "\\";
             string line;
             int ri = 0;
@@ -668,81 +674,8 @@ namespace RaceVoice
 
         }
 
-        private void LoadTrackFile(string filename)
-        {
-            globals.WriteLine("Load Track:" + filename);
 
-            grpData.Enabled = false;
-            grpData.Text = "Data";
 
-            _trackMetafile = GetMetaFileForCsv(filename);
-            _trackMetadata = TrackMetadata.Load(_trackMetafile);
-            _trackModel = TrackRenderer.LoadFile(filename);
-            TrackRenderer.SmoothTrack(_trackModel, 10);
-            for (int i = 0; i < _trackMetadata.SplitEnabledStates.Count; i++)
-            {
-                _trackModel.Splits[i].Hidden = !_trackMetadata.SplitEnabledStates[i];
-            }
-
-            for (int i = 0; i < _trackMetadata.DataBitfields.Count; i++)
-            {
-                UInt16 bits = _trackMetadata.DataBitfields[i];
-                // you may have added extra segments and json control variables
-                // if the track is restored and there are LESS segments, we need to handle that case
-                if (i < _trackModel.Segments.Count())
-                {
-                    _trackModel.Segments[i].DataBits = bits;
-                    _trackModel.Segments[i].Hidden = bits == 0;
-                }
-            }
-
-            var rendererSettings = new TrackRendererSettings(_trackMetadata.ClusterSize)
-            {
-                BackgroundColor = Color.White,
-                DefaultSegmentColor = Color.CornflowerBlue,
-                MouseIndicatorColor = Color.Orange,
-                MouseIndicatorSize = 10,
-                SegmentFont = new Font("Consolas", 16, FontStyle.Bold, GraphicsUnit.Pixel),
-                SegmentLabelColor = Color.Black,
-                SegmentResizeHandleColor = Color.DarkGreen,
-                SegmentResizeHandleSize = 16,
-                SelectedSegmentColor = Color.LawnGreen,
-                SegmentThickness = 10,
-                SplitFont = new Font("Consolas", 16, GraphicsUnit.Pixel),
-                SplitIndicatorColor = Color.Blue,
-                InactiveColor = Color.Gray,
-                SplitIndicatorSize = 20,
-                SplitIndicatorThickness = 4,
-                TrackColor = Color.Black,
-                TrackThickness = 4,
-                ChequeredFlagImage = globals.LocalFolder() + "\\flag.png",
-
-                UseCurveRendering = _trackMetadata.UseCurveRendering,
-                ShowGpsPoints = true,
-                GpsPointSize = 3,
-                GpsPointColor = Color.Yellow
-            };
-
-            _renderer = new TrackRenderer(_trackModel, rendererSettings);
-            _renderTarget = new Bitmap(TrackView.Width, TrackView.Height);
-
-            UpdateSplits();
-            UpdateSegments();
-            UpdateEngineDataValues();
-            UpdateDynamicsDataValues();
-            UpdateDataCheckboxes();
-
-            zoom.Value = Math.Max(zoom.Minimum, Math.Min(zoom.Maximum, _trackMetadata.Zoom));
-            rotation.Value = Math.Max(rotation.Minimum, Math.Min(rotation.Maximum, _trackMetadata.Rotation));
-            hScroll.Value = Math.Max(hScroll.Minimum, Math.Min(hScroll.Maximum, _trackMetadata.XPan));
-            vScroll.Value = Math.Max(vScroll.Minimum, Math.Min(vScroll.Maximum, _trackMetadata.YPan));
-            _renderer.Zoom = (float)zoom.Value / 100;
-
-            _trackFile = filename;
-
-            ReRender();
-            btnSaveTrack.Enabled = false;
-        }
 
         private void UpdateSplits()
         {
@@ -806,17 +739,7 @@ namespace RaceVoice
             _dataCheckboxesUpdating = false;
         }
 
-        private void ReRender()
-        {
-            if (_renderer == null) return;
-            btnSaveTrack.Enabled = true;
-
-            SetZoomRotateOffsetValues();
-
-            _renderer.Render(_renderTarget);
-
-            TrackView.Image = _renderTarget;
-        }
+      
 
         private void TrackView_MouseDown(object sender, MouseEventArgs e)
         {
@@ -1126,7 +1049,14 @@ namespace RaceVoice
             numTemperature.Value =_carMetadata.EngineData.Temperature;
             numVoltage.Value = (decimal)(_carMetadata.EngineData.Voltage);
 
-            cmbEcuType.SelectedIndex = (int)_carMetadata.EngineData.EcuType;
+            if ((int)_carMetadata.EngineData.EcuType >= cmbEcuType.Items.Count)
+            {
+                cmbEcuType.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbEcuType.SelectedIndex = (int)_carMetadata.EngineData.EcuType;
+            }
             rdoSpeechNotify.Checked = _carMetadata.EngineData.ShiftNotificationType == ShiftNotificationType.Speech;
             rdoToneNotify.Checked = _carMetadata.EngineData.ShiftNotificationType == ShiftNotificationType.Tone;
 
@@ -1925,5 +1855,211 @@ namespace RaceVoice
             DriverInstall(path);
             MessageBox.Show("Driver has been installed.\r\n Please disconnect and reconnect the RaceVoice USB\r\nYour PC should then find RaceVoice.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+#endif
+
+#if APP
+
+#else
+        private void ReRender()
+        {
+            if (_renderer == null) return;
+            btnSaveTrack.Enabled = true;
+
+            SetZoomRotateOffsetValues();
+
+            _renderer.Render(_renderTarget);
+
+            TrackView.Image = _renderTarget;
+        }
+
+#endif
+
+        private static string GetMetaFileForCsv(string filepath)
+        {
+            return filepath.Replace(".csv", METADATA_EXTENSION);
+        }
+
+
+        private TrackMetadata CheckTrackMetaData(string filename, string metaFile, TrackMetadata metadata,TrackModel trackModel)
+        {
+#if !APP
+            bool no_json = false;
+            if (metadata == null)
+            {
+                no_json = true;
+                metadata = new TrackMetadata()
+                {
+                    TrackName = Path.GetFileNameWithoutExtension(filename).Replace('_', ' '),
+                    DataBitfields = new List<UInt16>(trackModel.Segments.Count),
+                    ClusterSize = trackModel.SampleRate == 0 ? 4 : trackModel.SampleRate
+                };
+
+
+                foreach (var segment in trackModel.Segments)
+                {
+                    metadata.DataBitfields.Add(0);
+                }
+
+                metadata.Save(metaFile);
+            }
+
+
+            // ensure we always have bitfields for the segments
+            if (trackModel.Segments.Count() != metadata.DataBitfields.Count())
+            {
+                int i = 0;
+                foreach (var segment in trackModel.Segments)
+                {
+                    if (i >= metadata.DataBitfields.Count())
+                    {
+                        metadata.DataBitfields.Add(0);
+                    }
+
+                    i++;
+
+                }
+                metadata.Save(metaFile);
+            }
+
+
+            if (metadata.SplitEnabledStates == null || metadata.SplitEnabledStates.Count != trackModel.Splits.Count)
+            {
+                metadata.SplitEnabledStates = new List<bool>(trackModel.Splits.Count);
+                for (int i = 0; i < trackModel.Splits.Count; i++)
+                {
+                    if (no_json)
+                    {
+
+                        metadata.SplitEnabledStates.Add(false);
+                    }
+                    else
+
+                        metadata.SplitEnabledStates.Add(!trackModel.Splits[i].Hidden);
+                }
+
+                metadata.Save(metaFile);
+            }
+
+            cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = filename });
+            return metadata;
+#else
+            //bool no_json = false;
+            if (metadata == null)
+            {
+                //no_json = true;
+                metadata = new TrackMetadata()
+                {
+                    //                         TrackName = Path.GetFileNameWithoutExtension(f).Replace('_', ' '),
+                    //                            DataBitfields = new List<UInt16>(trackModel.Segments.Count),
+                    //                           ClusterSize = trackModel.SampleRate == 0 ? 4 : trackModel.SampleRate
+                };
+
+
+                // foreach (var segment in trackModel.Segments)
+                //{
+                //   metadata.DataBitfields.Add(0);
+                //}
+
+                //metadata.Save(metaFile);
+            }
+
+            return metadata;
+#endif
+        }
+    
+
+
+
+
+        public void LoadTrackFile(string filename)
+        {
+            globals.WriteLine("Load Track:" + filename);
+
+#if (!APP)
+            grpData.Enabled = false;
+            grpData.Text = "Data";
+#endif
+            _trackMetafile = GetMetaFileForCsv(filename);
+            _trackMetadata = TrackMetadata.Load(_trackMetafile);
+#if (APP)
+            _trackMetadata=CheckTrackMetaData(_trackMetadata);
+#endif
+            _trackModel = TrackRenderer.LoadFile(filename);
+            TrackRenderer.SmoothTrack(_trackModel, 10);
+#if (!APP)
+            
+            for (int i = 0; i < _trackMetadata.SplitEnabledStates.Count; i++)
+            {
+                _trackModel.Splits[i].Hidden = !_trackMetadata.SplitEnabledStates[i];
+            }
+
+            for (int i = 0; i < _trackMetadata.DataBitfields.Count; i++)
+            {
+                UInt16 bits = _trackMetadata.DataBitfields[i];
+                // you may have added extra segments and json control variables
+                // if the track is restored and there are LESS segments, we need to handle that case
+                if (i < _trackModel.Segments.Count())
+                {
+                    _trackModel.Segments[i].DataBits = bits;
+                    _trackModel.Segments[i].Hidden = bits == 0;
+                }
+            }
+#endif
+            var rendererSettings = new TrackRendererSettings(_trackMetadata.ClusterSize)
+            {
+                BackgroundColor = Color.White,
+                DefaultSegmentColor = Color.CornflowerBlue,
+                MouseIndicatorColor = Color.Orange,
+                MouseIndicatorSize = 10,
+                SegmentResizeHandleColor = Color.DarkGreen,
+                SegmentResizeHandleSize = 16,
+                SelectedSegmentColor = Color.LawnGreen,
+                SegmentThickness = 10,
+#if (!APP)
+                SegmentFont = new Font("Consolas", 16, FontStyle.Bold, GraphicsUnit.Pixel),
+                SegmentLabelColor = Color.Black,
+                SplitFont = new Font("Consolas", 16, GraphicsUnit.Pixel),
+#endif
+                SplitIndicatorColor = Color.Blue,
+                InactiveColor = Color.Gray,
+                SplitIndicatorSize = 20,
+                SplitIndicatorThickness = 4,
+                TrackColor = Color.Black,
+                TrackThickness = 4,
+                ChequeredFlagImage = globals.LocalFolder() + "\\flag.png",
+
+                UseCurveRendering = _trackMetadata.UseCurveRendering,
+                ShowGpsPoints = true,
+                GpsPointSize = 3,
+                GpsPointColor = Color.Yellow
+            };
+
+            _renderer = new TrackRenderer(_trackModel, rendererSettings);
+
+#if (!APP)
+            _renderTarget = new Bitmap(TrackView.Width, TrackView.Height);
+            UpdateSplits();
+            UpdateSegments();
+            UpdateEngineDataValues();
+            UpdateDynamicsDataValues();
+            UpdateDataCheckboxes();
+
+            zoom.Value = Math.Max(zoom.Minimum, Math.Min(zoom.Maximum, _trackMetadata.Zoom));
+            rotation.Value = Math.Max(rotation.Minimum, Math.Min(rotation.Maximum, _trackMetadata.Rotation));
+            hScroll.Value = Math.Max(hScroll.Minimum, Math.Min(hScroll.Maximum, _trackMetadata.XPan));
+            vScroll.Value = Math.Max(vScroll.Minimum, Math.Min(vScroll.Maximum, _trackMetadata.YPan));
+            _renderer.Zoom = (float)zoom.Value / 100;
+
+            _trackFile = filename;
+            ReRender();
+
+            btnSaveTrack.Enabled = false;
+#endif
+        }
+
+
+
     }
+
 }

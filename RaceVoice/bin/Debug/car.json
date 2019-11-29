@@ -15,8 +15,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "Arizona Motorsports Park",
+    "TrackSelectionIndex": 52,
+    "TrackSelectionName": "Pittsburg International",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -38,7 +38,7 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1C8ZPP7-132G1W-103RFOR-1YV6XSD",
+    "LicenseState": "1XUBLBH-5TREJV-1K3LND4-T0GW33",
     "Name": "AM00C7FX",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
     "Version": "RACE VOICE,  VERSION,  NOVEMBER 12, 2019, A1",

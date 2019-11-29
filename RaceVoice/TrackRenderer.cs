@@ -7,7 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+#if (!APP)
 using System.Windows.Forms;
+#else
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
+#endif
+
 
 namespace RaceVoice
 {
@@ -44,19 +50,24 @@ namespace RaceVoice
 
         private TrackRendererSettings _settings;
 
+#if (!APP)
         private Image _chequeredFlagImage;
+        private static StringFormat _splitStringFormat;
+        private static StringFormat _segmentStringFormat;
 
-        private static readonly StringFormat _splitStringFormat;
-        private static readonly StringFormat _segmentStringFormat;
+#else
 
+#endif
         static TrackRenderer()
         {
+#if (!APP)
             _splitStringFormat = new StringFormat();
             _splitStringFormat.LineAlignment = StringAlignment.Center;
 
             _segmentStringFormat = new StringFormat();
             _segmentStringFormat.LineAlignment = StringAlignment.Center;
             _segmentStringFormat.Alignment = StringAlignment.Center;
+#endif
         }
 
         public TrackRenderer(TrackModel trackModel, TrackRendererSettings settings)
@@ -249,37 +260,7 @@ namespace RaceVoice
             }
         }
 
-        public bool HandleClick(object sender, EventArgs e)
-        {
-            var me = e as MouseEventArgs;
-            PointF mouse = new PointF(me.X, me.Y);
-            if (me != null)
-            {
-                int closest = FindClosestPointOnTrack(mouse);
-
-                bool found = false;
-                foreach (var seg in _model.Segments)
-                {
-                    if (closest >= seg.StartIndex && closest <= seg.EndIndex)
-                    {
-                        found = true;
-                        SelectedSegment = seg;
-                        break;
-                    }
-                }
-
-                if (found)
-                {
-                    UpdateSelectedSegmentBounds();
-                }
-                else
-                {
-                    SelectedSegment = null;
-                }
-            }
-
-            return true;
-        }
+       
 
         private void UpdateSelectedSegmentBounds()
         {
@@ -334,6 +315,41 @@ namespace RaceVoice
 
             return closest;
         }
+
+#if (!APP)
+
+         public bool HandleClick(object sender, EventArgs e)
+        {
+            var me = e as MouseEventArgs;
+            PointF mouse = new PointF(me.X, me.Y);
+            if (me != null)
+            {
+                int closest = FindClosestPointOnTrack(mouse);
+
+                bool found = false;
+                foreach (var seg in _model.Segments)
+                {
+                    if (closest >= seg.StartIndex && closest <= seg.EndIndex)
+                    {
+                        found = true;
+                        SelectedSegment = seg;
+                        break;
+                    }
+                }
+
+                if (found)
+                {
+                    UpdateSelectedSegmentBounds();
+                }
+                else
+                {
+                    SelectedSegment = null;
+                }
+            }
+
+            return true;
+        }
+
 
         public bool HandleMouseDown(object sender, MouseEventArgs e)
         {
@@ -406,6 +422,8 @@ namespace RaceVoice
 
             return needsRerender;
         }
+
+#endif
 
         private static double Distance(PointF a, PointF b)
         {
@@ -532,7 +550,9 @@ namespace RaceVoice
                         var labelPosition = segmentPoints[segmentPoints.Length / 2];
                         using (var b = new SolidBrush(_settings.SegmentLabelColor))
                         {
+#if (!APP)
                             g.DrawString(segment.Name, _settings.SegmentFont, b, labelPosition, _segmentStringFormat);
+#endif
                         }
 
                         if (SelectedSegment == segment)
@@ -565,9 +585,10 @@ namespace RaceVoice
                         pos.Y -= (_settings.SplitIndicatorSize / 2) * Zoom;
 
                         g.DrawEllipse(p, new RectangleF(pos, new SizeF(_settings.SplitIndicatorSize * Zoom, _settings.SplitIndicatorSize * Zoom)));
+#if (!APP)
 
-                        g.DrawString(split.Text, _settings.SplitFont, b, new PointF(_transformedTrack[split.Index].X + (_settings.SplitIndicatorSize * Zoom), _transformedTrack[split.Index].Y), _splitStringFormat);
-
+                    g.DrawString(split.Text, _settings.SplitFont, b, new PointF(_transformedTrack[split.Index].X + (_settings.SplitIndicatorSize * Zoom), _transformedTrack[split.Index].Y), _splitStringFormat);
+#endif
 
                 }
 
