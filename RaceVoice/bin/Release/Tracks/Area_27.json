@@ -1,6 +1,16 @@
 {
   "TrackName": "Area 27",
-  "DataBitfields": [],
+  "DataBitfields": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
   "Rotation": 0,
   "Zoom": 90,
   "XPan": 0,

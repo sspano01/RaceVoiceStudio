@@ -1859,6 +1859,10 @@ namespace RaceVoice
 #endif
 
 #if APP
+        public void ReRender(SkiaSharp.SKCanvas canvas, SkiaSharp.SKImageInfo info)
+        {
+            _renderer.Render(canvas,info);
+        }
 
 #else
         private void ReRender()
@@ -1944,8 +1948,8 @@ namespace RaceVoice
             cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = filename });
             return metadata;
 #else
-            //bool no_json = false;
-            if (metadata == null)
+                //bool no_json = false;
+                if (metadata == null)
             {
                 //no_json = true;
                 metadata = new TrackMetadata()
@@ -1982,10 +1986,11 @@ namespace RaceVoice
 #endif
             _trackMetafile = GetMetaFileForCsv(filename);
             _trackMetadata = TrackMetadata.Load(_trackMetafile);
-#if (APP)
-            _trackMetadata=CheckTrackMetaData(_trackMetadata);
-#endif
             _trackModel = TrackRenderer.LoadFile(filename);
+#if (APP)
+           _trackMetadata= CheckTrackMetaData(filename, _trackMetafile, _trackMetadata, _trackModel);
+            // _trackMetadata=CheckTrackMetaData(_trackMetadata);
+#endif
             TrackRenderer.SmoothTrack(_trackModel, 10);
 #if (!APP)
             

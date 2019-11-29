@@ -89,7 +89,9 @@ namespace RaceVoice
             _transformedTrack = new PointF[_normalisedTrack.Length];
             _clusteredTrack = new PointF[_normalisedTrack.Length / _settings.ClusterSize];
 
+#if !APP
             _chequeredFlagImage = Image.FromFile(_settings.ChequeredFlagImage);
+#endif
             Zoom = 1f;
         }
 
@@ -430,7 +432,11 @@ namespace RaceVoice
             return Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
         }
 
+#if APP
+        public void Render(SkiaSharp.SKCanvas g, SKImageInfo info)
+#else
         public void Render(Bitmap renderTarget)
+#endif
         {
             if (_transformedSegments == null)
             {
@@ -443,8 +449,12 @@ namespace RaceVoice
                 }
             }
 
+
+#if !APP
             using (var g = Graphics.FromImage(renderTarget))
+#endif
             {
+#if !APP
                 using (var b = new SolidBrush(_settings.BackgroundColor))
                 {
                     g.FillRectangle(b, 0, 0, renderTarget.Width, renderTarget.Height);
@@ -454,14 +464,21 @@ namespace RaceVoice
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.PixelOffsetMode = PixelOffsetMode.Half;
-
+#endif
                 RectangleF rotatedBounds = default(RectangleF);
                 Rotate(_normalisedTrack, _transformedTrack, Rotation, out rotatedBounds);
 
+#if !APP
                 float scale = Math.Min(renderTarget.Width / rotatedBounds.Width, renderTarget.Height / rotatedBounds.Height) * Zoom;
 
                 var centerX = renderTarget.Width / 2;
                 var centerY = renderTarget.Height / 2;
+#else
+                float scale = Math.Min(info.Width,info.Height) * Zoom;
+
+                var centerX = info.Width / 2;
+                var centerY = info.Height / 2;
+#endif
                 var offset = new PointF()
                 {
                     X = -(rotatedBounds.Left * scale) + centerX - (rotatedBounds.Width * scale / 2),
@@ -497,7 +514,33 @@ namespace RaceVoice
                         }
                     }
                 }
+#if APP
+                int k = 0;
 
+                SKPaint paint = new SKPaint
+                {
+                    Style = SKPaintStyle.Stroke,
+                    Color = SKColors.Black,
+                    StrokeWidth = 5
+                };
+
+
+                while (k<_clusteredTrack.Count()-1)
+                {
+                    SKPoint p0 = new SKPoint();
+                    SKPoint p1 = new SKPoint();
+
+                    p0.X = _clusteredTrack[k].X;
+                    p0.Y = _clusteredTrack[k].Y;
+                    k++;
+
+                    p1.X = _clusteredTrack[k].X;
+                    p1.Y = _clusteredTrack[k].Y;
+
+                    g.DrawLine(p0,p1,paint);
+
+                }
+#else
                 using (var b = new SolidBrush(_settings.TrackColor))
                 using (var p = new Pen(b, _settings.TrackThickness * Zoom))
                 {
@@ -550,9 +593,7 @@ namespace RaceVoice
                         var labelPosition = segmentPoints[segmentPoints.Length / 2];
                         using (var b = new SolidBrush(_settings.SegmentLabelColor))
                         {
-#if (!APP)
                             g.DrawString(segment.Name, _settings.SegmentFont, b, labelPosition, _segmentStringFormat);
-#endif
                         }
 
                         if (SelectedSegment == segment)
@@ -585,10 +626,8 @@ namespace RaceVoice
                         pos.Y -= (_settings.SplitIndicatorSize / 2) * Zoom;
 
                         g.DrawEllipse(p, new RectangleF(pos, new SizeF(_settings.SplitIndicatorSize * Zoom, _settings.SplitIndicatorSize * Zoom)));
-#if (!APP)
 
-                    g.DrawString(split.Text, _settings.SplitFont, b, new PointF(_transformedTrack[split.Index].X + (_settings.SplitIndicatorSize * Zoom), _transformedTrack[split.Index].Y), _splitStringFormat);
-#endif
+                        g.DrawString(split.Text, _settings.SplitFont, b, new PointF(_transformedTrack[split.Index].X + (_settings.SplitIndicatorSize * Zoom), _transformedTrack[split.Index].Y), _splitStringFormat);
 
                 }
 
@@ -610,6 +649,7 @@ namespace RaceVoice
                         }
                     }
                 }
+#endif
             }
         }
 
