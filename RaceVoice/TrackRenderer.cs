@@ -236,8 +236,11 @@ namespace RaceVoice
             model.StartLinePosition = model.Waypoints[model.FlagPosition];
 
         }
-
+#if APP
+        private static void DrawGradientCurve(PointF[] points, TrackColor startColor, TrackColor endColor, SkiaSharp.SKCanvas g, float thickness)
+#else
         private static void DrawGradientCurve(PointF[] points, TrackColor startColor, TrackColor endColor, Graphics g, float thickness)
+#endif
         {
             for (int i = 0; i < points.Length - 1; i++)
             {
@@ -247,7 +250,23 @@ namespace RaceVoice
                 {
                     continue;
                 }
+#if APP
 
+                SKPaint green = new SKPaint
+                {
+                    Style = SKPaintStyle.Stroke,
+                    Color = SKColors.Green,
+                    StrokeWidth = 10
+                };
+                SKPoint sp1 = new SKPoint();
+                SKPoint sp2 = new SKPoint();
+
+                sp1.X = p1.X;
+                sp1.Y = p1.Y;
+                sp2.X = p2.X;
+                sp2.Y = p2.Y;
+                g.DrawLine(sp1,sp2, green);
+#else
                 var st = (float)i / points.Length;
                 var sc = TrackColor.Lerp(startColor, endColor, st);
 
@@ -259,6 +278,7 @@ namespace RaceVoice
                 {
                     g.DrawLine(p, p1, p2);
                 }
+#endif
             }
         }
 
@@ -517,12 +537,13 @@ namespace RaceVoice
 #if APP
                 int k = 0;
 
-                SKPaint paint = new SKPaint
+                SKPaint black = new SKPaint
                 {
                     Style = SKPaintStyle.Stroke,
                     Color = SKColors.Black,
                     StrokeWidth = 5
                 };
+
 
 
                 while (k<_clusteredTrack.Count()-1)
@@ -537,7 +558,20 @@ namespace RaceVoice
                     p1.X = _clusteredTrack[k].X;
                     p1.Y = _clusteredTrack[k].Y;
 
-                    g.DrawLine(p0,p1,paint);
+                    g.DrawLine(p0,p1,black);
+
+                }
+
+                for (int i = 0; i < _model.Segments.Count; i++)
+                {
+                    var segment = _model.Segments[i];
+                    var segmentPoints = _transformedSegments[i];
+                    var startColor = TrackColor.Gray;
+                    var endColor = TrackColor.Gray;
+                    if (segment.DataBits!=0)
+                    {
+                        DrawGradientCurve(segmentPoints, startColor, endColor, g, _settings.SegmentThickness * Zoom);
+                    }
 
                 }
 #else
@@ -650,7 +684,7 @@ namespace RaceVoice
                     }
                 }
 #endif
-            }
+                }
         }
 
         private static PointF Rotate(PointF p, float rad)

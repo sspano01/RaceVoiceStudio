@@ -24,7 +24,7 @@ namespace RaceVoice
         private const string METADATA_EXTENSION = ".json";
 
         private TrackRenderer _renderer;
-        private TrackModel _trackModel;
+        public TrackModel _trackModel;
 
         private TrackMetadata _trackMetadata;
         public string _trackMetafile;
