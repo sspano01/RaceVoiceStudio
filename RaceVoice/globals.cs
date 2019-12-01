@@ -33,7 +33,7 @@ namespace RaceVoice
         public static bool no_track_check = false;
         public static bool no_license_check = true;
 
-        public static bool disabled_charts = true;
+        public static bool disabled_charts = false;
 
         public static bool virgin_load = false;
         public static string license_state = "UNKNOWN";
@@ -466,7 +466,7 @@ namespace RaceVoice
 
             string remdate = mm + "/" + dy + "/" + yy;
 
-            DateTime r1 = Convert.ToDateTime(remdate);
+            DateTime r1 = new DateTime(int.Parse(yy), int.Parse(mm), int.Parse(dy));
             DateTime r2 = Convert.ToDateTime(localdate);
 
             if (r2 == r1)

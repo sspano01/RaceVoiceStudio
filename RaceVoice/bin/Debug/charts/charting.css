@@ -1,0 +1,29 @@
+body, html {
+    margin: 0 16px;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.chartcontainer {
+    position:relative;
+    height: 400px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #777;
+}
+
+h2 {
+    text-align: center;
+}
+
+.checkcontainer {
+    display: inline-block;
+    margin: 0 32px;
+}
+
+#laptoggles {
+    border-bottom: 1px solid #777;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    text-align: center;
+}

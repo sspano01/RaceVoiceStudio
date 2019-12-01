@@ -8,7 +8,8 @@ using System.Threading;
 using System.Collections;
 using System.Linq;
 using Newtonsoft.Json;
-#if (!APP) 
+using RaceVoiceLib.Parser;
+#if (!APP)
 using System.Windows.Forms;
 using JR.Utils.GUI.Forms;
 #endif
@@ -1338,11 +1339,16 @@ namespace RaceVoice
 
             if(result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
             {
-                Charting.GenerateChartBundleFromMoTecCsv(openFileDialog.FileName, "charts/data.js");
+                if (!Directory.Exists("charts"))
+                {
+                    Directory.CreateDirectory("charts");
+                }
+                var trace = MoTecCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                Charting.GenerateChartBundle(trace, "charts/data.js");
                 webCharts.Refresh(WebBrowserRefreshOption.Completely);
             }
         }
-
+        
         private void messageTriggersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!FeatureAllowed()) return;
@@ -2063,8 +2069,37 @@ namespace RaceVoice
 #endif
         }
 
+        private void loadAIMCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog.ShowDialog();
 
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
+            {
+                if (!Directory.Exists("charts"))
+                {
+                    Directory.CreateDirectory("charts");
+                }
+                var trace = AimCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                Charting.GenerateChartBundle(trace, "charts/data.js");
+                webCharts.Refresh(WebBrowserRefreshOption.Completely);
+            }
+        }
 
+        private void loadRaceVoiceCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
+            {
+                if (!Directory.Exists("charts"))
+                {
+                    Directory.CreateDirectory("charts");
+                }
+                var trace = RaceVoiceCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                Charting.GenerateChartBundle(trace, "charts/data.js");
+                webCharts.Refresh(WebBrowserRefreshOption.Completely);
+            }
+        }
     }
 
 }

@@ -44,8 +44,8 @@ namespace RaceVoiceLib.Parser
                     Time = v[0],
                     Lat = v[33],
                     Lng = v[34],
-                    Rpm = (int)v[12],
-                    ThrottlePosition = v[14]
+                    Rpm = (int)v[10],
+                    ThrottlePosition = v[12]
                 }).ToList();
 
                 dataTrace.Add(new LapDataTrace(dataTrace.Count + 1, points));
@@ -60,35 +60,6 @@ namespace RaceVoiceLib.Parser
             {
                 return LoadCsvFile(sr);
             }
-        }
-
-        public void SaveChartFile(string filepath, int maxDataPoints)
-        {
-            IList<IList<IList<double>>> decimatedValues = new List<IList<IList<double>>>();
-            foreach (var list in LapValues)
-            {
-                double chk = -1;
-                int stride = Math.Max(1, list.Count / maxDataPoints);
-                var decimatedLap = new List<IList<double>>();
-                for (int i = 0; i < list.Count; i += stride)
-                {
-                    double dist = list[i][11];
-                    if (dist < chk)
-                    {
-                        continue;
-                    }
-                    decimatedLap.Add(list[i]);
-                    chk = dist;
-                }
-                decimatedValues.Add(decimatedLap);
-            }
-
-            File.WriteAllText(filepath, JsonConvert.SerializeObject(new
-            {
-                Headings,
-                Units,
-                LapValues = decimatedValues
-            }, Formatting.Indented));
         }
 
         public static AimCsv LoadCsvFile(StreamReader sr)

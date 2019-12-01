@@ -46,8 +46,8 @@ namespace RaceVoice
                     Time = v[0] - timeOffset,
                     Lat = v[3],
                     Lng = v[4],
-                    Rpm = (int)v[23],
-                    ThrottlePosition = v[28]
+                    Rpm = (int)v[21],
+                    ThrottlePosition = v[26]
                 }).ToList();
 
                 dataTrace.Add(new LapDataTrace(dataTrace.Count + 1, points));
@@ -56,35 +56,6 @@ namespace RaceVoice
             }
 
             return dataTrace;
-        }
-
-        public void SaveChartFile(string filepath, int maxDataPoints)
-        {
-            IList<IList<IList<double>>> decimatedValues = new List<IList<IList<double>>>();
-            foreach (var list in LapValues)
-            {
-                double chk = -1;
-                int stride = Math.Max(1, list.Count / maxDataPoints);
-                var decimatedLap = new List<IList<double>>();
-                for (int i = 0; i < list.Count; i += stride)
-                {
-                    double dist = list[i][11];
-                    if (dist < chk)
-                    {
-                        continue;
-                    }
-                    decimatedLap.Add(list[i]);
-                    chk = dist;
-                }
-                decimatedValues.Add(decimatedLap);
-            }
-
-            File.WriteAllText(filepath, JsonConvert.SerializeObject(new
-            {
-                Headings,
-                Units,
-                LapValues = decimatedValues
-            }, Formatting.Indented));
         }
 
         public static MoTecCsv LoadCsvFile(string filename)
