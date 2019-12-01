@@ -1,17 +1,122 @@
 ﻿using System;
 using System.IO;
+#if !APP
 using System.IO.Ports;
-using System.Threading;
 using System.Windows.Forms;
+#endif
+using System.Threading;
 using System.Linq;
 
 
 
 namespace RaceVoice
 {
+#if APP
+
+    internal class splash
+    {
+        public splash(int mode)
+        {
+
+        }
+
+        public void Show()
+        {
+
+        }
+
+        public void setlabel(string label)
+        {
+
+        }
+
+        public void setbar(int pos)
+        {
+
+        }
+
+        public void Close()
+        {
+
+        }
+
+    }
+    internal class SerialPort
+    {
+        public bool OpenSerial()
+        {
+
+            return false;
+        }
+
+        public bool CloseSerial()
+        {
+            return false;
+        }
+
+        public string ReadLine()
+        {
+            string line = "";
+            return line;
+        }
+
+        public void WriteLine(string line)
+        {
+
+        }
+
+        public string ReadChar()
+        {
+            string c = "";
+
+            return c;
+        }
+
+        public bool Write(byte[] ch,int mode, int size)
+        {
+
+            return true;
+        }
+
+
+        public bool Write(string ch)
+        {
+
+            return true;
+        }
+
+        public bool CtsHolding()
+        {
+            return false;
+        }
+
+    }
+#endif
+
     internal class racevoicecom
     {
         private static SerialPort _serialPort = null;
+
+
+#if APP
+        private bool do_firmware_update = false;
+        public void Bar(int val)
+        {
+
+        }
+
+        public bool OpenSerial()
+        {
+
+            return true;
+        }
+
+        public bool CloseSerial()
+        {
+
+            return true;
+        }
+#else
         private static ProgressBar pBar = null;
         private static bool do_firmware_update = false;
 
@@ -99,7 +204,6 @@ namespace RaceVoice
             return line;
 
         }
-
         public void Bar(int val)
         {
             if (pBar == null) return;
@@ -118,6 +222,7 @@ namespace RaceVoice
             }
 
         }
+#endif
 
         public bool WriteSingleCmd(string cmd)
         {
@@ -466,7 +571,7 @@ namespace RaceVoice
                 {
                     db[0] = (byte)fs.ReadByte();
 
-                    while (_serialPort.CtsHolding)
+                    while (_serialPort.CtsHolding())
                     {
                         globals.WriteLine("Sending Audio...wait for CTS");
                         Thread.Sleep(1);
@@ -517,7 +622,7 @@ namespace RaceVoice
 
                     for (i = 0; i < cmd.Length; i++)
                     {
-                        while (_serialPort.CtsHolding) Thread.Sleep(1);
+                        while (_serialPort.CtsHolding()) Thread.Sleep(1);
                         string sb = cmd[i].ToString();
                         _serialPort.Write(sb);
                     }

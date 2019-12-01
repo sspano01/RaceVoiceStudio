@@ -1,18 +1,26 @@
 ﻿using System;
 using System.IO;
-using System.IO.Ports;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading;
+#if !APP
+using System.IO.Ports;
 using System.Windows.Forms;
+#endif
 
 namespace RaceVoice
 {
     internal static class globals
     {
+
+#if APP
+        public static string selected_track = "";
+        public static RaceVoicePCMain pcmain;
+
+#endif
         public static string thePort = "";
         public static string theSerialNumber = "";
         public static string theUUID = "";
@@ -282,10 +290,15 @@ namespace RaceVoice
             }
         }
 
+
         public static string LocalFolder()
         {
             string dir = "";
+#if APP
+            dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+#else
             dir = Directory.GetCurrentDirectory();
+#endif
             return dir;
         }
 
@@ -351,6 +364,7 @@ namespace RaceVoice
             return valid;
         }
 
+#if !APP
         public static bool IsDemoMode(bool nag)
         {
 
@@ -367,6 +381,62 @@ namespace RaceVoice
 
         }
 
+        
+        public static bool IsRaceVoiceConnected()
+        {
+            if (globals.thePort.Length == 0)
+            {
+                splash sp = new splash(0);
+                sp.ShowDialog(); // look for a new racevoice unit
+                if (globals.thePort.Length == 0)
+                {
+                    // didn't find it?
+                    sp.Close();
+                    MessageBox.Show("RaceVoice is not connected.\r\nMake sure USB is connected.\r\nMake sure that RaceVoice has power applied.\r\nCheck that the USB Drivers have been installed.\r\n", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return false;
+                }
+                sp.Close();
+                return true;
+            }
+            else
+            {
+
+                racevoicecom rv = new racevoicecom(); // we have a racevoice port, check to make sure its still there
+                if (rv.OpenSerial() == false)
+                {
+                    globals.thePort = "";  // nope so find it again
+                    splash sp = new splash(0);
+                    sp.ShowDialog();
+                    if (globals.thePort.Length == 0)
+                    {
+                        sp.Close();
+                        MessageBox.Show("RaceVoice is not connected.\r\nMake sure USB is connected.\r\nMake sure that RaceVoice has power applied.\r\nCheck that the USB Drivers have been installed.\r\n", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                    else
+                    {
+                        sp.Close();
+                        return true;
+                    }
+                }
+                else
+                {
+                    // still there!
+                    rv.CloseSerial();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+#endif
+
+#if APP
+        public static bool IsRaceVoiceConnected()
+        {
+            return true;
+        }
+
+#endif
         public static void Terminate()
         {
             Environment.Exit(0);
@@ -497,51 +567,6 @@ namespace RaceVoice
             }
         }
 
-        public static bool IsRaceVoiceConnected()
-        {
-            if (globals.thePort.Length == 0)
-            {
-                splash sp = new splash(0);
-                sp.ShowDialog(); // look for a new racevoice unit
-                if (globals.thePort.Length == 0)
-                {
-                    // didn't find it?
-                    sp.Close();
-                    MessageBox.Show("RaceVoice is not connected.\r\nMake sure USB is connected.\r\nMake sure that RaceVoice has power applied.\r\nCheck that the USB Drivers have been installed.\r\n", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    return false;
-                }
-                sp.Close();
-                return true;
-            }
-            else
-            {
-
-                racevoicecom rv = new racevoicecom(); // we have a racevoice port, check to make sure its still there
-                if (rv.OpenSerial() == false)
-                {
-                    globals.thePort = "";  // nope so find it again
-                    splash sp = new splash(0);
-                    sp.ShowDialog();
-                    if (globals.thePort.Length == 0)
-                    {
-                        sp.Close();
-                        MessageBox.Show("RaceVoice is not connected.\r\nMake sure USB is connected.\r\nMake sure that RaceVoice has power applied.\r\nCheck that the USB Drivers have been installed.\r\n", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    }
-                    else
-                    {
-                        sp.Close();
-                        return true;
-                    }
-                }
-                else
-                {
-                    // still there!
-                    rv.CloseSerial();
-                    return true;
-                }
-            }
-            return false;
-        }
 
         public static void WriteLine(string ln)
         {

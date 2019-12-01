@@ -30,15 +30,33 @@ namespace RaceVoice
         public string _trackMetafile;
 
         public string _trackFile;
+        private racevoicecom rvcom = null;
+
+#if APP
+        private string _carMetafile = "";
+        public CarMetadata _carMetadata;
+        public RaceVoicePCMain()
+        {
+            _carMetafile=globals.LocalFolder()+"//car.json";
+            _carMetadata = CarMetadata.Load(_carMetafile);
+            rvcom = new racevoicecom();
+
+        }
+
+        public void SaveCarMetaData()
+        {
+            _carMetadata.Save(_carMetafile);
+
+        }
+#endif
 
 #if (!APP)
 
-        private Bitmap _renderTarget;
-        
-        private CarMetadata _carMetadata;
         private const string _carMetafile = "car.json";
+        private Bitmap _renderTarget;
+        private CarMetadata _carMetadata;
+        
 
-        private racevoicecom rvcom = null;
         private CheckBox[] _dataCheckboxes;
         private bool _engineValuesUpdating;
         private bool _dynamicsValuesUpdating;
@@ -1152,73 +1170,8 @@ namespace RaceVoice
                 globals.WriteLine(ee.Message);
             }
         }
-        private void WriteDataToRaceVoice()
-        {
-            bool valid = true;
-            if (!globals.IsRaceVoiceConnected()) return;
-            rvcom.OpenSerial();
-            rvcom.Bar(0);
-            rvcom.Bar(200);
-            valid = rvcom.WriteDataToRaceVoice(_carMetadata, _trackModel,false);
-            rvcom.CloseSerial();
-            rvcom.Bar(0);
 
 
-            if (valid)
-            {
-                ReadDataFromRaceVoice(false); // read everything back
-                MessageBox.Show("Success: RaceVoice has been updated", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
-            }
-            else
-            {
-                MessageBox.Show("ERROR: RaceVoice update has failed\r\n", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private bool ReadDataFromRaceVoice(bool version_only)
-        {
-            if (!globals.IsRaceVoiceConnected())
-            {
-                AdjustUIForFeatures();
-                return false;
-            }
-
-            rvcom.OpenSerial();
-            // the code here will read data from the unit and it will need to populat the global structure
-            // to configure the UI based on the values read back from the unit
-            rvcom.Bar(0);
-            rvcom.Bar(150);
-            rvcom.SendSerial("\r");
-            rvcom.SendSerial("\r");
-            if (version_only)
-            {
-                rvcom.SendSerial("SHOW VERSION",_carMetadata, _trackModel);
-                rvcom.CloseSerial();
-                rvcom.Bar(0);
-                UpdateTitle();
-            }
-            else
-            {
-                rvcom.SendSerial("show settings", _carMetadata, _trackModel);
-                if (ShowSelectedTrack(true)) // track has changed, so reload the data one more time so we make sure we are in sync
-                {
-                    rvcom.SendSerial("show settings", _carMetadata, _trackModel);
-                }
-                rvcom.CloseSerial();
-                UpdateEngineDataValues();
-                UpdateDynamicsDataValues();
-                UpdateTitle();
-                UpdateSegments();
-                UpdateSplits();
-                ReRender();
-                rvcom.Bar(0);
-            }
-            AdjustUIForFeatures();
-            return true;
-
-
-        }
 
        
         private void sendConfigButton(object sender, EventArgs e)
@@ -2062,6 +2015,91 @@ namespace RaceVoice
             btnSaveTrack.Enabled = false;
 #endif
         }
+
+        private bool ReadDataFromRaceVoice(bool version_only)
+        {
+            if (!globals.IsRaceVoiceConnected())
+            {
+#if !APP
+                AdjustUIForFeatures();
+#endif
+                return false;
+            }
+
+            rvcom.OpenSerial();
+            // the code here will read data from the unit and it will need to populat the global structure
+            // to configure the UI based on the values read back from the unit
+            rvcom.Bar(0);
+            rvcom.Bar(150);
+            rvcom.SendSerial("\r");
+            rvcom.SendSerial("\r");
+            if (version_only)
+            {
+                rvcom.SendSerial("SHOW VERSION", _carMetadata, _trackModel);
+                rvcom.CloseSerial();
+                rvcom.Bar(0);
+#if !APP
+                UpdateTitle();
+#endif
+            }
+            else
+            {
+                rvcom.SendSerial("show settings", _carMetadata, _trackModel);
+#if !APP
+                if (ShowSelectedTrack(true)) // track has changed, so reload the data one more time so we make sure we are in sync
+                {
+                    rvcom.SendSerial("show settings", _carMetadata, _trackModel);
+                }
+#endif
+                rvcom.CloseSerial();
+#if !APP
+                UpdateEngineDataValues();
+                UpdateDynamicsDataValues();
+                UpdateTitle();
+                UpdateSegments();
+                UpdateSplits();
+                ReRender();
+#endif
+                rvcom.Bar(0);
+            }
+#if !APP
+            AdjustUIForFeatures();
+#endif
+            return true;
+
+
+        }
+
+
+        private bool WriteDataToRaceVoice()
+        {
+            bool valid = true;
+            if (!globals.IsRaceVoiceConnected()) return false;
+            rvcom.OpenSerial();
+            rvcom.Bar(0);
+            rvcom.Bar(200);
+            valid = rvcom.WriteDataToRaceVoice(_carMetadata, _trackModel, false);
+            rvcom.CloseSerial();
+            rvcom.Bar(0);
+
+
+            if (valid)
+            {
+                ReadDataFromRaceVoice(false); // read everything back
+#if !APP
+                MessageBox.Show("Success: RaceVoice has been updated", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+#endif
+            }
+            else
+            {
+#if !APP
+                MessageBox.Show("ERROR: RaceVoice update has failed\r\n", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+#endif
+            }
+
+            return valid;
+        }
+
 
 
 

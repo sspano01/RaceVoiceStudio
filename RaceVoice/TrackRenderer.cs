@@ -255,7 +255,7 @@ namespace RaceVoice
                 SKPaint green = new SKPaint
                 {
                     Style = SKPaintStyle.Stroke,
-                    Color = SKColors.Green,
+                    Color = SKColors.LawnGreen,
                     StrokeWidth = 10
                 };
                 SKPoint sp1 = new SKPoint();
@@ -540,8 +540,8 @@ namespace RaceVoice
                 SKPaint black = new SKPaint
                 {
                     Style = SKPaintStyle.Stroke,
-                    Color = SKColors.Black,
-                    StrokeWidth = 5
+                    Color = SKColors.LightGray,
+                    StrokeWidth = 2
                 };
 
 
