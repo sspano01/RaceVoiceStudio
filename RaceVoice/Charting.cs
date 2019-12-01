@@ -13,7 +13,7 @@ namespace RaceVoice
         public static void GenerateChartBundleFromMoTecCsv(string inFile, string outFile)
         {
             MoTecCsv csv = MoTecCsv.LoadCsvFile("data.csv");
-            var trace = csv.ToDataTrace();
+            var trace = csv.GetDataTrace();
 
             GenerateChartData(trace, outFile);
         }

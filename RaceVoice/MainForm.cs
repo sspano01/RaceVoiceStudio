@@ -74,7 +74,7 @@ namespace RaceVoice
                 var files = Directory.GetFiles(globals.track_folder, "*.csv");
                 foreach (var f in files)
                 {
-                    var trackModel = TrackRenderer.LoadFile(f);
+                    var trackModel = TrackModelParser.LoadFile(f);
                     var metaFile = GetMetaFileForCsv(f);
                     var metadata = TrackMetadata.Load(metaFile);
                     metadata = CheckTrackMetaData(f,metaFile,metadata,trackModel);
@@ -1351,7 +1351,7 @@ namespace RaceVoice
 
         private void btnSaveTrack_Click(object sender, EventArgs e)
         {
-            TrackRenderer.SaveFile(_trackFile, _trackModel);
+            TrackModelParser.SaveFile(_trackFile, _trackModel);
             btnSaveTrack.Enabled = false;
         }
 
@@ -1986,7 +1986,7 @@ namespace RaceVoice
 #endif
             _trackMetafile = GetMetaFileForCsv(filename);
             _trackMetadata = TrackMetadata.Load(_trackMetafile);
-            _trackModel = TrackRenderer.LoadFile(filename);
+            _trackModel = TrackModelParser.LoadFile(filename);
 #if (APP)
            _trackMetadata= CheckTrackMetaData(filename, _trackMetafile, _trackMetadata, _trackModel);
             // _trackMetadata=CheckTrackMetaData(_trackMetadata);

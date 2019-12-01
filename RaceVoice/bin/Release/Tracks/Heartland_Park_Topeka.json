@@ -15,8 +15,8 @@
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
-  "ClusterSize": 1,
-  "UseCurveRendering": false,
+  "ClusterSize": 8,
+  "UseCurveRendering": true,
   "SplitEnabledStates": [
     true,
     true,

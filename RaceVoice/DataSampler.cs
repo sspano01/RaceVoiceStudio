@@ -42,9 +42,9 @@ namespace RaceVoice
                     LapDistance = samples.Count * chunkSize,
                     Speed = chunkPoints.Average(p => p.Speed),
                     Time = chunkPoints.Average(p => p.Time),
-                    BrakePressureFront = chunkPoints.Max(p => p.BrakePressureFront),
-                    BrakePressureRear = chunkPoints.Max(p => p.BrakePressureRear),
-                    Throttle = chunkPoints.Max(p => p.Throttle),
+                    //BrakePressureFront = chunkPoints.Max(p => p.BrakePressureFront),
+                    //BrakePressureRear = chunkPoints.Max(p => p.BrakePressureRear),
+                    ThrottlePosition = chunkPoints.Max(p => p.ThrottlePosition),
                 });
             }
 

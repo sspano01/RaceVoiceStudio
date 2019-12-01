@@ -191,6 +191,7 @@
     <Compile Include="tracer.Designer.cs">
       <DependentUpon>tracer.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrackModelParser.cs" />
     <Compile Include="TrackRenderer.cs" />
     <Compile Include="Models\TrackRendererSettings.cs" />
     <Compile Include="Models\TrackSegment.cs" />
