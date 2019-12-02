@@ -38,7 +38,7 @@ namespace RaceVoice
         public static bool first_connected = false;
         public static bool no_unit_check = true;
         public static string forcePort = "";
-        public static bool no_track_check = false;
+        public static bool no_track_check = true;
         public static bool no_license_check = true;
 
         public static bool disabled_charts = false;
@@ -447,6 +447,12 @@ namespace RaceVoice
         public static  bool IsOnlineTest()
         {
             globals.WriteLine("Starting OnlineTest Test..\r\n");
+
+            if (globals.no_license_check || globals.no_track_check)
+            {
+                globals.WriteLine("Bypassed for debug!\r\n");
+                return true;
+            }
 
             System.Net.WebRequest req = System.Net.WebRequest.Create("https://www.google.com");
             System.Net.WebResponse resp = default(System.Net.WebResponse);

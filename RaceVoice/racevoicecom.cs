@@ -125,6 +125,10 @@ namespace RaceVoice
             pBar = topbar;
         }
 
+        private bool CtsHolding()
+        {
+            return _serialPort.CtsHolding;
+        }
         public bool OpenSerial()
         {
             if (!globals.thePort.Contains("COM"))
@@ -571,7 +575,7 @@ namespace RaceVoice
                 {
                     db[0] = (byte)fs.ReadByte();
 
-                    while (_serialPort.CtsHolding())
+                    while (CtsHolding())
                     {
                         globals.WriteLine("Sending Audio...wait for CTS");
                         Thread.Sleep(1);
@@ -622,7 +626,7 @@ namespace RaceVoice
 
                     for (i = 0; i < cmd.Length; i++)
                     {
-                        while (_serialPort.CtsHolding()) Thread.Sleep(1);
+                        while (CtsHolding()) Thread.Sleep(1);
                         string sb = cmd[i].ToString();
                         _serialPort.Write(sb);
                     }

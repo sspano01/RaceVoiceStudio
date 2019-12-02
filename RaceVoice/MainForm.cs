@@ -1316,7 +1316,6 @@ namespace RaceVoice
                     trace = RaceVoiceCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
                 }
 
-                MoTecCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
                 Charting.GenerateChartBundle(trace, "charts/data.js");
                 webCharts.Refresh(WebBrowserRefreshOption.Completely);
             }
