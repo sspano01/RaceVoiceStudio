@@ -1,14 +1,21 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.IO;
 using System.Data;
+using System.Diagnostics;
+#if (!APP)
 using System.Windows.Forms;
+#else
+using Xamarin.Forms;
+#endif
+using MySql.Data.MySqlClient;
 
 namespace RaceVoice
 {
+
     internal class sqldatabase
     {
 
+        
 
         public bool ValidateUUID(string uuid,bool set, CarMetadata cm)
         {
@@ -20,6 +27,7 @@ namespace RaceVoice
             string user_name = "";
             int access_count = 0;
             bool all_stop = false;
+
             connetionString = "Data Source=" + globals.racevoice_sqlserver + "; Initial Catalog = racevoice;Integrated Security=False;User ID=root;Password=#RaceVoice01;connection timeout=30";
 
             //connectionString="Data Source=104.155.20.171;Initial Catalog=bookshelf;Integrated Security=False;User ID=dotnetapp;Password=test;MultipleActiveResultSets=True"
