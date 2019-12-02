@@ -15,6 +15,10 @@ namespace RaceVoice
             var mag = maxTime - minTime;
             var sampleCount = (int)mag;
             var bucketSize = mag / sampleCount;
+
+#if APP
+            outFile = globals.LocalFolder() + "//" + outFile;
+#endif
             var buckets = Enumerable.Range(1, sampleCount).Select(i => bucketSize * i).ToList();
 
             for (int i = 1; i < lapData.Count - 1; i++)

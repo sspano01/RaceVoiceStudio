@@ -1292,32 +1292,7 @@ namespace RaceVoice
 
             if(result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
             {
-                if (!Directory.Exists("charts"))
-                {
-                    Directory.CreateDirectory("charts");
-                }
-                IList<LapDataTrace> trace = null;
-                string firstLine = null;
-                using (StreamReader sr = new StreamReader(File.OpenRead(openFileDialog.FileName)))
-                {
-                    firstLine = sr.ReadLine();
-                }
-
-                if (firstLine.Contains("aim csv file"))
-                {
-                    trace = AimCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
-                }
-                else if (firstLine.Contains("motec csv file"))
-                {
-                    trace = MoTecCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
-                }
-                else
-                {
-                    trace = RaceVoiceCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
-                }
-
-                Charting.GenerateChartBundle(trace, "charts/data.js");
-                webCharts.Refresh(WebBrowserRefreshOption.Completely);
+                DisplayChart(openFileDialog.Filename);
             }
         }
         
@@ -2039,6 +2014,43 @@ namespace RaceVoice
 
             btnSaveTrack.Enabled = false;
 #endif
+        }
+
+
+        public void DisplayChart(string filename)
+        {
+            string dirname = "charts";
+
+#if APP
+            dirname = globals.LocalFolder() + "//charts";
+#endif
+            if (!Directory.Exists(dirname))
+            {
+                Directory.CreateDirectory(dirname);
+            }
+            IList<LapDataTrace> trace = null;
+            string firstLine = null;
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                firstLine = sr.ReadLine();
+            }
+
+            if (firstLine.Contains("aim csv file"))
+            {
+                trace = AimCsv.LoadCsvFile(filename).GetDataTrace();
+            }
+            else if (firstLine.Contains("motec csv file"))
+            {
+                trace = MoTecCsv.LoadCsvFile(filename).GetDataTrace();
+            }
+            else
+            {
+                trace = RaceVoiceCsv.LoadCsvFile(filename).GetDataTrace();
+            }
+
+            Charting.GenerateChartBundle(trace, "charts/data.js");
+            //webCharts.Refresh(WebBrowserRefreshOption.Completely);
+
         }
 
         private bool ReadDataFromRaceVoice(bool version_only)

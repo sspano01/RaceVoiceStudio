@@ -85,10 +85,6 @@ namespace RaceVoice
             return true;
         }
 
-        public bool CtsHolding()
-        {
-            return false;
-        }
 
     }
 #endif
@@ -116,6 +112,11 @@ namespace RaceVoice
 
             return true;
         }
+        private bool CtsHolding()
+        {
+            return true;
+        }
+
 #else
         private static ProgressBar pBar = null;
         private static bool do_firmware_update = false;
