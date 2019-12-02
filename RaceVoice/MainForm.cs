@@ -1333,7 +1333,7 @@ namespace RaceVoice
             UpdateDataCheckboxes();
         }
 
-        private void loadMoTecCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var result = openFileDialog.ShowDialog();
 
@@ -1343,7 +1343,27 @@ namespace RaceVoice
                 {
                     Directory.CreateDirectory("charts");
                 }
-                var trace = MoTecCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                IList<LapDataTrace> trace = null;
+                string firstLine = null;
+                using (StreamReader sr = new StreamReader(File.OpenRead(openFileDialog.FileName)))
+                {
+                    firstLine = sr.ReadLine();
+                }
+
+                if (firstLine.Contains("aim csv file"))
+                {
+                    trace = AimCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                }
+                else if (firstLine.Contains("motec csv file"))
+                {
+                    trace = MoTecCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                }
+                else
+                {
+                    trace = RaceVoiceCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
+                }
+
+                MoTecCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
                 Charting.GenerateChartBundle(trace, "charts/data.js");
                 webCharts.Refresh(WebBrowserRefreshOption.Completely);
             }
@@ -2068,38 +2088,5 @@ namespace RaceVoice
             btnSaveTrack.Enabled = false;
 #endif
         }
-
-        private void loadAIMCSVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var result = openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
-            {
-                if (!Directory.Exists("charts"))
-                {
-                    Directory.CreateDirectory("charts");
-                }
-                var trace = AimCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
-                Charting.GenerateChartBundle(trace, "charts/data.js");
-                webCharts.Refresh(WebBrowserRefreshOption.Completely);
-            }
-        }
-
-        private void loadRaceVoiceCSVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var result = openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
-            {
-                if (!Directory.Exists("charts"))
-                {
-                    Directory.CreateDirectory("charts");
-                }
-                var trace = RaceVoiceCsv.LoadCsvFile(openFileDialog.FileName).GetDataTrace();
-                Charting.GenerateChartBundle(trace, "charts/data.js");
-                webCharts.Refresh(WebBrowserRefreshOption.Completely);
-            }
-        }
     }
-
 }

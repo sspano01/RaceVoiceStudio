@@ -144,8 +144,6 @@
             this.tabCharts = new System.Windows.Forms.TabPage();
             this.webCharts = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.loadAIMCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadRaceVoiceCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -503,9 +501,7 @@
             // chartsMenuItem
             // 
             this.chartsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadMoTecCSVToolStripMenuItem,
-            this.loadAIMCSVToolStripMenuItem,
-            this.loadRaceVoiceCSVToolStripMenuItem});
+            this.loadMoTecCSVToolStripMenuItem});
             this.chartsMenuItem.Name = "chartsMenuItem";
             this.chartsMenuItem.Size = new System.Drawing.Size(104, 43);
             this.chartsMenuItem.Text = "Charts";
@@ -513,9 +509,9 @@
             // loadMoTecCSVToolStripMenuItem
             // 
             this.loadMoTecCSVToolStripMenuItem.Name = "loadMoTecCSVToolStripMenuItem";
-            this.loadMoTecCSVToolStripMenuItem.Size = new System.Drawing.Size(365, 42);
-            this.loadMoTecCSVToolStripMenuItem.Text = "Load MoTec CSV";
-            this.loadMoTecCSVToolStripMenuItem.Click += new System.EventHandler(this.loadMoTecCSVToolStripMenuItem_Click);
+            this.loadMoTecCSVToolStripMenuItem.Size = new System.Drawing.Size(360, 42);
+            this.loadMoTecCSVToolStripMenuItem.Text = "Load CSV";
+            this.loadMoTecCSVToolStripMenuItem.Click += new System.EventHandler(this.loadCSVToolStripMenuItem_Click);
             // 
             // advancedToolStripMenuItem
             // 
@@ -1545,20 +1541,6 @@
             this.openFileDialog.Filter = "MoTec CSV Files|*.csv";
             this.openFileDialog.InitialDirectory = ".";
             // 
-            // loadAIMCSVToolStripMenuItem
-            // 
-            this.loadAIMCSVToolStripMenuItem.Name = "loadAIMCSVToolStripMenuItem";
-            this.loadAIMCSVToolStripMenuItem.Size = new System.Drawing.Size(365, 42);
-            this.loadAIMCSVToolStripMenuItem.Text = "Load AIM CSV";
-            this.loadAIMCSVToolStripMenuItem.Click += new System.EventHandler(this.loadAIMCSVToolStripMenuItem_Click);
-            // 
-            // loadRaceVoiceCSVToolStripMenuItem
-            // 
-            this.loadRaceVoiceCSVToolStripMenuItem.Name = "loadRaceVoiceCSVToolStripMenuItem";
-            this.loadRaceVoiceCSVToolStripMenuItem.Size = new System.Drawing.Size(365, 42);
-            this.loadRaceVoiceCSVToolStripMenuItem.Text = "Load RaceVoice CSV";
-            this.loadRaceVoiceCSVToolStripMenuItem.Click += new System.EventHandler(this.loadRaceVoiceCSVToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 687);
@@ -1741,8 +1723,6 @@
         private System.Windows.Forms.ToolStripMenuItem installUSBDriversToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem loadAIMCSVToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadRaceVoiceCSVToolStripMenuItem;
     }
 }
 
