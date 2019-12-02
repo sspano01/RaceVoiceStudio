@@ -19,11 +19,12 @@ h2 {
 .checkcontainer {
     display: inline-block;
     margin: 0 32px;
+    width: 100px;
 }
 
 #laptoggles {
     border-bottom: 1px solid #777;
     margin-bottom: 32px;
     padding-bottom: 32px;
-    text-align: center;
+    text-align: left;
 }

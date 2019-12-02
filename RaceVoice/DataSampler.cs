@@ -52,35 +52,49 @@ namespace RaceVoice
             return samples;
         }
 
-        public IList<DataTracePoint> SampleByTime(int numberOfSamples)
+        public ICollection<DataTracePoint> SampleByTime(IList<double> buckets)
         {
-            List<DataTracePoint> samples = new List<DataTracePoint>(numberOfSamples);
-            var mag = _timeSorted.Last().Time - _timeSorted.First().Time;
-            var chunkSize = mag / (numberOfSamples+1);
+            LinkedList<DataTracePoint> samples = new LinkedList<DataTracePoint>();
 
             var lastIdx = 0;
-            var takeUpTo = _timeSorted.First().Time + chunkSize;
-            for (int n = 0; n < numberOfSamples; n++)
+            for (int n = 0; n < buckets.Count; n++)
             {
                 List<DataTracePoint> chunkPoints = new List<DataTracePoint>();
 
-                while (_timeSorted[lastIdx].Time <= takeUpTo)
+                while (lastIdx < _timeSorted.Count && _timeSorted[lastIdx].Time <= buckets[n])
                 {
                     chunkPoints.Add(_timeSorted[lastIdx]);
                     lastIdx++;
                 }
 
-                takeUpTo += chunkSize;
-
-                samples.Add(new DataTracePoint()
+                var time = Math.Round(buckets[n], 3, MidpointRounding.AwayFromZero);
+                if (chunkPoints.Any())
                 {
-                    LapDistance = chunkPoints.Any() ? chunkPoints.Average(p => p.LapDistance) : 0,
-                    Speed = chunkPoints.Any() ? chunkPoints.Average(p => p.Speed) : 0,
-                    Time = chunkPoints.Any() ? chunkPoints.Average(p => p.Time) : 0,
-                    //BrakePressureFront = chunkPoints.Max(p => p.BrakePressureFront),
-                    //BrakePressureRear = chunkPoints.Max(p => p.BrakePressureRear),
-                    ThrottlePosition = chunkPoints.Any() ? chunkPoints.Max(p => p.ThrottlePosition) : 0,
-                });
+                    samples.AddLast(new DataTracePoint()
+                    {
+                        LapDistance = chunkPoints.Average(p => p.LapDistance),
+                        Speed = chunkPoints.Average(p => p.Speed),
+                        Time = time,
+                        //BrakePressureFront = chunkPoints.Max(p => p.BrakePressureFront),
+                        //BrakePressureRear = chunkPoints.Max(p => p.BrakePressureRear),
+                        ThrottlePosition = chunkPoints.Max(p => p.ThrottlePosition),
+                    });
+                }
+                else
+                {
+                    samples.AddLast(new DataTracePoint()
+                    {
+                        Time = time
+                    });
+                }
+            }
+
+            foreach (var node in samples.Reverse())
+            {
+                if (node.Speed == 0)
+                {
+                    samples.RemoveLast();
+                }
             }
 
             return samples;

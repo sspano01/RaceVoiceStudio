@@ -2,7 +2,8 @@ var Selectors = {
     Speed: function(val) { return val.s; },
     Time: function(val) { return val.ti; },
     Distance: function(val) { return val.ld; },
-    Throttle: function(val) { return val.th; },
+    Throttle: function(val) { return val.tp; },
+    Rpm: function(val) { return val.rpm; },
     BrakesFront: function(val) { return val.bf; },
     BrakesRear: function(val) { return val.br; },
     Brakes: function(val) { return (val.br + val.bf) / 2; },
@@ -10,35 +11,53 @@ var Selectors = {
 
 var RawData = 0;
 
+var LineCharts = {};
+var BoxCharts = {};
+
 
 function buildBoxChartData(data, xSelector, ySelector) {
-    var mins = [];
-    var maxs = [];
+    var min = [];
+    var max = [];
     var labels = [];
 
-    for (var n = 0; n < data[0].length; n++) {
+    var longest = 0;
+    var longestIdx = 0;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].length > longest) {
+            longest = data[i].length;
+            longestIdx = i;
+        }
+    }
+
+    for (var n = 0; n < longest; n++) {
         var cMin = Number.MAX_VALUE;
         var cMax = Number.MIN_VALUE;
 
+        var xVal = xSelector(data[longestIdx][n]);
+        labels.push(xVal);
+
         for (var i = 0; i < data.length; i++) {
             var values = data[i];
+            var yVal = 0;
 
-            var yVal = ySelector(values[n]);
-            
-            if (yVal < cMin) {
-                cMin = yVal;
-            }
+            if (n < values.length) {
+                yVal = ySelector(values[n]);
+                
+                if (yVal < cMin) {
+                    cMin = yVal;
+                }
 
-            if (yVal > cMax) {
-                cMax = yVal;
+                if (yVal > cMax) {
+                    cMax = yVal;
+                }
             }
         }
-        labels.push(Math.round(xSelector(data[0][n])));
-        mins.push(cMin);
-        maxs.push(cMax-cMin);
+
+        min.push(cMin);
+        max.push(cMax-cMin);
     }
     
-    return { Labels: labels, Max: maxs, Min: mins};
+    return { Labels: labels, Min: min, Max: max };
 }
 
 function buildMinMaxLapData(data, xSelector, ySelector) {
@@ -47,29 +66,39 @@ function buildMinMaxLapData(data, xSelector, ySelector) {
     var laps = []
     var labels = [];
 
+    var longest = 0;
+    var longestIdx = 0;
     for (var i = 0; i < data.length; i++) {
+        if (data[i].length > longest) {
+            longest = data[i].length;
+            longestIdx = i;
+        }
         laps.push([]);
     }
 
-    for (var n = 0; n < data[0].length; n++) {
+    for (var n = 0; n < longest; n++) {
         var cMin = { x: 0, y: Number.MAX_VALUE };
         var cMax = { x: 0, y: Number.MIN_VALUE };
         labels.push('');
 
+        var xVal = xSelector(data[longestIdx][n]);
+
         for (var i = 0; i < data.length; i++) {
             var values = data[i];
+            var yVal = 0;
 
-            var xVal = xSelector(values[n]);
-            var yVal = ySelector(values[n]);
-            
-            if (yVal < cMin.y) {
-                cMin.x = xVal;
-                cMin.y = yVal;
-            }
+            if (n < values.length) {
+                yVal = ySelector(values[n]);
+                
+                if (yVal < cMin.y) {
+                    cMin.x = xVal;
+                    cMin.y = yVal;
+                }
 
-            if (yVal > cMax.y) {
-                cMax.x = xVal;
-                cMax.y = yVal;
+                if (yVal > cMax.y) {
+                    cMax.x = xVal;
+                    cMax.y = yVal;
+                }
             }
 
             laps[i].push({ x: xVal, y: yVal });
@@ -93,7 +122,7 @@ function makeDataset(label, color, lap) {
     }
 }
 
-function renderLineChart(data,ctx, xSelector, ySelector) {
+function renderLineChart(data, ctx, xSelector, ySelector) {
     var parsed = buildMinMaxLapData(data, xSelector, ySelector);
     var datasets = [];
     var checkboxes = $('.checkcontainer > input:checked');
@@ -106,7 +135,11 @@ function renderLineChart(data,ctx, xSelector, ySelector) {
     var maxSet = makeDataset("Max", 'rgba(128,128,128,1)', parsed.Max);
     datasets.push(maxSet);
 
-    var chart = new Chart(ctx, {
+    if (LineCharts[ctx]) {
+        LineCharts[ctx].destroy();
+    }
+
+    var chart = new Chart($(ctx), {
         type: 'line',
         data: { 
             labels: parsed.Labels,
@@ -121,6 +154,9 @@ function renderLineChart(data,ctx, xSelector, ySelector) {
             },
             hover: {
                 animationDuration: 0, // duration of animations when hovering an item
+            },
+            tooltips: {
+                intersect: false
             },
             responsiveAnimationDuration: 0, // animation duration after a resize
 
@@ -137,12 +173,19 @@ function renderLineChart(data,ctx, xSelector, ySelector) {
             },
         }
     });
+
+    LineCharts[ctx] = chart;
 }
 
 function renderBoxChart(data, label, ctx, xSelector, ySelector) {
     var parsed = buildBoxChartData(data, xSelector, ySelector);
 
+    if (BoxCharts[ctx]) {
+        BoxCharts[ctx].dispose();
+    }
+
     var chart = echarts.init(document.getElementById(ctx));
+    BoxCharts[ctx] = chart;
 
     // specify chart configuration item and data
     var option = {
@@ -168,7 +211,7 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
             type: 'value'
         },
         series: [{
-            name: 'SpeedMin',
+            name: 'Min',
             type: 'bar',
             data: parsed.Min,
             stack: 'a',
@@ -183,7 +226,7 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
                 }
             },
         },{
-            name: 'SpeedMax',
+            name: 'Max',
             type: 'bar',
             data: parsed.Max,
             stack: 'a',
@@ -195,8 +238,6 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
             }
         }]
     };
-
-console.log(option);
 
     // use configuration item and data specified to show chart
     chart.setOption(option);
@@ -230,9 +271,34 @@ function onLapToggleClick() {
     reloadAllCharts(data);
 }
 
+function selectAllLaps() {
+    var checkboxes = $('.checkcontainer > input');
+    for (var i = 0; i < RawData.length; i++) {
+        checkboxes[i].checked = true;
+    }
+
+    onLapToggleClick();
+}
+
+function selectNoLaps() {
+    var checkboxes = $('.checkcontainer > input');
+    for (var i = 0; i < RawData.length; i++) {
+        checkboxes[i].checked = false;
+    }
+
+    onLapToggleClick();
+}
+
 function reloadAllCharts(data) {
-    renderLineChart(data, $('#speedChart'), Selectors.Distance, Selectors.Speed);
-    renderBoxChart(data, 'Speed (MPH)', 'speedBoxChart', Selectors.Distance, Selectors.Speed);
-    renderLineChart(data, $('#throttleChart'), Selectors.Distance, Selectors.Throttle);
-    renderLineChart(data, $('#brakeChart'), Selectors.Distance, Selectors.Brakes);
+    if (data.length == 0) {
+        return;
+    }
+    renderLineChart(data, '#speedChart', Selectors.Time, Selectors.Speed);
+    renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Time, Selectors.Speed);
+
+    renderLineChart(data, '#rpmChart', Selectors.Time, Selectors.Rpm);
+    renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Time, Selectors.Rpm);
+
+    renderLineChart(data, '#throttleChart', Selectors.Time, Selectors.Throttle);
+    renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Time, Selectors.Throttle);
 }
