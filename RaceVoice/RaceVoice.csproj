@@ -157,6 +157,9 @@
     <Compile Include="Models\HardwareData.cs" />
     <Compile Include="Models\MessageTrigger.cs" />
     <Compile Include="Models\PointD.cs" />
+    <Compile Include="Models\SegmentDataModel.cs" />
+    <Compile Include="Models\LapSegmentsModel.cs" />
+    <Compile Include="Models\SessionDataModel.cs" />
     <Compile Include="Models\ShiftNotificationType.cs" />
     <Compile Include="Preferences.cs">
       <SubType>Form</SubType>

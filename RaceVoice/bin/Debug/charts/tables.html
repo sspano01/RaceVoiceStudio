@@ -1,0 +1,218 @@
+<!DOCTYPE html >
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables.min.css" />
+    <title>RaceVoice Tables</title>
+    
+    <style>
+        body {
+            margin: 32px;
+        }
+
+        .toggle {
+            display: inline-block;
+        }
+
+            .toggle input[type=checkbox] {
+                margin-top: 0;
+            }
+
+        .lap-toggle {
+            width: 50px;
+        }
+
+        .segment-toggle {
+            width: 200px;
+        }
+
+        .column-toggle {
+            width: 100px;
+        }
+
+        .toggle-container {
+            margin: 3rem 0;
+        }
+
+        .lap-hidden, .segment-hidden {
+            display: none;
+        }
+
+        #track-image {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container" id="lap-toggle-container">
+        <h4>Laps <input class="btn btn-xs" type="button" value="All" onclick="showAllLaps()" /> <input class="btn btn-xs" type="button" value="None" onclick="hideAllLaps()" /></h4>
+    </div>
+
+    <div class="toggle-container" id="segment-toggle-container">
+        <h4>Segments <input class="btn btn-xs" type="button" value="All" onclick="showAllSegments()" /> <input class="btn btn-xs" type="button" value="None" onclick="hideAllSegments()" /></h4>
+    </div>
+
+    <div class="toggle-container" id="column-toggle-container">
+        <h4>Columns <input class="btn btn-xs" type="button" value="All" onclick="showAllColumns()" /> <input class="btn btn-xs" type="button" value="None" onclick="hideAllColumns()" /></h4>
+        <div class="toggle column-toggle"><input type="checkbox" data-selector="min-speed-column" checked class="checkbox-inline" /> Min Speed</div>
+        <div class="toggle column-toggle"><input type="checkbox" data-selector="entry-speed-column" checked class="checkbox-inline" /> Entry Speed</div>
+        <div class="toggle column-toggle"><input type="checkbox" data-selector="exit-speed-column" checked class="checkbox-inline" /> Exit Speed</div>
+        <div class="toggle column-toggle"><input type="checkbox" data-selector="max-speed-column" checked class="checkbox-inline" /> Max Speed</div>
+    </div>
+
+    <hr />
+    <table id="data-table" class="table">
+        <thead>
+            <tr>
+                <th>Lap #</th>
+                <th>Segment</th>
+                <th class="min-speed-column">Min Speed</th>
+                <th class="entry-speed-column">Entry Speed</th>
+                <th class="exit-speed-column">Exit Speed</th>
+                <th class="max-speed-column">Max Speed</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="datatables.min.js"></script>
+    
+    <script>
+        function onDataDownloaded(data) {
+            let segments = null;
+            for (lapNumber in data.Laps) {
+                if (!segments) {
+                    segments = data.Laps[lapNumber].Segments;
+                }
+                let div = $('<div class="toggle lap-toggle"/>');
+                let check = $('<input type="checkbox" checked data-lap-number="' + lapNumber + '" class="checkbox-inline" />')
+                div.append(check);
+                div.append(lapNumber);
+                $('#lap-toggle-container').append(div);
+            }
+
+            test = segments;
+
+            for (segmentName in segments) {
+                let div = $('<div class="toggle segment-toggle" />');
+                let check = $('<input type="checkbox" data-segment="' + segmentName + '" checked class="checkbox-inline" />')
+                div.append(check);
+                div.append(segmentName);
+                $('#segment-toggle-container').append(div);
+            }
+
+            /*
+            @foreach (var lap in Model.Data.Laps)
+            {
+                @for (int seg = 0; seg < Model.Track.Turns.Count; seg++)
+                {
+                    var segment = Model.Track.Turns[seg];
+
+                    <tr data-segment-id="@segment.Id" data-lap="@lap.Key">
+                        <td>@lap.Key.ToString()</td>
+                        <td>@segment.Name</td>
+                        <td class="min-speed-column">@lap.Value.Turns[segment.Id].MinSpeed</td>
+                        <td class="entry-speed-column">@lap.Value.Turns[segment.Id].EntrySpeed</td>
+                        <td class="exit-speed-column">@lap.Value.Turns[segment.Id].ExitSpeed</td>
+                        <td class="max-speed-column">@lap.Value.Turns[segment.Id].MaxSpeed</td>
+                    </tr>
+                }
+            }
+            */
+
+            for (lapNumber in data.Laps) {
+                let lapSegments = data.Laps[lapNumber].Segments;
+                for (segmentName in lapSegments) {
+                    let seg = lapSegments[segmentName];
+
+                    var tr = $('<tr data-segment-id="' + segmentName + '" data-lap="' + lapNumber + '" />')
+                        .append('<td>' + lapNumber + '</td>')
+                        .append('<td>' + segmentName + '</td>')
+                        .append('<td class="min-speed-column">' + seg.MinSpeed + '</td>')
+                        .append('<td class="entry-speed-column">' + seg.EntrySpeed + '</td>')
+                        .append('<td class="exit-speed-column">' + seg.ExitSpeed + '</td>')
+                        .append('<td class="max-speed-column">' + seg.MaxSpeed + '</td>');
+
+                    $('#data-table > tbody').append(tr);
+                } 
+            }
+            
+            $('#data-table').DataTable({
+                pageLength: 100000,
+                searching: false,
+                paging: false,
+                info: false
+            });
+
+            $('.lap-toggle > input').change(function () {
+                var $this = $(this);
+                var lap = $this.data('lap-number');
+                var $lapRows = $('[data-lap=' + lap + ']');
+
+                if (this.checked) {
+                    $lapRows.removeClass('lap-hidden')
+                }
+                else {
+                    $lapRows.addClass('lap-hidden');
+                }
+            });
+
+            $('.segment-toggle > input').change(function () {
+                var $this = $(this);
+                var seg = $this.data('segment');
+                var $segRows = $('[data-segment-id="' + seg + '"]');
+
+                if (this.checked) {
+                    $segRows.removeClass('segment-hidden');
+                }
+                else {
+                    $segRows.addClass('segment-hidden')
+                }
+            })
+
+            $('.column-toggle > input').change(function () {
+                var $this = $(this);
+                var selector = $this.data('selector');
+                var $cols = $('.' + selector);
+
+                if (this.checked) {
+                    $cols.show();
+                }
+                else {
+                    $cols.hide();
+                }
+            });
+        }
+        
+        function hideAllLaps() {
+            $('.lap-toggle > input').prop('checked', false).change();
+        }
+
+        function showAllLaps() {
+            $('.lap-toggle > input').prop('checked', true).change();
+        }
+
+        function hideAllSegments() {
+            $('.segment-toggle > input').prop('checked', false).change();
+        }
+
+        function showAllSegments() {
+            $('.segment-toggle > input').prop('checked', true).change();
+        }
+
+        function hideAllColumns() {
+            $('.column-toggle > input').prop('checked', false).change();
+        }
+
+        function showAllColumns() {
+            $('.column-toggle > input').prop('checked', true).change();
+        }
+    </script>
+    
+    <script type="text/javascript" src="tabledata.js"></script>
+</body>
+</html>

@@ -143,6 +143,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabCharts = new System.Windows.Forms.TabPage();
             this.webCharts = new System.Windows.Forms.WebBrowser();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.webTables = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
@@ -179,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vScroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hScroll)).BeginInit();
             this.tabCharts.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rendererRightClickMenu
@@ -189,27 +192,27 @@
             this.deleteSelectedSegmentToolStripMenuItem,
             this.addSplitToolStripMenuItem});
             this.rendererRightClickMenu.Name = "rendererRightClickMenu";
-            this.rendererRightClickMenu.Size = new System.Drawing.Size(391, 130);
+            this.rendererRightClickMenu.Size = new System.Drawing.Size(205, 70);
             this.rendererRightClickMenu.Opening += new System.ComponentModel.CancelEventHandler(this.rendererRightClickMenu_Opening);
             // 
             // addSegmentToolStripMenuItem
             // 
             this.addSegmentToolStripMenuItem.Name = "addSegmentToolStripMenuItem";
-            this.addSegmentToolStripMenuItem.Size = new System.Drawing.Size(390, 42);
+            this.addSegmentToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.addSegmentToolStripMenuItem.Text = "Add Segment";
             this.addSegmentToolStripMenuItem.Click += new System.EventHandler(this.addSegmentToolStripMenuItem_Click);
             // 
             // deleteSelectedSegmentToolStripMenuItem
             // 
             this.deleteSelectedSegmentToolStripMenuItem.Name = "deleteSelectedSegmentToolStripMenuItem";
-            this.deleteSelectedSegmentToolStripMenuItem.Size = new System.Drawing.Size(390, 42);
+            this.deleteSelectedSegmentToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.deleteSelectedSegmentToolStripMenuItem.Text = "Delete Selected Segment";
             this.deleteSelectedSegmentToolStripMenuItem.Click += new System.EventHandler(this.deleteSelectedSegmentToolStripMenuItem_Click);
             // 
             // addSplitToolStripMenuItem
             // 
             this.addSplitToolStripMenuItem.Name = "addSplitToolStripMenuItem";
-            this.addSplitToolStripMenuItem.Size = new System.Drawing.Size(390, 42);
+            this.addSplitToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.addSplitToolStripMenuItem.Text = "Add Split";
             this.addSplitToolStripMenuItem.Click += new System.EventHandler(this.addSplitToolStripMenuItem_Click);
             // 
@@ -219,7 +222,7 @@
             this.splitsBox.Controls.Add(this.btnHideAllSplits);
             this.splitsBox.Controls.Add(this.lstSplits);
             this.splitsBox.Controls.Add(this.btnSplitDelete);
-            this.splitsBox.Location = new System.Drawing.Point(808, 2);
+            this.splitsBox.Location = new System.Drawing.Point(820, 2);
             this.splitsBox.Margin = new System.Windows.Forms.Padding(1);
             this.splitsBox.Name = "splitsBox";
             this.splitsBox.Padding = new System.Windows.Forms.Padding(1);
@@ -264,7 +267,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.lstSegments);
             this.groupBox2.Controls.Add(this.btnSegmentDelete);
-            this.groupBox2.Location = new System.Drawing.Point(808, 178);
+            this.groupBox2.Location = new System.Drawing.Point(820, 178);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(1);
@@ -276,10 +279,9 @@
             // lstSegments
             // 
             this.lstSegments.FormattingEnabled = true;
-            this.lstSegments.ItemHeight = 29;
             this.lstSegments.Location = new System.Drawing.Point(9, 16);
             this.lstSegments.Name = "lstSegments";
-            this.lstSegments.Size = new System.Drawing.Size(166, 91);
+            this.lstSegments.Size = new System.Drawing.Size(166, 82);
             this.lstSegments.TabIndex = 4;
             this.lstSegments.SelectedIndexChanged += new System.EventHandler(this.lstSegments_SelectedIndexChanged);
             // 
@@ -306,7 +308,7 @@
             this.grpData.Controls.Add(this.chkExitSpeed);
             this.grpData.Controls.Add(this.chkEntrySpeed);
             this.grpData.Controls.Add(this.chkMinimumSpeed);
-            this.grpData.Location = new System.Drawing.Point(808, 330);
+            this.grpData.Location = new System.Drawing.Point(820, 330);
             this.grpData.Margin = new System.Windows.Forms.Padding(1);
             this.grpData.Name = "grpData";
             this.grpData.Padding = new System.Windows.Forms.Padding(1);
@@ -321,7 +323,7 @@
             this.chKsegmentRollingMph.Location = new System.Drawing.Point(9, 139);
             this.chKsegmentRollingMph.Margin = new System.Windows.Forms.Padding(1);
             this.chKsegmentRollingMph.Name = "chKsegmentRollingMph";
-            this.chKsegmentRollingMph.Size = new System.Drawing.Size(283, 33);
+            this.chKsegmentRollingMph.Size = new System.Drawing.Size(130, 17);
             this.chKsegmentRollingMph.TabIndex = 9;
             this.chKsegmentRollingMph.Text = "Segment Rolling MPH";
             this.chKsegmentRollingMph.UseVisualStyleBackColor = true;
@@ -344,7 +346,7 @@
             this.chkLateralG.Location = new System.Drawing.Point(9, 120);
             this.chkLateralG.Margin = new System.Windows.Forms.Padding(1);
             this.chkLateralG.Name = "chkLateralG";
-            this.chkLateralG.Size = new System.Drawing.Size(144, 33);
+            this.chkLateralG.Size = new System.Drawing.Size(69, 17);
             this.chkLateralG.TabIndex = 6;
             this.chkLateralG.Text = "Lateral-G";
             this.chkLateralG.UseVisualStyleBackColor = true;
@@ -356,7 +358,7 @@
             this.chkMaxLinearG.Location = new System.Drawing.Point(9, 103);
             this.chkMaxLinearG.Margin = new System.Windows.Forms.Padding(1);
             this.chkMaxLinearG.Name = "chkMaxLinearG";
-            this.chkMaxLinearG.Size = new System.Drawing.Size(188, 33);
+            this.chkMaxLinearG.Size = new System.Drawing.Size(89, 17);
             this.chkMaxLinearG.TabIndex = 5;
             this.chkMaxLinearG.Text = "Max Linear-G";
             this.chkMaxLinearG.UseVisualStyleBackColor = true;
@@ -368,7 +370,7 @@
             this.chkMaxLateralG.Location = new System.Drawing.Point(9, 85);
             this.chkMaxLateralG.Margin = new System.Windows.Forms.Padding(1);
             this.chkMaxLateralG.Name = "chkMaxLateralG";
-            this.chkMaxLateralG.Size = new System.Drawing.Size(194, 33);
+            this.chkMaxLateralG.Size = new System.Drawing.Size(92, 17);
             this.chkMaxLateralG.TabIndex = 4;
             this.chkMaxLateralG.Text = "Max Lateral-G";
             this.chkMaxLateralG.UseVisualStyleBackColor = true;
@@ -380,7 +382,7 @@
             this.chkTurnInSpeed.Location = new System.Drawing.Point(9, 68);
             this.chkTurnInSpeed.Margin = new System.Windows.Forms.Padding(1);
             this.chkTurnInSpeed.Name = "chkTurnInSpeed";
-            this.chkTurnInSpeed.Size = new System.Drawing.Size(200, 33);
+            this.chkTurnInSpeed.Size = new System.Drawing.Size(93, 17);
             this.chkTurnInSpeed.TabIndex = 3;
             this.chkTurnInSpeed.Text = "Turn-in Speed";
             this.chkTurnInSpeed.UseVisualStyleBackColor = true;
@@ -392,7 +394,7 @@
             this.chkExitSpeed.Location = new System.Drawing.Point(9, 50);
             this.chkExitSpeed.Margin = new System.Windows.Forms.Padding(1);
             this.chkExitSpeed.Name = "chkExitSpeed";
-            this.chkExitSpeed.Size = new System.Drawing.Size(162, 33);
+            this.chkExitSpeed.Size = new System.Drawing.Size(77, 17);
             this.chkExitSpeed.TabIndex = 2;
             this.chkExitSpeed.Text = "Exit Speed";
             this.chkExitSpeed.UseVisualStyleBackColor = true;
@@ -404,7 +406,7 @@
             this.chkEntrySpeed.Location = new System.Drawing.Point(9, 33);
             this.chkEntrySpeed.Margin = new System.Windows.Forms.Padding(1);
             this.chkEntrySpeed.Name = "chkEntrySpeed";
-            this.chkEntrySpeed.Size = new System.Drawing.Size(177, 33);
+            this.chkEntrySpeed.Size = new System.Drawing.Size(84, 17);
             this.chkEntrySpeed.TabIndex = 1;
             this.chkEntrySpeed.Text = "Entry Speed";
             this.chkEntrySpeed.UseVisualStyleBackColor = true;
@@ -416,7 +418,7 @@
             this.chkMinimumSpeed.Location = new System.Drawing.Point(9, 15);
             this.chkMinimumSpeed.Margin = new System.Windows.Forms.Padding(1);
             this.chkMinimumSpeed.Name = "chkMinimumSpeed";
-            this.chkMinimumSpeed.Size = new System.Drawing.Size(221, 33);
+            this.chkMinimumSpeed.Size = new System.Drawing.Size(101, 17);
             this.chkMinimumSpeed.TabIndex = 0;
             this.chkMinimumSpeed.Text = "Minimum Speed";
             this.chkMinimumSpeed.UseVisualStyleBackColor = true;
@@ -434,7 +436,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1257, 45);
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -450,51 +452,51 @@
             this.restoreAllTracksToolStripMenuItem,
             this.restoreCurrentTrackToolStripMenuItem});
             this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(100, 43);
+            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
             this.updatesToolStripMenuItem.Text = "Tracks";
             // 
             // importTrackMapsToolStripMenuItem1
             // 
             this.importTrackMapsToolStripMenuItem1.Name = "importTrackMapsToolStripMenuItem1";
-            this.importTrackMapsToolStripMenuItem1.Size = new System.Drawing.Size(374, 42);
+            this.importTrackMapsToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
             this.importTrackMapsToolStripMenuItem1.Text = "Import Track Maps";
             this.importTrackMapsToolStripMenuItem1.Click += new System.EventHandler(this.importTrackMapsToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(371, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(183, 6);
             // 
             // cloneCurrentTrackToolStripMenuItem
             // 
             this.cloneCurrentTrackToolStripMenuItem.Name = "cloneCurrentTrackToolStripMenuItem";
-            this.cloneCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(374, 42);
+            this.cloneCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.cloneCurrentTrackToolStripMenuItem.Text = "Clone Track";
             this.cloneCurrentTrackToolStripMenuItem.Click += new System.EventHandler(this.cloneCurrentTrackToolStripMenuItem_Click);
             // 
             // deleteTrackToolStripMenuItem
             // 
             this.deleteTrackToolStripMenuItem.Name = "deleteTrackToolStripMenuItem";
-            this.deleteTrackToolStripMenuItem.Size = new System.Drawing.Size(374, 42);
+            this.deleteTrackToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.deleteTrackToolStripMenuItem.Text = "Delete Track";
             this.deleteTrackToolStripMenuItem.Click += new System.EventHandler(this.deleteTrackToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(371, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(183, 6);
             // 
             // restoreAllTracksToolStripMenuItem
             // 
             this.restoreAllTracksToolStripMenuItem.Name = "restoreAllTracksToolStripMenuItem";
-            this.restoreAllTracksToolStripMenuItem.Size = new System.Drawing.Size(374, 42);
+            this.restoreAllTracksToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.restoreAllTracksToolStripMenuItem.Text = "Restore All Tracks";
             this.restoreAllTracksToolStripMenuItem.Click += new System.EventHandler(this.restoreAllTracksToolStripMenuItem_Click);
             // 
             // restoreCurrentTrackToolStripMenuItem
             // 
             this.restoreCurrentTrackToolStripMenuItem.Name = "restoreCurrentTrackToolStripMenuItem";
-            this.restoreCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(374, 42);
+            this.restoreCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.restoreCurrentTrackToolStripMenuItem.Text = "Restore Current Track";
             this.restoreCurrentTrackToolStripMenuItem.Click += new System.EventHandler(this.restoreCurrentTrackToolStripMenuItem_Click);
             // 
@@ -503,13 +505,13 @@
             this.chartsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadMoTecCSVToolStripMenuItem});
             this.chartsMenuItem.Name = "chartsMenuItem";
-            this.chartsMenuItem.Size = new System.Drawing.Size(104, 43);
-            this.chartsMenuItem.Text = "Charts";
+            this.chartsMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.chartsMenuItem.Text = "Charts and Tables";
             // 
             // loadMoTecCSVToolStripMenuItem
             // 
             this.loadMoTecCSVToolStripMenuItem.Name = "loadMoTecCSVToolStripMenuItem";
-            this.loadMoTecCSVToolStripMenuItem.Size = new System.Drawing.Size(360, 42);
+            this.loadMoTecCSVToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.loadMoTecCSVToolStripMenuItem.Text = "Load CSV";
             this.loadMoTecCSVToolStripMenuItem.Click += new System.EventHandler(this.loadCSVToolStripMenuItem_Click);
             // 
@@ -527,72 +529,72 @@
             this.toolStripSeparator3,
             this.installUSBDriversToolStripMenuItem});
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(146, 43);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // voiceSettingsToolStripMenuItem
             // 
             this.voiceSettingsToolStripMenuItem.Name = "voiceSettingsToolStripMenuItem";
-            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.voiceSettingsToolStripMenuItem.Text = "Voice Settings";
             this.voiceSettingsToolStripMenuItem.Click += new System.EventHandler(this.voiceSettingsToolStripMenuItem_Click);
             // 
             // dataTraceToolStripMenuItem
             // 
             this.dataTraceToolStripMenuItem.Name = "dataTraceToolStripMenuItem";
-            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.dataTraceToolStripMenuItem.Text = "Data Trace";
             this.dataTraceToolStripMenuItem.Click += new System.EventHandler(this.dataTraceToolStripMenuItem_Click);
             // 
             // gPSSettingsToolStripMenuItem
             // 
             this.gPSSettingsToolStripMenuItem.Name = "gPSSettingsToolStripMenuItem";
-            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.gPSSettingsToolStripMenuItem.Text = "GPS Settings";
             this.gPSSettingsToolStripMenuItem.Click += new System.EventHandler(this.gPSSettingsToolStripMenuItem_Click);
             // 
             // messageTriggersToolStripMenuItem
             // 
             this.messageTriggersToolStripMenuItem.Name = "messageTriggersToolStripMenuItem";
-            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.messageTriggersToolStripMenuItem.Text = "Message Triggers";
             this.messageTriggersToolStripMenuItem.Click += new System.EventHandler(this.messageTriggersToolStripMenuItem_Click);
             // 
             // baudRateToolStripMenuItem
             // 
             this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
-            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.baudRateToolStripMenuItem.Text = "Baud Rate";
             this.baudRateToolStripMenuItem.Click += new System.EventHandler(this.baudRateToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(335, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(165, 6);
             // 
             // firmwareUpdateToolStripMenuItem
             // 
             this.firmwareUpdateToolStripMenuItem.Name = "firmwareUpdateToolStripMenuItem";
-            this.firmwareUpdateToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.firmwareUpdateToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.firmwareUpdateToolStripMenuItem.Text = "Firmware Update";
             this.firmwareUpdateToolStripMenuItem.Click += new System.EventHandler(this.firmwareUpdateToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(335, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(165, 6);
             // 
             // installUSBDriversToolStripMenuItem
             // 
             this.installUSBDriversToolStripMenuItem.Name = "installUSBDriversToolStripMenuItem";
-            this.installUSBDriversToolStripMenuItem.Size = new System.Drawing.Size(338, 42);
+            this.installUSBDriversToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.installUSBDriversToolStripMenuItem.Text = "Install USB Drivers";
             this.installUSBDriversToolStripMenuItem.Click += new System.EventHandler(this.installUSBDriversToolStripMenuItem_Click);
             // 
@@ -603,27 +605,27 @@
             this.gotoRaceVoiceComToolStripMenuItem,
             this.releaseNotesToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(85, 43);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(373, 42);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // gotoRaceVoiceComToolStripMenuItem
             // 
             this.gotoRaceVoiceComToolStripMenuItem.Name = "gotoRaceVoiceComToolStripMenuItem";
-            this.gotoRaceVoiceComToolStripMenuItem.Size = new System.Drawing.Size(373, 42);
+            this.gotoRaceVoiceComToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.gotoRaceVoiceComToolStripMenuItem.Text = "Goto RaceVoice.Com";
             this.gotoRaceVoiceComToolStripMenuItem.Click += new System.EventHandler(this.gotoRaceVoiceComToolStripMenuItem_Click);
             // 
             // releaseNotesToolStripMenuItem
             // 
             this.releaseNotesToolStripMenuItem.Name = "releaseNotesToolStripMenuItem";
-            this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(373, 42);
+            this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.releaseNotesToolStripMenuItem.Text = "Release Notes";
             this.releaseNotesToolStripMenuItem.Click += new System.EventHandler(this.releaseNotesToolStripMenuItem_Click);
             // 
@@ -634,28 +636,28 @@
             this.enableDataLogToolStripMenuItem,
             this.readDataLogToolStripMenuItem});
             this.dataLoggingToolStripMenuItem.Name = "dataLoggingToolStripMenuItem";
-            this.dataLoggingToolStripMenuItem.Size = new System.Drawing.Size(184, 43);
+            this.dataLoggingToolStripMenuItem.Size = new System.Drawing.Size(87, 22);
             this.dataLoggingToolStripMenuItem.Text = "DataLogging";
             this.dataLoggingToolStripMenuItem.Visible = false;
             // 
             // clearDataLogToolStripMenuItem
             // 
             this.clearDataLogToolStripMenuItem.Name = "clearDataLogToolStripMenuItem";
-            this.clearDataLogToolStripMenuItem.Size = new System.Drawing.Size(319, 42);
+            this.clearDataLogToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.clearDataLogToolStripMenuItem.Text = "Clear Data Log";
             this.clearDataLogToolStripMenuItem.Click += new System.EventHandler(this.clearDataLogToolStripMenuItem_Click);
             // 
             // enableDataLogToolStripMenuItem
             // 
             this.enableDataLogToolStripMenuItem.Name = "enableDataLogToolStripMenuItem";
-            this.enableDataLogToolStripMenuItem.Size = new System.Drawing.Size(319, 42);
+            this.enableDataLogToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.enableDataLogToolStripMenuItem.Text = "Enable Data Log";
             this.enableDataLogToolStripMenuItem.Click += new System.EventHandler(this.enableDataLogToolStripMenuItem_Click);
             // 
             // readDataLogToolStripMenuItem
             // 
             this.readDataLogToolStripMenuItem.Name = "readDataLogToolStripMenuItem";
-            this.readDataLogToolStripMenuItem.Size = new System.Drawing.Size(319, 42);
+            this.readDataLogToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.readDataLogToolStripMenuItem.Text = "Read Data Log";
             this.readDataLogToolStripMenuItem.Click += new System.EventHandler(this.readDataLogToolStripMenuItem_Click);
             // 
@@ -677,7 +679,7 @@
             this.cmbTracks.Location = new System.Drawing.Point(7, 15);
             this.cmbTracks.Margin = new System.Windows.Forms.Padding(1);
             this.cmbTracks.Name = "cmbTracks";
-            this.cmbTracks.Size = new System.Drawing.Size(213, 37);
+            this.cmbTracks.Size = new System.Drawing.Size(213, 21);
             this.cmbTracks.TabIndex = 13;
             this.cmbTracks.SelectedIndexChanged += new System.EventHandler(this.cmbTracks_SelectedIndexChanged);
             // 
@@ -750,11 +752,11 @@
             this.tabEngine.Controls.Add(this.chkOverRev);
             this.tabEngine.Controls.Add(this.cmbEcuType);
             this.tabEngine.Controls.Add(this.label3);
-            this.tabEngine.Location = new System.Drawing.Point(10, 47);
+            this.tabEngine.Location = new System.Drawing.Point(4, 22);
             this.tabEngine.Margin = new System.Windows.Forms.Padding(1);
             this.tabEngine.Name = "tabEngine";
             this.tabEngine.Padding = new System.Windows.Forms.Padding(1);
-            this.tabEngine.Size = new System.Drawing.Size(202, 455);
+            this.tabEngine.Size = new System.Drawing.Size(214, 486);
             this.tabEngine.TabIndex = 0;
             this.tabEngine.Text = "Engine";
             this.tabEngine.UseVisualStyleBackColor = true;
@@ -765,7 +767,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(2, 253);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(202, 29);
+            this.label8.Size = new System.Drawing.Size(87, 13);
             this.label8.TabIndex = 22;
             this.label8.Text = "Notification Type";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -775,7 +777,7 @@
             this.rdoToneNotify.AutoSize = true;
             this.rdoToneNotify.Location = new System.Drawing.Point(166, 251);
             this.rdoToneNotify.Name = "rdoToneNotify";
-            this.rdoToneNotify.Size = new System.Drawing.Size(101, 33);
+            this.rdoToneNotify.Size = new System.Drawing.Size(50, 17);
             this.rdoToneNotify.TabIndex = 18;
             this.rdoToneNotify.Text = "Tone";
             this.rdoToneNotify.UseVisualStyleBackColor = true;
@@ -787,7 +789,7 @@
             this.rdoSpeechNotify.Checked = true;
             this.rdoSpeechNotify.Location = new System.Drawing.Point(104, 251);
             this.rdoSpeechNotify.Name = "rdoSpeechNotify";
-            this.rdoSpeechNotify.Size = new System.Drawing.Size(127, 33);
+            this.rdoSpeechNotify.Size = new System.Drawing.Size(62, 17);
             this.rdoSpeechNotify.TabIndex = 18;
             this.rdoSpeechNotify.TabStop = true;
             this.rdoSpeechNotify.Text = "Speech";
@@ -799,7 +801,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(4, 170);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 29);
+            this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "RPM";
             // 
@@ -808,7 +810,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(4, 148);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 29);
+            this.label6.Size = new System.Drawing.Size(24, 13);
             this.label6.TabIndex = 18;
             this.label6.Text = "PSI";
             // 
@@ -827,7 +829,7 @@
             0,
             0});
             this.numOilPressureRpm.Name = "numOilPressureRpm";
-            this.numOilPressureRpm.Size = new System.Drawing.Size(159, 35);
+            this.numOilPressureRpm.Size = new System.Drawing.Size(159, 20);
             this.numOilPressureRpm.TabIndex = 20;
             this.numOilPressureRpm.Value = new decimal(new int[] {
             500,
@@ -851,7 +853,7 @@
             0,
             0});
             this.numDownShift.Name = "numDownShift";
-            this.numDownShift.Size = new System.Drawing.Size(102, 35);
+            this.numDownShift.Size = new System.Drawing.Size(102, 20);
             this.numDownShift.TabIndex = 19;
             this.numDownShift.ValueChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -866,7 +868,7 @@
             0,
             0});
             this.numVoltage.Name = "numVoltage";
-            this.numVoltage.Size = new System.Drawing.Size(102, 35);
+            this.numVoltage.Size = new System.Drawing.Size(102, 20);
             this.numVoltage.TabIndex = 18;
             this.numVoltage.ValueChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -885,7 +887,7 @@
             0,
             0});
             this.numTemperature.Name = "numTemperature";
-            this.numTemperature.Size = new System.Drawing.Size(102, 35);
+            this.numTemperature.Size = new System.Drawing.Size(102, 20);
             this.numTemperature.TabIndex = 17;
             this.numTemperature.ValueChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -899,7 +901,7 @@
             0,
             0});
             this.numOilPressurePsi.Name = "numOilPressurePsi";
-            this.numOilPressurePsi.Size = new System.Drawing.Size(159, 35);
+            this.numOilPressurePsi.Size = new System.Drawing.Size(159, 20);
             this.numOilPressurePsi.TabIndex = 16;
             this.numOilPressurePsi.ValueChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -918,7 +920,7 @@
             0,
             0});
             this.numUpShift.Name = "numUpShift";
-            this.numUpShift.Size = new System.Drawing.Size(102, 35);
+            this.numUpShift.Size = new System.Drawing.Size(102, 20);
             this.numUpShift.TabIndex = 15;
             this.numUpShift.ValueChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -937,7 +939,7 @@
             0,
             0});
             this.numOverRev.Name = "numOverRev";
-            this.numOverRev.Size = new System.Drawing.Size(102, 35);
+            this.numOverRev.Size = new System.Drawing.Size(102, 20);
             this.numOverRev.TabIndex = 14;
             this.numOverRev.ValueChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -947,7 +949,7 @@
             this.chkVoltage.Location = new System.Drawing.Point(5, 88);
             this.chkVoltage.Margin = new System.Windows.Forms.Padding(1);
             this.chkVoltage.Name = "chkVoltage";
-            this.chkVoltage.Size = new System.Drawing.Size(127, 33);
+            this.chkVoltage.Size = new System.Drawing.Size(62, 17);
             this.chkVoltage.TabIndex = 7;
             this.chkVoltage.Text = "Voltage";
             this.chkVoltage.UseVisualStyleBackColor = true;
@@ -959,7 +961,7 @@
             this.chkTemperature.Location = new System.Drawing.Point(5, 66);
             this.chkTemperature.Margin = new System.Windows.Forms.Padding(1);
             this.chkTemperature.Name = "chkTemperature";
-            this.chkTemperature.Size = new System.Drawing.Size(222, 33);
+            this.chkTemperature.Size = new System.Drawing.Size(101, 17);
             this.chkTemperature.TabIndex = 6;
             this.chkTemperature.Text = "Temperature (F)";
             this.chkTemperature.UseVisualStyleBackColor = true;
@@ -971,7 +973,7 @@
             this.chkOilPressure.Location = new System.Drawing.Point(5, 127);
             this.chkOilPressure.Margin = new System.Windows.Forms.Padding(1);
             this.chkOilPressure.Name = "chkOilPressure";
-            this.chkOilPressure.Size = new System.Drawing.Size(179, 33);
+            this.chkOilPressure.Size = new System.Drawing.Size(82, 17);
             this.chkOilPressure.TabIndex = 5;
             this.chkOilPressure.Text = "Oil Pressure";
             this.chkOilPressure.UseVisualStyleBackColor = true;
@@ -983,7 +985,7 @@
             this.chkDownShift.Location = new System.Drawing.Point(5, 228);
             this.chkDownShift.Margin = new System.Windows.Forms.Padding(1);
             this.chkDownShift.Name = "chkDownShift";
-            this.chkDownShift.Size = new System.Drawing.Size(154, 33);
+            this.chkDownShift.Size = new System.Drawing.Size(75, 17);
             this.chkDownShift.TabIndex = 4;
             this.chkDownShift.Text = "DownShift";
             this.chkDownShift.UseVisualStyleBackColor = true;
@@ -995,7 +997,7 @@
             this.chkUpShift.Location = new System.Drawing.Point(5, 206);
             this.chkUpShift.Margin = new System.Windows.Forms.Padding(1);
             this.chkUpShift.Name = "chkUpShift";
-            this.chkUpShift.Size = new System.Drawing.Size(123, 33);
+            this.chkUpShift.Size = new System.Drawing.Size(61, 17);
             this.chkUpShift.TabIndex = 3;
             this.chkUpShift.Text = "UpShift";
             this.chkUpShift.UseVisualStyleBackColor = true;
@@ -1007,7 +1009,7 @@
             this.chkOverRev.Location = new System.Drawing.Point(5, 44);
             this.chkOverRev.Margin = new System.Windows.Forms.Padding(1);
             this.chkOverRev.Name = "chkOverRev";
-            this.chkOverRev.Size = new System.Drawing.Size(139, 33);
+            this.chkOverRev.Size = new System.Drawing.Size(69, 17);
             this.chkOverRev.TabIndex = 2;
             this.chkOverRev.Text = "OverRev";
             this.chkOverRev.UseVisualStyleBackColor = true;
@@ -1026,7 +1028,7 @@
             this.cmbEcuType.Location = new System.Drawing.Point(5, 16);
             this.cmbEcuType.Margin = new System.Windows.Forms.Padding(1);
             this.cmbEcuType.Name = "cmbEcuType";
-            this.cmbEcuType.Size = new System.Drawing.Size(209, 37);
+            this.cmbEcuType.Size = new System.Drawing.Size(209, 21);
             this.cmbEcuType.TabIndex = 1;
             this.cmbEcuType.SelectedIndexChanged += new System.EventHandler(this.EngineDataValueChanged);
             // 
@@ -1036,7 +1038,7 @@
             this.label3.Location = new System.Drawing.Point(3, 1);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(261, 29);
+            this.label3.Size = new System.Drawing.Size(119, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Dashboard / ECU Type";
             // 
@@ -1046,11 +1048,11 @@
             this.tabDynamics.Controls.Add(this.groupBox6);
             this.tabDynamics.Controls.Add(this.wheelLockbox);
             this.tabDynamics.Controls.Add(this.groupBox3);
-            this.tabDynamics.Location = new System.Drawing.Point(10, 47);
+            this.tabDynamics.Location = new System.Drawing.Point(4, 22);
             this.tabDynamics.Margin = new System.Windows.Forms.Padding(1);
             this.tabDynamics.Name = "tabDynamics";
             this.tabDynamics.Padding = new System.Windows.Forms.Padding(1);
-            this.tabDynamics.Size = new System.Drawing.Size(202, 455);
+            this.tabDynamics.Size = new System.Drawing.Size(214, 486);
             this.tabDynamics.TabIndex = 1;
             this.tabDynamics.Text = "Dynamics";
             this.tabDynamics.UseVisualStyleBackColor = true;
@@ -1088,7 +1090,7 @@
             0,
             0});
             this.numMaxBrakeThreshold.Name = "numMaxBrakeThreshold";
-            this.numMaxBrakeThreshold.Size = new System.Drawing.Size(94, 35);
+            this.numMaxBrakeThreshold.Size = new System.Drawing.Size(94, 20);
             this.numMaxBrakeThreshold.TabIndex = 20;
             this.numMaxBrakeThreshold.Value = new decimal(new int[] {
             100,
@@ -1102,7 +1104,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(102, 45);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 29);
+            this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 18;
             this.label10.Text = "Max (PSI)";
             // 
@@ -1111,7 +1113,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(2, 45);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 29);
+            this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Min (PSI)";
             // 
@@ -1134,7 +1136,7 @@
             0,
             0});
             this.numMinBrakeThreshold.Name = "numMinBrakeThreshold";
-            this.numMinBrakeThreshold.Size = new System.Drawing.Size(94, 35);
+            this.numMinBrakeThreshold.Size = new System.Drawing.Size(94, 20);
             this.numMinBrakeThreshold.TabIndex = 18;
             this.numMinBrakeThreshold.Value = new decimal(new int[] {
             100,
@@ -1148,7 +1150,7 @@
             this.chkBrakeThreshold.AutoSize = true;
             this.chkBrakeThreshold.Location = new System.Drawing.Point(6, 19);
             this.chkBrakeThreshold.Name = "chkBrakeThreshold";
-            this.chkBrakeThreshold.Size = new System.Drawing.Size(135, 33);
+            this.chkBrakeThreshold.Size = new System.Drawing.Size(65, 17);
             this.chkBrakeThreshold.TabIndex = 18;
             this.chkBrakeThreshold.Text = "Enabled";
             this.chkBrakeThreshold.UseVisualStyleBackColor = true;
@@ -1172,7 +1174,7 @@
             this.chkAnnounceLapDelta.AutoSize = true;
             this.chkAnnounceLapDelta.Location = new System.Drawing.Point(6, 68);
             this.chkAnnounceLapDelta.Name = "chkAnnounceLapDelta";
-            this.chkAnnounceLapDelta.Size = new System.Drawing.Size(187, 33);
+            this.chkAnnounceLapDelta.Size = new System.Drawing.Size(92, 17);
             this.chkAnnounceLapDelta.TabIndex = 3;
             this.chkAnnounceLapDelta.Text = "Announce +/-";
             this.chkAnnounceLapDelta.UseVisualStyleBackColor = true;
@@ -1183,7 +1185,7 @@
             this.chkAnnounceBestLap.AutoSize = true;
             this.chkAnnounceBestLap.Location = new System.Drawing.Point(6, 45);
             this.chkAnnounceBestLap.Name = "chkAnnounceBestLap";
-            this.chkAnnounceBestLap.Size = new System.Drawing.Size(268, 33);
+            this.chkAnnounceBestLap.Size = new System.Drawing.Size(127, 17);
             this.chkAnnounceBestLap.TabIndex = 2;
             this.chkAnnounceBestLap.Text = "Announce BEST Lap";
             this.chkAnnounceBestLap.UseVisualStyleBackColor = true;
@@ -1198,7 +1200,7 @@
             0,
             0});
             this.numAnnounceSpeed.Name = "numAnnounceSpeed";
-            this.numAnnounceSpeed.Size = new System.Drawing.Size(78, 35);
+            this.numAnnounceSpeed.Size = new System.Drawing.Size(78, 20);
             this.numAnnounceSpeed.TabIndex = 1;
             this.numAnnounceSpeed.ValueChanged += new System.EventHandler(this.DynamicsDataValueChanged);
             // 
@@ -1207,7 +1209,7 @@
             this.chkAnnounceSpeed.AutoSize = true;
             this.chkAnnounceSpeed.Location = new System.Drawing.Point(6, 20);
             this.chkAnnounceSpeed.Name = "chkAnnounceSpeed";
-            this.chkAnnounceSpeed.Size = new System.Drawing.Size(230, 33);
+            this.chkAnnounceSpeed.Size = new System.Drawing.Size(109, 17);
             this.chkAnnounceSpeed.TabIndex = 0;
             this.chkAnnounceSpeed.Text = "Announce Speed";
             this.chkAnnounceSpeed.UseVisualStyleBackColor = true;
@@ -1241,7 +1243,7 @@
             0,
             0});
             this.numWheelSpeedDiff.Name = "numWheelSpeedDiff";
-            this.numWheelSpeedDiff.Size = new System.Drawing.Size(190, 35);
+            this.numWheelSpeedDiff.Size = new System.Drawing.Size(190, 20);
             this.numWheelSpeedDiff.TabIndex = 4;
             this.numWheelSpeedDiff.Value = new decimal(new int[] {
             1,
@@ -1255,7 +1257,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(365, 29);
+            this.label5.Size = new System.Drawing.Size(164, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Wheel Speed Percent Difference";
             // 
@@ -1278,7 +1280,7 @@
             0,
             0});
             this.numBrakePSI.Name = "numBrakePSI";
-            this.numBrakePSI.Size = new System.Drawing.Size(191, 35);
+            this.numBrakePSI.Size = new System.Drawing.Size(191, 20);
             this.numBrakePSI.TabIndex = 2;
             this.numBrakePSI.Value = new decimal(new int[] {
             100,
@@ -1292,7 +1294,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 44);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(236, 29);
+            this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Brake Threshold PSI";
             // 
@@ -1301,7 +1303,7 @@
             this.chkActiveWheelLockDetection.AutoSize = true;
             this.chkActiveWheelLockDetection.Location = new System.Drawing.Point(6, 19);
             this.chkActiveWheelLockDetection.Name = "chkActiveWheelLockDetection";
-            this.chkActiveWheelLockDetection.Size = new System.Drawing.Size(349, 33);
+            this.chkActiveWheelLockDetection.Size = new System.Drawing.Size(166, 17);
             this.chkActiveWheelLockDetection.TabIndex = 0;
             this.chkActiveWheelLockDetection.Text = "Active Wheel Lock Detection";
             this.chkActiveWheelLockDetection.UseVisualStyleBackColor = true;
@@ -1330,7 +1332,7 @@
             65536});
             this.numLinearGForce.Location = new System.Drawing.Point(111, 42);
             this.numLinearGForce.Name = "numLinearGForce";
-            this.numLinearGForce.Size = new System.Drawing.Size(89, 35);
+            this.numLinearGForce.Size = new System.Drawing.Size(89, 20);
             this.numLinearGForce.TabIndex = 3;
             this.numLinearGForce.ValueChanged += new System.EventHandler(this.DynamicsDataValueChanged);
             // 
@@ -1344,7 +1346,7 @@
             65536});
             this.numLateralGForce.Location = new System.Drawing.Point(111, 19);
             this.numLateralGForce.Name = "numLateralGForce";
-            this.numLateralGForce.Size = new System.Drawing.Size(89, 35);
+            this.numLateralGForce.Size = new System.Drawing.Size(89, 20);
             this.numLateralGForce.TabIndex = 2;
             this.numLateralGForce.ValueChanged += new System.EventHandler(this.DynamicsDataValueChanged);
             // 
@@ -1353,7 +1355,7 @@
             this.chkLinearGForce.AutoSize = true;
             this.chkLinearGForce.Location = new System.Drawing.Point(6, 43);
             this.chkLinearGForce.Name = "chkLinearGForce";
-            this.chkLinearGForce.Size = new System.Drawing.Size(207, 33);
+            this.chkLinearGForce.Size = new System.Drawing.Size(96, 17);
             this.chkLinearGForce.TabIndex = 1;
             this.chkLinearGForce.Text = "Linear G-Force";
             this.chkLinearGForce.UseVisualStyleBackColor = true;
@@ -1364,7 +1366,7 @@
             this.chkLateralGForce.AutoSize = true;
             this.chkLateralGForce.Location = new System.Drawing.Point(6, 20);
             this.chkLateralGForce.Name = "chkLateralGForce";
-            this.chkLateralGForce.Size = new System.Drawing.Size(213, 33);
+            this.chkLateralGForce.Size = new System.Drawing.Size(99, 17);
             this.chkLateralGForce.TabIndex = 0;
             this.chkLateralGForce.Text = "Lateral G-Force";
             this.chkLateralGForce.UseVisualStyleBackColor = true;
@@ -1377,6 +1379,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMain.Controls.Add(this.tabTrack);
             this.tabMain.Controls.Add(this.tabCharts);
+            this.tabMain.Controls.Add(this.tabPage1);
             this.tabMain.Location = new System.Drawing.Point(230, 22);
             this.tabMain.Margin = new System.Windows.Forms.Padding(1);
             this.tabMain.Name = "tabMain";
@@ -1397,11 +1400,11 @@
             this.tabTrack.Controls.Add(this.splitsBox);
             this.tabTrack.Controls.Add(this.grpData);
             this.tabTrack.Controls.Add(this.groupBox2);
-            this.tabTrack.Location = new System.Drawing.Point(10, 47);
+            this.tabTrack.Location = new System.Drawing.Point(4, 22);
             this.tabTrack.Margin = new System.Windows.Forms.Padding(1);
             this.tabTrack.Name = "tabTrack";
             this.tabTrack.Padding = new System.Windows.Forms.Padding(1);
-            this.tabTrack.Size = new System.Drawing.Size(997, 600);
+            this.tabTrack.Size = new System.Drawing.Size(1009, 631);
             this.tabTrack.TabIndex = 0;
             this.tabTrack.Text = "Track";
             this.tabTrack.UseVisualStyleBackColor = true;
@@ -1410,7 +1413,7 @@
             // 
             this.btnSaveTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTrack.Enabled = false;
-            this.btnSaveTrack.Location = new System.Drawing.Point(808, 539);
+            this.btnSaveTrack.Location = new System.Drawing.Point(820, 539);
             this.btnSaveTrack.Name = "btnSaveTrack";
             this.btnSaveTrack.Size = new System.Drawing.Size(183, 30);
             this.btnSaveTrack.TabIndex = 18;
@@ -1429,7 +1432,7 @@
             this.TrackView.Location = new System.Drawing.Point(2, 61);
             this.TrackView.Margin = new System.Windows.Forms.Padding(1);
             this.TrackView.Name = "TrackView";
-            this.TrackView.Size = new System.Drawing.Size(757, 504);
+            this.TrackView.Size = new System.Drawing.Size(769, 535);
             this.TrackView.TabIndex = 11;
             this.TrackView.TabStop = false;
             this.TrackView.Click += new System.EventHandler(this.TrackView_Click);
@@ -1447,7 +1450,7 @@
             this.zoom.Maximum = 200;
             this.zoom.Minimum = 50;
             this.zoom.Name = "zoom";
-            this.zoom.Size = new System.Drawing.Size(711, 101);
+            this.zoom.Size = new System.Drawing.Size(723, 45);
             this.zoom.TabIndex = 14;
             this.zoom.Value = 90;
             this.zoom.Scroll += new System.EventHandler(this.zoom_Scroll);
@@ -1461,7 +1464,7 @@
             this.rotation.Margin = new System.Windows.Forms.Padding(1);
             this.rotation.Maximum = 360;
             this.rotation.Name = "rotation";
-            this.rotation.Size = new System.Drawing.Size(711, 101);
+            this.rotation.Size = new System.Drawing.Size(723, 45);
             this.rotation.TabIndex = 12;
             this.rotation.Scroll += new System.EventHandler(this.rotation_Scroll);
             // 
@@ -1470,13 +1473,13 @@
             this.vScroll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.vScroll.BackColor = System.Drawing.Color.White;
-            this.vScroll.Location = new System.Drawing.Point(761, 61);
+            this.vScroll.Location = new System.Drawing.Point(773, 61);
             this.vScroll.Margin = new System.Windows.Forms.Padding(1);
             this.vScroll.Maximum = 100;
             this.vScroll.Minimum = -100;
             this.vScroll.Name = "vScroll";
             this.vScroll.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.vScroll.Size = new System.Drawing.Size(101, 504);
+            this.vScroll.Size = new System.Drawing.Size(45, 535);
             this.vScroll.TabIndex = 17;
             this.vScroll.Value = 1;
             this.vScroll.Scroll += new System.EventHandler(this.TrackScroll);
@@ -1486,12 +1489,12 @@
             this.hScroll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hScroll.BackColor = System.Drawing.Color.White;
-            this.hScroll.Location = new System.Drawing.Point(3, 567);
+            this.hScroll.Location = new System.Drawing.Point(3, 598);
             this.hScroll.Margin = new System.Windows.Forms.Padding(1);
             this.hScroll.Maximum = 100;
             this.hScroll.Minimum = -100;
             this.hScroll.Name = "hScroll";
-            this.hScroll.Size = new System.Drawing.Size(756, 101);
+            this.hScroll.Size = new System.Drawing.Size(768, 45);
             this.hScroll.TabIndex = 16;
             this.hScroll.Scroll += new System.EventHandler(this.TrackScroll);
             // 
@@ -1501,7 +1504,7 @@
             this.label2.Location = new System.Drawing.Point(14, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 29);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 15;
             this.label2.Text = "Zoom";
             // 
@@ -1511,18 +1514,18 @@
             this.label1.Location = new System.Drawing.Point(2, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 29);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Rotation";
             // 
             // tabCharts
             // 
             this.tabCharts.Controls.Add(this.webCharts);
-            this.tabCharts.Location = new System.Drawing.Point(10, 47);
+            this.tabCharts.Location = new System.Drawing.Point(4, 22);
             this.tabCharts.Margin = new System.Windows.Forms.Padding(1);
             this.tabCharts.Name = "tabCharts";
             this.tabCharts.Padding = new System.Windows.Forms.Padding(1);
-            this.tabCharts.Size = new System.Drawing.Size(997, 600);
+            this.tabCharts.Size = new System.Drawing.Size(1009, 631);
             this.tabCharts.TabIndex = 1;
             this.tabCharts.Text = "Charts";
             this.tabCharts.UseVisualStyleBackColor = true;
@@ -1533,8 +1536,27 @@
             this.webCharts.Location = new System.Drawing.Point(1, 1);
             this.webCharts.MinimumSize = new System.Drawing.Size(20, 20);
             this.webCharts.Name = "webCharts";
-            this.webCharts.Size = new System.Drawing.Size(995, 598);
+            this.webCharts.Size = new System.Drawing.Size(1007, 629);
             this.webCharts.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.webTables);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1009, 631);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Tables";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // webTables
+            // 
+            this.webTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webTables.Location = new System.Drawing.Point(0, 0);
+            this.webTables.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webTables.Name = "webTables";
+            this.webTables.Size = new System.Drawing.Size(1009, 631);
+            this.webTables.TabIndex = 1;
             // 
             // openFileDialog
             // 
@@ -1603,6 +1625,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vScroll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hScroll)).EndInit();
             this.tabCharts.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1723,6 +1746,8 @@
         private System.Windows.Forms.ToolStripMenuItem installUSBDriversToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.WebBrowser webTables;
     }
 }
 

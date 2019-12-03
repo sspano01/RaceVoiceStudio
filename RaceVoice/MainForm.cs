@@ -688,13 +688,11 @@ namespace RaceVoice
             AdjustUIForFeatures();
 
             var chartUrl = "file:///" + globals.LocalFolder() + "/charts/index.html";
+            var tablesUrl = "file:///" + globals.LocalFolder() + "/charts/tables.html";
 
             webCharts.Navigate(chartUrl);
-
+            webTables.Navigate(tablesUrl);
         }
-
-
-
 
         private void UpdateSplits()
         {
@@ -1292,7 +1290,7 @@ namespace RaceVoice
 
             if(result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
             {
-                DisplayChart(openFileDialog.Filename);
+                DisplayChart(openFileDialog.FileName);
             }
         }
         
@@ -2048,9 +2046,9 @@ namespace RaceVoice
                 trace = RaceVoiceCsv.LoadCsvFile(filename).GetDataTrace();
             }
 
-            Charting.GenerateChartBundle(trace, "charts/data.js");
-            //webCharts.Refresh(WebBrowserRefreshOption.Completely);
-
+            Charting.GenerateChartBundle(trace, _trackModel, globals.LocalFolder() + "//charts");
+            webCharts.Refresh(WebBrowserRefreshOption.Completely);
+            webTables.Refresh(WebBrowserRefreshOption.Completely);
         }
 
         private bool ReadDataFromRaceVoice(bool version_only)
