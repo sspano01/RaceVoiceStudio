@@ -40,6 +40,7 @@ namespace RaceVoice
         private static SessionDataModel GenerateSessionData(IList<LapDataTrace> trace, TrackModel track)
         {
             Dictionary<int, LapSegmentsModel> laps = new Dictionary<int, LapSegmentsModel>();
+            Dictionary<int, double> lapTimes = new Dictionary<int, double>();
 
             foreach (var lap in trace)
             {
@@ -53,6 +54,8 @@ namespace RaceVoice
                     entryDistances[seg.Name] = double.MaxValue;
                     exitDistances[seg.Name] = double.MaxValue;
                 }
+
+                lapTimes[lap.LapNumber] = lap.DataPoints.Last().Time;
 
                 //Match up data trace points to the turn entry and exit GPS co-ordinates
                 for (int i = 0; i < lap.DataPoints.Count; i++)
@@ -117,7 +120,8 @@ namespace RaceVoice
 
             return new SessionDataModel()
             {
-                Laps = laps
+                Laps = laps,
+                LapTimes = lapTimes
             };
         }
 

@@ -9,5 +9,6 @@ namespace RaceVoice.Models
     public class SessionDataModel
     {
         public IDictionary<int, LapSegmentsModel> Laps { get; set; }
+        public IDictionary<int, double> LapTimes { get; set; }
     }
 }
