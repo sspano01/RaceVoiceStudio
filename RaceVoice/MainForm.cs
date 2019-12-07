@@ -2047,8 +2047,11 @@ namespace RaceVoice
             }
 
             Charting.GenerateChartBundle(trace, _trackModel, globals.LocalFolder() + "//charts");
+
+#if !APP
             webCharts.Refresh(WebBrowserRefreshOption.Completely);
             webTables.Refresh(WebBrowserRefreshOption.Completely);
+#endif
         }
 
         private bool ReadDataFromRaceVoice(bool version_only)
