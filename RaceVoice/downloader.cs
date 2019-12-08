@@ -32,7 +32,7 @@ namespace RaceVoice
                     // by calling .Result you are synchronously reading the result
                     string responseString = responseContent.ReadAsStringAsync().Result;
 
-                    Console.WriteLine(responseString);
+                   // Console.WriteLine(responseString);
                     byte[] s_bytes = Encoding.ASCII.GetBytes(responseString);
                     File.WriteAllBytes(dst, s_bytes);
                     return;
