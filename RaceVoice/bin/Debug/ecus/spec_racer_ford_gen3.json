@@ -1,7 +1,7 @@
 {
   "Name": "SCCA Spec Racer Ford3",
   "Baud": 1000,
-  "Active": 1,
+  "Listen": 1,
   "TPS": "770,00,00,00,00,00,FF,00,00,03,PCT,TPS",
   "OILP": "771,00,00,00,00,00,00,00,FF,3,PSI,OIL",
   "ECT": "770,00,00,00,00,00,00,00,FF,03,DEG_F,ECT",

@@ -29,7 +29,7 @@ namespace RaceVoice
     {
         public string Name { get; set; }
         public int Baud { get; set; }
-        public bool Active { get; set; }
+        public bool Listen { get; set; }
         public string TPS { get; set; }
         public string OILP { get; set; }
         public string ECT { get; set; }

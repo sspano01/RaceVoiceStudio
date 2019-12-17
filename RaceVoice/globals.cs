@@ -19,6 +19,7 @@ namespace RaceVoice
 #if APP
         public static string selected_track = "";
         public static RaceVoicePCMain pcmain;
+        public static bool check_track_server = true;
 
 #endif
         public static string thePort = "";
