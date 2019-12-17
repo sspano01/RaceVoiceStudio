@@ -3,6 +3,7 @@
     public class EngineData
     {
         public EcuType EcuType { get; set; }
+        public string EcuName { get; set; }
 
         public bool OverRevEnabled { get; set; }
         public int OverRev { get; set; }

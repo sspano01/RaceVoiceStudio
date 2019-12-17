@@ -42,6 +42,34 @@ namespace RaceVoice
 #if (APP)
 
 #else
+        public EcuData FindECUByName(string name)
+        {
+            EcuData metadata = null;
+            if (Directory.Exists(globals.ecu_folder))
+            {
+                var files = Directory.GetFiles(globals.ecu_folder, "*.json");
+                foreach (var filepath in files)
+                {
+                    globals.WriteLine("Parse ECU File->" + filepath);
+                    try
+                    {
+                        metadata = JsonConvert.DeserializeObject<EcuData>(File.ReadAllText(filepath));
+                        if (name.ToUpper().Equals(metadata.Name.ToUpper()))
+                        {
+                            return metadata;
+                        }
+
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        metadata = null;
+                    }
+                }
+
+            }
+
+            return null;
+        }
         public void PopulateECU(ComboBox ecuType)
         {
             EcuData metadata = null;

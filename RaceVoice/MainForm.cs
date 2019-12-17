@@ -673,12 +673,12 @@ namespace RaceVoice
                 chKsegmentRollingMph
             };
 
+            ecuMetadata.PopulateECU(cmbEcuType);
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
 
             CheckNewTracks(false,false, "");
             PopulateTracks();
-            ecuMetadata.PopulateECU(cmbEcuType);
             SendNewTracksToServer();
 
             rvcom = new racevoicecom();
@@ -1066,13 +1066,39 @@ namespace RaceVoice
             numTemperature.Value =_carMetadata.EngineData.Temperature;
             numVoltage.Value = (decimal)(_carMetadata.EngineData.Voltage);
 
-            if ((int)_carMetadata.EngineData.EcuType >= cmbEcuType.Items.Count)
+            if (_carMetadata.EngineData.EcuName.Length > 2)
             {
-                cmbEcuType.SelectedIndex = 0;
+                // find the ECU by name lookup
+                bool found = false;
+                for (int i=0;i<cmbEcuType.Items.Count;i++)
+                {
+                    cmbEcuType.SelectedIndex = i;
+                    string iname = cmbEcuType.SelectedItem.ToString();
+                    iname = iname.ToUpper();
+                    if (iname==_carMetadata.EngineData.EcuName.ToUpper())
+                    {
+                        found = true;
+                        break;
+                    }
+
+                }
+
+                if (!found)
+                {
+                    cmbEcuType.SelectedIndex = 0;
+                }
+
             }
             else
             {
-                cmbEcuType.SelectedIndex = (int)_carMetadata.EngineData.EcuType;
+                if ((int)_carMetadata.EngineData.EcuType >= cmbEcuType.Items.Count)
+                {
+                    cmbEcuType.SelectedIndex = 0;
+                }
+                else
+                {
+                    cmbEcuType.SelectedIndex = (int)_carMetadata.EngineData.EcuType;
+                }
             }
             rdoSpeechNotify.Checked = _carMetadata.EngineData.ShiftNotificationType == ShiftNotificationType.Speech;
             rdoToneNotify.Checked = _carMetadata.EngineData.ShiftNotificationType == ShiftNotificationType.Tone;
@@ -1106,6 +1132,7 @@ namespace RaceVoice
             _carMetadata.EngineData.Voltage = (double)numVoltage.Value;
 
             _carMetadata.EngineData.EcuType = (EcuType)cmbEcuType.SelectedIndex;
+            _carMetadata.EngineData.EcuName = cmbEcuType.SelectedItem.ToString();
             _carMetadata.EngineData.ShiftNotificationType = rdoSpeechNotify.Checked ? ShiftNotificationType.Speech : ShiftNotificationType.Tone;
 
             AdjustUIForFeatures();

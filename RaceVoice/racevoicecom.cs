@@ -305,6 +305,78 @@ namespace RaceVoice
         {
             if (ischecked) return "1"; else return "0";
         }
+
+        private void DownloadCustomCan(CarMetadata carMetadata)
+        {
+            // find the custom can file for the ecu type
+            EcuMetadata ecu = new EcuMetadata();
+            EcuData ecudata = null;
+            int slot = 0;
+            ecudata=ecu.FindECUByName(carMetadata.EngineData.EcuName);
+            if (ecudata!=null)
+            {
+                globals.WriteLine("Found the ECU Data...");
+                // now build the string
+                string cfgline = "";
+                string pline = "";
+                string[] psplit;
+                int i;
+
+                for (slot = 0; slot < 4; slot++)
+                {
+
+                    cfgline = "CAN CONFIG "+slot.ToString()+" ";
+                    if (slot == 0) pline = ecudata.RPM;
+                    if (slot == 1) pline = ecudata.TPS;
+                    if (slot == 2) pline = ecudata.OILP;
+                    if (slot == 3) pline = ecudata.ECT;
+
+                    psplit = pline.Split(',');
+
+                    cfgline += psplit[0] + " "; // canbus message id
+                    for (i = 0; i < 8; i++)
+                    {
+                        cfgline += psplit[1 + i]; // these are the masks
+                    }
+
+                    cfgline += " " + psplit[9]+" "; // resource id
+
+                    string scale = "";
+                    string field = "";
+                    scale = psplit[10].ToUpper();
+                    field = psplit[11].ToUpper();
+
+                    if (scale.Equals("RAW")) cfgline += "0 ";
+                    if (scale.Equals("PCT")) cfgline += "1 ";
+                    if (scale.Equals("DEG_F")) cfgline += "2 ";
+                    if (scale.Equals("DEG_C")) cfgline += "3 ";
+                    if (scale.Equals("PSI")) cfgline += "4 ";
+                    if (scale.Equals("KPA")) cfgline += "5 ";
+
+                    if (field.Equals("TPS")) cfgline += "0";
+                    if (field.Equals("RPM")) cfgline += "1";
+                    if (field.Equals("OIL")) cfgline += "2";
+                    if (field.Equals("ECT")) cfgline += "3";
+
+                    globals.WriteLine("CustomCan >" + cfgline + "<");
+
+                    SendSerial(cfgline);
+                }
+
+                cfgline = "SET BAUD RATE " + ecudata.Baud+" "+ecudata.Listen;
+                SendSerial(cfgline);
+                cfgline = ecudata.Name.Replace(' ', '_');
+                SendSerial("SET DASH CUSTOM "+cfgline);
+
+
+
+            }
+            else
+            {
+                /// some error!
+
+            }
+        }
         public bool WriteDataToRaceVoice(CarMetadata carMetadata, TrackModel track,bool fw_trace)
         {
             bool valid = true;
@@ -314,13 +386,26 @@ namespace RaceVoice
             if (fw_trace == false)
             {
                 // configure the dash first
-                if (carMetadata.EngineData.EcuType == EcuType.AIM) DASH = "AIM";
-                if (carMetadata.EngineData.EcuType == EcuType.MoTec) DASH = "MOTEC";
-                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) DASH = "SMARTY 0";
-                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) DASH = "SMARTY 1";
-                if (carMetadata.EngineData.EcuType == EcuType.VBOX) DASH = "VBOX";
-                SendSerial("SET DASH " + DASH);
-                
+                switch(carMetadata.EngineData.EcuType)
+                {
+                    case EcuType.AIM: DASH = "AIM"; break;
+                    case EcuType.MoTec: DASH = "MOTEC"; break;
+                    case EcuType.SmartyCam1: DASH = "SMARTY 0"; break;
+                    case EcuType.SmartyCam2: DASH = "SMARTY 1"; break;
+                    case EcuType.VBOX: DASH = "VBOX"; break;
+                    default: DASH = "CUSTOM"; break;
+
+                }
+                if (DASH.Equals("CUSTOM"))
+                {
+                    DownloadCustomCan(carMetadata);
+
+                    return true;
+                }
+                else
+                {
+                    SendSerial("SET DASH " + DASH);
+                }
                 // iterate and send all values
                 SendSerial("SET RPM OVERREV THRESHOLD " + carMetadata.EngineData.OverRev.ToString());
                 SendSerial("SET RPM HIGH THRESHOLD " + carMetadata.EngineData.UpShift.ToString());
@@ -768,6 +853,7 @@ namespace RaceVoice
                         if (fields[0].Contains("DASH"))
                         {
                             string theDASH = fields[3].Trim().ToUpper();
+                            carMetadata.EngineData.EcuName = "";
                             if (theDASH.Contains("AIM")) carMetadata.EngineData.EcuType = EcuType.AIM;
                             if (theDASH.Contains("MOTEC")) carMetadata.EngineData.EcuType = EcuType.MoTec;
                             if (theDASH.Contains("SMARTY"))
@@ -779,6 +865,13 @@ namespace RaceVoice
                                 }
                             }
                             if (theDASH.Contains("VBOX")) carMetadata.EngineData.EcuType = EcuType.VBOX;
+
+                            if (theDASH.Contains("CUSTOM"))
+                            {
+                                theDASH = fields[4].Trim().ToUpper();
+                                theDASH = theDASH.Replace('_', ' ');
+                                carMetadata.EngineData.EcuName = theDASH;
+                            }
                         }
 
                         if (fields[0].Contains("GPS"))

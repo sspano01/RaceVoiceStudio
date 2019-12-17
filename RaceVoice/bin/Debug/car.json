@@ -1,6 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 5,
+    "EcuType": 6,
+    "EcuName": "SCCA SPEC RACER FORD3",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,7 +17,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
-    "TrackSelectionName": "Area 27",
+    "TrackSelectionName": "NO-SELECTION",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -39,11 +40,11 @@
   },
   "HardwareData": {
     "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
-    "Name": "AM00C7FX",
+    "Name": "AK06E47G",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
-    "Version": "RACE VOICE,  VERSION,  NOVEMBER 12, 2019, A1",
+    "Version": "RACE VOICE-STANDALONE,  VERSION,  DECEMBER 17, 2019, A1",
     "Volume": 5,
-    "SWVersion": "12-07-2019-A1",
+    "SWVersion": "12-17-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
