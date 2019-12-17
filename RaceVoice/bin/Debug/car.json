@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionIndex": 4,
+    "TrackSelectionName": "Autobahn Country Club Full Circuit",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 2,
+    "WheelSpeedPercentDifference": 4,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -47,7 +47,7 @@
     "SWVersion": "12-17-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 1,
+    "BaudRate": 3,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true

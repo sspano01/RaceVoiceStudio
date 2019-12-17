@@ -399,8 +399,6 @@ namespace RaceVoice
                 if (DASH.Equals("CUSTOM"))
                 {
                     DownloadCustomCan(carMetadata);
-
-                    return true;
                 }
                 else
                 {
@@ -728,6 +726,7 @@ namespace RaceVoice
                     globals.WriteLine("COMLAYER->"+message);
                     Thread.Sleep(1);
                     if (cmd.StartsWith("SET")) save_settings = true;
+                    if (cmd.StartsWith("CAN CONFIG")) save_settings = true;
                     if (cmd.Contains("SHOW SETTINGS") && !get_version) get_settings = true;
                     if (message.ToUpper().Contains("INVALID") || message.ToUpper().Contains("SHELL") || message[0]=='\r')
                     {
