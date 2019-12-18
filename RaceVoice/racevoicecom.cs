@@ -341,23 +341,21 @@ namespace RaceVoice
 
                     cfgline += " " + psplit[9]+" "; // resource id
 
-                    string scale = "";
-                    string field = "";
-                    scale = psplit[10].ToUpper();
-                    field = psplit[11].ToUpper();
 
-                    if (scale.Equals("RAW")) cfgline += "0 ";
-                    if (scale.Equals("PCT")) cfgline += "1 ";
-                    if (scale.Equals("DEG_F")) cfgline += "2 ";
-                    if (scale.Equals("DEG_C")) cfgline += "3 ";
-                    if (scale.Equals("PSI")) cfgline += "4 ";
-                    if (scale.Equals("KPA")) cfgline += "5 ";
+                    string type = "";
+                    string offset = "";
+                    string mult = "";
+                    type = psplit[10].ToUpper();
+                    offset = psplit[11].ToUpper();
+                    mult = psplit[12].ToUpper();
 
-                    if (field.Equals("TPS")) cfgline += "0";
-                    if (field.Equals("RPM")) cfgline += "1";
-                    if (field.Equals("OIL")) cfgline += "2";
-                    if (field.Equals("ECT")) cfgline += "3";
+                    if (type.Equals("TPS")) cfgline += "0 ";
+                    if (type.Equals("RPM")) cfgline += "1 ";
+                    if (type.Equals("OIL")) cfgline += "2 ";
+                    if (type.Equals("ECT")) cfgline += "3 ";
 
+                    cfgline += offset + " ";
+                    cfgline += mult + " ";
                     globals.WriteLine("CustomCan >" + cfgline + "<");
 
                     SendSerial(cfgline);

@@ -1,7 +1,7 @@
 {
   "EngineData": {
     "EcuType": 6,
-    "EcuName": "SCCA SPEC RACER FORD3",
+    "EcuName": "SCCA Spec Racer Ford3",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 4,
-    "TrackSelectionName": "Autobahn Country Club Full Circuit",
+    "TrackSelectionIndex": 0,
+    "TrackSelectionName": "NO-SELECTION",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 4,
+    "WheelSpeedPercentDifference": 2,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
