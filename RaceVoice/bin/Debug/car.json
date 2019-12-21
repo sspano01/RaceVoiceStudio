@@ -1,7 +1,7 @@
 {
   "EngineData": {
     "EcuType": 6,
-    "EcuName": "SCCA Spec Racer Ford3",
+    "EcuName": "OBD-II",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 2,
+    "WheelSpeedPercentDifference": 6,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -42,7 +42,7 @@
     "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
     "Name": "AK06E47G",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
-    "Version": "RACE VOICE-STANDALONE,  VERSION,  DECEMBER 17, 2019, A1",
+    "Version": "RACE VOICE-STANDALONE,  VERSION,  DECEMBER 21, 2019, A1",
     "Volume": 5,
     "SWVersion": "12-17-2019-A1",
     "Pitch": 50,

@@ -391,6 +391,8 @@ namespace RaceVoice
                     case EcuType.SmartyCam1: DASH = "SMARTY 0"; break;
                     case EcuType.SmartyCam2: DASH = "SMARTY 1"; break;
                     case EcuType.VBOX: DASH = "VBOX"; break;
+                    case EcuType.AUTOSPORT: DASH = "AUTOSPORT"; break;
+                    case EcuType.OBDII: DASH = "OBDII"; break;
                     default: DASH = "CUSTOM"; break;
 
                 }
@@ -401,6 +403,11 @@ namespace RaceVoice
                 else
                 {
                     SendSerial("SET DASH " + DASH);
+                    if (carMetadata.EngineData.EcuType==EcuType.OBDII)
+                    {
+                        string baud_string = "500";
+                        SendSerial("SET BAUD RATE " + baud_string);
+                    }
                 }
                 // iterate and send all values
                 SendSerial("SET RPM OVERREV THRESHOLD " + carMetadata.EngineData.OverRev.ToString());
@@ -862,6 +869,8 @@ namespace RaceVoice
                                 }
                             }
                             if (theDASH.Contains("VBOX")) carMetadata.EngineData.EcuType = EcuType.VBOX;
+                            if (theDASH.Contains("AUTOSPORT")) carMetadata.EngineData.EcuType = EcuType.AUTOSPORT;
+                            if (theDASH.Contains("OBD_II")) carMetadata.EngineData.EcuType = EcuType.OBDII;
 
                             if (theDASH.Contains("CUSTOM"))
                             {

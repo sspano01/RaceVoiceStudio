@@ -22,7 +22,10 @@ namespace RaceVoice
         MoTec,
         SmartyCam1,
         SmartyCam2,
-        VBOX
+        VBOX,
+        AUTOSPORT,
+        OBDII
+
     }
 
     public class EcuData

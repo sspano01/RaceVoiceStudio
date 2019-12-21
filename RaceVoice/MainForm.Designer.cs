@@ -1024,7 +1024,8 @@
             "AIM SmartyCam-Mode1",
             "AIM SmartyCam-Mode2",
             "RaceLogic VBOX",
-            "Autosport Labs"});
+            "Autosport Labs",
+            "OBD-II"});
             this.cmbEcuType.Location = new System.Drawing.Point(5, 16);
             this.cmbEcuType.Margin = new System.Windows.Forms.Padding(1);
             this.cmbEcuType.Name = "cmbEcuType";
