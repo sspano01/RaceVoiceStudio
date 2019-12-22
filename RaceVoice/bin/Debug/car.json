@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionIndex": 52,
+    "TrackSelectionName": "Pittsburg International",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -39,7 +39,7 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
+    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AK06E47G",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
     "Version": "RACE VOICE-STANDALONE,  VERSION,  DECEMBER 21, 2019, A1",
