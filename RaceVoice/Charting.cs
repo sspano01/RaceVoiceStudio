@@ -20,7 +20,8 @@ namespace RaceVoice
 
             var buckets = Enumerable.Range(1, sampleCount).Select(i => bucketSize * i).ToList();
 
-            for (int i = 1; i < lapData.Count - 1; i++)
+            // changed so it can show even just 1 lap (i.e. like an a hillclimb or an autocross)
+            for (int i = 0; i < lapData.Count; i++)
             {
                 DataTraceSampler sampler = new DataTraceSampler(lapData[i].DataPoints);
                 var samples = sampler.SampleByTime(buckets);

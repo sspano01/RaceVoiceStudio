@@ -1561,7 +1561,7 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.Filter = "MoTec CSV Files|*.csv";
+            this.openFileDialog.Filter = "CSV Files|*.csv";
             this.openFileDialog.InitialDirectory = ".";
             // 
             // MainForm

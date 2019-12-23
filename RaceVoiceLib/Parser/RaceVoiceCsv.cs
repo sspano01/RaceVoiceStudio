@@ -37,9 +37,10 @@ namespace RaceVoiceLib.Parser
                 while (csv.Read())
                 {
                     var record = csv.Context.Record;
-                    if (record[0].StartsWith("LOG:0x51"))
+                    if (record[0].StartsWith("LOG:0x55"))
                     {
                         int lapNumber = int.Parse(record[2]);
+                        lapNumber++;
                         double lat = double.Parse(record[3]);
                         double lng = double.Parse(record[4]);
                         double time = double.Parse(record[5]);
