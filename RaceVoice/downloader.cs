@@ -23,6 +23,7 @@ namespace RaceVoice
 
             using (var client = new HttpClient())
             {
+                client.Timeout = TimeSpan.FromSeconds(15);
                 var response = client.GetAsync(src).Result;
 
                 if (response.IsSuccessStatusCode)

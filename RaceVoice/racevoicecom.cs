@@ -45,44 +45,75 @@ namespace RaceVoice
     {
         public bool OpenSerial()
         {
-
-            return false;
+            return true;
         }
 
         public bool CloseSerial()
         {
-            return false;
+            return true;
         }
 
         public string ReadLine()
         {
             string line = "";
+            bool read = true;
+            char[] inl = new char[512];
+            int idx = 0;
+            int to = 0;
+            while(read)
+            {
+                int ch = globals.bluetooth.ReadCh();
+                if (ch>=0)
+                {
+                    if (ch == 0 || ch == '\r')
+                    {
+                        line = new string(inl);
+                        break;
+                    }
+                    inl[idx] = (char)ch;
+                    idx++;
+                }
+                Thread.Sleep(1);
+                to++;
+                if (to >= 10000) return "";
+
+            }
             return line;
-        }
-
-        public void WriteLine(string line)
-        {
-
         }
 
         public string ReadChar()
         {
             string c = "";
-
+            // used for flash erase ... need to work on this
             return c;
         }
 
         public bool Write(byte[] ch,int mode, int size)
         {
-
+            /// not used this is for sending audio
             return true;
         }
 
 
-        public bool Write(string ch)
+        public bool Write(string d)
         {
+            int to = 0;
+            bool sendit = true;
+            while (sendit)
+            {
+                if (globals.bluetooth.Write(d))
+                {
+                    return true;
+                }
+                else
+                {
+                    Thread.Sleep(1);
+                    to++;
+                    if (to >= 10000) return false;
+                }
+            }
 
-            return true;
+            return false;
         }
 
 
@@ -103,18 +134,22 @@ namespace RaceVoice
 
         public bool OpenSerial()
         {
-
+            _serialPort = new SerialPort();
+            _serialPort.OpenSerial();
             return true;
         }
 
         public bool CloseSerial()
         {
 
+            _serialPort.CloseSerial();
             return true;
         }
         private bool CtsHolding()
         {
-            return true;
+
+            // cts is not set, so we are CLEAR TO SEND
+            return false; 
         }
 
 #else
@@ -239,7 +274,7 @@ namespace RaceVoice
             string message = "";
             int steps = 0;
             globals.WriteLine("SENDING--->" + cmd);
-            _sp.WriteLine(cmd + "\r");
+            _sp.Write(cmd + "\r");
             if (cmd.ToUpper().Contains("VERSION TALK")) return true;
             if (cmd.ToUpper().Contains("FLASH RESET")) return true;
             if (cmd.ToUpper().Contains("FLASH READ")) return true;
@@ -306,6 +341,7 @@ namespace RaceVoice
             if (ischecked) return "1"; else return "0";
         }
 
+#if(!APP)
         private void DownloadCustomCan(CarMetadata carMetadata)
         {
             // find the custom can file for the ecu type
@@ -375,6 +411,8 @@ namespace RaceVoice
 
             }
         }
+
+#endif
         public bool WriteDataToRaceVoice(CarMetadata carMetadata, TrackModel track,bool fw_trace)
         {
             bool valid = true;
@@ -396,6 +434,8 @@ namespace RaceVoice
                     default: DASH = "CUSTOM"; break;
 
                 }
+
+#if(!APP)
                 if (DASH.Equals("CUSTOM"))
                 {
                     DownloadCustomCan(carMetadata);
@@ -409,6 +449,7 @@ namespace RaceVoice
                         SendSerial("SET BAUD RATE " + baud_string);
                     }
                 }
+#endif
                 // iterate and send all values
                 SendSerial("SET RPM OVERREV THRESHOLD " + carMetadata.EngineData.OverRev.ToString());
                 SendSerial("SET RPM HIGH THRESHOLD " + carMetadata.EngineData.UpShift.ToString());
@@ -473,9 +514,6 @@ namespace RaceVoice
 
                 string bt = "0";
                 bt = CheckString(carMetadata.DynamicsData.AnnounceBrakeThreshold);
-                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) bt = "0";
-                if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) bt = "0";
-
                 sendout +=bt;
                 SendSerial(sendout);
 
@@ -490,8 +528,9 @@ namespace RaceVoice
                 else
                     SendSerial("SET TRACK INDEX " + carMetadata.EngineData.TrackSelectionIndex.ToString());
 
-              
-                bool allow_messages = true;
+
+#if (!APP)
+                  bool allow_messages = true;
                 if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) allow_messages = false;
                 if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) allow_messages = false;
                 if (carMetadata.MessageTriggers.Count != 0 && allow_messages)
@@ -512,6 +551,7 @@ namespace RaceVoice
                         SendSerial("SET PHRASE " + (i + 1).ToString() + " " + new_phrase + " " + carMetadata.MessageTriggers[i].Repeat.ToString());
                     }
                 }
+#endif
             }
             // right now, we can support 10 segments and 10 splits, so the UI should not be able to allow the user
             // to create more than 10 segments/splits
@@ -522,114 +562,116 @@ namespace RaceVoice
             // and we don't have any old slots from an old track hanging around in memory of the unit
             // similar process needs to happen on the readback
 
-            // send segments
-
-            for (int i = 0; i < globals.MAX_SEGMENTS; i++)
+            // make sure we actually have a track ready, mostly an issue for app development/debug testing
+            if (track != null)
             {
-                bool svalid = false;
-                Waypoint segmentStart = new Waypoint();
-                Waypoint segmentStop = new Waypoint();
-
-                if (track.Segments.Count > i)
+                // send segments
+                for (int i = 0; i < globals.MAX_SEGMENTS; i++)
                 {
-                    var segment = track.Segments[i];
-                    var waypoints = track.GetSegmentWaypoints(segment);
-                    segmentStart = waypoints.First();
-                    segmentStop = waypoints.Last();
-                    svalid = true;
-                }
+                    bool svalid = false;
+                    Waypoint segmentStart = new Waypoint();
+                    Waypoint segmentStop = new Waypoint();
 
-
-                if (fw_trace == false)
-                {
-
-                    string segstr = "SET SEGMENT " + (i + 1) + " START ";
-                    segstr += segmentStart.Latitude + " ";
-                    segstr += segmentStart.Longitude + " ";
-                    segstr += "STOP ";
-                    segstr += segmentStop.Latitude + " ";
-                    segstr += segmentStop.Longitude;
-                    globals.WriteLine(segstr);
-                    SendSerial(segstr);
-
-                    if (svalid)
+                    if (track.Segments.Count > i)
                     {
-                        if (track.Segments[i].Hidden) segstr = "0";
-                        else
-                        {
-                            segstr = track.Segments[i].DataBits.ToString();
-                            // the unit will unpack the bit fields to determine what should be enabled on each corner
-                        }
+                        var segment = track.Segments[i];
+                        var waypoints = track.GetSegmentWaypoints(segment);
+                        segmentStart = waypoints.First();
+                        segmentStop = waypoints.Last();
+                        svalid = true;
                     }
-                    else segstr = "0";
-                    segstr = "SET SEGMENT " + (i + 1) + " ENABLE " + segstr;
-                    SendSerial(segstr);
+
+
+                    if (fw_trace == false)
+                    {
+
+                        string segstr = "SET SEGMENT " + (i + 1) + " START ";
+                        segstr += segmentStart.Latitude + " ";
+                        segstr += segmentStart.Longitude + " ";
+                        segstr += "STOP ";
+                        segstr += segmentStop.Latitude + " ";
+                        segstr += segmentStop.Longitude;
+                        globals.WriteLine(segstr);
+                        SendSerial(segstr);
+
+                        if (svalid)
+                        {
+                            if (track.Segments[i].Hidden) segstr = "0";
+                            else
+                            {
+                                segstr = track.Segments[i].DataBits.ToString();
+                                // the unit will unpack the bit fields to determine what should be enabled on each corner
+                            }
+                        }
+                        else segstr = "0";
+                        segstr = "SET SEGMENT " + (i + 1) + " ENABLE " + segstr;
+                        SendSerial(segstr);
+                    }
+
+                    if (fw_trace)
+                    {
+                        bool clearit = true;
+                        if (i != 0) clearit = false;
+                        globals.fwtrace("settings.segment_start_lat[" + (i) + "] = " + segmentStart.Latitude, clearit);
+                        globals.fwtrace("settings.segment_start_lng[" + (i) + "] = " + segmentStart.Longitude, false);
+                        globals.fwtrace("settings.segment_stop_lat[" + (i) + "] = " + segmentStop.Latitude, false);
+                        globals.fwtrace("settings.segment_stop_lng[" + (i) + "] = " + segmentStop.Longitude, false);
+                        if (svalid)
+                            globals.fwtrace("settings.segment_enable[" + (i) + "] = " + track.Segments[i].DataBits.ToString(), false);
+                        else
+                            globals.fwtrace("settings.segment_enable[" + (i) + "] = 0", false);
+
+                    }
                 }
 
-                if (fw_trace)
+                globals.WriteLine("!!!");
+
+                // send splits
+                for (int i = 0; i < globals.MAX_SPLITS; i++)
                 {
-                    bool clearit = true;
-                    if (i != 0) clearit = false;
-                    globals.fwtrace("settings.segment_start_lat[" + (i) + "] = "+segmentStart.Latitude,clearit);
-                    globals.fwtrace("settings.segment_start_lng[" + (i) + "] = " + segmentStart.Longitude,false);
-                    globals.fwtrace("settings.segment_stop_lat[" + (i) + "] = " + segmentStop.Latitude,false);
-                    globals.fwtrace("settings.segment_stop_lng[" + (i) + "] = " + segmentStop.Longitude,false);
-                    if (svalid)
-                    globals.fwtrace("settings.segment_enable[" + (i) + "] = " + track.Segments[i].DataBits.ToString(),false);
+                    string yn = "0";
+                    Waypoint waypoint = new Waypoint();
+                    if (i < track.Splits.Count)
+                    {
+                        var split = track.Splits[i];
+                        waypoint = track.GetSplitWaypoint(split);
+                        yn = split.Hidden ? "0" : "1";
+                    }
+
+                    if (fw_trace == false)
+                    {
+                        string splitstr = "SET SPLIT " + (i + 1) + " START ";
+                        splitstr += waypoint.Latitude + " ";
+                        splitstr += waypoint.Longitude;
+                        globals.WriteLine(splitstr);
+                        SendSerial(splitstr);
+
+                        if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) yn = "0"; // smarty cam  does not have timing on canbus
+                        if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) yn = "0"; // smarty cam  does not have timing on canbus
+
+                        string enabledstr = "SET SPLITS " + (i + 1) + " ENABLE " + yn;  // send down a "1" or "0"
+                        SendSerial(enabledstr);
+                    }
                     else
-                        globals.fwtrace("settings.segment_enable[" + (i) + "] = 0", false);
+                    {
+                        globals.fwtrace("settings.split_lat[" + (i) + "] = " + waypoint.Latitude, false);
+                        globals.fwtrace("settings.split_lng[" + (i) + "] = " + waypoint.Longitude, false);
+                        globals.fwtrace("settings.split_enable[" + (i) + "] = " + yn, false);
 
-                }
-            }
-
-            globals.WriteLine("!!!");
-
-            // send splits
-            for (int i = 0; i < globals.MAX_SPLITS; i++)
-            {
-                string yn = "0";
-                Waypoint waypoint = new Waypoint();
-                if (i < track.Splits.Count)
-                {
-                    var split = track.Splits[i];
-                    waypoint = track.GetSplitWaypoint(split);
-                    yn = split.Hidden ? "0" : "1";
+                    }
                 }
 
                 if (fw_trace == false)
                 {
-                    string splitstr = "SET SPLIT " + (i + 1) + " START ";
-                    splitstr += waypoint.Latitude + " ";
-                    splitstr += waypoint.Longitude;
-                    globals.WriteLine(splitstr);
-                    SendSerial(splitstr);
-
-                    if (carMetadata.EngineData.EcuType == EcuType.SmartyCam1) yn = "0"; // smarty cam  does not have timing on canbus
-                    if (carMetadata.EngineData.EcuType == EcuType.SmartyCam2) yn = "0"; // smarty cam  does not have timing on canbus
-
-                    string enabledstr = "SET SPLITS " + (i + 1) + " ENABLE " + yn;  // send down a "1" or "0"
-                    SendSerial(enabledstr);
+                    string sf = "SET CHECKER " + track.StartLinePosition.Latitude + " " + track.StartLinePosition.Longitude;
+                    SendSerial(sf);
                 }
                 else
                 {
-                    globals.fwtrace("settings.split_lat[" + (i) + "] = " +waypoint.Latitude,false);
-                    globals.fwtrace("settings.split_lng[" + (i) + "] = " + waypoint.Longitude,false);
-                    globals.fwtrace("settings.split_enable[" + (i) + "] = " + yn , false);
-
+                    globals.fwtrace("settings.checker_lattitude=" + track.StartLinePosition.Latitude, false);
+                    globals.fwtrace("settings.checker_longitude=" + track.StartLinePosition.Longitude, false);
                 }
             }
-
-            if (fw_trace == false)
-            {
-                string sf = "SET CHECKER " + track.StartLinePosition.Latitude + " " + track.StartLinePosition.Longitude;
-                SendSerial(sf);
-            }
-            else
-            {
-                globals.fwtrace("settings.checker_lattitude=" + track.StartLinePosition.Latitude, false);
-                globals.fwtrace("settings.checker_longitude=" + track.StartLinePosition.Longitude, false);
-            }
-
             return valid;
         }
 
@@ -927,7 +969,7 @@ namespace RaceVoice
                         // the UI also needs to change its track selection based on the "TRACK" reply below
                         if (fields[0].Contains("SEGMENT"))
                         {
-                            if (fields[2].Contains("START"))
+                            if (fields[2].Contains("START") && track!=null)
                             {
                                 int segn = Convert.ToInt32(fields[1]);  // this is the index of the segment starts at 1 in the unit
                                 segn = segn - 1;
@@ -954,7 +996,7 @@ namespace RaceVoice
                             }
                         }
 
-                        if (fields[0].Contains("SPLIT"))
+                        if (fields[0].Contains("SPLIT") && track!=null)
                         {
                             int segn = Convert.ToInt32(fields[1]);  // this is the index of the split starts at 1 in the unit
                             segn = segn - 1;
@@ -1107,10 +1149,13 @@ namespace RaceVoice
                     {
                         //NameBox nb = new NameBox();
                         //nb.ShowDialog();
-                        string txt = "SET NAME " + globals.theSerialNumber;
-                        if (WriteSingleCmd(_serialPort, txt))
+                        if (globals.theSerialNumber.Length > 0)
                         {
-                            carMetadata.HardwareData.Name = globals.theSerialNumber;
+                            string txt = "SET NAME " + globals.theSerialNumber;
+                            if (WriteSingleCmd(_serialPort, txt))
+                            {
+                                carMetadata.HardwareData.Name = globals.theSerialNumber;
+                            }
                         }
                     }
                 }

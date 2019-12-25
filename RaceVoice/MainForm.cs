@@ -2081,7 +2081,7 @@ namespace RaceVoice
 #endif
         }
 
-        private bool ReadDataFromRaceVoice(bool version_only)
+        public bool ReadDataFromRaceVoice(bool version_only)
         {
             if (!globals.IsRaceVoiceConnected())
             {
@@ -2136,7 +2136,8 @@ namespace RaceVoice
         }
 
 
-        private bool WriteDataToRaceVoice()
+        
+        public bool WriteDataToRaceVoice()
         {
             bool valid = true;
             if (!globals.IsRaceVoiceConnected()) return false;
@@ -2148,20 +2149,17 @@ namespace RaceVoice
             rvcom.Bar(0);
 
 
+#if !APP
             if (valid)
             {
                 ReadDataFromRaceVoice(false); // read everything back
-#if !APP
                 MessageBox.Show("Success: RaceVoice has been updated", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
-#endif
-            }
+        }
             else
             {
-#if !APP
                 MessageBox.Show("ERROR: RaceVoice update has failed\r\n", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-#endif
             }
-
+#endif
             return valid;
         }
     }

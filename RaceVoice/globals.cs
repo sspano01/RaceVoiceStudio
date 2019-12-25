@@ -20,6 +20,7 @@ namespace RaceVoice
         public static string selected_track = "";
         public static RaceVoicePCMain pcmain;
         public static bool check_track_server = true;
+        public static IBth bluetooth = null;
 
 #endif
         public static string thePort = "";
