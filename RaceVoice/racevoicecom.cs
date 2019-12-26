@@ -52,8 +52,34 @@ namespace RaceVoice
         {
             return true;
         }
-
         public string ReadLine()
+        {
+            string line = "";
+            bool read = true;
+            char[] inl = new char[512];
+            int idx = 0;
+            int to = 0;
+            while (read)
+            {
+                line = globals.bluetooth.Read();
+                if (line.Length!=0)
+                {
+                    line = line.Trim();
+                    return line;
+                }
+                else
+                {
+                    Thread.Sleep(1);
+                }
+                to++;
+                if (to >= 10000) return "";
+
+            }
+            return line;
+        }
+
+
+        public string xReadLine()
         {
             string line = "";
             bool read = true;
@@ -63,21 +89,27 @@ namespace RaceVoice
             while(read)
             {
                 int ch = globals.bluetooth.ReadCh();
-                if (ch>=0)
+                if (ch >= 0)
                 {
                     if (ch == 0 || ch == '\r')
                     {
                         line = new string(inl);
+                        line = line.Substring(0, idx);
                         break;
                     }
                     inl[idx] = (char)ch;
                     idx++;
                 }
-                Thread.Sleep(1);
+                else
+                {
+                    Thread.Sleep(1);
+                }
                 to++;
                 if (to >= 10000) return "";
 
             }
+
+            line = line.Trim();
             return line;
         }
 
@@ -135,6 +167,7 @@ namespace RaceVoice
             {
                 if (barval < 100) barval++;
             }
+            if (val > 1 && val <= 100) barval = val;
         }
 
         public bool OpenSerial()
@@ -418,6 +451,54 @@ namespace RaceVoice
         }
 
 #endif
+
+
+        public bool DownloadData()
+        {
+            bool getit = true;
+            string message = "";
+            long count = 0;
+            bool stat = false;
+            WriteSingleCmd("FLASH RESET");
+            WriteSingleCmd("FLASH READ");
+            while(getit)
+            {
+                try
+                {
+                    message = _serialPort.ReadLine(); // this should be a reply
+                    if (message.Length < 5)
+                    {
+                        Thread.Sleep(1);
+                        continue;
+                    }
+                    if (message[0] == 0)
+                    {
+                        Thread.Sleep(1);
+                        continue;
+                    }
+                    if (message.Contains("COMPLETE"))
+                    {
+                        stat = true;
+                        break;
+                    }
+                    if (message.Contains("LOG:0x55") == false) continue;
+                    string[] msplit = message.Split(',');
+                    int position = Convert.ToInt32(msplit[msplit.Count() - 1]);
+                    Bar(position);
+                    count++;
+
+                    globals.WriteLine("GOT" + count + "->" + message + "<-POS=" + position);
+                }
+                catch (Exception ee)
+                {
+                    globals.WriteLine(ee.Message);
+                }
+
+            }
+
+            return stat;
+
+        }
         public bool WriteDataToRaceVoice(CarMetadata carMetadata, TrackModel track,bool fw_trace)
         {
             bool valid = true;

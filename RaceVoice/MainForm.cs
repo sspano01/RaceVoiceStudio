@@ -2144,6 +2144,18 @@ namespace RaceVoice
         }
 
 
+        public bool DownloadDataFromRaceVoice()
+        {
+            bool valid = true;
+            if (!globals.IsRaceVoiceConnected()) return false;
+            rvcom.OpenSerial();
+            rvcom.Bar(0);
+            rvcom.Bar(200);
+            valid = rvcom.DownloadData();
+            rvcom.CloseSerial();
+            rvcom.Bar(0);
+            return true;
+        }
         
         public bool WriteDataToRaceVoice()
         {
