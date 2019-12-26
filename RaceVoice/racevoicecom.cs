@@ -127,9 +127,14 @@ namespace RaceVoice
 
 #if APP
         private bool do_firmware_update = false;
+        public int barval = 0;
         public void Bar(int val)
         {
-
+            if (val == 0) barval = 0;
+            if (val == 1)
+            {
+                if (barval < 100) barval++;
+            }
         }
 
         public bool OpenSerial()

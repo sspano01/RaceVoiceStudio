@@ -44,6 +44,14 @@ namespace RaceVoice
 
         }
 
+        public int GetComBarValue()
+        {
+            if (rvcom!=null)
+            {
+                return rvcom.barval;
+            }
+            return 0;
+        }
         public void SaveCarMetaData()
         {
             _carMetadata.Save(_carMetafile);

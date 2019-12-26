@@ -9,6 +9,8 @@ using System.Threading;
 #if !APP
 using System.IO.Ports;
 using System.Windows.Forms;
+#else
+using Xamarin.Forms;
 #endif
 
 namespace RaceVoice
@@ -74,6 +76,8 @@ namespace RaceVoice
             LITE,
             DEMO
         }
+
+
 
         public static string ToTrackName(string ascii_name)
         {
