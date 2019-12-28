@@ -28,20 +28,34 @@ namespace RaceVoice
                 sampleList.Add(samples);
             }
 
-            var json = JsonConvert.SerializeObject(sampleList);
-            var js = "(function () { var data = " + json + "; onDataDownloaded(data); })();";
-            File.WriteAllText(outFolder + "//data.js", js);
+            try
+            {
+                var json = JsonConvert.SerializeObject(sampleList);
+                var js = "(function () { var data = " + json + "; onDataDownloaded(data); })();";
+                File.WriteAllText(outFolder + "//data.js", js);
 
-            var sessionData = GenerateSessionData(lapData, track);
-            json = JsonConvert.SerializeObject(sessionData);
-            js = "(function () { var data = " + json + "; onDataDownloaded(data); })();";
-            File.WriteAllText(outFolder + "//tabledata.js", js);
+                var sessionData = GenerateSessionData(lapData, track);
+                json = JsonConvert.SerializeObject(sessionData);
+                js = "(function () { var data = " + json + "; onDataDownloaded(data); })();";
+                File.WriteAllText(outFolder + "//tabledata.js", js);
+            }
+            catch (Exception ee)
+            {
+                globals.WriteLine(ee.Message);
+            }
         }
 
         private static SessionDataModel GenerateSessionData(IList<LapDataTrace> trace, TrackModel track)
         {
             Dictionary<int, LapSegmentsModel> laps = new Dictionary<int, LapSegmentsModel>();
             Dictionary<int, double> lapTimes = new Dictionary<int, double>();
+            bool track_loaded = false;
+
+            if (track!=null)
+            {
+                if (track.Segments.Count >= 1)
+                    track_loaded = true;
+            }
 
             foreach (var lap in trace)
             {
@@ -50,10 +64,13 @@ namespace RaceVoice
                 var exitDistances = new Dictionary<string, double>();
                 var exitClosest = new Dictionary<string, int>();
 
-                foreach (var seg in track.Segments)
+                if (track_loaded)
                 {
-                    entryDistances[seg.Name] = double.MaxValue;
-                    exitDistances[seg.Name] = double.MaxValue;
+                    foreach (var seg in track.Segments)
+                    {
+                        entryDistances[seg.Name] = double.MaxValue;
+                        exitDistances[seg.Name] = double.MaxValue;
+                    }
                 }
 
                 lapTimes[lap.LapNumber] = lap.DataPoints.Last().Time;
@@ -63,54 +80,60 @@ namespace RaceVoice
                 {
                     var dp = lap.DataPoints[i];
 
-                    foreach (var seg in track.Segments)
+                    if (track_loaded)
                     {
-                        var firstPoint = track.Waypoints[seg.StartIndex];
-                        var lastPoint = track.Waypoints[seg.EndIndex];
-                        var entryDistance = SqrDistance(dp.Lat, dp.Lng, firstPoint.Latitude, firstPoint.Longitude);
-                        if (entryDistance < entryDistances[seg.Name])
+                        foreach (var seg in track.Segments)
                         {
-                            entryDistances[seg.Name] = entryDistance;
-                            entryClosest[seg.Name] = i;
-                        }
+                            var firstPoint = track.Waypoints[seg.StartIndex];
+                            var lastPoint = track.Waypoints[seg.EndIndex];
+                            var entryDistance = SqrDistance(dp.Lat, dp.Lng, firstPoint.Latitude, firstPoint.Longitude);
+                            if (entryDistance < entryDistances[seg.Name])
+                            {
+                                entryDistances[seg.Name] = entryDistance;
+                                entryClosest[seg.Name] = i;
+                            }
 
-                        var exitDistance = SqrDistance(dp.Lat, dp.Lng, lastPoint.Latitude, lastPoint.Longitude);
-                        if (exitDistance < exitDistances[seg.Name])
-                        {
-                            exitDistances[seg.Name] = exitDistance;
-                            exitClosest[seg.Name] = i;
+                            var exitDistance = SqrDistance(dp.Lat, dp.Lng, lastPoint.Latitude, lastPoint.Longitude);
+                            if (exitDistance < exitDistances[seg.Name])
+                            {
+                                exitDistances[seg.Name] = exitDistance;
+                                exitClosest[seg.Name] = i;
+                            }
                         }
                     }
                 }
 
                 Dictionary<string, SegmentDataModel> segments = new Dictionary<string, SegmentDataModel>();
-                foreach (var seg in track.Segments)
+                if (track_loaded)
                 {
-                    var entryDp = lap.DataPoints[entryClosest[seg.Name]];
-                    var exitDp = lap.DataPoints[exitClosest[seg.Name]];
-
-                    double min = double.MaxValue;
-                    double max = double.MinValue;
-                    for (int i = entryClosest[seg.Name]; i <= exitClosest[seg.Name]; i++)
+                    foreach (var seg in track.Segments)
                     {
-                        var dp = lap.DataPoints[i];
-                        if (dp.Speed < min)
-                        {
-                            min = dp.Speed;
-                        }
+                        var entryDp = lap.DataPoints[entryClosest[seg.Name]];
+                        var exitDp = lap.DataPoints[exitClosest[seg.Name]];
 
-                        if (dp.Speed > max)
+                        double min = double.MaxValue;
+                        double max = double.MinValue;
+                        for (int i = entryClosest[seg.Name]; i <= exitClosest[seg.Name]; i++)
                         {
-                            max = dp.Speed;
+                            var dp = lap.DataPoints[i];
+                            if (dp.Speed < min)
+                            {
+                                min = dp.Speed;
+                            }
+
+                            if (dp.Speed > max)
+                            {
+                                max = dp.Speed;
+                            }
                         }
+                        segments[seg.Name] = new SegmentDataModel()
+                        {
+                            EntrySpeed = entryDp.Speed,
+                            ExitSpeed = exitDp.Speed,
+                            MinSpeed = min,
+                            MaxSpeed = max
+                        };
                     }
-                    segments[seg.Name] = new SegmentDataModel()
-                    {
-                        EntrySpeed = entryDp.Speed,
-                        ExitSpeed = exitDp.Speed,
-                        MinSpeed = min,
-                        MaxSpeed = max
-                    };
                 }
 
                 laps[lap.LapNumber] = new LapSegmentsModel()

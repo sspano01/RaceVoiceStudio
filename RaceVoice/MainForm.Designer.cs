@@ -146,6 +146,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.webTables = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.DownloadData = new System.Windows.Forms.Button();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -686,7 +687,7 @@
             // sendConfig
             // 
             this.sendConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sendConfig.Location = new System.Drawing.Point(5, 584);
+            this.sendConfig.Location = new System.Drawing.Point(5, 546);
             this.sendConfig.Margin = new System.Windows.Forms.Padding(1);
             this.sendConfig.Name = "sendConfig";
             this.sendConfig.Size = new System.Drawing.Size(222, 30);
@@ -698,7 +699,7 @@
             // getConfig
             // 
             this.getConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.getConfig.Location = new System.Drawing.Point(6, 617);
+            this.getConfig.Location = new System.Drawing.Point(5, 578);
             this.getConfig.Margin = new System.Windows.Forms.Padding(1);
             this.getConfig.Name = "getConfig";
             this.getConfig.Size = new System.Drawing.Size(222, 30);
@@ -727,7 +728,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(222, 512);
+            this.tabControl1.Size = new System.Drawing.Size(222, 460);
             this.tabControl1.TabIndex = 16;
             // 
             // tabEngine
@@ -756,7 +757,7 @@
             this.tabEngine.Margin = new System.Windows.Forms.Padding(1);
             this.tabEngine.Name = "tabEngine";
             this.tabEngine.Padding = new System.Windows.Forms.Padding(1);
-            this.tabEngine.Size = new System.Drawing.Size(214, 486);
+            this.tabEngine.Size = new System.Drawing.Size(214, 434);
             this.tabEngine.TabIndex = 0;
             this.tabEngine.Text = "Engine";
             this.tabEngine.UseVisualStyleBackColor = true;
@@ -1564,9 +1565,22 @@
             this.openFileDialog.Filter = "CSV Files|*.csv";
             this.openFileDialog.InitialDirectory = ".";
             // 
+            // DownloadData
+            // 
+            this.DownloadData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DownloadData.Location = new System.Drawing.Point(6, 610);
+            this.DownloadData.Margin = new System.Windows.Forms.Padding(1);
+            this.DownloadData.Name = "DownloadData";
+            this.DownloadData.Size = new System.Drawing.Size(222, 30);
+            this.DownloadData.TabIndex = 18;
+            this.DownloadData.Text = "Download Data";
+            this.DownloadData.UseVisualStyleBackColor = true;
+            this.DownloadData.Click += new System.EventHandler(this.DownloadData_Click);
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 687);
+            this.Controls.Add(this.DownloadData);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.progressBar1);
@@ -1749,6 +1763,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.WebBrowser webTables;
+        private System.Windows.Forms.Button DownloadData;
     }
 }
 

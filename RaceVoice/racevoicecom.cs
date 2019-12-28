@@ -282,6 +282,7 @@ namespace RaceVoice
             return line;
 
         }
+
         public void Bar(int val)
         {
             if (pBar == null) return;
@@ -453,16 +454,43 @@ namespace RaceVoice
 #endif
 
 
-        public bool DownloadData()
+        public string DownloadData()
         {
             bool getit = true;
             string message = "";
             long count = 0;
-            bool stat = false;
+            string localname = "";
+            string final_name = "";
+            string finalfile = "";
+            int data_count = 0;
+
+            localname = "datalog.csv";
+#if APP
+            string savefile = globals.LocalFolder() + "//data//";
+#else
+            splash isplash = new splash(1);
+            string savefile = globals.LocalFolder() + "\\data\\";
+#endif
+            try
+            {
+                System.IO.Directory.CreateDirectory(savefile);
+            }
+            catch (Exception ee)
+            {
+                globals.WriteLine(ee.Message);
+                return "";
+            }
+            savefile += localname;
+
             WriteSingleCmd("FLASH RESET");
             WriteSingleCmd("FLASH READ");
-            while(getit)
+            System.IO.StreamWriter file = new System.IO.StreamWriter(savefile);
+            while (getit)
             {
+#if(!APP)
+                isplash.Show();
+                isplash.setlabel("Downloading Data....");
+#endif
                 try
                 {
                     message = _serialPort.ReadLine(); // this should be a reply
@@ -478,13 +506,20 @@ namespace RaceVoice
                     }
                     if (message.Contains("COMPLETE"))
                     {
-                        stat = true;
                         break;
                     }
+
+                   
                     if (message.Contains("LOG:0x55") == false) continue;
+                    data_count++;
+                    file.WriteLine(message.TrimEnd('\r', '\n'));
                     string[] msplit = message.Split(',');
                     int position = Convert.ToInt32(msplit[msplit.Count() - 1]);
+#if(!APP)
+                    isplash.setbar(position);
+#else
                     Bar(position);
+#endif
                     count++;
 
                     globals.WriteLine("GOT" + count + "->" + message + "<-POS=" + position);
@@ -496,7 +531,37 @@ namespace RaceVoice
 
             }
 
-            return stat;
+            try
+            {
+                file.Close();
+                if (data_count > 0)
+                {
+                    final_name = "watkins_glen.csv";
+#if APP
+                finalfile= globals.LocalFolder() + "//data//" + final_name;
+#else
+                    finalfile = globals.LocalFolder() + "\\data\\" + final_name;
+#endif
+
+                    if (File.Exists(finalfile))
+                    {
+                        File.Delete(finalfile);
+                    }
+                    System.IO.File.Move(savefile, finalfile);
+                }
+            }
+            catch (Exception ee)
+            {
+                finalfile = "";
+                globals.WriteLine(ee.Message);
+            }
+
+            if (data_count == 0) finalfile = "NODATA";
+            globals.WriteLine("-->DATA DOWNLOADED TO -->" + finalfile + "<--");
+#if (!APP)
+            isplash.Close();
+#endif
+            return finalfile;
 
         }
         public bool WriteDataToRaceVoice(CarMetadata carMetadata, TrackModel track,bool fw_trace)
@@ -521,7 +586,7 @@ namespace RaceVoice
 
                 }
 
-#if(!APP)
+#if (!APP)
                 if (DASH.Equals("CUSTOM"))
                 {
                     DownloadCustomCan(carMetadata);

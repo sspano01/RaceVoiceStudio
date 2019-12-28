@@ -2144,17 +2144,37 @@ namespace RaceVoice
         }
 
 
-        public bool DownloadDataFromRaceVoice()
+        public string DownloadDataFromRaceVoice()
         {
-            bool valid = true;
-            if (!globals.IsRaceVoiceConnected()) return false;
+            string file = "";
+            bool error = false;
+            if (!globals.IsRaceVoiceConnected()) return "";
             rvcom.OpenSerial();
             rvcom.Bar(0);
             rvcom.Bar(200);
-            valid = rvcom.DownloadData();
+            file = rvcom.DownloadData();
             rvcom.CloseSerial();
             rvcom.Bar(0);
-            return true;
+#if (!APP)
+            if (file.Contains("NODATA"))
+            {
+                MessageBox.Show("No Data Is Available For Download", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                error = true;
+
+            }
+            if (file.Length==0)
+            {
+                MessageBox.Show("Data Download Error", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                error = true;
+
+            }
+            if (!error)
+            {
+                MessageBox.Show("Success: Data Download Finished", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+
+#endif
+            return file;
         }
         
         public bool WriteDataToRaceVoice()
@@ -2181,6 +2201,14 @@ namespace RaceVoice
             }
 #endif
             return valid;
+        }
+
+        private void DownloadData_Click(object sender, EventArgs e)
+        {
+#if (!APP)
+            if (globals.IsDemoMode(true)) return;
+#endif
+            DownloadDataFromRaceVoice();
         }
     }
 }
