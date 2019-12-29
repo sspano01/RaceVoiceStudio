@@ -37,7 +37,7 @@ namespace RaceVoiceLib.Parser
                 while (csv.Read())
                 {
                     var record = csv.Context.Record;
-                    if (record[0].StartsWith("LOG:0x55"))
+                    if (record[0].StartsWith("LOG:0X55"))
                     {
                         int lapNumber = int.Parse(record[2]);
                         lapNumber++;

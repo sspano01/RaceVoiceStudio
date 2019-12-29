@@ -462,6 +462,9 @@ namespace RaceVoice
             string localname = "";
             string final_name = "";
             string finalfile = "";
+            string trackname = "";
+            string trackindex = "";
+            string timestamp = "";
             int data_count = 0;
 
             localname = "datalog.csv";
@@ -509,11 +512,36 @@ namespace RaceVoice
                         break;
                     }
 
-                   
-                    if (message.Contains("LOG:0x55") == false) continue;
+                    message = message.ToUpper();
+                    string[] msplit = message.Split(new char[] { ',', '=',']', '[' });
+                    if (message.StartsWith("LOG:0XA"))
+                    {
+                        //LOG:0xa0,[DRYDEN_INTERNATIONAL_RACEWAY]
+                        //LOG:0xa1,[TRACK=20]
+                        if (message.StartsWith("LOG:0XA0"))
+                        {
+                            trackname = msplit[2];
+                            globals.WriteLine("TRACKNAME->" + trackname);
+                        }
+                        if (message.StartsWith("LOG:0XA1"))
+                        {
+                            trackindex = msplit[3];
+                            globals.WriteLine("TRACKINDEX->" + trackindex);
+                        }
+                        if (message.StartsWith("LOG:0XA2"))
+                        {
+                            //message = "LOG:0XA2,[14_38_44_12_29_2019]";
+                            //msplit = message.Split(new char[] { ',', '=', ']', '[' });
+                            timestamp = msplit[2];
+                            globals.WriteLine("TIMESTAMP->" + timestamp);
+                        }
+                        continue;
+                    }
+
+                    if (message.Contains("LOG:0X55") == false) continue;
                     data_count++;
                     file.WriteLine(message.TrimEnd('\r', '\n'));
-                    string[] msplit = message.Split(',');
+                    msplit = message.Split(',');
                     int position = Convert.ToInt32(msplit[msplit.Count() - 1]);
 #if(!APP)
                     isplash.setbar(position);
@@ -536,7 +564,7 @@ namespace RaceVoice
                 file.Close();
                 if (data_count > 0)
                 {
-                    final_name = "watkins_glen.csv";
+                    final_name = trackname + "_" + trackindex + "_" + timestamp + ".csv";
 #if APP
                 finalfile= globals.LocalFolder() + "//data//" + final_name;
 #else
