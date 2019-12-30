@@ -1,7 +1,7 @@
 {
   "EngineData": {
     "EcuType": 6,
-    "EcuName": "",
+    "EcuName": "OBD-II  (ISO-15765)",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
