@@ -537,9 +537,8 @@ namespace RaceVoice
                 {
                     Style = SKPaintStyle.Stroke,
                     Color = SKColors.LightGray,
-                    StrokeWidth = 2
+                    StrokeWidth = _settings.TrackThickness
                 };
-
 
 
                 while (k<_clusteredTrack.Count()-1)

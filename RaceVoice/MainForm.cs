@@ -2011,13 +2011,15 @@ namespace RaceVoice
                 SegmentFont = new Font("Consolas", 16, FontStyle.Bold, GraphicsUnit.Pixel),
                 SegmentLabelColor = Color.Black,
                 SplitFont = new Font("Consolas", 16, GraphicsUnit.Pixel),
+                TrackThickness = 4,
+#else
+                TrackThickness = 10,
 #endif
                 SplitIndicatorColor = Color.Blue,
                 InactiveColor = Color.Gray,
                 SplitIndicatorSize = 20,
                 SplitIndicatorThickness = 4,
                 TrackColor = Color.Black,
-                TrackThickness = 4,
                 ChequeredFlagImage = globals.LocalFolder() + "\\flag.png",
 
                 UseCurveRendering = _trackMetadata.UseCurveRendering,
