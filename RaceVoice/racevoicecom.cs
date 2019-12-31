@@ -452,7 +452,36 @@ namespace RaceVoice
         }
 
 #endif
+        private string FinishDownload(System.IO.StreamWriter file,int data_count,string datafile,string final_name)
+        {
+            string finalfile = "";
+            try
+            {
+                file.Close();
+                if (data_count > 0)
+                {
+#if APP
+                finalfile= globals.LocalFolder() + "//data//" + final_name;
+#else
+                    finalfile = globals.LocalFolder() + "\\data\\" + final_name;
+#endif
 
+                    if (File.Exists(finalfile))
+                    {
+                        File.Delete(finalfile);
+                    }
+                    System.IO.File.Move(datafile, finalfile);
+                }
+                if (data_count == 0) finalfile = "NODATA";
+            }
+            catch (Exception ee)
+            {
+                finalfile = "NODATA";
+                globals.WriteLine(ee.Message);
+            }
+            globals.WriteLine("-->DATA DOWNLOADED TO -->" + finalfile + "<--");
+            return finalfile;
+        }
 
         public string DownloadData()
         {
@@ -465,34 +494,35 @@ namespace RaceVoice
             string trackname = "";
             string trackindex = "";
             string timestamp = "";
+            bool writing = false;
             int data_count = 0;
 
             localname = "datalog.csv";
 #if APP
-            string savefile = globals.LocalFolder() + "//data//";
+            string datafile = globals.LocalFolder() + "//data//";
 #else
             splash isplash = new splash(1);
-            string savefile = globals.LocalFolder() + "\\data\\";
+            string datafile = globals.LocalFolder() + "\\data\\";
 #endif
             try
             {
-                System.IO.Directory.CreateDirectory(savefile);
+                System.IO.Directory.CreateDirectory(datafile);
             }
             catch (Exception ee)
             {
                 globals.WriteLine(ee.Message);
                 return "";
             }
-            savefile += localname;
+            datafile += localname;
 
             WriteSingleCmd("FLASH RESET");
             WriteSingleCmd("FLASH READ");
-            System.IO.StreamWriter file = new System.IO.StreamWriter(savefile);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(datafile);
             while (getit)
             {
 #if(!APP)
                 isplash.Show();
-                isplash.setlabel("Downloading Data....");
+                isplash.setlabel("Downloading Data...."+final_name);
 #endif
                 try
                 {
@@ -509,6 +539,7 @@ namespace RaceVoice
                     }
                     if (message.Contains("COMPLETE"))
                     {
+                        finalfile=FinishDownload(file, data_count, datafile, final_name);
                         break;
                     }
 
@@ -522,6 +553,11 @@ namespace RaceVoice
                         {
                             trackname = msplit[2];
                             globals.WriteLine("TRACKNAME->" + trackname);
+                            if (writing)
+                            {
+                                finalfile = FinishDownload(file, data_count, datafile, final_name);
+                                file = new System.IO.StreamWriter(datafile);
+                            }
                         }
                         if (message.StartsWith("LOG:0XA1"))
                         {
@@ -534,11 +570,14 @@ namespace RaceVoice
                             //msplit = message.Split(new char[] { ',', '=', ']', '[' });
                             timestamp = msplit[2];
                             globals.WriteLine("TIMESTAMP->" + timestamp);
+                            final_name = trackname + "_" + trackindex + "_" + timestamp + ".csv";
+
                         }
                         continue;
                     }
 
                     if (message.Contains("LOG:0X55") == false) continue;
+                    writing = true;
                     data_count++;
                     file.WriteLine(message.TrimEnd('\r', '\n'));
                     msplit = message.Split(',');
@@ -559,33 +598,10 @@ namespace RaceVoice
 
             }
 
-            try
-            {
-                file.Close();
-                if (data_count > 0)
-                {
-                    final_name = trackname + "_" + trackindex + "_" + timestamp + ".csv";
-#if APP
-                finalfile= globals.LocalFolder() + "//data//" + final_name;
-#else
-                    finalfile = globals.LocalFolder() + "\\data\\" + final_name;
-#endif
+            
 
-                    if (File.Exists(finalfile))
-                    {
-                        File.Delete(finalfile);
-                    }
-                    System.IO.File.Move(savefile, finalfile);
-                }
-            }
-            catch (Exception ee)
-            {
-                finalfile = "";
-                globals.WriteLine(ee.Message);
-            }
-
-            if (data_count == 0) finalfile = "NODATA";
-            globals.WriteLine("-->DATA DOWNLOADED TO -->" + finalfile + "<--");
+          
+      
 #if (!APP)
             isplash.Close();
 #endif

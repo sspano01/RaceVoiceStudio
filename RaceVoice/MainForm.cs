@@ -2065,7 +2065,7 @@ namespace RaceVoice
             string firstLine = null;
             using (StreamReader sr = new StreamReader(filename))
             {
-                firstLine = sr.ReadLine();
+                firstLine = sr.ReadLine().ToLower();
             }
 
             if (firstLine.Contains("aim csv file"))
