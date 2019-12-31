@@ -501,7 +501,10 @@ namespace RaceVoice
                 offset.X += CenterOffset.X;
                 offset.Y += CenterOffset.Y;
 
-                ScaleAndTranslate(_transformedTrack, _transformedTrack, scale, offset);
+                offset.X = centerX;
+                offset.Y = centerY;
+               // ScaleAndTranslate(_transformedTrack, _transformedTrack, scale, offset);
+                ScaleAndTranslate2(_transformedTrack, _transformedTrack, scale, offset);
 
                 for (int i = 0; i < _clusteredTrack.Length; i++)
                 {
@@ -703,6 +706,68 @@ namespace RaceVoice
                 };
             });
         }
+
+        private static float CalcMiddle(float[] vec)
+        {
+            float resultx = 0;
+            int len = vec.Length;
+            for (int i=0;i<len;i++)
+            {
+                resultx += vec[i];
+            }
+            resultx = resultx / len;
+
+            return resultx;
+        }
+        private static void ScaleAndTranslate2(PointF[] src, PointF[] dst, float scale, PointF translate)
+        {
+            float[] ya = new float[src.Length];
+            float[] xa = new float[src.Length];
+            PointF[] idst = new PointF[src.Length];
+            float maxx, minx;
+            float maxy, miny;
+            float midx, midy;
+            int pad = 0;
+            Parallel.For(0, src.Length, (i) =>
+            {
+                ya[i] = src[i].Y;
+                xa[i] = src[i].X;
+            });
+
+            maxx = xa.Max();
+            minx = xa.Min();
+            maxy = ya.Max();
+            miny = ya.Min();
+
+            // now...move them all to zeros
+            for (int i=0;i<src.Length;i++)
+            {
+                xa[i]=xa[i] + Math.Abs(minx);
+                ya[i] = ya[i] + Math.Abs(miny);
+                idst[i].X = xa[i];
+                idst[i].Y = ya[i];
+            }
+            // now we have everything from 0...1
+            maxx = xa.Max();
+            minx = xa.Min();
+            maxy = ya.Max();
+            miny = ya.Min();
+
+            midx = CalcMiddle(xa);
+            midy = CalcMiddle(ya);
+            pad = (int)(scale * .05);
+            Parallel.For(0, src.Length, (i) =>
+            {
+                dst[i] = new PointF
+                {
+                    X = xa[i] * scale+pad,
+                    Y = ya[i] * scale+pad
+                };
+            });
+
+        }
+
+
 
         public bool CanWeMakeASegmentHere()
         {
