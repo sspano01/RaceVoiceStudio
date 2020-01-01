@@ -93,6 +93,19 @@
     <script type="text/javascript" src="datatables.min.js"></script>
     
     <script>
+        function secsToTime(seconds) { 
+            var mins = Math.floor(seconds / 60);
+            mins = mins.toString();
+
+            var secs = Math.floor(seconds - (mins*60));
+            secs = secs.toString().padStart(2, '0');
+
+            var ms = Math.floor((seconds - (mins*60) - secs) * 1000);
+            ms = ms.toString().padStart(3, '0');
+
+            return mins + "." + secs + "." + ms;
+        }
+
         function onDataDownloaded(data) {
             let segments = null;
             for (lapNumber in data.Laps) {
@@ -110,7 +123,7 @@
                 td.text(lapNumber);
                 tr.append(td);
                 td = $('<td />');
-                td.text(data.LapTimes[lapNumber]);
+                td.text(secsToTime(data.LapTimes[lapNumber]));
                 tr.append(td);
                 $('#lap-time-table > tbody').append(tr);
             }
