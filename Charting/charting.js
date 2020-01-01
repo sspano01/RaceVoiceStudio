@@ -111,6 +111,19 @@ function buildMinMaxLapData(data, xSelector, ySelector) {
     return { Labels: labels, Min: min, Max: max, Laps: laps };
 }
 
+function secsToTime(seconds) { 
+    var mins = Math.floor(seconds / 60);
+    mins = mins.toString();
+
+    var secs = Math.floor(seconds - (mins*60));
+    secs = secs.toString().padStart(2, '0');
+
+    var ms = Math.floor((seconds - (mins*60) - secs) * 1000);
+    ms = ms.toString().padStart(3, '0');
+
+    return mins + "." + secs + "." + ms;
+}
+
 var colors = ['rgba(237,28,36,1)', 'rgba(0,128,0,1)', 'rgba(0,0,255,1)', 'rgba(255,0,128,1)', 'rgba(255,128,0,1)'];
 function makeDataset(label, color, lap) { 
     return {
@@ -129,11 +142,15 @@ function renderLineChart(data, ctx, xSelector, ySelector) {
     for (var i = 0; i < parsed.Laps.length; i++) {
         datasets.push(makeDataset("Lap " + checkboxes[i].value, colors[i%colors.length], parsed.Laps[i]));
     }
-    var minSet = makeDataset("Min", 'rgba(128,128,128,1)', parsed.Min);
-    minSet.fill = '+1';
-    datasets.push(minSet);
-    var maxSet = makeDataset("Max", 'rgba(128,128,128,1)', parsed.Max);
-    datasets.push(maxSet);
+    console.log(datasets);
+    
+    if (data.length > 1) {
+        var minSet = makeDataset("Min", 'rgba(128,128,128,1)', parsed.Min);
+        minSet.fill = '+1';
+        datasets.push(minSet);
+        var maxSet = makeDataset("Max", 'rgba(128,128,128,1)', parsed.Max);
+        datasets.push(maxSet);
+    }
 
     if (LineCharts[ctx]) {
         LineCharts[ctx].destroy();
@@ -164,6 +181,11 @@ function renderLineChart(data, ctx, xSelector, ySelector) {
                 xAxes: [{
                     gridLines: {
                         display:true 
+                    },
+                    ticks: {
+                        callback: function(label, index, labels) {
+                            return secsToTime(label);
+                        }
                     },
                     type: 'linear',
                 }],
@@ -205,7 +227,12 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
         xAxis: {
             type: 'category',
             splitLine: { show: false },
-            data: parsed.Labels
+            data: parsed.Labels,
+            axisLabel: {
+                formatter: function (value, index) {
+                    return secsToTime(value);
+                }
+            }
         },
         yAxis: {
             type: 'value'
@@ -257,6 +284,24 @@ function onDataDownloaded(data) {
     }
 
     reloadAllCharts(data);
+
+    if (data.HideSpeedCharts) {
+        $('#speed-charts').hide();
+    }
+
+    if (data.HideRpmCharts) {
+        $('#rpm-charts').hide();
+    }
+
+    if (data.HideThrottle) {
+        $('#throttle-charts').hide();
+    }
+
+    if (data.length === 1) {
+        $('#rpmBoxChart').hide();
+        $('#speedBoxChart').hide();
+        $('#throttleBoxChart').hide();
+    }
 }
 
 function onLapToggleClick() {

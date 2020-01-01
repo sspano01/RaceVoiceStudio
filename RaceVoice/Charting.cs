@@ -9,7 +9,7 @@ namespace RaceVoice
 {
     public class Charting
     {
-        public static void GenerateChartBundle(IList<LapDataTrace> lapData, TrackModel track,string outFolder)
+        public static void GenerateChartBundle(IList<LapDataTrace> lapData, TrackModel track,string outFolder, bool hideSpeedCharts = false, bool hideRpmCharts = false, bool hideThrottleCharts = false)
         {
             var sampleList = new List<ICollection<DataTracePoint>>();
             var minTime = lapData.SelectMany(ld => ld.DataPoints).Min(d => d.Time);
@@ -31,7 +31,11 @@ namespace RaceVoice
             try
             {
                 var json = JsonConvert.SerializeObject(sampleList);
-                var js = "(function () { var data = " + json + "; onDataDownloaded(data); })();";
+                var toggles = "data.HideRpmCharts = " + hideRpmCharts.ToString().ToLower() + "; ";
+                toggles += "data.HideSpeedCharts = " + hideSpeedCharts.ToString().ToLower() + "; ";
+                toggles += "data.HideThrottleCharts = " + hideThrottleCharts.ToString().ToLower() + "; ";
+
+                var js = "(function () { var data = " + json + "; " + toggles + " onDataDownloaded(data); })();";
                 File.WriteAllText(outFolder + "//data.js", js);
 
                 var sessionData = GenerateSessionData(lapData, track);

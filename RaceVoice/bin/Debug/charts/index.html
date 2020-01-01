@@ -12,15 +12,17 @@
         </div>
     </div>
     
-    <h2>Speed (mph) / Time (s)</h2>
-    <div class="chartcontainer">
-        <canvas id="speedChart" class="chart"></canvas>
+    <div id="speed-charts">
+        <h2>Speed (mph) / Time (s)</h2>
+        <div class="chartcontainer">
+            <canvas id="speedChart" class="chart"></canvas>
+        </div>
+
+        <div class="chartcontainer" id="speedBoxChart" style="width: 100%; height: 400px">
+        </div>
     </div>
 
-    <div class="chartcontainer" id="speedBoxChart" style="width: 100%; height: 400px">
-    </div>
-
-    <div style="display: none">
+    <div id="rpm-charts">
         <h2>RPM / Time (s)</h2>
         <div class="chartcontainer">
             <canvas id="rpmChart" class="chart"></canvas>
@@ -28,7 +30,9 @@
 
         <div class="chartcontainer" id="rpmBoxChart" style="width: 100%; height: 400px">
         </div>
+    </div>
 
+    <div id="throttle-charts">
         <h2>Throttle Position / Time (s)</h2>
         <div class="chartcontainer">
             <canvas id="throttleChart" class="chart"></canvas>

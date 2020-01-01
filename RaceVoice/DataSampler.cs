@@ -75,6 +75,7 @@ namespace RaceVoice
                         LapDistance = chunkPoints.Average(p => p.LapDistance),
                         Speed = chunkPoints.Average(p => p.Speed),
                         Time = time,
+                        Rpm = (int)chunkPoints.Average(p => p.Rpm),
                         //BrakePressureFront = chunkPoints.Max(p => p.BrakePressureFront),
                         //BrakePressureRear = chunkPoints.Max(p => p.BrakePressureRear),
                         ThrottlePosition = chunkPoints.Max(p => p.ThrottlePosition),
