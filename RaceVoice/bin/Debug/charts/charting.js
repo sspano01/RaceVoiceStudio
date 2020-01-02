@@ -111,18 +111,7 @@ function buildMinMaxLapData(data, xSelector, ySelector) {
     return { Labels: labels, Min: min, Max: max, Laps: laps };
 }
 
-function secsToTime(seconds) { 
-    var mins = Math.floor(seconds / 60);
-    mins = mins.toString();
 
-    var secs = Math.floor(seconds - (mins*60));
-    secs = secs.toString().padStart(2, '0');
-
-    var ms = Math.floor((seconds - (mins*60) - secs) * 1000);
-    ms = ms.toString().padStart(3, '0');
-
-    return mins + "." + secs + "." + ms;
-}
 
 var colors = ['rgba(237,28,36,1)', 'rgba(0,128,0,1)', 'rgba(0,0,255,1)', 'rgba(255,0,128,1)', 'rgba(255,128,0,1)'];
 function makeDataset(label, color, lap) { 

@@ -90,22 +90,10 @@
     </table>
 
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="shared.js"></script>
     <script type="text/javascript" src="datatables.min.js"></script>
     
     <script>
-        function secsToTime(seconds) { 
-            var mins = Math.floor(seconds / 60);
-            mins = mins.toString();
-
-            var secs = Math.floor(seconds - (mins*60));
-            secs = secs.toString().padStart(2, '0');
-
-            var ms = Math.floor((seconds - (mins*60) - secs) * 1000);
-            ms = ms.toString().padStart(3, '0');
-
-            return mins + "." + secs + "." + ms;
-        }
-
         function onDataDownloaded(data) {
             let segments = null;
             for (lapNumber in data.Laps) {
