@@ -496,6 +496,7 @@ namespace RaceVoice
             string timestamp = "";
             bool writing = false;
             int data_count = 0;
+            
 
             localname = "datalog.csv";
 #if APP
@@ -569,6 +570,11 @@ namespace RaceVoice
                             //message = "LOG:0XA2,[14_38_44_12_29_2019]";
                             //msplit = message.Split(new char[] { ',', '=', ']', '[' });
                             timestamp = msplit[2];
+                            if (timestamp.Length<2)
+                            {
+                                // use PC timestamp
+                                timestamp= System.DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss");
+                            }
                             globals.WriteLine("TIMESTAMP->" + timestamp);
                             final_name = trackname + "_" + trackindex + "_" + timestamp + ".csv";
 

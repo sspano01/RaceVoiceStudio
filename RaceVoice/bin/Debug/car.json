@@ -1,6 +1,6 @@
 {
   "EngineData": {
-    "EcuType": 6,
+    "EcuType": 1,
     "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 20,
-    "TrackSelectionName": "Dryden International Raceway",
+    "TrackSelectionIndex": 30,
+    "TrackSelectionName": "Homestead-Miami Speedway",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -27,62 +27,62 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 1,
-    "AnnounceSpeed": false,
-    "SpeedThreshold": 105,
+    "WheelSpeedPercentDifference": 6,
+    "AnnounceSpeed": true,
+    "SpeedThreshold": 110,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 1500,
+    "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AK06E47G",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
-    "Version": "RACE VOICE-SA,  VERSION,  DECEMBER 28, 2019, A1",
+    "Version": "RACE VOICE-SA,  VERSION,  DECEMBER 31, 2019, A1",
     "Volume": 5,
     "SWVersion": "12-17-2019-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 2,
+    "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "BLANK0",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK1",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK2",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK3",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK4",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK5",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK6",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK7",
+      "Phrase": "NONE",
       "Repeat": 0
     }
   ]

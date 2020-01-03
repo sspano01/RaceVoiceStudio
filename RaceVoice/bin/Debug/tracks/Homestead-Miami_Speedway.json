@@ -1,15 +1,15 @@
 {
   "TrackName": "Homestead-Miami Speedway",
   "DataBitfields": [
+    2,
     0,
     0,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0
+    1,
+    64
   ],
   "Rotation": 0,
   "Zoom": 90,
