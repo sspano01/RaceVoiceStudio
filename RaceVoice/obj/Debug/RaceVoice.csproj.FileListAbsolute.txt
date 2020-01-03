@@ -28,7 +28,6 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.splash
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.tracer.resources
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.VoiceAdjust.resources
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.GenerateResource.cache
-D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CoreCompileInputs.cache
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CopyComplete
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.exe
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.pdb

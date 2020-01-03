@@ -1845,9 +1845,14 @@ namespace RaceVoice
 #endif
 
 #if APP
-        public void ReRender(SkiaSharp.SKCanvas canvas, SkiaSharp.SKImageInfo info)
+       public int GetRenderView(int mode)
+        {
+            return _renderer.GetRenderView(mode);
+        }
+        public string ReRender(SkiaSharp.SKCanvas canvas, SkiaSharp.SKImageInfo info)
         {
             _renderer.Render(canvas,info);
+            return _renderer.debug;
         }
 
 #else

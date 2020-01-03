@@ -46,6 +46,10 @@ namespace RaceVoice
 
         private TrackRendererSettings _settings;
 
+        public string debug = "";
+
+        private int render_max = 0;
+
 #if (!APP)
         private Image _chequeredFlagImage;
         private static StringFormat _splitStringFormat;
@@ -486,12 +490,7 @@ namespace RaceVoice
 
                 var centerX = renderTarget.Width / 2;
                 var centerY = renderTarget.Height / 2;
-#else
-                float scale = Math.Min(info.Width,info.Height) * Zoom;
 
-                var centerX = info.Width / 2;
-                var centerY = info.Height / 2;
-#endif
                 var offset = new PointF()
                 {
                     X = -(rotatedBounds.Left * scale) + centerX - (rotatedBounds.Width * scale / 2),
@@ -501,10 +500,13 @@ namespace RaceVoice
                 offset.X += CenterOffset.X;
                 offset.Y += CenterOffset.Y;
 
-                offset.X = centerX;
-                offset.Y = centerY;
-               // ScaleAndTranslate(_transformedTrack, _transformedTrack, scale, offset);
-                ScaleAndTranslate2(_transformedTrack, _transformedTrack, scale, offset);
+
+
+                ScaleAndTranslate(_transformedTrack, _transformedTrack, scale, offset);
+#else
+                ScaleAndTranslateApp(_transformedTrack, _transformedTrack, info);
+
+#endif
 
                 for (int i = 0; i < _clusteredTrack.Length; i++)
                 {
@@ -541,21 +543,28 @@ namespace RaceVoice
                 };
 
 
+                SKPoint pfirst= new SKPoint();
+                SKPoint p1 = new SKPoint();
+
                 while (k<_clusteredTrack.Count()-1)
                 {
                     SKPoint p0 = new SKPoint();
-                    SKPoint p1 = new SKPoint();
+                    p1 = new SKPoint();
 
                     p0.X = _clusteredTrack[k].X;
                     p0.Y = _clusteredTrack[k].Y;
+                    if (k == 0) pfirst = p0;
                     k++;
 
                     p1.X = _clusteredTrack[k].X;
                     p1.Y = _clusteredTrack[k].Y;
 
+               
                     g.DrawLine(p0,p1,black);
 
                 }
+                g.DrawLine(p1,pfirst, black);
+
 
                 for (int i = 0; i < _model.Segments.Count; i++)
                 {
@@ -718,7 +727,14 @@ namespace RaceVoice
 
             return resultx;
         }
-        private static void ScaleAndTranslate2(PointF[] src, PointF[] dst, float scale, PointF translate)
+
+        public int GetRenderView(int mode)
+        {
+            return render_max;
+        }
+
+#if(APP)
+        private void ScaleAndTranslateApp(PointF[] src, PointF[] dst, SKImageInfo info)
         {
             float[] ya = new float[src.Length];
             float[] xa = new float[src.Length];
@@ -727,6 +743,13 @@ namespace RaceVoice
             float maxy, miny;
             float midx, midy;
             int pad = 0;
+            float spany = 0;
+            float spanx = 0;
+            float scale = 200;
+
+            int centerX = info.Width / 2;
+            int centerY = info.Height / 2;
+
             Parallel.For(0, src.Length, (i) =>
             {
                 ya[i] = src[i].Y;
@@ -752,21 +775,38 @@ namespace RaceVoice
             maxy = ya.Max();
             miny = ya.Min();
 
+
+
+            spany = (int)Math.Max(maxx, maxy);
+            scale = spany * (float)centerY*2;
+            scale *= (float)0.9;
             midx = CalcMiddle(xa);
             midy = CalcMiddle(ya);
+
             pad = (int)(scale * .05);
+            spanx = centerX - (info.Width * midx);
+
+            int imaxx = 0;
+            int imaxy = 0;
             Parallel.For(0, src.Length, (i) =>
             {
                 dst[i] = new PointF
                 {
-                    X = xa[i] * scale+pad,
+                    X = xa[i] * scale + (int)spanx,
                     Y = ya[i] * scale+pad
                 };
+
+                if (dst[i].X > imaxx) imaxx = (int)dst[i].X;
+                if (dst[i].Y > imaxy) imaxy = (int)dst[i].Y;
+
             });
+
+            render_max = imaxy;
+            debug += "   " + imaxx + "," + imaxy+"  sc="+(int)scale;
 
         }
 
-
+#endif
 
         public bool CanWeMakeASegmentHere()
         {

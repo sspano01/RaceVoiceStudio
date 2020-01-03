@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionIndex": 20,
+    "TrackSelectionName": "Dryden International Raceway",
     "FindTrackByName": false
   },
   "DynamicsData": {

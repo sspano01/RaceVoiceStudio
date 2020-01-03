@@ -6,7 +6,6 @@ D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\bin\Debug\System.ValueT
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\bin\Debug\CsvHelper.xml
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\bin\Debug\Newtonsoft.Json.xml
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\bin\Debug\System.ValueTuple.xml
-D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csproj.CoreCompileInputs.cache
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csproj.CopyComplete
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.dll
 D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.pdb
