@@ -312,6 +312,10 @@ namespace RaceVoice
             return reboot_good;
         }
 
+        public bool xComparePackagedFirmwareVersion(CarMetadata _metadata)
+        {
+            return false;
+        }
         public bool ComparePackagedFirmwareVersion(CarMetadata _metadata)
         {
             int offset = 0;
