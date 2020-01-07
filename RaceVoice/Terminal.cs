@@ -60,6 +60,7 @@ namespace RaceVoice
                 if (bt == '\r')
                 {
                     lb.Items.Add(inline);
+                    lb.SelectedIndex = lb.Items.Count - 1;
                     inline = "";
                 }
                 else inline += bt;
@@ -92,6 +93,7 @@ namespace RaceVoice
                 SendIt();
             }
         }
+
 
         private void Terminal_FormClosing(object sender, FormClosingEventArgs e)
         {

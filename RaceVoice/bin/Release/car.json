@@ -18,7 +18,7 @@
     "Voltage": 11.5,
     "TrackSelectionIndex": 20,
     "TrackSelectionName": "DRYDEN INTERNATIONAL RACEWAY",
-    "FindTrackByName": true
+    "FindTrackByName": false
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
