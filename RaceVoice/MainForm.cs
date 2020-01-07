@@ -2217,5 +2217,11 @@ namespace RaceVoice
 #endif
             DownloadDataFromRaceVoice();
         }
+
+        private void terminalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Terminal term = new Terminal();
+            term.ShowDialog();
+        }
     }
 }

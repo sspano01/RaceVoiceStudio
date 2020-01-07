@@ -203,6 +203,8 @@ namespace RaceVoice
         {
             return _serialPort.CtsHolding;
         }
+
+        
         public bool OpenSerial()
         {
             if (!globals.thePort.Contains("COM"))
@@ -272,6 +274,11 @@ namespace RaceVoice
             }
         }
 
+        public char GetChar()
+        {
+            if (_serialPort.BytesToRead == 0) return (char)0;
+            return (char)_serialPort.ReadChar();
+        }
         public string ReadLine()
         {
             string line = "";
@@ -303,12 +310,12 @@ namespace RaceVoice
         }
 #endif
 
-        public bool WriteSingleCmd(string cmd)
+        public bool WriteSingleCmd(string cmd,bool reply=true)
         {
-            return WriteSingleCmd(_serialPort, cmd);
+            return WriteSingleCmd(_serialPort, cmd,reply);
         }
 
-        public bool WriteSingleCmd(SerialPort _sp, string cmd)
+        public bool WriteSingleCmd(SerialPort _sp, string cmd,bool reply=true)
         {
             string message = "";
             int steps = 0;
@@ -353,6 +360,9 @@ namespace RaceVoice
                 return true;
 
             }
+
+            if (reply == false) return true;
+
             try
             {
                 while (true)

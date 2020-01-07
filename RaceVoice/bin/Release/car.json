@@ -1,6 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 0,
+    "EcuType": 6,
+    "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -15,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 37,
-    "TrackSelectionName": "Mission Raceway",
+    "TrackSelectionIndex": 20,
+    "TrackSelectionName": "DRYDEN INTERNATIONAL RACEWAY",
     "FindTrackByName": true
   },
   "DynamicsData": {
@@ -26,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 1,
+    "WheelSpeedPercentDifference": 2,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -34,54 +35,54 @@
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 1500,
+    "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AM00C7FX",
+    "Name": "AK06E47G",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
-    "Version": "RACE VOICE,  VERSION,  AUGUST 8, 2019, A1",
+    "Version": "RACE VOICE-SA,  VERSION,  JANUARY 6, 2020, A1",
     "Volume": 5,
-    "SWVersion": "10-29-2019-A1",
+    "SWVersion": "01-07-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 1,
+    "BaudRate": 2,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "BLANK0",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK1",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK2",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK3",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK4",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK5",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK6",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK7",
+      "Phrase": "NONE",
       "Repeat": 0
     }
   ]

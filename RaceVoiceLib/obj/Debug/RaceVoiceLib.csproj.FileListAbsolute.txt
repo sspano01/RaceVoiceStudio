@@ -35,3 +35,14 @@ C:\code\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csproj.CoreCompileIn
 C:\code\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csproj.CopyComplete
 C:\code\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.dll
 C:\code\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.pdb
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\RaceVoiceLib.dll
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\RaceVoiceLib.pdb
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\CsvHelper.dll
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\Newtonsoft.Json.dll
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\System.ValueTuple.dll
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\CsvHelper.xml
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\Newtonsoft.Json.xml
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\System.ValueTuple.xml
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csproj.CopyComplete
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.dll
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.pdb
