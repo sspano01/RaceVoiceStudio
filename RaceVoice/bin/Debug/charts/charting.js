@@ -210,7 +210,7 @@ function renderLineChart(data, ctx, xSelector, ySelector) {
                     },
                     ticks: {
                         callback: function(label, index, labels) {
-                            return secsToTime(label);
+                            return pctToStr(label);//secsToTime(label);
                         }
                     },
                     type: 'linear',
@@ -256,7 +256,7 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
             data: parsed.Labels,
             axisLabel: {
                 formatter: function (value, index) {
-                    return secsToTime(value);
+                    return pctToStr(value);//secsToTime(value);
                 }
             }
         },
@@ -361,14 +361,14 @@ function selectNoLaps() {
 }
 
 function reloadAllCharts(data) {
-    renderLineChart(data, '#speedChart', Selectors.Time, Selectors.Speed);
-    renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Time, Selectors.Speed);
+    renderLineChart(data, '#speedChart', Selectors.Distance, Selectors.Speed);
+    renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Distance, Selectors.Speed);
 
     renderLineChart(data, '#rpmChart', Selectors.Time, Selectors.Rpm);
-    renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Time, Selectors.Rpm);
+    renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Distance, Selectors.Rpm);
 
     renderLineChart(data, '#throttleChart', Selectors.Time, Selectors.Throttle);
-    renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Time, Selectors.Throttle);
+    renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Distance, Selectors.Throttle);
 
     renderScatterChart(data, '#gChart', Selectors.LateralG, Selectors.LinearG);
 }
