@@ -28,8 +28,34 @@ namespace RaceVoiceLib.Parser
             }
         }
 
+        //linePnt - point the line passes through
+        //lineDir - unit vector in direction of line, either direction works
+        //pnt - the point to find nearest on line for
+        //public static Vector3 NearestPointOnLine(Vector3 linePnt, Vector3 lineDir, Vector3 pnt)
+        //{
+        //    lineDir.Normalize();//this needs to be a unit vector
+        //    var v = pnt - linePnt;
+        //    var d = Vector3.Dot(v, lineDir);
+        //    return linePnt + lineDir * d;
+        //}
+
         public static RaceVoiceCsv LoadCsvFile(StreamReader sr)
         {
+            // Current RaceVoice Log format is
+            // LOG:0X[RECORDTYPE]
+            // Sample#
+            // Lapnumber
+            // Lattitude
+            // Longitude
+            // Running Lap Time at the Latt/Longitude
+            // Miles Per Hour
+            // Engine RPM
+            // Engine Throttle Position (TPS)
+            // Linear-G Force
+            // Lateral-G Force
+            // Number of Satellites in use
+            // Download percentage, this is just a calculation of how much of the data has been downloaded. Mostly used to make a progress bar move
+
             RaceVoiceCsv rv = new RaceVoiceCsv();
 
             using (var csv = new CsvReader(sr))
@@ -47,6 +73,8 @@ namespace RaceVoiceLib.Parser
                         double speed = double.Parse(record[6]);
                         int rpm = int.Parse(record[7]);
                         double throttlePosition = int.Parse(record[8]);
+                        double linearG = double.Parse(record[9]);
+                        double lateralG = double.Parse(record[10]);
 
                         List<DataTracePoint> list = null;
                         if (!rv._laps.TryGetValue(lapNumber, out list))
@@ -62,7 +90,9 @@ namespace RaceVoiceLib.Parser
                             Rpm = rpm,
                             Speed = speed,
                             ThrottlePosition = throttlePosition,
-                            Time = time
+                            Time = time,
+                            LinearG = linearG,
+                            LateralG = lateralG,
                         });
                     }
                 }
