@@ -7,13 +7,29 @@ var Selectors = {
     BrakesFront: function(val) { return val.bf; },
     BrakesRear: function(val) { return val.br; },
     Brakes: function(val) { return (val.br + val.bf) / 2; },
+    LinearG: function(val) { return val.liG; },
+    LateralG: function(val) { return val.laG; },
 }
 
 var RawData = 0;
 
 var LineCharts = {};
 var BoxCharts = {};
+var ScatterCharts = {};
 
+function buildScatterChartData(data, xSelector, ySelector) {
+    var pt = [];
+
+    for (var i = 0; i < data.length; i++) {
+        var lap = data[i];
+        for (var n = 0; n < lap.length; n++) {
+            var dp = lap[n]; 
+            pt.push({ x: xSelector(dp), y: ySelector(dp) });
+        }
+    }
+
+    return pt;
+}
 
 function buildBoxChartData(data, xSelector, ySelector) {
     var min = [];
@@ -124,6 +140,28 @@ function makeDataset(label, color, lap) {
     }
 }
 
+function renderScatterChart(data, ctx, xSelector, ySelector) {
+    var parsed = buildScatterChartData(data, xSelector, ySelector);
+
+    if (ScatterCharts[ctx]) {
+        ScatterCharts[ctx].destroy();
+    }
+
+    var chart = new Chart($(ctx), {
+        type: 'scatter',
+        data: { 
+            datasets: [{ 
+                label: 'G-Force',
+                data: parsed,
+                //borderColor: '#ff0000',
+				//backgroundColor: '#00ff00',
+            }]
+        },
+    });
+
+    ScatterCharts[ctx] = chart;
+}
+
 function renderLineChart(data, ctx, xSelector, ySelector) {
     var parsed = buildMinMaxLapData(data, xSelector, ySelector);
     var datasets = [];
@@ -131,7 +169,6 @@ function renderLineChart(data, ctx, xSelector, ySelector) {
     for (var i = 0; i < parsed.Laps.length; i++) {
         datasets.push(makeDataset("Lap " + checkboxes[i].value, colors[i%colors.length], parsed.Laps[i]));
     }
-    console.log(datasets);
 
     if (data.length > 1) {
         var minSet = makeDataset("Min", 'rgba(128,128,128,1)', parsed.Min);
@@ -173,7 +210,7 @@ function renderLineChart(data, ctx, xSelector, ySelector) {
                     },
                     ticks: {
                         callback: function(label, index, labels) {
-                            return secsToTime(label);
+                            return pctToStr(label);//secsToTime(label);
                         }
                     },
                     type: 'linear',
@@ -219,7 +256,7 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
             data: parsed.Labels,
             axisLabel: {
                 formatter: function (value, index) {
-                    return secsToTime(value);
+                    return pctToStr(value);//secsToTime(value);
                 }
             }
         },
@@ -260,7 +297,7 @@ function renderBoxChart(data, label, ctx, xSelector, ySelector) {
 }
 
 function onDataDownloaded(data) {
-    Chart.defaults.global.elements.point.radius = 0;
+    //Chart.defaults.global.elements.point.radius = 0;
     RawData = data;
 
     for (var i = 0; i < data.length; i++) {
@@ -324,15 +361,14 @@ function selectNoLaps() {
 }
 
 function reloadAllCharts(data) {
-    if (data.length == 0) {
-        return;
-    }
-    renderLineChart(data, '#speedChart', Selectors.Time, Selectors.Speed);
-    renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Time, Selectors.Speed);
+    renderLineChart(data, '#speedChart', Selectors.Distance, Selectors.Speed);
+    renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Distance, Selectors.Speed);
 
     renderLineChart(data, '#rpmChart', Selectors.Time, Selectors.Rpm);
-    renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Time, Selectors.Rpm);
+    renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Distance, Selectors.Rpm);
 
     renderLineChart(data, '#throttleChart', Selectors.Time, Selectors.Throttle);
-    renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Time, Selectors.Throttle);
+    renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Distance, Selectors.Throttle);
+
+    renderScatterChart(data, '#gChart', Selectors.LateralG, Selectors.LinearG);
 }

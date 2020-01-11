@@ -23,11 +23,6 @@ namespace RaceVoice
             };
         }
 
-        public Color ToDrawingColor()
-        {
-            return Color.FromArgb(255, R, G, B);
-        }
-
         private static byte Clamp(float v)
         {
             return (byte)Math.Min(Math.Max(0, v), 255);
@@ -42,11 +37,4 @@ namespace RaceVoice
         public static readonly TrackColor Gray = new TrackColor() { R = 128, G = 128, B = 128 };
     }
 
-    public static class TrackColorExtensions
-    {
-        public static TrackColor ToTrackColor(this Color c)
-        {
-            return new TrackColor() { R = c.R, G = c.G, B = c.B };
-        }
-    }
 }

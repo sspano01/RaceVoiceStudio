@@ -11,6 +11,10 @@ function secsToTime(seconds) {
     return mins + "." + secs + "." + ms;
 }
 
+function pctToStr(pct) {
+    return (Math.floor(pct*1000)/10).toString() + "%";
+}
+
 function strPadStart(str, n, pad) {
     for (var i = 0; i < n - str.length; i++) {
         str = pad + str;

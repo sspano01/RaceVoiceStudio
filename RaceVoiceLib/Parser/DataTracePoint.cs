@@ -24,5 +24,11 @@ namespace RaceVoice
 
         [JsonProperty("tp")]
         public double ThrottlePosition { get; set; }
+
+        [JsonProperty("liG")]
+        public double LinearG { get; set; }
+
+        [JsonProperty("laG")]
+        public double LateralG { get; set; }
     }
 }

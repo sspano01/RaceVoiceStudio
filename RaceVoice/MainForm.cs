@@ -2085,7 +2085,7 @@ namespace RaceVoice
             }
             else
             {
-                trace = RaceVoiceCsv.LoadCsvFile(filename).GetDataTrace();
+                trace = RaceVoiceCsv.LoadCsvFile(_trackModel, filename).GetDataTrace();
             }
 
             Charting.GenerateChartBundle(trace, _trackModel, globals.LocalFolder() + "//charts");

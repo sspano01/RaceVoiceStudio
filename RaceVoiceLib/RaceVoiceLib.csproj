@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\TrackColor.cs" />
+    <Compile Include="Models\TrackModel.cs" />
+    <Compile Include="Models\TrackSegment.cs" />
+    <Compile Include="Models\TrackTag.cs" />
+    <Compile Include="Models\Waypoint.cs" />
     <Compile Include="Parser\AimCsv.cs" />
     <Compile Include="Parser\DataTracePoint.cs" />
     <Compile Include="Parser\IDataTraceSource.cs" />
@@ -60,5 +65,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

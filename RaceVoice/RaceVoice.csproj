@@ -161,6 +161,7 @@
     <Compile Include="Models\LapSegmentsModel.cs" />
     <Compile Include="Models\SessionDataModel.cs" />
     <Compile Include="Models\ShiftNotificationType.cs" />
+    <Compile Include="Models\TrackColorExtensions.cs" />
     <Compile Include="Preferences.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,9 +184,7 @@
     <Compile Include="splash.designer.cs">
       <DependentUpon>splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\TrackColor.cs" />
     <Compile Include="Models\TrackMetadata.cs" />
-    <Compile Include="Models\TrackModel.cs" />
     <Compile Include="Models\TrackPoint.cs" />
     <Compile Include="sqldatabase.cs" />
     <Compile Include="Terminal.cs">
@@ -203,9 +202,6 @@
     <Compile Include="TrackModelParser.cs" />
     <Compile Include="TrackRenderer.cs" />
     <Compile Include="Models\TrackRendererSettings.cs" />
-    <Compile Include="Models\TrackSegment.cs" />
-    <Compile Include="Models\TrackTag.cs" />
-    <Compile Include="Models\Waypoint.cs" />
     <Compile Include="VoiceAdjust.cs">
       <SubType>Form</SubType>
     </Compile>
