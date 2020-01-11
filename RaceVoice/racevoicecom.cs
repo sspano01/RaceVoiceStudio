@@ -438,6 +438,7 @@ namespace RaceVoice
                     if (type.Equals("RPM")) cfgline += "1 ";
                     if (type.Equals("OIL")) cfgline += "2 ";
                     if (type.Equals("ECT")) cfgline += "3 ";
+                    if (type.Equals("VOLT")) cfgline += "4 ";
 
                     cfgline += offset + " ";
                     cfgline += mult + " ";

@@ -237,7 +237,7 @@ namespace RaceVoice
 
         }
 #if APP
-        private static void DrawGradientCurve(PointF[] points, TrackColor startColor, TrackColor endColor, SkiaSharp.SKCanvas g, float thickness)
+        private static void DrawGradientCurve(PointF[] points, TrackColor startColor, TrackColor endColor, SkiaSharp.SKCanvas g, float thickness,SKPaint color)
 #else
         private static void DrawGradientCurve(PointF[] points, TrackColor startColor, TrackColor endColor, Graphics g, float thickness)
 #endif
@@ -252,12 +252,6 @@ namespace RaceVoice
                 }
 #if APP
 
-                SKPaint green = new SKPaint
-                {
-                    Style = SKPaintStyle.Stroke,
-                    Color = SKColors.LawnGreen,
-                    StrokeWidth = 10
-                };
                 SKPoint sp1 = new SKPoint();
                 SKPoint sp2 = new SKPoint();
 
@@ -265,7 +259,7 @@ namespace RaceVoice
                 sp1.Y = p1.Y;
                 sp2.X = p2.X;
                 sp2.Y = p2.Y;
-                g.DrawLine(sp1,sp2, green);
+                g.DrawLine(sp1,sp2, color);
 #else
                 var st = (float)i / points.Length;
                 var sc = TrackColor.Lerp(startColor, endColor, st);
@@ -542,8 +536,15 @@ namespace RaceVoice
                     StrokeWidth = _settings.TrackThickness
                 };
 
+                SKPaint red = new SKPaint
+                {
+                    Style = SKPaintStyle.Stroke,
+                    Color = SKColors.Red,
+                    StrokeWidth = 5
+                };
 
-                SKPoint pfirst= new SKPoint();
+
+                SKPoint pfirst = new SKPoint();
                 SKPoint p1 = new SKPoint();
 
                 while (k<_clusteredTrack.Count()-1)
@@ -562,6 +563,13 @@ namespace RaceVoice
                
                     g.DrawLine(p0,p1,black);
 
+                    if (k==0)
+                    {
+                        //SKImage flag = new SKImage();
+                       //lag.e
+                       // g.DrawImage(flag, p0);
+                    }
+
                 }
                 g.DrawLine(p1,pfirst, black);
 
@@ -572,12 +580,60 @@ namespace RaceVoice
                     var segmentPoints = _transformedSegments[i];
                     var startColor = TrackColor.Gray;
                     var endColor = TrackColor.Gray;
+
+                    red.StrokeWidth = 5;
                     if (segment.DataBits!=0)
                     {
-                        DrawGradientCurve(segmentPoints, startColor, endColor, g, _settings.SegmentThickness * Zoom);
+                        red.Color = SKColors.Green;
+                        red.StrokeWidth = 15;
+                    }
+                    else
+                    {
+                        red.Color = SKColors.Black;
+                    }
+                    DrawGradientCurve(segmentPoints, startColor, endColor, g, _settings.SegmentThickness * Zoom, red);
+                    SKPoint spp = new SKPoint();
+                    var labelPosition = segmentPoints[segmentPoints.Length / 2];
+                    spp.X = labelPosition.X;
+                    spp.Y = labelPosition.Y;
+                    // g.DrawText(segment.Name, spp, red);
+
+                  
+                }
+
+                for (int i = 0; i < _model.Splits.Count; i++)
+                {
+                    _settings.SplitIndicatorSize = 10;
+                    var split = _model.Splits[i];
+                   
+                    var pos = _transformedTrack[split.Index];
+                    pos.X -= (_settings.SplitIndicatorSize / 4);
+                    pos.Y -= (_settings.SplitIndicatorSize / 4);
+
+
+                    red.StrokeWidth = 2;
+                    if (!split.Hidden)
+                    {
+                        red.Color = SKColors.Green;
+                    }
+                    else
+                    {
+                        red.Color = SKColors.Black ;
                     }
 
+                    SKPoint spp = new SKPoint();
+                    spp.X = pos.X;
+                    spp.Y = pos.Y;
+                    g.DrawCircle(spp, _settings.SplitIndicatorSize, red);
+
+                    red.StrokeWidth = 1;
+                    g.DrawText(split.Text, spp, red);
+
+
+
                 }
+
+
 #else
                 using (var b = new SolidBrush(_settings.TrackColor))
                 using (var p = new Pen(b, _settings.TrackThickness * Zoom))
@@ -688,7 +744,7 @@ namespace RaceVoice
                     }
                 }
 #endif
-                }
+            }
         }
 
         private static PointF Rotate(PointF p, float rad)

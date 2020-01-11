@@ -2018,7 +2018,7 @@ namespace RaceVoice
                 SplitFont = new Font("Consolas", 16, GraphicsUnit.Pixel),
                 TrackThickness = 4,
 #else
-                TrackThickness = 10,
+                TrackThickness = 5,
 #endif
                 SplitIndicatorColor = Color.Blue,
                 InactiveColor = Color.Gray,
@@ -2218,10 +2218,12 @@ namespace RaceVoice
             DownloadDataFromRaceVoice();
         }
 
+#if (!APP)
         private void terminalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Terminal term = new Terminal();
             term.ShowDialog();
-        }
+    }
+#endif
     }
 }
