@@ -1,12 +1,12 @@
 {
   "EngineData": {
-    "EcuType": 7,
-    "EcuName": "SCCA SPEC RACER FORD3",
+    "EcuType": 0,
+    "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6600,
+    "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
@@ -18,7 +18,7 @@
     "Voltage": 11.5,
     "TrackSelectionIndex": 62,
     "TrackSelectionName": "Sebring Full Course",
-    "FindTrackByName": false
+    "FindTrackByName": true
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 2,
+    "WheelSpeedPercentDifference": 1,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -35,54 +35,54 @@
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 900,
+    "BrakeToneHz": 1500,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
+    "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
     "Name": "AK06E47G",
     "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
     "Version": "RACE VOICE-SA,  VERSION,  JANUARY 11, 2020, A1",
-    "Volume": 9,
+    "Volume": 5,
     "SWVersion": "01-07-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 3,
+    "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK0",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK1",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK2",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK3",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK4",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK5",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK6",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK7",
       "Repeat": 0
     }
   ]
