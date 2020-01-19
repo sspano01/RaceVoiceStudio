@@ -1,4 +1,4 @@
-﻿<project version = 9 civer = 8.4.3 winver = "2.9/6.1.7601" >
+﻿<project version = 9 civer = 8.5.5 winver = "2.12/6.2.9200" >
    <autorun >1</>
    <autoclose >1</>
    <compname ></>
@@ -9,7 +9,7 @@
    <dlgfont >verdana</>
    <headlogo >default - 1</>
    <dlgfontsize >s8</>
-   <output >D:\flcgoogledrive\racevoice\racevoicestudio\Installer</>
+   <output >d:\racevoicesoftware\racevoicestudio\Installer</>
    <exename >RaceVoiceStudioInstaller.exe</>
    <beffile ></>
    <aftfile ></>
@@ -92,7 +92,7 @@
                   <desc >RaceVoice Studio Installer</>
                   <buttons >auto</>
                   <design >left</>
-                  <headlogo >D:\FingerLakesEngineering\Racing\Logos\helmet.jpg</>
+                  <headlogo >D:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg</>
                   <varlist >
                      <rows ></>
                   </>
@@ -120,109 +120,132 @@ Please make sure this computer has Internet Access before continuing</>
                   <srclist >
                      <rows >
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
                            <recurse >1</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\drivers</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers</>
                            <recurse >1</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\release.txt</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\flag.png</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
                         </>
                         <_ >
-                           <filename >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe</>
+                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
                            <exclude ></>
+                           <comm ></>
+                        </>
+                        <_ >
+                           <filename >D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts</>
+                           <recurse >1</>
+                           <justfile >0</>
+                           <emptydir >0</>
+                           <exclude ></>
+                           <comm ></>
                         </>
                      </>
                   </>
@@ -412,7 +435,7 @@ Please make sure this computer has Internet Access before continuing</>
                   <if ></>
                </>
             </>
-            <icofile >D:\FLCGoogleDrive\RaceVoice\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
+            <icofile >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
             <resfile ></>
             <leftimg >install - 1</>
             <caption ></>
@@ -699,7 +722,7 @@ Please make sure this computer has Internet Access before continuing</>
    <ignnotfound >0</>
    <tozip >0</>
    <zipfile ></>
-   <csfile >d:\flcgoogledrive\racevoice\racevoicestudio\installer\sign.bat</>
+   <csfile >d:\racevoicesoftware\racevoicestudio\installer\sign.bat</>
    <csinst >Setup "<exefilename>"</>
    <csuninst >Uninstall "<exefilename>"</>
    <csupdate >Update "<exefilename>"</>

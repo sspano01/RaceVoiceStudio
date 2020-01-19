@@ -31,7 +31,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "01-07-2020-A1";
+        public static string UIVersion = "01-19-2020-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -44,8 +44,8 @@ namespace RaceVoice
         public static bool first_connected = false;
         public static bool no_unit_check =false;
         public static string forcePort = "";
-        public static bool no_track_check = true;
-        public static bool no_license_check = true;
+        public static bool no_track_check = false;
+        public static bool no_license_check = false;
 
         public static bool disabled_charts = false;
 

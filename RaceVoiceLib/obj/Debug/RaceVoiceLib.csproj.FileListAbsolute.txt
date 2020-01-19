@@ -46,4 +46,3 @@ D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Debug\System.ValueTuple.xm
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csproj.CopyComplete
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.dll
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.pdb
-D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Debug\RaceVoiceLib.csprojAssemblyReference.cache

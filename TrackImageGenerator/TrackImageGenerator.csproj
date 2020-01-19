@@ -51,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RaceVoiceLib\RaceVoiceLib.csproj">
+      <Project>{cdcf4a53-b149-463f-8651-8f1bd342fc3e}</Project>
+      <Name>RaceVoiceLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RaceVoice\RaceVoice.csproj">
       <Project>{2a73a847-29b8-45a4-93e6-9a2536515515}</Project>
       <Name>RaceVoice</Name>

@@ -31,6 +31,7 @@ namespace RaceVoice
             try
             {
                 var json = JsonConvert.SerializeObject(sampleList);
+                              
                 var toggles = "data.HideRpmCharts = " + hideRpmCharts.ToString().ToLower() + "; ";
                 toggles += "data.HideSpeedCharts = " + hideSpeedCharts.ToString().ToLower() + "; ";
                 toggles += "data.HideThrottleCharts = " + hideThrottleCharts.ToString().ToLower() + "; ";

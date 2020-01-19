@@ -23,7 +23,7 @@ function buildScatterChartData(data, xSelector, ySelector) {
     for (var i = 0; i < data.length; i++) {
         var lap = data[i];
         for (var n = 0; n < lap.length; n++) {
-            var dp = lap[n]; 
+            var dp = lap[n];
             pt.push({ x: xSelector(dp), y: ySelector(dp) });
         }
     }
@@ -149,8 +149,8 @@ function renderScatterChart(data, ctx, xSelector, ySelector) {
 
     var chart = new Chart($(ctx), {
         type: 'scatter',
-        data: { 
-            datasets: [{ 
+        data: {
+            datasets: [{
                 label: 'G-Force',
                 data: parsed,
                 //borderColor: '#ff0000',
@@ -323,7 +323,8 @@ function onDataDownloaded(data) {
         $('#throttle-charts').hide();
     }
 
-    if (data.length === 1) {
+    if (data.length === 1)
+    {
         $('#rpmBoxChart').hide();
         $('#speedBoxChart').hide();
         $('#throttleBoxChart').hide();
@@ -362,13 +363,13 @@ function selectNoLaps() {
 
 function reloadAllCharts(data) {
     renderLineChart(data, '#speedChart', Selectors.Distance, Selectors.Speed);
-    renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Distance, Selectors.Speed);
+  //  renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Distance, Selectors.Speed);
 
     renderLineChart(data, '#rpmChart', Selectors.Time, Selectors.Rpm);
-    renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Distance, Selectors.Rpm);
+  //  renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Distance, Selectors.Rpm);
 
     renderLineChart(data, '#throttleChart', Selectors.Time, Selectors.Throttle);
-    renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Distance, Selectors.Throttle);
+ //   renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Distance, Selectors.Throttle);
 
-    renderScatterChart(data, '#gChart', Selectors.LateralG, Selectors.LinearG);
+//    renderScatterChart(data, '#gChart', Selectors.LateralG, Selectors.LinearG);
 }

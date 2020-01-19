@@ -648,17 +648,28 @@ namespace RaceVoice
                 }
 
 #if (!APP)
-                if (DASH.Equals("CUSTOM"))
+
+                if (!carMetadata.HardwareData.Version.ToUpper().Contains("RACEVOICE-SA"))
                 {
-                    DownloadCustomCan(carMetadata);
+                    if (DASH.Equals("CUSTOM") || DASH.Equals("OBDII"))
+                    {
+                        MessageBox.Show("RaceVoice-DI does not support VCI/OBD-II formats.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    SendSerial("SET DASH " + DASH);
-                    if (carMetadata.EngineData.EcuType==EcuType.OBDII)
+                    if (DASH.Equals("CUSTOM"))
                     {
-                        string baud_string = "500";
-                        SendSerial("SET BAUD RATE " + baud_string);
+                        DownloadCustomCan(carMetadata);
+                    }
+                    else
+                    {
+                        SendSerial("SET DASH " + DASH);
+                        if (carMetadata.EngineData.EcuType == EcuType.OBDII)
+                        {
+                            string baud_string = "500";
+                            SendSerial("SET BAUD RATE " + baud_string);
+                        }
                     }
                 }
 #endif

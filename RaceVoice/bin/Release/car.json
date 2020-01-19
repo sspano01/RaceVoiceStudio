@@ -1,12 +1,12 @@
 {
   "EngineData": {
-    "EcuType": 6,
+    "EcuType": 2,
     "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6620,
+    "UpShift": 6550,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
@@ -16,9 +16,9 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 20,
-    "TrackSelectionName": "DRYDEN INTERNATIONAL RACEWAY",
-    "FindTrackByName": false
+    "TrackSelectionIndex": 60,
+    "TrackSelectionName": "SEBRING FULL COURSE",
+    "FindTrackByName": true
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 2,
+    "WheelSpeedPercentDifference": 4,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -40,14 +40,14 @@
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AK06E47G",
-    "FeatureCode": "1BL8KIU-1IEUW4F-1GUTO58-3HZSQF",
-    "Version": "RACE VOICE-SA,  VERSION,  JANUARY 6, 2020, A1",
-    "Volume": 5,
-    "SWVersion": "01-07-2020-A1",
+    "Name": "AC01T8MN",
+    "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
+    "Version": "RACE VOICE,  VERSION,  AUGUST 8, 2019, B1",
+    "Volume": 9,
+    "SWVersion": "01-19-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 2,
+    "BaudRate": 3,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true

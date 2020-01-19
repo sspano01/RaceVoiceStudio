@@ -266,6 +266,116 @@ namespace RaceVoice
             }
         }
 
+
+        private void CheckNewEcus(splash isplash)
+        {
+            FileDownloader fd = new FileDownloader();
+            string[] remoteecus = new string[2000];
+            string[] localecus = new string[2000];
+            string path = globals.LocalFolder() + "\\";
+            string line = "";
+            string emsg = "";
+            int ri = 0;
+            int li = 0;
+
+            // download the ecu files
+            fd.DownloadFile("ecus.php", "remoteecus.php");
+            // now load the data into an array
+            try
+            {
+                path = globals.LocalFolder() + "\\remoteecus.php";
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                while ((line = file.ReadLine()) != null)
+                {
+                    globals.WriteLine(line);
+                    remoteecus[ri] = line;
+                    ri++;
+                }
+                file.Close();
+                System.IO.File.Delete(path);
+
+            }
+            catch (Exception e)
+            {
+                globals.WriteLine(e.Message);
+                return;
+            }
+
+            path = globals.LocalFolder() + "\\ecus";
+            // MessageBox.Show("!");
+            if (Directory.Exists(path) == false)
+            {
+                Directory.CreateDirectory(path);
+                Thread.Sleep(1000);
+            }
+            // Take a snapshot of the file system.
+            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
+
+            // This method assumes that the application has discovery permissions
+            // for all folders under the specified path.
+            IEnumerable<System.IO.FileInfo> fileList = dir.GetFiles("*.*", System.IO.SearchOption.AllDirectories);
+
+            //Create the query
+            IEnumerable<System.IO.FileInfo> fileQuery =
+            from file in fileList
+            where file.Extension == ".json"
+            orderby file.Name
+            select file;
+
+            //Execute the query. This might write out a lot of files!
+            foreach (System.IO.FileInfo fi in fileQuery)
+            {
+                string hash = globals.CalculateMD5(fi.FullName);
+                DateTime lastModified = System.IO.File.GetLastWriteTime(fi.FullName);
+                string tn = fi.Name + "," + hash + "," + lastModified.ToString("MM/dd/yyyy");
+                localecus[li] = tn;
+                li++;
+                globals.WriteLine("Local Scan->" + tn);
+            }
+
+
+            // now compare the files
+            for (int j=0;j<ri;j++)
+            {
+                bool found = false;
+                string[] remecu = remoteecus[j].Split(',');
+                for (int k=0;k<li;k++)
+                {
+                    string[] ecuseg = localecus[k].Split(',');
+                    globals.WriteLine("ECU Compare " + remecu[0] + " vs " + ecuseg[0]);
+                    if (ecuseg[0].ToUpper().Equals(remecu[0].ToUpper()))
+                    {
+                        globals.WriteLine("FOUND!");
+                        found = true;
+                        break;
+                    }
+                }
+
+               // found = false;
+                if (!found)
+                {
+                    globals.WriteLine(remecu[0]+"-->** NOT FOUND!");
+                    string remotefile = "\\ecus\\" + remecu[0];
+                    string localfile = "\\ecus\\" + remecu[0];
+                    globals.WriteLine("Downlad " + remotefile + "--->" + localfile);
+
+                    double pct = Convert.ToDouble(j) / Convert.ToDouble(ri);
+                    pct *= Convert.ToDouble(100);
+                    isplash.setbar(Convert.ToInt32(pct));
+                    isplash.setlabel("Downloading ECU map " + remecu[0]);
+                    string[] nice = remecu[0].Split('.');
+                    emsg += nice[0].Replace('_',' ') + "\r\n";
+                    fd.DownloadFile(remotefile, localfile);
+
+                }
+            }
+
+            if (emsg.Length > 0)
+            {
+                DialogResult dr = FlexibleMessageBox.Show(emsg,"New ECUs Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void CheckNewTracks(bool pushversions,bool force,string download_name)
         {
 
@@ -308,11 +418,13 @@ namespace RaceVoice
                     isplash.Close();
                     return;
                 }
+                CheckNewEcus(isplash);
+
                 if (!globals.no_track_check)
                 {
                     isplash.setbar(80);
                     isplash.setlabel("Checking For Updates ....");
-
+                    
                     fd.DownloadFile("tracks.php", "remotetracks.php");
                     //MessageBox.Show("hi");
 
@@ -369,13 +481,8 @@ namespace RaceVoice
                         li++;
                         globals.WriteLine("Local Scan->" + tn);
                     }
-                    // now also add firmware and exe local hashes into this mix
-                    //path = globals.LocalFolder() + "\\racevoice.exe";
-                    //localtracks[li] = "racevoice.exe,"+globals.CalculateMD5(path);
-                    //li++;
-                    //path = globals.LocalFolder() + "\\firmware.hex";
-                    //localtracks[li] = "firmware.hex," + globals.CalculateMD5(path);
-                    //li++;
+
+
                 }
                 else
                 {
@@ -681,13 +788,14 @@ namespace RaceVoice
                 chKsegmentRollingMph
             };
 
-            ecuMetadata.PopulateECU(cmbEcuType);
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
 
             CheckNewTracks(false,false, "");
+            
             PopulateTracks();
             SendNewTracksToServer();
+            ecuMetadata.PopulateECU(cmbEcuType);
 
             rvcom = new racevoicecom();
             rvcom.SetBar(progressBar1);
@@ -916,48 +1024,56 @@ namespace RaceVoice
             int index = 0;
             bool changed = false;
             bool got_name = false;
-            if (from_index)
+            try
             {
-                // this is when we are reading data back from the unit itself
-                // find by name?
-                if (_carMetadata.EngineData.FindTrackByName)
+                if (from_index)
                 {
-                    _carMetadata.EngineData.FindTrackByName = false;
-                    if (GotoTrackName(_carMetadata.EngineData.TrackSelectionName,true)) got_name = true;
-                }
-
-                if (!got_name)
-                { // find by index?
-                    index = _carMetadata.EngineData.TrackSelectionIndex;
-                    if (index > cmbTracks.Items.Count)
+                    // this is when we are reading data back from the unit itself
+                    // find by name?
+                    if (_carMetadata.EngineData.FindTrackByName)
                     {
-                        index = 0;
+                        _carMetadata.EngineData.FindTrackByName = false;
+                        if (GotoTrackName(_carMetadata.EngineData.TrackSelectionName, true)) got_name = true;
                     }
-                    if (index != cmbTracks.SelectedIndex) changed = true;
-                    cmbTracks.SelectedIndex = index;
+
+                    if (!got_name)
+                    { // find by index?
+                        index = _carMetadata.EngineData.TrackSelectionIndex;
+                        if (index > cmbTracks.Items.Count)
+                        {
+                            index = 0;
+                        }
+                        if (index != cmbTracks.SelectedIndex) changed = true;
+                        cmbTracks.SelectedIndex = index;
+
+                    }
+                    else
+                    {
+                        changed = true;
+                    }
 
                 }
                 else
                 {
                     changed = true;
+                    // otherwise, change the UI if the user picks a new track
                 }
 
-            }
-            else
-            {
-                changed = true;
-                // otherwise, change the UI if the user picks a new track
-            }
+                if (changed)
+                {
 
-            if (changed)
-            {
-                
-                var selection = (ComboBoxItem<string>)cmbTracks.SelectedItem;
-                LoadTrackFile(selection.Value.ToString());
+                    var selection = (ComboBoxItem<string>)cmbTracks.SelectedItem;
+                    LoadTrackFile(selection.Value.ToString());
 
-                _carMetadata.EngineData.TrackSelectionIndex = cmbTracks.SelectedIndex;
-                _carMetadata.EngineData.TrackSelectionName = _trackMetadata.TrackName;
-                _carMetadata.Save(_carMetafile);
+                    _carMetadata.EngineData.TrackSelectionIndex = cmbTracks.SelectedIndex;
+                    _carMetadata.EngineData.TrackSelectionName = _trackMetadata.TrackName;
+                    _carMetadata.Save(_carMetafile);
+                }
+            }
+            catch (Exception ee)
+            {
+                // this may fail during a virgin startup
+                globals.WriteLine(ee.Message);
             }
 
             AdjustUIForFeatures();
@@ -2159,28 +2275,37 @@ namespace RaceVoice
             rvcom.OpenSerial();
             rvcom.Bar(0);
             rvcom.Bar(200);
-            file = rvcom.DownloadData();
-            rvcom.CloseSerial();
-            rvcom.Bar(0);
+            rvcom.SendSerial("SHOW VERSION", _carMetadata, _trackModel);
+            if (_carMetadata.HardwareData.Version.ToUpper().Contains("RACEVOICE-SA"))
+            {
+                file = rvcom.DownloadData();
 #if (!APP)
-            if (file.Contains("NODATA"))
-            {
-                MessageBox.Show("No Data Is Available For Download", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
-                error = true;
+                if (file.Contains("NODATA"))
+                {
+                    MessageBox.Show("No Data Is Available For Download", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    error = true;
 
-            }
-            if (file.Length==0)
-            {
-                MessageBox.Show("Data Download Error", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
-                error = true;
+                }
+                if (file.Length == 0)
+                {
+                    MessageBox.Show("Data Download Error", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    error = true;
 
-            }
-            if (!error)
-            {
-                MessageBox.Show("Success: Data Download Finished", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
-            }
+                }
+                if (!error)
+                {
+                    MessageBox.Show("Success: Data Download Finished", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
 
 #endif
+            }
+            else
+            {
+                MessageBox.Show("RaceVoice-DI does not support data logging.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            rvcom.CloseSerial();
+            rvcom.Bar(0);
+
             return file;
         }
         
@@ -2191,6 +2316,7 @@ namespace RaceVoice
             rvcom.OpenSerial();
             rvcom.Bar(0);
             rvcom.Bar(200);
+            rvcom.SendSerial("SHOW VERSION", _carMetadata, _trackModel);
             valid = rvcom.WriteDataToRaceVoice(_carMetadata, _trackModel, false);
             rvcom.CloseSerial();
             rvcom.Bar(0);
@@ -2208,12 +2334,17 @@ namespace RaceVoice
             }
 #endif
             return valid;
-        }
+        } 
 
         private void DownloadData_Click(object sender, EventArgs e)
         {
 #if (!APP)
             if (globals.IsDemoMode(true)) return;
+            if (!globals.first_connected)
+            {
+                InitRaceVoiceHW(false);
+            }
+
 #endif
             DownloadDataFromRaceVoice();
         }

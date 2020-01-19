@@ -1,6 +1,6 @@
 <!DOCTYPE html >
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>RaceVoice Charts</title>
 </head>
 <body>
@@ -11,14 +11,11 @@
             <input type="button" value="Select All" onclick="selectAllLaps()"/>
         </div>
     </div>
-    
+
     <div id="speed-charts" class="chart-parent">
         <h2>Speed (mph) / Distance</h2>
         <div class="chartcontainer">
             <canvas id="speedChart" class="chart"></canvas>
-        </div>
-
-        <div class="chartcontainer" id="speedBoxChart" style="width: 95%; height: 400px">
         </div>
     </div>
 
@@ -28,8 +25,6 @@
             <canvas id="rpmChart" class="chart"></canvas>
         </div>
 
-        <div class="chartcontainer" id="rpmBoxChart" style="width: 95%; height: 400px">
-        </div>
     </div>
 
     <div id="throttle-charts" class="chart-parent">
@@ -38,16 +33,8 @@
             <canvas id="throttleChart" class="chart"></canvas>
         </div>
 
-        <div class="chartcontainer" id="throttleBoxChart" style="width: 95%; height: 400px">
-        </div>
     </div>
 
-    <div id="gforce-charts">
-        <h2>G-Force</h2>
-        <div class="chartcontainer">
-            <canvas id="gChart" class="chart"></canvas>
-        </div>
-    </div>
 
     <script type="text/javascript" src="Chart.bundle.min.js"></script>
     <script type="text/javascript" src="echarts.min.js"></script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html >
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>RaceVoice Charts</title>
+</head>
+<body>
+    <div id="laptoggles">
+        <h2>Toggle Laps</h2>
+        <div>
+            <input type="button" value="Select None" onclick="selectNoLaps()"/>
+            <input type="button" value="Select All" onclick="selectAllLaps()"/>
+        </div>
+    </div>
+
+    <div id="speed-charts" class="chart-parent">
+        <h2>Speed (mph) / Distance</h2>
+        <div class="chartcontainer">
+            <canvas id="speedChart" class="chart"></canvas>
+        </div>
+    </div>
+
+    <div id="rpm-charts" class="chart-parent">
+        <h2>RPM / Distance</h2>
+        <div class="chartcontainer">
+            <canvas id="rpmChart" class="chart"></canvas>
+        </div>
+
+    </div>
+
+    <div id="throttle-charts" class="chart-parent">
+        <h2>Throttle Position / Distance</h2>
+        <div class="chartcontainer">
+            <canvas id="throttleChart" class="chart"></canvas>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="shared.js"></script>
+    <script type="text/javascript" src="charting.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+
+    <link href="charting.css" rel="stylesheet" type="text/css" />
+</body>
+</html>
