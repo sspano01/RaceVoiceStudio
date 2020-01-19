@@ -23,7 +23,7 @@ namespace RaceVoice
             {
                 string debug_mode = globals.LocalFolder() + "\\admin.txt";
                 string line;
-                if (File.Exists(debug_mode) && globals.NO_ADIM_FILES==false)
+                if (File.Exists(debug_mode))
                 {
                     System.IO.StreamReader file = new System.IO.StreamReader(debug_mode);
                     while ((line = file.ReadLine()) != null)
@@ -33,6 +33,7 @@ namespace RaceVoice
                         if (line.Equals("NO-TRACK-CHECK")) globals.no_track_check = true;
                         if (line.Equals("NO-LICENSE-CHECK")) globals.no_license_check = true;
                         if (line.Equals("TRACE")) globals.trace = true;
+                        if (line.Equals("TERMINAL")) globals.terminal = true;
                     }
 
                     //globals.allow_track_edit = true;

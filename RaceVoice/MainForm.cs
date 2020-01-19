@@ -1686,6 +1686,7 @@ namespace RaceVoice
 
         private void AdjustUIForFeatures()
         {
+            if (globals.terminal) terminalToolStripMenuItem.Visible = true;
             if (globals.license_feature==(int)globals.FeatureState.LITE)
             {
 

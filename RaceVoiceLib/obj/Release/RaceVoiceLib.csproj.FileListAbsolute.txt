@@ -31,7 +31,6 @@ D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\System.ValueTuple.
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\CsvHelper.xml
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\Newtonsoft.Json.xml
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\System.ValueTuple.xml
-D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csprojAssemblyReference.cache
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csproj.CopyComplete
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.dll
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.pdb

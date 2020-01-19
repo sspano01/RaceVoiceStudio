@@ -364,18 +364,56 @@ namespace RaceVoice
                     //File Read Step = 4 Val->18
                     //File Read Step = 5 Val->2019
                     //File Read Step = 6 Val->A1RACE
+
+ //newer code          
+//File Read Step = 0 Val->E
+//File Read Step = 1 Val->VOICE - SA
+//File Read Step = 2 Val->VERSION
+//File Read Step = 3 Val->% D
+//File Read Step = 4 Val->% DJANUARY
+//File Read Step = 5 Val->11
+//File Read Step = 6 Val->2020
+//File Read Step = 7 Val->A1RACE
+//File Read Step = 8 Val->VOICE
+//File Read Step = 9 Val->VERSION
+//File Read Step = 10 Val->RACE
+//File Read Step = 11 Val->VOICE
+//File Read Step = 12 Val->VERSION
+//File Read Step = 13 Val->RACE
+//File Read Step = 14 Val->VOICE -
                     string[] vsplit = vs.Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
-                    for (int i = 0; i < vsplit.Length; i++)
+                    if (vsplit[1].ToUpper().Contains("-SA"))
                     {
-                        string ev = vsplit[i].Trim().ToUpper();
-                        globals.WriteLine("File Read Step = " + i + " Val->" + ev);
-                        switch (i)
+                        // newer hex format that is used for the SA/DI unit
+                        for (int i = 0; i < vsplit.Length; i++)
                         {
-                            case 3: fw_file_month = ev; break;
-                            case 4: fw_file_day = ev; break;
-                            case 5: fw_file_year = ev; break;
-                            case 6: fw_file_version = ev.Substring(0, 2); break;
-                            default: break;
+                            string ev = vsplit[i].Trim().ToUpper();
+                            globals.WriteLine("New File Read Step = " + i + " Val->" + ev);
+                            switch (i)
+                            {
+                                case 4: fw_file_month = ev.Substring(2, ev.Length - 2); break;
+                                case 5: fw_file_day = ev; break;
+                                case 6: fw_file_year = ev; break;
+                                case 7: fw_file_version = ev.Substring(0, 2); break;
+                                default: break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // legacy code, DI only
+                        for (int i = 0; i < vsplit.Length; i++)
+                        {
+                            string ev = vsplit[i].Trim().ToUpper();
+                            globals.WriteLine("File Read Step = " + i + " Val->" + ev);
+                            switch (i)
+                            {
+                                case 3: fw_file_month = ev; break;
+                                case 4: fw_file_day = ev; break;
+                                case 5: fw_file_year = ev; break;
+                                case 6: fw_file_version = ev.Substring(0, 2); break;
+                                default: break;
+                            }
                         }
                     }
 

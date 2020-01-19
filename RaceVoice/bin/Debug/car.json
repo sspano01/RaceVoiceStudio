@@ -1,6 +1,6 @@
 {
   "EngineData": {
-    "EcuType": 2,
+    "EcuType": 0,
     "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 4,
+    "WheelSpeedPercentDifference": 5,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -42,47 +42,47 @@
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AC01T8MN",
     "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  AUGUST 8, 2019, B1",
-    "Volume": 9,
+    "Version": "RACE VOICE,  VERSION,  JANUARY 11, 2020, A1",
+    "Volume": 5,
     "SWVersion": "01-19-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 3,
+    "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK0",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK1",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK2",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK3",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK4",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK5",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK6",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK7",
       "Repeat": 0
     }
   ]

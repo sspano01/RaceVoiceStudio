@@ -16,9 +16,9 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 60,
-    "TrackSelectionName": "SEBRING FULL COURSE",
-    "FindTrackByName": true
+    "TrackSelectionIndex": 61,
+    "TrackSelectionName": "Sebring Full Course",
+    "FindTrackByName": false
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,

@@ -73,14 +73,12 @@
             this.firmwareUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.installUSBDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gotoRaceVoiceComToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releaseNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataLoggingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearDataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enableDataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readDataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cmbTracks = new System.Windows.Forms.ComboBox();
             this.sendConfig = new System.Windows.Forms.Button();
@@ -147,8 +145,6 @@
             this.webTables = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DownloadData = new System.Windows.Forms.Button();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -434,8 +430,7 @@
             this.updatesToolStripMenuItem,
             this.chartsMenuItem,
             this.advancedToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.dataLoggingToolStripMenuItem});
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
@@ -603,6 +598,19 @@
             this.installUSBDriversToolStripMenuItem.Text = "Install USB Drivers";
             this.installUSBDriversToolStripMenuItem.Click += new System.EventHandler(this.installUSBDriversToolStripMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            // 
+            // terminalToolStripMenuItem
+            // 
+            this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.terminalToolStripMenuItem.Text = "Terminal";
+            this.terminalToolStripMenuItem.Visible = false;
+            this.terminalToolStripMenuItem.Click += new System.EventHandler(this.terminalToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -633,38 +641,6 @@
             this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.releaseNotesToolStripMenuItem.Text = "Release Notes";
             this.releaseNotesToolStripMenuItem.Click += new System.EventHandler(this.releaseNotesToolStripMenuItem_Click);
-            // 
-            // dataLoggingToolStripMenuItem
-            // 
-            this.dataLoggingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearDataLogToolStripMenuItem,
-            this.enableDataLogToolStripMenuItem,
-            this.readDataLogToolStripMenuItem});
-            this.dataLoggingToolStripMenuItem.Name = "dataLoggingToolStripMenuItem";
-            this.dataLoggingToolStripMenuItem.Size = new System.Drawing.Size(87, 22);
-            this.dataLoggingToolStripMenuItem.Text = "DataLogging";
-            this.dataLoggingToolStripMenuItem.Visible = false;
-            // 
-            // clearDataLogToolStripMenuItem
-            // 
-            this.clearDataLogToolStripMenuItem.Name = "clearDataLogToolStripMenuItem";
-            this.clearDataLogToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.clearDataLogToolStripMenuItem.Text = "Clear Data Log";
-            this.clearDataLogToolStripMenuItem.Click += new System.EventHandler(this.clearDataLogToolStripMenuItem_Click);
-            // 
-            // enableDataLogToolStripMenuItem
-            // 
-            this.enableDataLogToolStripMenuItem.Name = "enableDataLogToolStripMenuItem";
-            this.enableDataLogToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.enableDataLogToolStripMenuItem.Text = "Enable Data Log";
-            this.enableDataLogToolStripMenuItem.Click += new System.EventHandler(this.enableDataLogToolStripMenuItem_Click);
-            // 
-            // readDataLogToolStripMenuItem
-            // 
-            this.readDataLogToolStripMenuItem.Name = "readDataLogToolStripMenuItem";
-            this.readDataLogToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.readDataLogToolStripMenuItem.Text = "Read Data Log";
-            this.readDataLogToolStripMenuItem.Click += new System.EventHandler(this.readDataLogToolStripMenuItem_Click);
             // 
             // groupBox4
             // 
@@ -1581,18 +1557,6 @@
             this.DownloadData.UseVisualStyleBackColor = true;
             this.DownloadData.Click += new System.EventHandler(this.DownloadData_Click);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
-            // 
-            // terminalToolStripMenuItem
-            // 
-            this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
-            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.terminalToolStripMenuItem.Text = "Terminal";
-            this.terminalToolStripMenuItem.Click += new System.EventHandler(this.terminalToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 687);
@@ -1768,10 +1732,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteTrackToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem dataLoggingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearDataLogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enableDataLogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem readDataLogToolStripMenuItem;
         private System.Windows.Forms.CheckBox chKsegmentRollingMph;
         private System.Windows.Forms.ToolStripMenuItem firmwareUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem installUSBDriversToolStripMenuItem;

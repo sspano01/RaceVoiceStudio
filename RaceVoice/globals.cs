@@ -38,7 +38,6 @@ namespace RaceVoice
         public static string racevoice_http = "racevoice.serveftp.com";
 
         public static string racevoice_sqlserver = "racevoicesql.servep2p.com";
-        public static bool NO_ADIM_FILES = false;
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
@@ -46,6 +45,8 @@ namespace RaceVoice
         public static string forcePort = "";
         public static bool no_track_check = false;
         public static bool no_license_check = false;
+        public static bool terminal = false;
+        
 
         public static bool disabled_charts = false;
 
