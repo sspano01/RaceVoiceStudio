@@ -60,6 +60,15 @@ namespace RaceVoice
             LinkedList<DataTracePoint> samples = new LinkedList<DataTracePoint>();
 
             var lastIdx = 0;
+            for (int i = 0; i < _timeSorted.Count; i++)
+            {
+                lastIdx = i;
+                if (_timeSorted[i].LapDistance < 0.5)
+                {
+                    //Skip past data points that start at 99% at the start of the lap
+                    break;
+                }
+            }
             for (int n = 0; n < buckets.Count; n++)
             {
                 List<DataTracePoint> chunkPoints = new List<DataTracePoint>();

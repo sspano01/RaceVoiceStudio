@@ -551,8 +551,13 @@ namespace RaceVoice
 
             string remdate = mm + "/" + dy + "/" + yy;
 
+            //Using Convert.ToDateTime here can cause problems as it will try to use the current locale.
+            //UK date format is DD/MM/YYYY
+            //US date format is MM/DD/YYYY
+            //So e.g. Convert.ToDateTime("12/24/2019") on a UK pc will throw an exception
             DateTime r1 = new DateTime(int.Parse(yy), int.Parse(mm), int.Parse(dy));
-            DateTime r2 = Convert.ToDateTime(localdate);
+            string[] localDateSplit = localdate.Split('/');
+            DateTime r2 = new DateTime(int.Parse(localDateSplit[2]), int.Parse(localDateSplit[0]), int.Parse(localDateSplit[1]));
 
             if (r2 == r1)
             {

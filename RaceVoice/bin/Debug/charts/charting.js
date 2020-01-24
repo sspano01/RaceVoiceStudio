@@ -95,9 +95,9 @@ function buildMinMaxLapData(data, xSelector, ySelector) {
     for (var n = 0; n < longest; n++) {
         var cMin = { x: 0, y: Number.MAX_VALUE };
         var cMax = { x: 0, y: Number.MIN_VALUE };
-        labels.push('');
 
         var xVal = xSelector(data[longestIdx][n]);
+        labels.push(pctToStr(xVal));
 
         for (var i = 0; i < data.length; i++) {
             var values = data[i];
@@ -211,7 +211,10 @@ function renderLineChart(data, ctx, xSelector, ySelector) {
                     ticks: {
                         callback: function(label, index, labels) {
                             return pctToStr(label);//secsToTime(label);
-                        }
+                        },
+                        beginAtZero: true,
+                        min: 0,
+                        max: 1
                     },
                     type: 'linear',
                 }],
@@ -365,10 +368,10 @@ function reloadAllCharts(data) {
     renderLineChart(data, '#speedChart', Selectors.Distance, Selectors.Speed);
   //  renderBoxChart(data, 'Speed (MPH) / Time (s)', 'speedBoxChart', Selectors.Distance, Selectors.Speed);
 
-    renderLineChart(data, '#rpmChart', Selectors.Time, Selectors.Rpm);
+    renderLineChart(data, '#rpmChart', Selectors.Distance, Selectors.Rpm);
   //  renderBoxChart(data, 'RPM / Time (s)', 'rpmBoxChart', Selectors.Distance, Selectors.Rpm);
 
-    renderLineChart(data, '#throttleChart', Selectors.Time, Selectors.Throttle);
+    renderLineChart(data, '#throttleChart', Selectors.Distance, Selectors.Throttle);
  //   renderBoxChart(data, 'Throttle Position / Time (s)', 'throttleBoxChart', Selectors.Distance, Selectors.Throttle);
 
 //    renderScatterChart(data, '#gChart', Selectors.LateralG, Selectors.LinearG);
