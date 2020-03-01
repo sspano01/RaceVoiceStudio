@@ -34,3 +34,4 @@ D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\System.ValueTuple.
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csproj.CopyComplete
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.dll
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.pdb
+D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csprojAssemblyReference.cache

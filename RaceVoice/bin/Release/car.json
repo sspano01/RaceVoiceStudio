@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 61,
-    "TrackSelectionName": "Sebring Full Course",
+    "TrackSelectionIndex": 29,
+    "TrackSelectionName": "Homestead-Miami Speedway",
     "FindTrackByName": false
   },
   "DynamicsData": {
