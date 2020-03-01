@@ -24,6 +24,7 @@ namespace RaceVoice
         SmartyCam2,
         VBOX,
         AUTOSPORT,
+        STANDALONE,
         OBDII
 
     }

@@ -535,78 +535,78 @@
             // voiceSettingsToolStripMenuItem
             // 
             this.voiceSettingsToolStripMenuItem.Name = "voiceSettingsToolStripMenuItem";
-            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.voiceSettingsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.voiceSettingsToolStripMenuItem.Text = "Voice Settings";
             this.voiceSettingsToolStripMenuItem.Click += new System.EventHandler(this.voiceSettingsToolStripMenuItem_Click);
             // 
             // dataTraceToolStripMenuItem
             // 
             this.dataTraceToolStripMenuItem.Name = "dataTraceToolStripMenuItem";
-            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dataTraceToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.dataTraceToolStripMenuItem.Text = "Data Trace";
             this.dataTraceToolStripMenuItem.Click += new System.EventHandler(this.dataTraceToolStripMenuItem_Click);
             // 
             // gPSSettingsToolStripMenuItem
             // 
             this.gPSSettingsToolStripMenuItem.Name = "gPSSettingsToolStripMenuItem";
-            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gPSSettingsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.gPSSettingsToolStripMenuItem.Text = "GPS Settings";
             this.gPSSettingsToolStripMenuItem.Click += new System.EventHandler(this.gPSSettingsToolStripMenuItem_Click);
             // 
             // messageTriggersToolStripMenuItem
             // 
             this.messageTriggersToolStripMenuItem.Name = "messageTriggersToolStripMenuItem";
-            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.messageTriggersToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.messageTriggersToolStripMenuItem.Text = "Message Triggers";
             this.messageTriggersToolStripMenuItem.Click += new System.EventHandler(this.messageTriggersToolStripMenuItem_Click);
             // 
             // baudRateToolStripMenuItem
             // 
             this.baudRateToolStripMenuItem.Name = "baudRateToolStripMenuItem";
-            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.baudRateToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.baudRateToolStripMenuItem.Text = "Baud Rate";
             this.baudRateToolStripMenuItem.Click += new System.EventHandler(this.baudRateToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(165, 6);
             // 
             // firmwareUpdateToolStripMenuItem
             // 
             this.firmwareUpdateToolStripMenuItem.Name = "firmwareUpdateToolStripMenuItem";
-            this.firmwareUpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.firmwareUpdateToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.firmwareUpdateToolStripMenuItem.Text = "Firmware Update";
             this.firmwareUpdateToolStripMenuItem.Click += new System.EventHandler(this.firmwareUpdateToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(165, 6);
             // 
             // installUSBDriversToolStripMenuItem
             // 
             this.installUSBDriversToolStripMenuItem.Name = "installUSBDriversToolStripMenuItem";
-            this.installUSBDriversToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.installUSBDriversToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.installUSBDriversToolStripMenuItem.Text = "Install USB Drivers";
             this.installUSBDriversToolStripMenuItem.Click += new System.EventHandler(this.installUSBDriversToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(165, 6);
             // 
             // terminalToolStripMenuItem
             // 
             this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
-            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.terminalToolStripMenuItem.Text = "Terminal";
             this.terminalToolStripMenuItem.Visible = false;
             this.terminalToolStripMenuItem.Click += new System.EventHandler(this.terminalToolStripMenuItem_Click);
@@ -1006,6 +1006,7 @@
             "AIM SmartyCam-Mode2",
             "RaceLogic VBOX",
             "Autosport Labs",
+            "Standalone Mode",
             "OBD-II  (ISO-15765)"});
             this.cmbEcuType.Location = new System.Drawing.Point(5, 16);
             this.cmbEcuType.Margin = new System.Windows.Forms.Padding(1);

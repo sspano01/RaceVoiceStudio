@@ -642,6 +642,7 @@ namespace RaceVoice
                     case EcuType.SmartyCam2: DASH = "SMARTY 1"; break;
                     case EcuType.VBOX: DASH = "VBOX"; break;
                     case EcuType.AUTOSPORT: DASH = "AUTOSPORT"; break;
+                    case EcuType.STANDALONE: DASH = "STANDALONE"; break;
                     case EcuType.OBDII: DASH = "OBDII"; break;
                     default: DASH = "CUSTOM"; break;
 
@@ -655,6 +656,11 @@ namespace RaceVoice
                     {
                         MessageBox.Show("RaceVoice-DI does not support VCI/OBD-II formats.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    if (DASH.Equals("STANDALONE"))
+                    {
+                        MessageBox.Show("RaceVoice-DI does not support STANDALONE operation.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 else
                 {
@@ -1136,6 +1142,7 @@ namespace RaceVoice
                             if (theDASH.Contains("VBOX")) carMetadata.EngineData.EcuType = EcuType.VBOX;
                             if (theDASH.Contains("AUTOSPORT")) carMetadata.EngineData.EcuType = EcuType.AUTOSPORT;
                             if (theDASH.Contains("OBD_II")) carMetadata.EngineData.EcuType = EcuType.OBDII;
+                            if (theDASH.Contains("STANDALONE")) carMetadata.EngineData.EcuType = EcuType.STANDALONE;
 
                             if (theDASH.Contains("CUSTOM"))
                             {
