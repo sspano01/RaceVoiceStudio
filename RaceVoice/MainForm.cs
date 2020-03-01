@@ -2277,10 +2277,10 @@ namespace RaceVoice
             rvcom.Bar(0);
             rvcom.Bar(200);
             rvcom.SendSerial("SHOW VERSION", _carMetadata, _trackModel);
+#if (!APP)
             if (_carMetadata.HardwareData.Version.ToUpper().Contains("RACEVOICE-SA"))
             {
                 file = rvcom.DownloadData();
-#if (!APP)
                 if (file.Contains("NODATA"))
                 {
                     MessageBox.Show("No Data Is Available For Download", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -2298,13 +2298,25 @@ namespace RaceVoice
                     MessageBox.Show("Success: Data Download Finished", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
 
-#endif
             }
             else
             {
                 MessageBox.Show("RaceVoice-DI does not support data logging.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            rvcom.CloseSerial();
+#else
+            if (_carMetadata.HardwareData.Version.ToUpper().Contains("RACEVOICE-SA"))
+            {
+                file = rvcom.DownloadData();
+                if (file.Contains("NODATA"))
+                {
+                    //MessageBox.Show("No Data Is Available For Download", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    error = true;
+
+                }
+            }
+
+#endif
+                rvcom.CloseSerial();
             rvcom.Bar(0);
 
             return file;
