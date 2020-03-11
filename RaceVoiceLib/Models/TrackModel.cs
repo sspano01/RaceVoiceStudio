@@ -10,6 +10,7 @@ namespace RaceVoice
         public IList<Waypoint> Waypoints { get; set; }
         public IList<TrackSegment> Segments { get; set; }
         public IList<TrackSplit> Splits { get; set; }
+        public IList<TrackSpeechTag> SpeechTags { get; set; }
         public int SampleRate { get; set; }
 
         public int FlagPosition { get; set; }
@@ -22,6 +23,7 @@ namespace RaceVoice
             Waypoints = new List<Waypoint>();
             Segments = new List<TrackSegment>();
             Splits = new List<TrackSplit>();
+            SpeechTags = new List<TrackSpeechTag>();
         }
 
         public IList<Waypoint> GetSegmentWaypoints(TrackSegment segment)

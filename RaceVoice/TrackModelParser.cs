@@ -73,6 +73,18 @@ namespace RaceVoice
                             model.Splits.Add(s);
                         }
 
+                        if (controlWord.ToUpper().StartsWith("SPEECHTAG"))
+                        {
+                            var speechTagSplit = controlWord.Split(':');
+                            var tag = new TrackSpeechTag()
+                            {
+                                Index = model.Waypoints.Count,
+                                Name = speechTagSplit[1],
+                                Phrase = speechTagSplit[2]
+                            };
+                            model.SpeechTags.Add(tag);
+                        }
+
                         if (controlWord.ToUpper() == "FLAG_POSITION")
                         {
                             model.FlagPosition = model.Waypoints.Count;
@@ -151,6 +163,18 @@ namespace RaceVoice
                 }
 
                 l.Add("SPLIT:" + split.Text);
+            }
+
+            foreach (var speechTag in model.SpeechTags)
+            {
+                List<string> l = null;
+                if (!controlWords.TryGetValue(speechTag.Index, out l))
+                {
+                    l = new List<string>();
+                    controlWords[speechTag.Index] = l;
+                }
+
+                l.Add("SPEECHTAG:" + speechTag.Name + ":" + speechTag.Phrase);
             }
 
             foreach (var segment in model.Segments)

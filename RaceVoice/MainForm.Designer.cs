@@ -34,6 +34,7 @@
             this.addSegmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedSegmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSplitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addSpeechTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitsBox = new System.Windows.Forms.GroupBox();
             this.btnHideAllSplits = new System.Windows.Forms.Button();
             this.lstSplits = new System.Windows.Forms.CheckedListBox();
@@ -131,6 +132,10 @@
             this.chkLateralGForce = new System.Windows.Forms.CheckBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabTrack = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnHideAllSpeechTags = new System.Windows.Forms.Button();
+            this.lstSpeechTags = new System.Windows.Forms.CheckedListBox();
+            this.btnSpeechTagDelete = new System.Windows.Forms.Button();
             this.btnSaveTrack = new System.Windows.Forms.Button();
             this.TrackView = new System.Windows.Forms.PictureBox();
             this.zoom = new System.Windows.Forms.TrackBar();
@@ -174,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLateralGForce)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabTrack.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).BeginInit();
@@ -189,9 +195,10 @@
             this.rendererRightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addSegmentToolStripMenuItem,
             this.deleteSelectedSegmentToolStripMenuItem,
-            this.addSplitToolStripMenuItem});
+            this.addSplitToolStripMenuItem,
+            this.addSpeechTagToolStripMenuItem});
             this.rendererRightClickMenu.Name = "rendererRightClickMenu";
-            this.rendererRightClickMenu.Size = new System.Drawing.Size(205, 70);
+            this.rendererRightClickMenu.Size = new System.Drawing.Size(205, 92);
             this.rendererRightClickMenu.Opening += new System.ComponentModel.CancelEventHandler(this.rendererRightClickMenu_Opening);
             // 
             // addSegmentToolStripMenuItem
@@ -214,6 +221,13 @@
             this.addSplitToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.addSplitToolStripMenuItem.Text = "Add Split";
             this.addSplitToolStripMenuItem.Click += new System.EventHandler(this.addSplitToolStripMenuItem_Click);
+            // 
+            // addSpeechTagToolStripMenuItem
+            // 
+            this.addSpeechTagToolStripMenuItem.Name = "addSpeechTagToolStripMenuItem";
+            this.addSpeechTagToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.addSpeechTagToolStripMenuItem.Text = "Add Speech Tag";
+            this.addSpeechTagToolStripMenuItem.Click += new System.EventHandler(this.addSpeechTagMenuItem_Click);
             // 
             // splitsBox
             // 
@@ -266,7 +280,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.lstSegments);
             this.groupBox2.Controls.Add(this.btnSegmentDelete);
-            this.groupBox2.Location = new System.Drawing.Point(820, 178);
+            this.groupBox2.Location = new System.Drawing.Point(820, 354);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(1);
@@ -280,7 +294,7 @@
             this.lstSegments.FormattingEnabled = true;
             this.lstSegments.Location = new System.Drawing.Point(9, 16);
             this.lstSegments.Name = "lstSegments";
-            this.lstSegments.Size = new System.Drawing.Size(166, 82);
+            this.lstSegments.Size = new System.Drawing.Size(166, 95);
             this.lstSegments.TabIndex = 4;
             this.lstSegments.SelectedIndexChanged += new System.EventHandler(this.lstSegments_SelectedIndexChanged);
             // 
@@ -307,7 +321,7 @@
             this.grpData.Controls.Add(this.chkExitSpeed);
             this.grpData.Controls.Add(this.chkEntrySpeed);
             this.grpData.Controls.Add(this.chkMinimumSpeed);
-            this.grpData.Location = new System.Drawing.Point(820, 330);
+            this.grpData.Location = new System.Drawing.Point(820, 506);
             this.grpData.Margin = new System.Windows.Forms.Padding(1);
             this.grpData.Name = "grpData";
             this.grpData.Padding = new System.Windows.Forms.Padding(1);
@@ -667,7 +681,7 @@
             // sendConfig
             // 
             this.sendConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sendConfig.Location = new System.Drawing.Point(5, 546);
+            this.sendConfig.Location = new System.Drawing.Point(5, 728);
             this.sendConfig.Margin = new System.Windows.Forms.Padding(1);
             this.sendConfig.Name = "sendConfig";
             this.sendConfig.Size = new System.Drawing.Size(222, 30);
@@ -679,7 +693,7 @@
             // getConfig
             // 
             this.getConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.getConfig.Location = new System.Drawing.Point(5, 578);
+            this.getConfig.Location = new System.Drawing.Point(5, 760);
             this.getConfig.Margin = new System.Windows.Forms.Padding(1);
             this.getConfig.Name = "getConfig";
             this.getConfig.Size = new System.Drawing.Size(222, 30);
@@ -691,7 +705,7 @@
             // progressBar1
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressBar1.Location = new System.Drawing.Point(5, 649);
+            this.progressBar1.Location = new System.Drawing.Point(5, 831);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(1);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(222, 30);
@@ -708,7 +722,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(222, 460);
+            this.tabControl1.Size = new System.Drawing.Size(222, 642);
             this.tabControl1.TabIndex = 16;
             // 
             // tabEngine
@@ -737,7 +751,7 @@
             this.tabEngine.Margin = new System.Windows.Forms.Padding(1);
             this.tabEngine.Name = "tabEngine";
             this.tabEngine.Padding = new System.Windows.Forms.Padding(1);
-            this.tabEngine.Size = new System.Drawing.Size(214, 434);
+            this.tabEngine.Size = new System.Drawing.Size(214, 616);
             this.tabEngine.TabIndex = 0;
             this.tabEngine.Text = "Engine";
             this.tabEngine.UseVisualStyleBackColor = true;
@@ -1035,7 +1049,7 @@
             this.tabDynamics.Margin = new System.Windows.Forms.Padding(1);
             this.tabDynamics.Name = "tabDynamics";
             this.tabDynamics.Padding = new System.Windows.Forms.Padding(1);
-            this.tabDynamics.Size = new System.Drawing.Size(214, 434);
+            this.tabDynamics.Size = new System.Drawing.Size(214, 616);
             this.tabDynamics.TabIndex = 1;
             this.tabDynamics.Text = "Dynamics";
             this.tabDynamics.UseVisualStyleBackColor = true;
@@ -1367,11 +1381,12 @@
             this.tabMain.Margin = new System.Windows.Forms.Padding(1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1017, 657);
+            this.tabMain.Size = new System.Drawing.Size(1017, 839);
             this.tabMain.TabIndex = 17;
             // 
             // tabTrack
             // 
+            this.tabTrack.Controls.Add(this.groupBox1);
             this.tabTrack.Controls.Add(this.btnSaveTrack);
             this.tabTrack.Controls.Add(this.TrackView);
             this.tabTrack.Controls.Add(this.zoom);
@@ -1387,16 +1402,62 @@
             this.tabTrack.Margin = new System.Windows.Forms.Padding(1);
             this.tabTrack.Name = "tabTrack";
             this.tabTrack.Padding = new System.Windows.Forms.Padding(1);
-            this.tabTrack.Size = new System.Drawing.Size(1009, 631);
+            this.tabTrack.Size = new System.Drawing.Size(1009, 813);
             this.tabTrack.TabIndex = 0;
             this.tabTrack.Text = "Track";
             this.tabTrack.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnHideAllSpeechTags);
+            this.groupBox1.Controls.Add(this.lstSpeechTags);
+            this.groupBox1.Controls.Add(this.btnSpeechTagDelete);
+            this.groupBox1.Location = new System.Drawing.Point(820, 178);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.groupBox1.Size = new System.Drawing.Size(183, 174);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Speech Tags";
+            // 
+            // btnHideAllSpeechTags
+            // 
+            this.btnHideAllSpeechTags.Location = new System.Drawing.Point(8, 115);
+            this.btnHideAllSpeechTags.Margin = new System.Windows.Forms.Padding(1);
+            this.btnHideAllSpeechTags.Name = "btnHideAllSpeechTags";
+            this.btnHideAllSpeechTags.Size = new System.Drawing.Size(167, 23);
+            this.btnHideAllSpeechTags.TabIndex = 3;
+            this.btnHideAllSpeechTags.Text = "Clear All";
+            this.btnHideAllSpeechTags.UseVisualStyleBackColor = true;
+            this.btnHideAllSpeechTags.Click += new System.EventHandler(this.btnHideAllSpeechTags_Click);
+            // 
+            // lstSpeechTags
+            // 
+            this.lstSpeechTags.FormattingEnabled = true;
+            this.lstSpeechTags.Location = new System.Drawing.Point(9, 17);
+            this.lstSpeechTags.Name = "lstSpeechTags";
+            this.lstSpeechTags.Size = new System.Drawing.Size(167, 94);
+            this.lstSpeechTags.TabIndex = 2;
+            this.lstSpeechTags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstSpeechTags_ItemCheck);
+            // 
+            // btnSpeechTagDelete
+            // 
+            this.btnSpeechTagDelete.Location = new System.Drawing.Point(8, 140);
+            this.btnSpeechTagDelete.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSpeechTagDelete.Name = "btnSpeechTagDelete";
+            this.btnSpeechTagDelete.Size = new System.Drawing.Size(167, 23);
+            this.btnSpeechTagDelete.TabIndex = 1;
+            this.btnSpeechTagDelete.Text = "Delete";
+            this.btnSpeechTagDelete.UseVisualStyleBackColor = true;
+            this.btnSpeechTagDelete.Click += new System.EventHandler(this.btnSpeechTagDelete_Click);
             // 
             // btnSaveTrack
             // 
             this.btnSaveTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTrack.Enabled = false;
-            this.btnSaveTrack.Location = new System.Drawing.Point(820, 539);
+            this.btnSaveTrack.Location = new System.Drawing.Point(820, 715);
             this.btnSaveTrack.Name = "btnSaveTrack";
             this.btnSaveTrack.Size = new System.Drawing.Size(183, 30);
             this.btnSaveTrack.TabIndex = 18;
@@ -1415,7 +1476,7 @@
             this.TrackView.Location = new System.Drawing.Point(2, 61);
             this.TrackView.Margin = new System.Windows.Forms.Padding(1);
             this.TrackView.Name = "TrackView";
-            this.TrackView.Size = new System.Drawing.Size(769, 535);
+            this.TrackView.Size = new System.Drawing.Size(769, 717);
             this.TrackView.TabIndex = 11;
             this.TrackView.TabStop = false;
             this.TrackView.Click += new System.EventHandler(this.TrackView_Click);
@@ -1462,7 +1523,7 @@
             this.vScroll.Minimum = -100;
             this.vScroll.Name = "vScroll";
             this.vScroll.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.vScroll.Size = new System.Drawing.Size(45, 535);
+            this.vScroll.Size = new System.Drawing.Size(45, 717);
             this.vScroll.TabIndex = 17;
             this.vScroll.Value = 1;
             this.vScroll.Scroll += new System.EventHandler(this.TrackScroll);
@@ -1472,7 +1533,7 @@
             this.hScroll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hScroll.BackColor = System.Drawing.Color.White;
-            this.hScroll.Location = new System.Drawing.Point(3, 598);
+            this.hScroll.Location = new System.Drawing.Point(3, 780);
             this.hScroll.Margin = new System.Windows.Forms.Padding(1);
             this.hScroll.Maximum = 100;
             this.hScroll.Minimum = -100;
@@ -1508,7 +1569,7 @@
             this.tabCharts.Margin = new System.Windows.Forms.Padding(1);
             this.tabCharts.Name = "tabCharts";
             this.tabCharts.Padding = new System.Windows.Forms.Padding(1);
-            this.tabCharts.Size = new System.Drawing.Size(1009, 631);
+            this.tabCharts.Size = new System.Drawing.Size(1009, 813);
             this.tabCharts.TabIndex = 1;
             this.tabCharts.Text = "Charts";
             this.tabCharts.UseVisualStyleBackColor = true;
@@ -1519,7 +1580,7 @@
             this.webCharts.Location = new System.Drawing.Point(1, 1);
             this.webCharts.MinimumSize = new System.Drawing.Size(20, 20);
             this.webCharts.Name = "webCharts";
-            this.webCharts.Size = new System.Drawing.Size(1007, 629);
+            this.webCharts.Size = new System.Drawing.Size(1007, 811);
             this.webCharts.TabIndex = 0;
             // 
             // tabPage1
@@ -1527,7 +1588,7 @@
             this.tabPage1.Controls.Add(this.webTables);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1009, 631);
+            this.tabPage1.Size = new System.Drawing.Size(1009, 813);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Tables";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1538,7 +1599,7 @@
             this.webTables.Location = new System.Drawing.Point(0, 0);
             this.webTables.MinimumSize = new System.Drawing.Size(20, 20);
             this.webTables.Name = "webTables";
-            this.webTables.Size = new System.Drawing.Size(1009, 631);
+            this.webTables.Size = new System.Drawing.Size(1009, 813);
             this.webTables.TabIndex = 1;
             // 
             // openFileDialog
@@ -1549,7 +1610,7 @@
             // DownloadData
             // 
             this.DownloadData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DownloadData.Location = new System.Drawing.Point(6, 610);
+            this.DownloadData.Location = new System.Drawing.Point(6, 792);
             this.DownloadData.Margin = new System.Windows.Forms.Padding(1);
             this.DownloadData.Name = "DownloadData";
             this.DownloadData.Size = new System.Drawing.Size(222, 30);
@@ -1560,7 +1621,7 @@
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(1257, 687);
+            this.ClientSize = new System.Drawing.Size(1257, 869);
             this.Controls.Add(this.DownloadData);
             this.Controls.Add(this.tabMain);
             this.Controls.Add(this.tabControl1);
@@ -1615,6 +1676,7 @@
             this.tabMain.ResumeLayout(false);
             this.tabTrack.ResumeLayout(false);
             this.tabTrack.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TrackView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).EndInit();
@@ -1743,6 +1805,11 @@
         private System.Windows.Forms.Button DownloadData;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem terminalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addSpeechTagToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnHideAllSpeechTags;
+        private System.Windows.Forms.CheckedListBox lstSpeechTags;
+        private System.Windows.Forms.Button btnSpeechTagDelete;
     }
 }
 

@@ -17,6 +17,7 @@ namespace RaceVoice
         public bool UseCurveRendering { get; set; }
 
         public IList<bool> SplitEnabledStates { get; set; }
+        public IList<bool> SpeechTagEnabledStates { get; set; }
 
         public TrackMetadata()
         {

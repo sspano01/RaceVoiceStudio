@@ -178,6 +178,12 @@
       <DependentUpon>RealTimeView.cs</DependentUpon>
     </Compile>
     <Compile Include="IntelHexFormatReader\RecordType.cs" />
+    <Compile Include="SpeechTagDialogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpeechTagDialogue.Designer.cs">
+      <DependentUpon>SpeechTagDialogue.cs</DependentUpon>
+    </Compile>
     <Compile Include="splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,9 @@
     </Compile>
     <EmbeddedResource Include="RealTimeView.resx">
       <DependentUpon>RealTimeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpeechTagDialogue.resx">
+      <DependentUpon>SpeechTagDialogue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="splash.resx">
       <DependentUpon>splash.cs</DependentUpon>

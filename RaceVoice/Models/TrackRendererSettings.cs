@@ -17,6 +17,10 @@ namespace RaceVoice
         public Color SelectedSegmentColor { get; set; }
         public Color DefaultSegmentColor { get; set; }
 
+        public int SpeechTagIndicatorSize { get; set; }
+        public Color SpeechTagIndicatorColor { get; set; }
+        public int SpeechTagIndicatorThickness { get; set; }
+
         public int SplitIndicatorSize { get; set; }
         public Color SplitIndicatorColor { get; set; }
         public int SplitIndicatorThickness { get; set; }
@@ -36,6 +40,7 @@ namespace RaceVoice
 #if !APP
         public Font SegmentFont { get; set; }
         public Font SplitFont { get; set; }
+        public Font SpeechTagFont { get; set; }
 #endif
         public TrackRendererSettings(int clusterSize)
         {

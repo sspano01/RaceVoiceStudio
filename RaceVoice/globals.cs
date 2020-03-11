@@ -44,9 +44,8 @@ namespace RaceVoice
         public static bool no_unit_check =false;
         public static string forcePort = "";
         public static bool no_track_check = false;
-        public static bool no_license_check = false;
+        public static bool no_license_check = true;
         public static bool terminal = false;
-        
 
         public static bool disabled_charts = false;
 
@@ -65,6 +64,7 @@ namespace RaceVoice
 
         public static int MAX_SEGMENTS = 10;
         public static int MAX_SPLITS = 10;
+        public static int MAX_SPEECH_TAGS = 10;
         public static int ENABLE_BEST_LAP = 1;
         public static int ENABLE_GAIN_LAP = 2;
         public static bool network_ok = false;

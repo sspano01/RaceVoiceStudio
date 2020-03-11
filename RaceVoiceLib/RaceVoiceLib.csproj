@@ -52,6 +52,7 @@
     <Compile Include="Models\TrackColor.cs" />
     <Compile Include="Models\TrackModel.cs" />
     <Compile Include="Models\TrackSegment.cs" />
+    <Compile Include="Models\TrackSpeechTag.cs" />
     <Compile Include="Models\TrackTag.cs" />
     <Compile Include="Models\Waypoint.cs" />
     <Compile Include="Parser\AimCsv.cs" />

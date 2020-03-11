@@ -64,7 +64,7 @@ namespace RaceVoice
         private const string _carMetafile = "car.json";
         private Bitmap _renderTarget;
         private CarMetadata _carMetadata;
-        
+
 
         private CheckBox[] _dataCheckboxes;
         private bool _engineValuesUpdating;
@@ -92,7 +92,7 @@ namespace RaceVoice
             installUSBDriversToolStripMenuItem.Visible = false;
         }
 
-       
+
         private void PopulateTracks()
         {
             if (Directory.Exists(globals.track_folder))
@@ -104,66 +104,66 @@ namespace RaceVoice
                     var trackModel = TrackModelParser.LoadFile(f);
                     var metaFile = GetMetaFileForCsv(f);
                     var metadata = TrackMetadata.Load(metaFile);
-                    metadata = CheckTrackMetaData(f,metaFile,metadata,trackModel);
-/*
-                    if (metadata == null)
-                    {
-                        no_json = true;
-                        metadata = new TrackMetadata()
-                        {
-                            TrackName = Path.GetFileNameWithoutExtension(f).Replace('_', ' '),
-                            DataBitfields = new List<UInt16>(trackModel.Segments.Count),
-                            ClusterSize = trackModel.SampleRate == 0 ? 4 : trackModel.SampleRate
-                        };
-
-                     
-                        foreach (var segment in trackModel.Segments)
-                        {
-                            metadata.DataBitfields.Add(0);
-                        }
-
-                        metadata.Save(metaFile);
-                    }
+                    metadata = CheckTrackMetaData(f, metaFile, metadata, trackModel);
+                    /*
+                                        if (metadata == null)
+                                        {
+                                            no_json = true;
+                                            metadata = new TrackMetadata()
+                                            {
+                                                TrackName = Path.GetFileNameWithoutExtension(f).Replace('_', ' '),
+                                                DataBitfields = new List<UInt16>(trackModel.Segments.Count),
+                                                ClusterSize = trackModel.SampleRate == 0 ? 4 : trackModel.SampleRate
+                                            };
 
 
-                    // ensure we always have bitfields for the segments
-                    if (trackModel.Segments.Count()!=metadata.DataBitfields.Count())
-                    {
-                        int i = 0;
-                        foreach (var segment in trackModel.Segments)
-                        {
-                            if (i>=metadata.DataBitfields.Count())
-                            {
-                             metadata.DataBitfields.Add(0);
-                            }
-                            
-                            i++;
-                            
-                        }
-                        metadata.Save(metaFile);
-                    }
+                                            foreach (var segment in trackModel.Segments)
+                                            {
+                                                metadata.DataBitfields.Add(0);
+                                            }
 
-                   
-                    if (metadata.SplitEnabledStates == null || metadata.SplitEnabledStates.Count != trackModel.Splits.Count)
-                    {
-                        metadata.SplitEnabledStates = new List<bool>(trackModel.Splits.Count);
-                        for (int i = 0; i < trackModel.Splits.Count; i++)
-                        {
-                            if (no_json)
-                            {
+                                            metadata.Save(metaFile);
+                                        }
 
-                                metadata.SplitEnabledStates.Add(false);
-                            }
-                            else
 
-                            metadata.SplitEnabledStates.Add(!trackModel.Splits[i].Hidden);
-                        }
+                                        // ensure we always have bitfields for the segments
+                                        if (trackModel.Segments.Count()!=metadata.DataBitfields.Count())
+                                        {
+                                            int i = 0;
+                                            foreach (var segment in trackModel.Segments)
+                                            {
+                                                if (i>=metadata.DataBitfields.Count())
+                                                {
+                                                 metadata.DataBitfields.Add(0);
+                                                }
 
-                        metadata.Save(metaFile);
-                    }
+                                                i++;
 
-                    cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = f });
-                    */
+                                            }
+                                            metadata.Save(metaFile);
+                                        }
+
+
+                                        if (metadata.SplitEnabledStates == null || metadata.SplitEnabledStates.Count != trackModel.Splits.Count)
+                                        {
+                                            metadata.SplitEnabledStates = new List<bool>(trackModel.Splits.Count);
+                                            for (int i = 0; i < trackModel.Splits.Count; i++)
+                                            {
+                                                if (no_json)
+                                                {
+
+                                                    metadata.SplitEnabledStates.Add(false);
+                                                }
+                                                else
+
+                                                metadata.SplitEnabledStates.Add(!trackModel.Splits[i].Hidden);
+                                            }
+
+                                            metadata.Save(metaFile);
+                                        }
+
+                                        cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = f });
+                                        */
                 }
             }
 
@@ -211,7 +211,7 @@ namespace RaceVoice
             if (local_key.Contains("NONE"))
             {
                 globals.license_feature = (int)globals.FeatureState.FULL; // assume we have full version
-                
+
             }
             if (local_key.Contains(key_demo)) globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
             if (local_key.Contains(key_full)) globals.license_feature = (int)globals.FeatureState.FULL; // full version
@@ -223,7 +223,7 @@ namespace RaceVoice
         {
             string enc = "";
             if (state == false) return "*NOLICENSE*";
-            enc= HardwareInfo.GenerateUID("#VALID#LICENSE#");
+            enc = HardwareInfo.GenerateUID("#VALID#LICENSE#");
             return enc;
         }
 
@@ -335,11 +335,11 @@ namespace RaceVoice
 
 
             // now compare the files
-            for (int j=0;j<ri;j++)
+            for (int j = 0; j < ri; j++)
             {
                 bool found = false;
                 string[] remecu = remoteecus[j].Split(',');
-                for (int k=0;k<li;k++)
+                for (int k = 0; k < li; k++)
                 {
                     string[] ecuseg = localecus[k].Split(',');
                     globals.WriteLine("ECU Compare " + remecu[0] + " vs " + ecuseg[0]);
@@ -351,10 +351,10 @@ namespace RaceVoice
                     }
                 }
 
-               // found = false;
+                // found = false;
                 if (!found)
                 {
-                    globals.WriteLine(remecu[0]+"-->** NOT FOUND!");
+                    globals.WriteLine(remecu[0] + "-->** NOT FOUND!");
                     string remotefile = "\\ecus\\" + remecu[0];
                     string localfile = "\\ecus\\" + remecu[0];
                     globals.WriteLine("Downlad " + remotefile + "--->" + localfile);
@@ -364,7 +364,7 @@ namespace RaceVoice
                     isplash.setbar(Convert.ToInt32(pct));
                     isplash.setlabel("Downloading ECU map " + remecu[0]);
                     string[] nice = remecu[0].Split('.');
-                    emsg += nice[0].Replace('_',' ') + "\r\n";
+                    emsg += nice[0].Replace('_', ' ') + "\r\n";
                     fd.DownloadFile(remotefile, localfile);
 
                 }
@@ -372,11 +372,11 @@ namespace RaceVoice
 
             if (emsg.Length > 0)
             {
-                DialogResult dr = FlexibleMessageBox.Show(emsg,"New ECUs Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult dr = FlexibleMessageBox.Show(emsg, "New ECUs Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void CheckNewTracks(bool pushversions,bool force,string download_name)
+        private void CheckNewTracks(bool pushversions, bool force, string download_name)
         {
 
             FileDownloader fd = new FileDownloader();
@@ -406,7 +406,7 @@ namespace RaceVoice
                     _carMetadata.Save(_carMetafile);
                     isplash.Close();
                     globals.Terminate();
-                    
+
                     return;
                 }
 
@@ -424,7 +424,7 @@ namespace RaceVoice
                 {
                     isplash.setbar(80);
                     isplash.setlabel("Checking For Updates ....");
-                    
+
                     fd.DownloadFile("tracks.php", "remotetracks.php");
                     //MessageBox.Show("hi");
 
@@ -512,13 +512,13 @@ namespace RaceVoice
             string[] locals;
             bool found = false;
             bool newer = false;
-           // any changes or new tracks??
+            // any changes or new tracks??
             string track_stat = "";
             string track_msg = "Updates Are Available - Press YES to Update RaceVoice Studio";
             found = newer = false;
-            for (int i=0;i<ri;i++)
+            for (int i = 0; i < ri; i++)
             {
-                 remotes = remotetracks[i].Split(',');
+                remotes = remotetracks[i].Split(',');
                 found = false;
                 newer = false;
                 for (int j = 0; j < li; j++)
@@ -531,7 +531,7 @@ namespace RaceVoice
                         if (globals.virgin_load == false)
                         {
                             // is local newer?
-                            if (!globals.FileModifiedNewer(locals[0], locals[2], remotes[2],locals[1],remotes[1]))
+                            if (!globals.FileModifiedNewer(locals[0], locals[2], remotes[2], locals[1], remotes[1]))
                             {
                                 newer = true;
                             }
@@ -539,18 +539,18 @@ namespace RaceVoice
                     }
                 }
 
-                    if (!found || newer)
-                    {
-                        track_stat += "New Track: " + remotes[0] + "\r\n";
-                        updates[changes] = remotes[0];
-                        changes++;
+                if (!found || newer)
+                {
+                    track_stat += "New Track: " + remotes[0] + "\r\n";
+                    updates[changes] = remotes[0];
+                    changes++;
 
-                    }
-                
                 }
 
+            }
 
-         
+
+
             if (force)
             {
                 track_stat = "";
@@ -576,7 +576,7 @@ namespace RaceVoice
                     }
                 }
 
-                if (track_stat.Length==0)
+                if (track_stat.Length == 0)
                 {
                     MessageBox.Show("The currently selected track is not available on the server", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -627,8 +627,8 @@ namespace RaceVoice
             }
             //MessageBox.Show("HI");
             isplash.Close();
-
         }
+
         private void UpdateTitle()
         {
             string debug = "";
@@ -636,7 +636,7 @@ namespace RaceVoice
             if (globals.license_feature == (int)globals.FeatureState.LITE) MainFormText += "Lite ";
             else if (globals.license_feature == (int)globals.FeatureState.DEMO) MainFormText += "Demo Mode "; else MainFormText += "Pro ";
 
-            MainFormText += "Version "+ globals.UIVersion;
+            MainFormText += "Version " + globals.UIVersion;
             if (globals.no_track_check) debug += " DEBUG:NO TRACK CHECKING";
             if (globals.no_unit_check) debug += " DEBUG:NO UNIT COMMUNICATION";
             /*
@@ -669,7 +669,6 @@ namespace RaceVoice
             }
         }
 
-
         private bool CheckLicensedUser()
         {
             bool state = false;
@@ -684,15 +683,15 @@ namespace RaceVoice
                 return true;
             }
 
-           state=sql.ValidateUUID(globals.theUUID,false,_carMetadata);
+            state = sql.ValidateUUID(globals.theUUID, false, _carMetadata);
             if (state)
             {
                 if (globals.license_state.Contains("RELOAD"))
                 {
                     state = sql.ValidateUUID(globals.theUUID, false, _carMetadata); // re-read the license state after the first registration
                 }
-                sql.ValidateUUID(globals.theUUID, true,_carMetadata);
-                _carMetadata.HardwareData.FeatureCode=EncodeFeature(globals.license_state);
+                sql.ValidateUUID(globals.theUUID, true, _carMetadata);
+                _carMetadata.HardwareData.FeatureCode = EncodeFeature(globals.license_state);
             }
             return state;
 
@@ -700,8 +699,6 @@ namespace RaceVoice
 
             // return isgood;
         }
-
-
 
         private void InitRaceVoiceHW(bool atboot)
         {
@@ -725,25 +722,25 @@ namespace RaceVoice
                 globals.first_connected = true;
                 if (_carMetadata.HardwareData.GetConfigAtStart && atboot)
                 {
-                        ReadDataFromRaceVoice(false);
-                        _carMetadata.Save(_carMetafile); // save what we read
-                                                         // WriteDataToRaceVoice(); // update based on what we read BEFORE we performed firmware update cycle                         
+                    ReadDataFromRaceVoice(false);
+                    _carMetadata.Save(_carMetafile); // save what we read
+                                                     // WriteDataToRaceVoice(); // update based on what we read BEFORE we performed firmware update cycle                         
 
-                        if (updater.ComparePackagedFirmwareVersion(_carMetadata) || globals.force_firmware_update != 0)
+                    if (updater.ComparePackagedFirmwareVersion(_carMetadata) || globals.force_firmware_update != 0)
+                    {
+                        update_stat = updater.UpdateFirmware();
+                        if (update_stat == 1)
                         {
-                            update_stat = updater.UpdateFirmware();
-                            if (update_stat == 1)
-                            {
-                                WriteDataToRaceVoice(); // update based on what we read BEFORE we performed firmware update cycle   
-                                ReadDataFromRaceVoice(true); // get the new version
-                            }
-                            if (update_stat < 0)
-                            {
+                            WriteDataToRaceVoice(); // update based on what we read BEFORE we performed firmware update cycle   
+                            ReadDataFromRaceVoice(true); // get the new version
+                        }
+                        if (update_stat < 0)
+                        {
                             globals.Terminate();
 
                         }
                     }
-                        globals.WriteLine("done");
+                    globals.WriteLine("done");
 
                 }
                 else
@@ -758,7 +755,7 @@ namespace RaceVoice
                             globals.Terminate();
 
                         }
-                        if (update_stat==1)
+                        if (update_stat == 1)
                         {
                             ReadDataFromRaceVoice(true); // get the new version
 
@@ -769,10 +766,8 @@ namespace RaceVoice
             }
             CheckNewTracks(true, false, "");
             UpdateTitle();
-
         }
 
-      
         private void MainForm_Load(object sender, EventArgs e)
         {
             EcuMetadata ecuMetadata = new EcuMetadata();
@@ -791,8 +786,8 @@ namespace RaceVoice
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
 
-            CheckNewTracks(false,false, "");
-            
+            CheckNewTracks(false, false, "");
+
             PopulateTracks();
             SendNewTracksToServer();
             ecuMetadata.PopulateECU(cmbEcuType);
@@ -822,6 +817,18 @@ namespace RaceVoice
             addSplitToolStripMenuItem.Enabled = _trackModel.Splits.Count < globals.MAX_SPLITS;
         }
 
+        private void UpdateSpeechTags()
+        {
+            lstSpeechTags.Items.Clear();
+            foreach (var t in _trackModel.SpeechTags)
+            {
+                Console.WriteLine("speech tag=" + t.Name + " val=" + t.Hidden.ToString());
+                lstSpeechTags.Items.Add(t.Name, !t.Hidden);
+            }
+
+            addSpeechTagToolStripMenuItem.Enabled = _trackModel.SpeechTags.Count < globals.MAX_SPEECH_TAGS;
+        }
+
         private void UpdateSegments()
         {
             lstSegments.Items.Clear();
@@ -829,7 +836,6 @@ namespace RaceVoice
             {
                 lstSegments.Items.Add(t.Name);
             }
-
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -871,8 +877,6 @@ namespace RaceVoice
             AdjustUIForFeatures();
             _dataCheckboxesUpdating = false;
         }
-
-      
 
         private void TrackView_MouseDown(object sender, MouseEventArgs e)
         {
@@ -933,22 +937,18 @@ namespace RaceVoice
             _renderer.CenterOffset = new PointF((hScroll.Value / 100f) * TrackView.Width, (vScroll.Value / -100f) * TrackView.Height);
         }
 
-
-
         private void rendererRightClickMenu_Opening(object sender, CancelEventArgs e)
         {
             deleteSelectedSegmentToolStripMenuItem.Visible = _renderer.SelectedSegment != null;
-
         }
-
 
         private void addSegmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           if (_trackModel.Segments.Count >= globals.MAX_SEGMENTS)
+            if (_trackModel.Segments.Count >= globals.MAX_SEGMENTS)
             {
-                MessageBox.Show("Sorry, the maximum number of segments allowed is " + globals.MAX_SEGMENTS+"\r\nTry changing the map to reduce the number of segments.", "Too Many Segments", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sorry, the maximum number of segments allowed is " + globals.MAX_SEGMENTS + "\r\nTry changing the map to reduce the number of segments.", "Too Many Segments", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-             }
+            }
 
             String name = Interaction.InputBox("Segment Name");
             if (name.Length > 0)
@@ -959,10 +959,11 @@ namespace RaceVoice
 
                     ReRender();
                     UpdateSegments();
+                    SaveTrack();
                 }
                 else
                 {
-                    MessageBox.Show("You cannot create a new segment that overlaps an existing segment.\r\n","Segment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You cannot create a new segment that overlaps an existing segment.\r\n", "Segment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -977,6 +978,7 @@ namespace RaceVoice
                 ReRender();
                 UpdateSplits();
                 ResaveSplitEnabledStates();
+                SaveTrack();
             }
         }
 
@@ -988,6 +990,20 @@ namespace RaceVoice
                 ReRender();
                 UpdateSplits();
                 ResaveSplitEnabledStates();
+                SaveTrack();
+            }
+        }
+
+
+        private void btnSpeechTagDelete_Click(object sender, EventArgs e)
+        {
+            if (lstSpeechTags.SelectedIndex > -1)
+            {
+                _trackModel = _renderer.DeleteSpeechTag(_trackModel.SpeechTags[lstSpeechTags.SelectedIndex]);
+                ReRender();
+                UpdateSpeechTags();
+                ResaveSpeechTagEnabledStates();
+                SaveTrack();
             }
         }
 
@@ -998,9 +1014,9 @@ namespace RaceVoice
                 _trackModel = _renderer.DeleteSegment(_trackModel.Segments[lstSegments.SelectedIndex]);
                 ReRender();
                 UpdateSegments();
+                SaveTrack();
             }
         }
-
 
         private void deleteSelectedSegmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1009,6 +1025,7 @@ namespace RaceVoice
                 _renderer.DeleteSegment(_renderer.SelectedSegment);
                 ReRender();
                 UpdateSegments();
+                SaveTrack();
             }
         }
         private void TrackScroll(object sender, EventArgs e)
@@ -1106,7 +1123,7 @@ namespace RaceVoice
             if (_carMetadata.DynamicsData.WheelSpeedPercentDifference < numWheelSpeedDiff.Maximum)
             {
                 numWheelSpeedDiff.Value = _carMetadata.DynamicsData.WheelSpeedPercentDifference;
-            } 
+            }
 
             numAnnounceSpeed.Enabled = chkAnnounceSpeed.Checked = _carMetadata.DynamicsData.AnnounceSpeed;
             numAnnounceSpeed.Value = _carMetadata.DynamicsData.SpeedThreshold;
@@ -1187,19 +1204,19 @@ namespace RaceVoice
             numDownShift.Value = _carMetadata.EngineData.DownShift;
             numOilPressurePsi.Value = _carMetadata.EngineData.OilPressurePsi;
             numOilPressureRpm.Value = _carMetadata.EngineData.OilPressureRpm;
-            numTemperature.Value =_carMetadata.EngineData.Temperature;
+            numTemperature.Value = _carMetadata.EngineData.Temperature;
             numVoltage.Value = (decimal)(_carMetadata.EngineData.Voltage);
 
             if (_carMetadata.EngineData.EcuName.Length > 2)
             {
                 // find the ECU by name lookup
                 bool found = false;
-                for (int i=0;i<cmbEcuType.Items.Count;i++)
+                for (int i = 0; i < cmbEcuType.Items.Count; i++)
                 {
                     cmbEcuType.SelectedIndex = i;
                     string iname = cmbEcuType.SelectedItem.ToString();
                     iname = iname.ToUpper();
-                    if (iname==_carMetadata.EngineData.EcuName.ToUpper())
+                    if (iname == _carMetadata.EngineData.EcuName.ToUpper())
                     {
                         found = true;
                         break;
@@ -1279,7 +1296,7 @@ namespace RaceVoice
             System.Diagnostics.Process.Start("https://www.racevoice.com");
         }
 
-        
+
 
         private void voiceSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1323,11 +1340,11 @@ namespace RaceVoice
 
 
 
-       
+
         private void sendConfigButton(object sender, EventArgs e)
         {
             if (globals.IsDemoMode(true)) return;
-                
+
             WriteDataToFwTrace();
             if (!globals.first_connected)
             {
@@ -1363,12 +1380,38 @@ namespace RaceVoice
             ReRender();
         }
 
+
+        private void lstSpeechTags_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (_renderTarget == null)
+            {
+                return;
+            }
+
+            _trackModel.SpeechTags[e.Index].Hidden = e.NewValue != CheckState.Checked;
+
+            ResaveSpeechTagEnabledStates();
+
+            ReRender();
+        }
+
         private void ResaveSplitEnabledStates()
         {
             _trackMetadata.SplitEnabledStates = new List<bool>(_trackModel.Splits.Count);
             foreach (var t in _trackModel.Splits)
             {
                 _trackMetadata.SplitEnabledStates.Add(!t.Hidden);
+            }
+
+            _trackMetadata.Save(_trackMetafile);
+        }
+
+        private void ResaveSpeechTagEnabledStates()
+        {
+            _trackMetadata.SpeechTagEnabledStates = new List<bool>(_trackModel.SpeechTags.Count);
+            foreach (var t in _trackModel.SpeechTags)
+            {
+                _trackMetadata.SpeechTagEnabledStates.Add(!t.Hidden);
             }
 
             _trackMetadata.Save(_trackMetafile);
@@ -1439,12 +1482,12 @@ namespace RaceVoice
         {
             var result = openFileDialog.ShowDialog();
 
-            if(result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(openFileDialog.FileName))
             {
                 DisplayChart(openFileDialog.FileName);
             }
         }
-        
+
         private void messageTriggersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!FeatureAllowed()) return;
@@ -1452,6 +1495,11 @@ namespace RaceVoice
         }
 
         private void btnSaveTrack_Click(object sender, EventArgs e)
+        {
+            SaveTrack();
+        }
+
+        private void SaveTrack()
         {
             TrackModelParser.SaveFile(_trackFile, _trackModel);
             btnSaveTrack.Enabled = false;
@@ -1467,6 +1515,14 @@ namespace RaceVoice
             for (int i = 0; i < lstSplits.Items.Count; i++)
             {
                 lstSplits.SetItemChecked(i, false);
+            }
+        }
+
+        private void btnHideAllSpeechTags_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lstSpeechTags.Items.Count; i++)
+            {
+                lstSpeechTags.SetItemChecked(i, false);
             }
         }
 
@@ -1494,33 +1550,33 @@ namespace RaceVoice
             about_page.ShowDialog();
         }
 
-        
+
 
         private void restoreAllTracksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Download all available tracks from the server?", "Restore All Tracks", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                CheckNewTracks(false,true,"");
+                CheckNewTracks(false, true, "");
             }
         }
 
-        private bool GotoTrackName(string track,bool selectit)
+        private bool GotoTrackName(string track, bool selectit)
         {
             int i;
             bool found = false;
             track = track.ToUpper().Trim(); ;
-            for (i=0; i<cmbTracks.Items.Count;i++)
+            for (i = 0; i < cmbTracks.Items.Count; i++)
             {
                 string selitem = cmbTracks.Items[i].ToString().ToUpper().Trim();
 
                 if (selitem.Equals(track))
                 {
-                    if(selectit) cmbTracks.SelectedIndex = i;
+                    if (selectit) cmbTracks.SelectedIndex = i;
                     found = true;
                     break;
                 }
-                
+
             }
 
             return found;
@@ -1561,7 +1617,7 @@ namespace RaceVoice
                     if (DoesTrackExist(input, true)) return;
                     if (fn.ToUpper().Contains(".ZTRACKS"))
                     {
-                        track_name = aim_import.ImportZTRACK(fn,input);
+                        track_name = aim_import.ImportZTRACK(fn, input);
                         if (track_name.Length > 0) status = true;
                     }
                     if (fn.ToUpper().Contains(".CSV"))
@@ -1592,9 +1648,9 @@ namespace RaceVoice
 
         }
 
-        private bool DoesTrackExist(string track,bool show)
+        private bool DoesTrackExist(string track, bool show)
         {
-            if (GotoTrackName(track,false))
+            if (GotoTrackName(track, false))
             {
                 if (show) MessageBox.Show("Sorry, that track name already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
@@ -1614,7 +1670,7 @@ namespace RaceVoice
                 string input = Interaction.InputBox("Enter a name for the Cloned Track", "Cloned Track Name", "", -1, -1);
                 if (globals.ValidTrackName(input))
                 {
-                    if (!DoesTrackExist(input,true))
+                    if (!DoesTrackExist(input, true))
                     {
                         if (globals.CloneTrack(input, current_track))
                         {
@@ -1636,7 +1692,7 @@ namespace RaceVoice
             }
         }
 
-       
+
 
         private void deleteTrackToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1646,7 +1702,7 @@ namespace RaceVoice
             DialogResult dr = MessageBox.Show("Delete Track <" + current_track + "> ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                if (DoesTrackExist(current_track,false))
+                if (DoesTrackExist(current_track, false))
                 {
                     if (globals.DeleteTrack(current_track))
                     {
@@ -1658,7 +1714,7 @@ namespace RaceVoice
                         MessageBox.Show("Sorry, Delete has failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                
+
             }
 
         }
@@ -1670,7 +1726,7 @@ namespace RaceVoice
             DialogResult dr = MessageBox.Show("Download Track <" + current_track + "> from the server?", "Restore A Track", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                CheckNewTracks(false,true, globals.ToTrackName(current_track));
+                CheckNewTracks(false, true, globals.ToTrackName(current_track));
             }
         }
 
@@ -1687,7 +1743,7 @@ namespace RaceVoice
         private void AdjustUIForFeatures()
         {
             if (globals.terminal) terminalToolStripMenuItem.Visible = true;
-            if (globals.license_feature==(int)globals.FeatureState.LITE)
+            if (globals.license_feature == (int)globals.FeatureState.LITE)
             {
 
                 chkActiveWheelLockDetection.Checked = false;
@@ -1726,7 +1782,7 @@ namespace RaceVoice
 
             }
 
-            switch(_carMetadata.EngineData.EcuType)
+            switch (_carMetadata.EngineData.EcuType)
             {
                 case EcuType.SmartyCam1:
                 case EcuType.SmartyCam2:
@@ -1739,11 +1795,11 @@ namespace RaceVoice
                     chkAnnounceLapDelta.Enabled = chkAnnounceLapDelta.Checked = false;
 
                     chkOverRev.Enabled = true;
-                    chkTemperature.Enabled  = true;
-                    chkVoltage.Enabled  = true;
-                    chkOilPressure.Enabled  = true;
-                    chkUpShift.Enabled  = true;
-                    chkDownShift.Enabled =  true;
+                    chkTemperature.Enabled = true;
+                    chkVoltage.Enabled = true;
+                    chkOilPressure.Enabled = true;
+                    chkUpShift.Enabled = true;
+                    chkDownShift.Enabled = true;
 
                     break;
 
@@ -1767,17 +1823,17 @@ namespace RaceVoice
                     splitsBox.Visible = true;
                     chkAnnounceBestLap.Enabled = true;
                     chkAnnounceLapDelta.Enabled = true;
-                    wheelLockbox.Visible =true;
+                    wheelLockbox.Visible = true;
                     braketonebox.Visible = true;
                     chkBrakeThreshold.Enabled = true;
                     chkActiveWheelLockDetection.Enabled = true;
 
-                    chkOverRev.Enabled =  true;
-                    chkTemperature.Enabled =  true;
-                    chkVoltage.Enabled =  true;
+                    chkOverRev.Enabled = true;
+                    chkTemperature.Enabled = true;
+                    chkVoltage.Enabled = true;
                     chkOilPressure.Enabled = true;
-                    chkUpShift.Enabled =  true;
-                    chkDownShift.Enabled =  true;
+                    chkUpShift.Enabled = true;
+                    chkDownShift.Enabled = true;
 
 
                     break;
@@ -1858,7 +1914,7 @@ namespace RaceVoice
                 rvcom.WriteSingleCmd("FLASH READ");
                 try
                 {
-                    while(true)
+                    while (true)
                     {
                         string line = rvcom.ReadLine();
                         globals.WriteLine(line);
@@ -1911,7 +1967,7 @@ namespace RaceVoice
 
         }
 
-        bool  DoesDriverExist(string drivername)
+        bool DoesDriverExist(string drivername)
         {
             bool found = false;
             Console.WriteLine("Searching for driver...");
@@ -1932,22 +1988,22 @@ namespace RaceVoice
         private void DriverInstall(string driverPath)
         {
 
-                var process = new System.Diagnostics.Process();
-                string infrun = "";
-                string windows_path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.System)).ToString();
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.CreateNoWindow = false;
-                process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.RedirectStandardError = true;
-                process.StartInfo.FileName = "cmd.exe";
+            var process = new System.Diagnostics.Process();
+            string infrun = "";
+            string windows_path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.System)).ToString();
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.FileName = "cmd.exe";
 
-                infrun = "/c C:\\Windows\\System32\\InfDefaultInstall.exe " + driverPath;
-                globals.WriteLine("InstallDriver->" + infrun);
-                process.StartInfo.Arguments = infrun;
-                process.Start();
-                process.WaitForExit();
-                process.Dispose();
-            
+            infrun = "/c C:\\Windows\\System32\\InfDefaultInstall.exe " + driverPath;
+            globals.WriteLine("InstallDriver->" + infrun);
+            process.StartInfo.Arguments = infrun;
+            process.Start();
+            process.WaitForExit();
+            process.Dispose();
+
         }
 
         private void installUSBDriversToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1984,7 +2040,6 @@ namespace RaceVoice
 
             TrackView.Image = _renderTarget;
         }
-
 #endif
 
         private static string GetMetaFileForCsv(string filepath)
@@ -1993,7 +2048,7 @@ namespace RaceVoice
         }
 
 
-        private TrackMetadata CheckTrackMetaData(string filename, string metaFile, TrackMetadata metadata,TrackModel trackModel)
+        private TrackMetadata CheckTrackMetaData(string filename, string metaFile, TrackMetadata metadata, TrackModel trackModel)
         {
 #if !APP
             bool no_json = false;
@@ -2079,7 +2134,7 @@ namespace RaceVoice
             return metadata;
 #endif
         }
-    
+
 
 
 
@@ -2101,7 +2156,7 @@ namespace RaceVoice
 #endif
             TrackRenderer.SmoothTrack(_trackModel, 10);
 #if (!APP)
-            
+
             for (int i = 0; i < _trackMetadata.SplitEnabledStates.Count; i++)
             {
                 _trackModel.Splits[i].Hidden = !_trackMetadata.SplitEnabledStates[i];
@@ -2133,14 +2188,18 @@ namespace RaceVoice
                 SegmentFont = new Font("Consolas", 16, FontStyle.Bold, GraphicsUnit.Pixel),
                 SegmentLabelColor = Color.Black,
                 SplitFont = new Font("Consolas", 16, GraphicsUnit.Pixel),
+                SpeechTagFont = new Font("Consolas", 16, GraphicsUnit.Pixel),
                 TrackThickness = 4,
 #else
                 TrackThickness = 5,
 #endif
                 SplitIndicatorColor = Color.Blue,
+                SpeechTagIndicatorColor = Color.BlueViolet,
                 InactiveColor = Color.Gray,
                 SplitIndicatorSize = 20,
                 SplitIndicatorThickness = 4,
+                SpeechTagIndicatorSize = 20,
+                SpeechTagIndicatorThickness = 4,
                 TrackColor = Color.Black,
                 ChequeredFlagImage = globals.LocalFolder() + "\\flag.png",
 
@@ -2155,6 +2214,7 @@ namespace RaceVoice
 #if (!APP)
             _renderTarget = new Bitmap(TrackView.Width, TrackView.Height);
             UpdateSplits();
+            UpdateSpeechTags();
             UpdateSegments();
             UpdateEngineDataValues();
             UpdateDynamicsDataValues();
@@ -2255,6 +2315,7 @@ namespace RaceVoice
                 UpdateTitle();
                 UpdateSegments();
                 UpdateSplits();
+                UpdateSpeechTags();
                 ReRender();
 #endif
                 rvcom.Bar(0);
@@ -2263,10 +2324,7 @@ namespace RaceVoice
             AdjustUIForFeatures();
 #endif
             return true;
-
-
         }
-
 
         public string DownloadDataFromRaceVoice()
         {
@@ -2311,17 +2369,16 @@ namespace RaceVoice
                 {
                     //MessageBox.Show("No Data Is Available For Download", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
                     error = true;
-
                 }
             }
 
 #endif
-                rvcom.CloseSerial();
+            rvcom.CloseSerial();
             rvcom.Bar(0);
 
             return file;
         }
-        
+
         public bool WriteDataToRaceVoice()
         {
             bool valid = true;
@@ -2334,20 +2391,19 @@ namespace RaceVoice
             rvcom.CloseSerial();
             rvcom.Bar(0);
 
-
 #if !APP
             if (valid)
             {
                 ReadDataFromRaceVoice(false); // read everything back
                 MessageBox.Show("Success: RaceVoice has been updated", "Complete", MessageBoxButtons.OK, MessageBoxIcon.None);
-        }
+            }
             else
             {
                 MessageBox.Show("ERROR: RaceVoice update has failed\r\n", "Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 #endif
             return valid;
-        } 
+        }
 
         private void DownloadData_Click(object sender, EventArgs e)
         {
@@ -2367,7 +2423,23 @@ namespace RaceVoice
         {
             Terminal term = new Terminal();
             term.ShowDialog();
-    }
+        }
+
+        private void addSpeechTagMenuItem_Click(object sender, EventArgs e)
+        {
+            new SpeechTagDialogue((result) =>
+            {
+                if (result.Add)
+                {
+                    _trackModel = _renderer.CreateSpeechTagAtHighlightedPosition(result.Name, result.Speech);
+
+                    ReRender();
+                    UpdateSpeechTags();
+                    ResaveSpeechTagEnabledStates();
+                    SaveTrack();
+                }
+            }).ShowDialog();
+        }
 #endif
     }
 }

@@ -54,6 +54,7 @@ namespace RaceVoice
         private Image _chequeredFlagImage;
         private static StringFormat _splitStringFormat;
         private static StringFormat _segmentStringFormat;
+        private static StringFormat _speechTagStringFormat;
 
 #else
 
@@ -63,6 +64,9 @@ namespace RaceVoice
 #if (!APP)
             _splitStringFormat = new StringFormat();
             _splitStringFormat.LineAlignment = StringAlignment.Center;
+
+            _speechTagStringFormat = new StringFormat();
+            _speechTagStringFormat.LineAlignment = StringAlignment.Center;
 
             _segmentStringFormat = new StringFormat();
             _segmentStringFormat.LineAlignment = StringAlignment.Center;
@@ -122,7 +126,7 @@ namespace RaceVoice
 
             var lng = x - Math.PI;
 
-            return new PointD(lat * RAD2DEG , lng * RAD2DEG);
+            return new PointD(lat * RAD2DEG, lng * RAD2DEG);
         }
 
         private static double LatLngDistance(double latA, double lngA, double latB, double lngB)
@@ -156,7 +160,7 @@ namespace RaceVoice
                     break;
                 }
 
-                var p1 = model.Waypoints[i%model.Waypoints.Count];
+                var p1 = model.Waypoints[i % model.Waypoints.Count];
                 var p2 = model.Waypoints[i - 1];
 
                 //Distance (meters) between two gps points
@@ -331,7 +335,7 @@ namespace RaceVoice
         }
 
 #if (!APP)
-         public bool HandleClick(object sender, EventArgs e)
+        public bool HandleClick(object sender, EventArgs e)
         {
             var me = e as MouseEventArgs;
             PointF mouse = new PointF(me.X, me.Y);
@@ -454,7 +458,7 @@ namespace RaceVoice
                 _transformedSegments = new List<PointF[]>(_model.Segments.Count);
                 foreach (var segment in _model.Segments)
                 {
-                    var size = (int)Math.Ceiling((float)(segment.EndIndex - segment.StartIndex) / _settings.ClusterSize)+1;
+                    var size = (int)Math.Ceiling((float)(segment.EndIndex - segment.StartIndex) / _settings.ClusterSize) + 1;
                     size = Math.Max(size, 3);
                     _transformedSegments.Add(new PointF[size]);
                 }
@@ -499,7 +503,6 @@ namespace RaceVoice
                 ScaleAndTranslate(_transformedTrack, _transformedTrack, scale, offset);
 #else
                 ScaleAndTranslateApp(_transformedTrack, _transformedTrack, info);
-
 #endif
 
                 for (int i = 0; i < _clusteredTrack.Length; i++)
@@ -628,12 +631,7 @@ namespace RaceVoice
 
                     red.StrokeWidth = 1;
                     g.DrawText(split.Text, spp, red);
-
-
-
                 }
-
-
 #else
                 using (var b = new SolidBrush(_settings.TrackColor))
                 using (var p = new Pen(b, _settings.TrackThickness * Zoom))
@@ -663,7 +661,7 @@ namespace RaceVoice
                     }
                 }
 
-                var flagDirection = new PointF(_transformedTrack[_model.FlagPosition+1].X - _transformedTrack[_model.FlagPosition].X, _transformedTrack[_model.FlagPosition+1].Y - _transformedTrack[_model.FlagPosition].Y);
+                var flagDirection = new PointF(_transformedTrack[_model.FlagPosition + 1].X - _transformedTrack[_model.FlagPosition].X, _transformedTrack[_model.FlagPosition + 1].Y - _transformedTrack[_model.FlagPosition].Y);
                 var flagRotation = Math.Atan2(flagDirection.Y, flagDirection.X);
                 g.TranslateTransform(_transformedTrack[_model.FlagPosition].X, _transformedTrack[_model.FlagPosition].Y);
                 g.RotateTransform((float)((flagRotation + (Math.PI / 2)) * RAD2DEG));
@@ -681,40 +679,34 @@ namespace RaceVoice
                         startColor = SelectedSegment == segment ? _settings.SelectedSegmentColor.ToTrackColor() : segment.StartColor;
                         endColor = SelectedSegment == segment ? _settings.SelectedSegmentColor.ToTrackColor() : segment.EndColor;
                     }
-                    
-                        DrawGradientCurve(segmentPoints, startColor, endColor, g, _settings.SegmentThickness * Zoom);
 
-                        var labelPosition = segmentPoints[segmentPoints.Length / 2];
-                        using (var b = new SolidBrush(_settings.SegmentLabelColor))
+                    DrawGradientCurve(segmentPoints, startColor, endColor, g, _settings.SegmentThickness * Zoom);
+
+                    var labelPosition = segmentPoints[segmentPoints.Length / 2];
+                    using (var b = new SolidBrush(_settings.SegmentLabelColor))
+                    {
+                        g.DrawString(segment.Name, _settings.SegmentFont, b, labelPosition, _segmentStringFormat);
+                    }
+
+                    if (SelectedSegment == segment)
+                    {
+                        using (var b = new SolidBrush(_settings.SegmentResizeHandleColor))
                         {
-                            g.DrawString(segment.Name, _settings.SegmentFont, b, labelPosition, _segmentStringFormat);
-                        }
+                            g.FillEllipse(b, new RectangleF(segmentPoints.First().X - (_settings.SegmentResizeHandleSize * Zoom / 2), segmentPoints.First().Y - (_settings.SegmentResizeHandleSize * Zoom / 2), _settings.SegmentResizeHandleSize * Zoom, _settings.SegmentResizeHandleSize * Zoom));
+                            g.FillEllipse(b, new RectangleF(segmentPoints.Last().X - (_settings.SegmentResizeHandleSize * Zoom / 2), segmentPoints.Last().Y - (_settings.SegmentResizeHandleSize * Zoom / 2), _settings.SegmentResizeHandleSize * Zoom, _settings.SegmentResizeHandleSize * Zoom));
 
-                        if (SelectedSegment == segment)
-                        {
-                            using (var b = new SolidBrush(_settings.SegmentResizeHandleColor))
-                            {
-                                g.FillEllipse(b, new RectangleF(segmentPoints.First().X - (_settings.SegmentResizeHandleSize * Zoom / 2), segmentPoints.First().Y - (_settings.SegmentResizeHandleSize * Zoom / 2), _settings.SegmentResizeHandleSize * Zoom, _settings.SegmentResizeHandleSize * Zoom));
-                                g.FillEllipse(b, new RectangleF(segmentPoints.Last().X - (_settings.SegmentResizeHandleSize * Zoom / 2), segmentPoints.Last().Y - (_settings.SegmentResizeHandleSize * Zoom / 2), _settings.SegmentResizeHandleSize * Zoom, _settings.SegmentResizeHandleSize * Zoom));
-
-                            }
                         }
-                    
+                    }
+
                 }
 
-              
-                    for (int i = 0; i < _model.Splits.Count; i++)
-                    {
-                        var split = _model.Splits[i];
-                        var b = new SolidBrush(_settings.SplitIndicatorColor);
-                        var p = new Pen(b, _settings.SplitIndicatorThickness * Zoom);
-                        if (split.Hidden)
-                        {
-                            b = new SolidBrush(_settings.InactiveColor);
-                            p = new Pen(b, _settings.SplitIndicatorThickness * Zoom);
-                        }
-                        
 
+                for (int i = 0; i < _model.Splits.Count; i++)
+                {
+                    var split = _model.Splits[i];
+                    using (var b = new SolidBrush(split.Hidden ? _settings.InactiveColor : _settings.SplitIndicatorColor))
+                    using (var p = new Pen(b, _settings.SplitIndicatorThickness * Zoom))
+                    {
                         var pos = _transformedTrack[split.Index];
                         pos.X -= (_settings.SplitIndicatorSize / 2) * Zoom;
                         pos.Y -= (_settings.SplitIndicatorSize / 2) * Zoom;
@@ -722,7 +714,24 @@ namespace RaceVoice
                         g.DrawEllipse(p, new RectangleF(pos, new SizeF(_settings.SplitIndicatorSize * Zoom, _settings.SplitIndicatorSize * Zoom)));
 
                         g.DrawString(split.Text, _settings.SplitFont, b, new PointF(_transformedTrack[split.Index].X + (_settings.SplitIndicatorSize * Zoom), _transformedTrack[split.Index].Y), _splitStringFormat);
+                    }
+                }
 
+                for (int i = 0; i < _model.SpeechTags.Count; i++)
+                {
+                    var speechTag = _model.SpeechTags[i];
+                    using (var b = new SolidBrush(speechTag.Hidden ? _settings.InactiveColor : _settings.SpeechTagIndicatorColor))
+                    using (var p = new Pen(b, _settings.SpeechTagIndicatorThickness * Zoom))
+                    {
+                        var pos = _transformedTrack[speechTag.Index];
+                        pos.X -= (_settings.SpeechTagIndicatorSize / 2) * Zoom;
+                        pos.Y -= (_settings.SpeechTagIndicatorSize / 2) * Zoom;
+
+                        g.DrawEllipse(p, new RectangleF(pos, new SizeF(_settings.SpeechTagIndicatorSize * Zoom, _settings.SpeechTagIndicatorSize * Zoom)));
+
+                        string text = speechTag.Name + "(" + speechTag.Phrase + ")";
+                        g.DrawString(text, _settings.SpeechTagFont, b, new PointF(_transformedTrack[speechTag.Index].X + (_settings.SpeechTagIndicatorSize * Zoom), _transformedTrack[speechTag.Index].Y), _splitStringFormat);
+                    }
                 }
 
                 using (var b = new SolidBrush(_settings.MouseIndicatorColor))
@@ -775,7 +784,7 @@ namespace RaceVoice
         {
             float resultx = 0;
             int len = vec.Length;
-            for (int i=0;i<len;i++)
+            for (int i = 0; i < len; i++)
             {
                 resultx += vec[i];
             }
@@ -873,27 +882,27 @@ namespace RaceVoice
             for (int i = 0; i < _model.Segments.Count; i++)
             {
                 var segment = _model.Segments[i];
-                if (start>=segment.StartIndex)
+                if (start >= segment.StartIndex)
                 {
                     // ok so we know the new segment starts at least at or beyond an existing segment...
-                    if (end<= segment.EndIndex)
+                    if (end <= segment.EndIndex)
                     {
                         // and the end of an existing segment falls within the end of the new segment...
                         valid = false;
                     }
                 }
 
-                if (start<=segment.StartIndex)
+                if (start <= segment.StartIndex)
                 {
                     // ok so the new segment starts before an existing segment
-                    if (end>=segment.EndIndex)
+                    if (end >= segment.EndIndex)
                     {
                         // and the end of the existing segment falls after the end of the new segment....
                         valid = false;
                     }
                 }
 
-                if (start>=segment.StartIndex && end<=segment.EndIndex)
+                if (start >= segment.StartIndex && end <= segment.EndIndex)
                 {
                     // new segment is completely within a current segment!
                     valid = false;
@@ -903,7 +912,7 @@ namespace RaceVoice
                 if (valid == false) break;
             }
 
-                return valid;
+            return valid;
         }
 
         public TrackModel CreateSegmentAtHighlightedPosition(string name, TrackColor startColor, TrackColor endColor)
@@ -943,6 +952,12 @@ namespace RaceVoice
             return _model;
         }
 
+        public TrackModel DeleteSpeechTag(TrackSpeechTag speechTag)
+        {
+            _model.SpeechTags.Remove(speechTag);
+            return _model;
+        }
+
         public TrackModel CreateSplitAtHighlightedPosition(string text)
         {
             if (_model.Splits.Count >= globals.MAX_SPLITS)
@@ -953,6 +968,23 @@ namespace RaceVoice
             _model.Splits.Add(new TrackSplit()
             {
                 Text = text,
+                Index = _closestMousePoint
+            });
+
+            return _model;
+        }
+
+        public TrackModel CreateSpeechTagAtHighlightedPosition(string name, string phrase)
+        {
+            if (_model.Splits.Count >= globals.MAX_SPEECH_TAGS)
+            {
+                throw new InvalidOperationException("Tried to create too many speech tags.");
+            }
+
+            _model.SpeechTags.Add(new TrackSpeechTag()
+            {
+                Name = name,
+                Phrase = phrase,
                 Index = _closestMousePoint
             });
 
@@ -1073,7 +1105,5 @@ namespace RaceVoice
 
             return points;
         }
-
-       
     }
 }
