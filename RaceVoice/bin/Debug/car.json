@@ -17,7 +17,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 60,
-    "TrackSelectionName": "SEBRING FULL COURSE",
+    "TrackSelectionName": "Road America",
     "FindTrackByName": true
   },
   "DynamicsData": {
@@ -39,7 +39,7 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
+    "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
     "Name": "AC01T8MN",
     "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
     "Version": "RACE VOICE,  VERSION,  JANUARY 11, 2020, A1",

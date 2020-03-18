@@ -1,12 +1,12 @@
 {
   "EngineData": {
-    "EcuType": 2,
+    "EcuType": 6,
     "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6550,
+    "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 29,
-    "TrackSelectionName": "Homestead-Miami Speedway",
+    "TrackSelectionIndex": 0,
+    "TrackSelectionName": "Area 27",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 4,
+    "WheelSpeedPercentDifference": 1,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -35,54 +35,54 @@
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 900,
+    "BrakeToneHz": 1500,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AC01T8MN",
+    "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
+    "Name": "AB0KLUVY",
     "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
-    "Version": "RACE VOICE,  VERSION,  AUGUST 8, 2019, B1",
-    "Volume": 9,
+    "Version": "RACE VOICE-SA,  VERSION,  MARCH 18, 2020, A1",
+    "Volume": 5,
     "SWVersion": "01-19-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 3,
+    "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK0",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK1",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK2",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK3",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK4",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK5",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK6",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK7",
       "Repeat": 0
     }
   ]

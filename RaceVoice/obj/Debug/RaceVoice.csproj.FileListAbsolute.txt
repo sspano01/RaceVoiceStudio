@@ -176,3 +176,4 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.Genera
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CopyComplete
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.exe
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.pdb
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.SpeechTagDialogue.resources

@@ -39,7 +39,7 @@
             this.btnHideAllSplits = new System.Windows.Forms.Button();
             this.lstSplits = new System.Windows.Forms.CheckedListBox();
             this.btnSplitDelete = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.segmentGroupBox = new System.Windows.Forms.GroupBox();
             this.lstSegments = new System.Windows.Forms.ListBox();
             this.btnSegmentDelete = new System.Windows.Forms.Button();
             this.grpData = new System.Windows.Forms.GroupBox();
@@ -132,7 +132,7 @@
             this.chkLateralGForce = new System.Windows.Forms.CheckBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabTrack = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.speechTagBox = new System.Windows.Forms.GroupBox();
             this.btnHideAllSpeechTags = new System.Windows.Forms.Button();
             this.lstSpeechTags = new System.Windows.Forms.CheckedListBox();
             this.btnSpeechTagDelete = new System.Windows.Forms.Button();
@@ -152,7 +152,7 @@
             this.DownloadData = new System.Windows.Forms.Button();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.segmentGroupBox.SuspendLayout();
             this.grpData.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -179,7 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLateralGForce)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabTrack.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.speechTagBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).BeginInit();
@@ -227,6 +227,7 @@
             this.addSpeechTagToolStripMenuItem.Name = "addSpeechTagToolStripMenuItem";
             this.addSpeechTagToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.addSpeechTagToolStripMenuItem.Text = "Add Speech Tag";
+            this.addSpeechTagToolStripMenuItem.Visible = false;
             this.addSpeechTagToolStripMenuItem.Click += new System.EventHandler(this.addSpeechTagMenuItem_Click);
             // 
             // splitsBox
@@ -275,19 +276,19 @@
             this.btnSplitDelete.UseVisualStyleBackColor = true;
             this.btnSplitDelete.Click += new System.EventHandler(this.btnSplitDelete_Click);
             // 
-            // groupBox2
+            // segmentGroupBox
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.lstSegments);
-            this.groupBox2.Controls.Add(this.btnSegmentDelete);
-            this.groupBox2.Location = new System.Drawing.Point(820, 354);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox2.Size = new System.Drawing.Size(183, 150);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Segments";
+            this.segmentGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.segmentGroupBox.Controls.Add(this.lstSegments);
+            this.segmentGroupBox.Controls.Add(this.btnSegmentDelete);
+            this.segmentGroupBox.Location = new System.Drawing.Point(820, 178);
+            this.segmentGroupBox.Margin = new System.Windows.Forms.Padding(1);
+            this.segmentGroupBox.Name = "segmentGroupBox";
+            this.segmentGroupBox.Padding = new System.Windows.Forms.Padding(1);
+            this.segmentGroupBox.Size = new System.Drawing.Size(183, 150);
+            this.segmentGroupBox.TabIndex = 8;
+            this.segmentGroupBox.TabStop = false;
+            this.segmentGroupBox.Text = "Segments";
             // 
             // lstSegments
             // 
@@ -321,7 +322,7 @@
             this.grpData.Controls.Add(this.chkExitSpeed);
             this.grpData.Controls.Add(this.chkEntrySpeed);
             this.grpData.Controls.Add(this.chkMinimumSpeed);
-            this.grpData.Location = new System.Drawing.Point(820, 506);
+            this.grpData.Location = new System.Drawing.Point(820, 330);
             this.grpData.Margin = new System.Windows.Forms.Padding(1);
             this.grpData.Name = "grpData";
             this.grpData.Padding = new System.Windows.Forms.Padding(1);
@@ -1386,7 +1387,7 @@
             // 
             // tabTrack
             // 
-            this.tabTrack.Controls.Add(this.groupBox1);
+            this.tabTrack.Controls.Add(this.speechTagBox);
             this.tabTrack.Controls.Add(this.btnSaveTrack);
             this.tabTrack.Controls.Add(this.TrackView);
             this.tabTrack.Controls.Add(this.zoom);
@@ -1397,7 +1398,7 @@
             this.tabTrack.Controls.Add(this.label1);
             this.tabTrack.Controls.Add(this.splitsBox);
             this.tabTrack.Controls.Add(this.grpData);
-            this.tabTrack.Controls.Add(this.groupBox2);
+            this.tabTrack.Controls.Add(this.segmentGroupBox);
             this.tabTrack.Location = new System.Drawing.Point(4, 22);
             this.tabTrack.Margin = new System.Windows.Forms.Padding(1);
             this.tabTrack.Name = "tabTrack";
@@ -1407,20 +1408,21 @@
             this.tabTrack.Text = "Track";
             this.tabTrack.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // speechTagBox
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.btnHideAllSpeechTags);
-            this.groupBox1.Controls.Add(this.lstSpeechTags);
-            this.groupBox1.Controls.Add(this.btnSpeechTagDelete);
-            this.groupBox1.Location = new System.Drawing.Point(820, 178);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Size = new System.Drawing.Size(183, 174);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Speech Tags";
+            this.speechTagBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.speechTagBox.Controls.Add(this.btnHideAllSpeechTags);
+            this.speechTagBox.Controls.Add(this.lstSpeechTags);
+            this.speechTagBox.Controls.Add(this.btnSpeechTagDelete);
+            this.speechTagBox.Location = new System.Drawing.Point(820, 572);
+            this.speechTagBox.Margin = new System.Windows.Forms.Padding(1);
+            this.speechTagBox.Name = "speechTagBox";
+            this.speechTagBox.Padding = new System.Windows.Forms.Padding(1);
+            this.speechTagBox.Size = new System.Drawing.Size(183, 174);
+            this.speechTagBox.TabIndex = 8;
+            this.speechTagBox.TabStop = false;
+            this.speechTagBox.Text = "Speech Tags";
+            this.speechTagBox.Visible = false;
             // 
             // btnHideAllSpeechTags
             // 
@@ -1457,7 +1459,7 @@
             // 
             this.btnSaveTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTrack.Enabled = false;
-            this.btnSaveTrack.Location = new System.Drawing.Point(820, 715);
+            this.btnSaveTrack.Location = new System.Drawing.Point(820, 538);
             this.btnSaveTrack.Name = "btnSaveTrack";
             this.btnSaveTrack.Size = new System.Drawing.Size(183, 30);
             this.btnSaveTrack.TabIndex = 18;
@@ -1641,7 +1643,7 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.rendererRightClickMenu.ResumeLayout(false);
             this.splitsBox.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.segmentGroupBox.ResumeLayout(false);
             this.grpData.ResumeLayout(false);
             this.grpData.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1676,7 +1678,7 @@
             this.tabMain.ResumeLayout(false);
             this.tabTrack.ResumeLayout(false);
             this.tabTrack.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.speechTagBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TrackView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotation)).EndInit();
@@ -1696,7 +1698,7 @@
         private System.Windows.Forms.ToolStripMenuItem addSplitToolStripMenuItem;
         private System.Windows.Forms.GroupBox splitsBox;
         private System.Windows.Forms.Button btnSplitDelete;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox segmentGroupBox;
         private System.Windows.Forms.Button btnSegmentDelete;
         private System.Windows.Forms.GroupBox grpData;
         private System.Windows.Forms.CheckBox chkLateralG;
@@ -1806,7 +1808,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem terminalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addSpeechTagToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox speechTagBox;
         private System.Windows.Forms.Button btnHideAllSpeechTags;
         private System.Windows.Forms.CheckedListBox lstSpeechTags;
         private System.Windows.Forms.Button btnSpeechTagDelete;

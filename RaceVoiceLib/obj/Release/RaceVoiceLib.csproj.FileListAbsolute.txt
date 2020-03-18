@@ -35,3 +35,15 @@ D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.cspro
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.dll
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.pdb
 D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csprojAssemblyReference.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\RaceVoiceLib.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\RaceVoiceLib.pdb
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\CsvHelper.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\Newtonsoft.Json.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\System.ValueTuple.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\CsvHelper.xml
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\Newtonsoft.Json.xml
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\bin\Release\System.ValueTuple.xml
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csprojAssemblyReference.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csproj.CopyComplete
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.pdb
