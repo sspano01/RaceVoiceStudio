@@ -1,3 +1,7 @@
+03-15-20
+===================================
+Released initial support for RaceVoice-SA, configurable ECU scripts, data charting
+
 10-29-19
 ===================================
 Fixed a bug where SmartyCam mode would sometimes allow split timing to be reported even though no data is present

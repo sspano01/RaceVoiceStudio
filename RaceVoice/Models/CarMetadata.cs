@@ -46,6 +46,8 @@ namespace RaceVoice
             if (metadata.DynamicsData == null) metadata.DynamicsData = new DynamicsData();
             if (metadata.HardwareData == null) metadata.HardwareData = new HardwareData();
             if (metadata.MessageTriggers == null) metadata.MessageTriggers = new List<MessageTrigger>();
+
+            if (metadata.EngineData.EcuName == null) metadata.EngineData.EcuName = "";
           
             return metadata;
         }

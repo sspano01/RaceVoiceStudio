@@ -1,4 +1,4 @@
-﻿<project version = 9 civer = 8.5.5 winver = "2.12/6.2.9200" >
+﻿<project version = 9 civer = 8.6.2 winver = "2.12/6.2.9200" >
    <autorun >1</>
    <autoclose >1</>
    <compname ></>
@@ -9,7 +9,7 @@
    <dlgfont >verdana</>
    <headlogo >default - 1</>
    <dlgfontsize >s8</>
-   <output >d:\racevoicesoftware\racevoicestudio\Installer</>
+   <output >c:\racevoicesoftware\racevoicestudio\Installer</>
    <exename >RaceVoiceStudioInstaller.exe</>
    <beffile ></>
    <aftfile ></>
@@ -92,7 +92,7 @@
                   <desc >RaceVoice Studio Installer</>
                   <buttons >auto</>
                   <design >left</>
-                  <headlogo >D:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg</>
+                  <headlogo >c:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg</>
                   <varlist >
                      <rows ></>
                   </>
@@ -120,7 +120,7 @@ Please make sure this computer has Internet Access before continuing</>
                   <srclist >
                      <rows >
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -128,7 +128,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -136,7 +136,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
                            <recurse >1</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -144,7 +144,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers</>
                            <recurse >1</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -152,7 +152,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -160,7 +160,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -168,7 +168,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -176,7 +176,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -184,7 +184,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -192,7 +192,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -200,7 +200,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -208,7 +208,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -216,7 +216,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -224,7 +224,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -232,7 +232,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -240,7 +240,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >D:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts</>
+                           <filename >c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts</>
                            <recurse >1</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -378,6 +378,7 @@ Please make sure this computer has Internet Access before continuing</>
                                  <work >inst</>
                                  <defwork ></>
                                  <if ></>
+                                 <comm ></>
                               </>
                               <_ >
                                  <shpath >comprog</>
@@ -389,6 +390,7 @@ Please make sure this computer has Internet Access before continuing</>
                                  <work >inst</>
                                  <defwork ></>
                                  <if ></>
+                                 <comm ></>
                               </>
                            </>
                         </>
@@ -435,7 +437,7 @@ Please make sure this computer has Internet Access before continuing</>
                   <if ></>
                </>
             </>
-            <icofile >d:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
+            <icofile >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
             <resfile ></>
             <leftimg >install - 1</>
             <caption ></>
@@ -722,7 +724,7 @@ Please make sure this computer has Internet Access before continuing</>
    <ignnotfound >0</>
    <tozip >0</>
    <zipfile ></>
-   <csfile >d:\racevoicesoftware\racevoicestudio\installer\sign.bat</>
+   <csfile >c:\racevoicesoftware\racevoicestudio\installer\sign.bat</>
    <csinst >Setup "<exefilename>"</>
    <csuninst >Uninstall "<exefilename>"</>
    <csupdate >Update "<exefilename>"</>
