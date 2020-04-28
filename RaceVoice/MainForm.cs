@@ -22,6 +22,9 @@ namespace RaceVoice
     public class RaceVoicePCMain
 #endif
     {
+#if (!APP)
+        private iracing irace = new iracing();
+#endif
         private const string METADATA_EXTENSION = ".json";
 
         private TrackRenderer _renderer;
@@ -803,6 +806,8 @@ namespace RaceVoice
 
             webCharts.Navigate(chartUrl);
             webTables.Navigate(tablesUrl);
+
+            irace.startit();
         }
 
         private void UpdateSplits()

@@ -76,6 +76,14 @@
     <Reference Include="FTD2XX_NET">
       <HintPath>.\FTD2XX_NET.dll</HintPath>
     </Reference>
+    <Reference Include="iRacingSdkWrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\iRacingSdkWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="iRSDKSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\iRSDKSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data">
       <HintPath>.\MySql.Data.dll</HintPath>
@@ -88,6 +96,7 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -120,6 +129,7 @@
     <Compile Include="GpsSettings.Designer.cs">
       <DependentUpon>GpsSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="iracing.cs" />
     <Compile Include="MessageTriggers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +291,9 @@
       <Project>{cdcf4a53-b149-463f-8651-8f1bd342fc3e}</Project>
       <Name>RaceVoiceLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="firmware\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

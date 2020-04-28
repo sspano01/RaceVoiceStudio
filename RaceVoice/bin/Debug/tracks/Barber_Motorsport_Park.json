@@ -19,5 +19,6 @@
   "SplitEnabledStates": [
     false,
     false
-  ]
+  ],
+  "SpeechTagEnabledStates": null
 }

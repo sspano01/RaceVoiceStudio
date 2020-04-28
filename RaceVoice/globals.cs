@@ -1,13 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.NetworkInformation;
-using System.Net.Sockets;
 using System.Security.Cryptography;
-using System.Threading;
 #if !APP
-using System.IO.Ports;
 using System.Windows.Forms;
 #else
 using Xamarin.Forms;
@@ -41,10 +37,10 @@ namespace RaceVoice
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
-        public static bool no_unit_check =false;
+        public static bool no_unit_check =true;
         public static string forcePort = "";
         public static bool no_track_check = false;
-        public static bool no_license_check = false;
+        public static bool no_license_check = true;
         public static bool terminal = false;
 
         public static bool disabled_charts = false;

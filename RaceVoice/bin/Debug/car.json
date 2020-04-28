@@ -17,7 +17,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 60,
-    "TrackSelectionName": "Road America",
+    "TrackSelectionName": "Roebling Road",
     "FindTrackByName": true
   },
   "DynamicsData": {
@@ -39,12 +39,12 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "A10IOW-6FPUFZ-KSNK9A-1M2KQ46",
+    "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
     "Name": "AC01T8MN",
-    "FeatureCode": "1ADELCF-1LJWHHH-WWDQC-4QH77P",
+    "FeatureCode": "VN6RYT-124HHO-1TX8QNM-1TMAR1J",
     "Version": "RACE VOICE,  VERSION,  JANUARY 11, 2020, A1",
     "Volume": 5,
-    "SWVersion": "01-19-2020-A1",
+    "SWVersion": "03-15-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
