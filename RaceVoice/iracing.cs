@@ -38,7 +38,9 @@ namespace RaceVoice
 
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void DLLCloseFiles();
-        
+
+        [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        static extern int DLLGetSpeech(StringBuilder msg);
 
         public iracing()
         {
@@ -95,6 +97,17 @@ namespace RaceVoice
                     Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                     string indata = Encoding.ASCII.GetString(receiveBytes);
 
+                    byte[] db = Encoding.ASCII.GetBytes(indata);
+                    DLLPushMessage(db,db.Length);
+                    StringBuilder speech_msg = new StringBuilder(200);
+                    if (DLLGetSpeech(speech_msg)!=0)
+                    {
+                        Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
+                        string msg = speech_msg.ToString();
+                        voice.Speak(msg);
+                    }
+
+                    //voice.SpeakAsync("HELLO!!!");
                     //voice.SpeakAsync(indata);
 
                     Console.WriteLine("This is the message you received " + indata);
@@ -143,7 +156,7 @@ namespace RaceVoice
         }
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            SendUDP(va[0], va[1], va[2], va[3]);
+            SendUDP(va[0], va[1], va[2], va[3],va[4]);
             va[0] += 100;
             if (va[0] > 7000) va[0] = 0;
            // Console.WriteLine("Raised: {0}", e.SignalTime);
@@ -155,12 +168,12 @@ namespace RaceVoice
 
         }
 
-        private void SendUDP(float rpm, float distance, float mph, float lapnum)
+        private void SendUDP(float rpm, float distance, float mph, float lapnum,float tps)
         {
             try
             {
                 string telem = "";
-                telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(lapnum);
+                telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
                 byte[] data = Encoding.ASCII.GetBytes(telem);
                 int bt=Udp.Send(data, data.Length,BroadcastEP);
                 Console.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
@@ -179,7 +192,8 @@ namespace RaceVoice
             float distance = e.TelemetryInfo.LapDist.Value;
             float mph = e.TelemetryInfo.Speed.Value;
             float lapnum = e.TelemetryInfo.Lap.Value;
-            SendUDP(rpm, distance, mph, lapnum);        }
+            float tps = e.TelemetryInfo.Throttle.Value;
+            SendUDP(rpm, distance, mph, tps,lapnum);        }
 
     }
 }
