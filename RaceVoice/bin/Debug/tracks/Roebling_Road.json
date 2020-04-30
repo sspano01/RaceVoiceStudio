@@ -7,11 +7,11 @@
     0,
     0,
     0,
-    0
+    1
   ],
   "Rotation": 0,
   "Zoom": 90,
-  "XPan": 0,
+  "XPan": -5,
   "YPan": 0,
   "ClusterSize": 1,
   "UseCurveRendering": false,

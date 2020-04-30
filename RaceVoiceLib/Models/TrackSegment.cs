@@ -4,6 +4,8 @@ namespace RaceVoice
 {
     public class TrackSegment
     {
+        public int StartDistance { get; set; }
+        public int EndDistance { get; set; }
         public int StartIndex { get; set; }
         public int EndIndex { get; set; }
         public string Name { get; set; }

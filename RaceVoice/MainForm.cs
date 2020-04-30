@@ -2178,6 +2178,7 @@ namespace RaceVoice
                     _trackModel.Segments[i].Hidden = bits == 0;
                 }
             }
+            _trackModel.CalculateDistances(globals.MAX_SEGMENTS,globals.MAX_SPLITS);
 #endif
             var rendererSettings = new TrackRendererSettings(_trackMetadata.ClusterSize)
             {
@@ -2233,7 +2234,7 @@ namespace RaceVoice
 
             _trackFile = filename;
             ReRender();
-
+            irace.configure(_carMetadata, _trackModel);
             btnSaveTrack.Enabled = false;
 #endif
         }
@@ -2387,6 +2388,9 @@ namespace RaceVoice
         public bool WriteDataToRaceVoice()
         {
             bool valid = true;
+            irace.configure(_carMetadata, _trackModel);
+            if (globals.no_unit_check) return true;
+
             if (!globals.IsRaceVoiceConnected()) return false;
             rvcom.OpenSerial();
             rvcom.Bar(0);

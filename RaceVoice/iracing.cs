@@ -16,6 +16,7 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using System.Speech.Synthesis;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 //https://stackoverflow.com/questions/4844581/how-do-i-make-a-udp-server-in-c
 //https://stackoverflow.com/questions/20038943/simple-udp-example-to-send-and-receive-data-from-same-socket
@@ -23,6 +24,25 @@ using System.Runtime.InteropServices;
 
 namespace RaceVoice
 {
+
+    // these need to match the racevoicetop.cpp file in the DLL project
+     enum CMD
+        {
+        RESET,
+        SETUP_MPH_ANNOUNCE,
+        SETUP_MPH,
+        SETUP_UPSHIFT_ANNOUNCE,
+        SETUP_RPM_HIGH,
+        SETUP_DOWNSHIFT_ANNOUNCE,
+        SETUP_RPM_LOW,
+        SETUP_LATERAL_ANNOUNCE,
+        SETUP_LATERAL_THRESHOLD,
+
+
+        SETUP_END
+    };
+
+
     class iracing
     {
         private readonly SdkWrapper wrapper;
@@ -41,6 +61,53 @@ namespace RaceVoice
 
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int DLLGetSpeech(StringBuilder msg);
+
+        [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        static extern void DLLSetup(int type, int value);
+
+        [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        static extern void DLLSetupSegment(int slot, int enable, int start_distance, int stop_distance,uint bits);
+
+        [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        static extern void DLLSetupSplit(int slot, int enable, int distance);
+
+    
+        private int BTOI(bool val)
+        {
+            if (val) return 1; else return 0;
+        }
+        private int NBTOI(bool val)
+        {
+            if (val) return 0; else return 1;
+        }
+        public void configure(CarMetadata carMetadata, TrackModel track)
+        {
+            DLLSetup((int)CMD.RESET, 0);
+            
+            DLLSetup((int)CMD.SETUP_MPH_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceSpeed));
+            DLLSetup((int)CMD.SETUP_MPH, carMetadata.DynamicsData.SpeedThreshold);
+
+            DLLSetup((int)CMD.SETUP_UPSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.UpShiftEnabled));
+            DLLSetup((int)CMD.SETUP_RPM_HIGH, carMetadata.EngineData.UpShift);
+
+            DLLSetup((int)CMD.SETUP_DOWNSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.UpShiftEnabled));
+            DLLSetup((int)CMD.SETUP_RPM_LOW, carMetadata.EngineData.DownShift);
+
+            DLLSetup((int)CMD.SETUP_LATERAL_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceLateralGForce));
+            DLLSetup((int)CMD.SETUP_LATERAL_THRESHOLD, (int)(carMetadata.DynamicsData.LateralGForceThreshold*10));
+
+            for (int slot = 0; slot < track.Segments.Count(); slot++)
+            {
+                DLLSetupSegment(slot, NBTOI(track.Segments[slot].Hidden), track.Segments[slot].StartDistance, track.Segments[slot].EndDistance,track.Segments[slot].DataBits);
+            }
+
+            for (int slot = 0; slot < track.Splits.Count(); slot++)
+            {
+                DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
+            }
+
+
+        }
 
         public iracing()
         {
@@ -150,7 +217,7 @@ namespace RaceVoice
 
         public void startit()
         {
-            timer.Enabled = true;
+           // timer.Enabled = true;
             wrapper.Start();
 
         }

@@ -222,7 +222,6 @@ namespace RaceVoice
                             split.Index += neededPoints;
                         }
                     }
-
                     //Fix flag position
                     if (model.FlagPosition >= i)
                     {

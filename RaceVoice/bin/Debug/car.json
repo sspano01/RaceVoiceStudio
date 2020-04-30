@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 0,
-    "EcuName": "",
+    "EcuType": 8,
+    "EcuName": "iRacing PC Mode",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 60,
-    "TrackSelectionName": "Roebling Road",
+    "TrackSelectionIndex": 34,
+    "TrackSelectionName": "Limerock Park",
     "FindTrackByName": true
   },
   "DynamicsData": {
