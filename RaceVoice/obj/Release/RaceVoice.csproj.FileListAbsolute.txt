@@ -112,6 +112,8 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\iRacingSdkWrapper.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\iRSDKSharp.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll
@@ -142,4 +144,3 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.Gene
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.CopyComplete
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.exe
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.pdb
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.CoreCompileInputs.cache

@@ -177,4 +177,3 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CopyCo
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.exe
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.SpeechTagDialogue.resources
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CoreCompileInputs.cache

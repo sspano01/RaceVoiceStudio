@@ -42,9 +42,99 @@ namespace RaceVoice
         SETUP_END
     };
 
+#if (APP)
 
     class iracing
     {
+        private readonly SdkWrapper wrapper;
+        private UdpClient Udp;
+        private static IPEndPoint BroadcastEP = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 90);
+        private IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+
+
+        public void configure(CarMetadata carMetadata, TrackModel track)
+        {
+
+        }
+
+        public iracing()
+        {
+            // Create instance
+            wrapper = new SdkWrapper();
+            wrapper.TelemetryUpdateFrequency = 30;
+            // Listen to events
+            wrapper.TelemetryUpdated += OnTelemetryUpdated;
+            wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
+
+            Udp = new UdpClient();
+            Udp.ExclusiveAddressUse = false;
+            Udp.EnableBroadcast = true;
+            Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
+
+
+        }
+        private void OnSessionInfoUpdated(object sender, SdkWrapper.SessionInfoUpdatedEventArgs e)
+        {
+
+        }
+
+        private void OnTelemetryUpdated(object sender, SdkWrapper.TelemetryUpdatedEventArgs e)
+        {
+            try
+            {
+
+
+
+                // Use live telemetry...
+                float rpm = e.TelemetryInfo.RPM.Value;
+                float distance = e.TelemetryInfo.LapDist.Value;
+                float mph = e.TelemetryInfo.Speed.Value;
+                float lapnum = e.TelemetryInfo.Lap.Value;
+                float tps = e.TelemetryInfo.Throttle.Value;
+                globals.WriteLine("TPS=" + tps.ToString());
+                SendUDP(rpm, distance, mph, tps, lapnum);
+
+            }
+            catch (Exception ee)
+            {
+                globals.WriteLine(ee.Message);
+            }
+        }
+
+        private void SendUDP(float rpm, float distance, float mph, float lapnum, float tps)
+        {
+            try
+            {
+                string telem = "";
+                telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
+                globals.WriteLine(telem);
+                byte[] data = Encoding.ASCII.GetBytes(telem);
+                int bt = Udp.Send(data, data.Length, BroadcastEP);
+                //globals.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
+            }
+            catch (Exception ee)
+            {
+
+                globals.WriteLine(ee.Message);
+            }
+
+        }
+
+
+        public void startit()
+        {
+            wrapper.Start();
+
+        }
+
+    }
+
+#else
+
+    class iracing
+    {
+        private bool speaking = false;
         private readonly SdkWrapper wrapper;
         private UdpClient Udp;
         private static System.Timers.Timer timer;
@@ -71,7 +161,7 @@ namespace RaceVoice
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void DLLSetupSplit(int slot, int enable, int distance);
 
-    
+        private bool configured = false;
         private int BTOI(bool val)
         {
             if (val) return 1; else return 0;
@@ -80,17 +170,32 @@ namespace RaceVoice
         {
             if (val) return 0; else return 1;
         }
+
+        private void SendConfig()
+        {
+
+
+        }
         public void configure(CarMetadata carMetadata, TrackModel track)
         {
+            byte[] db = new byte[20];
+            if (!configured)
+            {
+                db[0] = 0;
+                DLLPushMessage(db, db.Length);
+
+            }
             DLLSetup((int)CMD.RESET, 0);
-            
+
+            carMetadata.DynamicsData.AnnounceSpeed = true;
+            carMetadata.DynamicsData.SpeedThreshold = 10;
             DLLSetup((int)CMD.SETUP_MPH_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceSpeed));
             DLLSetup((int)CMD.SETUP_MPH, carMetadata.DynamicsData.SpeedThreshold);
 
             DLLSetup((int)CMD.SETUP_UPSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.UpShiftEnabled));
             DLLSetup((int)CMD.SETUP_RPM_HIGH, carMetadata.EngineData.UpShift);
 
-            DLLSetup((int)CMD.SETUP_DOWNSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.UpShiftEnabled));
+            DLLSetup((int)CMD.SETUP_DOWNSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.DownShiftEnabled));
             DLLSetup((int)CMD.SETUP_RPM_LOW, carMetadata.EngineData.DownShift);
 
             DLLSetup((int)CMD.SETUP_LATERAL_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceLateralGForce));
@@ -106,6 +211,7 @@ namespace RaceVoice
                 DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
             }
 
+            configured = true;
 
         }
 
@@ -120,7 +226,7 @@ namespace RaceVoice
             Udp.ExclusiveAddressUse = false;
             Udp.EnableBroadcast = true;
             Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(GetLocalIPAddress()), 90));
+            Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
 
             timer = new System.Timers.Timer();
             timer.Interval = 100;
@@ -129,7 +235,7 @@ namespace RaceVoice
             timer.AutoReset = true;
 
             voice.Volume = 100;
-            voice.Rate = -2;
+            ////voice.Rate = 2;
 
             Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
             thread.Start();
@@ -143,8 +249,17 @@ namespace RaceVoice
             wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
             // Start it!
 
+            voice.Speak("RaceVoice Ready");
+
+            voice.SpeakCompleted += speakdone;
+
         }
 
+
+        private void speakdone(object sender, SpeakCompletedEventArgs sp)
+        {
+            speaking = false;
+        }
 
         public void ListenThreadFunction()
         {
@@ -164,24 +279,40 @@ namespace RaceVoice
                     Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                     string indata = Encoding.ASCII.GetString(receiveBytes);
 
-                    byte[] db = Encoding.ASCII.GetBytes(indata);
-                    DLLPushMessage(db,db.Length);
-                    StringBuilder speech_msg = new StringBuilder(200);
-                    if (DLLGetSpeech(speech_msg)!=0)
-                    {
-                        Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
-                        string msg = speech_msg.ToString();
-                        voice.Speak(msg);
-                    }
+                    string[] sp = indata.Split(',');
 
+                    //sp[2] = "50";
+                    sp[3] = "1";
+                    //sp[0] = "5000";
+                    double mph = Convert.ToDouble(sp[2]);
+                    mph *= 2.25; // wtf??
+
+                    indata = sp[0] + "," + sp[1] + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(Convert.ToDouble(sp[3])*100) + "," + sp[4];
+                    Console.WriteLine(indata);
+                    byte[] db = Encoding.ASCII.GetBytes(indata);
+                    if (configured)
+                    {
+                        DLLPushMessage(db, db.Length);
+                        StringBuilder speech_msg = new StringBuilder(200);
+                        if (DLLGetSpeech(speech_msg) != 0)
+                        {
+                            Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
+                            string msg = speech_msg.ToString();
+                            if (!speaking)
+                            {
+                                speaking = true;
+                                voice.SpeakAsync(msg);
+                            }
+                        }
+                    }
                     //voice.SpeakAsync("HELLO!!!");
                     //voice.SpeakAsync(indata);
 
-                    Console.WriteLine("This is the message you received " + indata);
-                    Console.WriteLine("This message was sent from " +
-                                                RemoteIpEndPoint.Address.ToString() +
-                                                " on their port number " +
-                                                RemoteIpEndPoint.Port.ToString());
+                    //Console.WriteLine("This is the message you received " + indata);
+                    //Console.WriteLine("This message was sent from " +
+                                      //          RemoteIpEndPoint.Address.ToString() +
+                                        //        " on their port number " +
+                                          //      RemoteIpEndPoint.Port.ToString());
                 }
                 catch (Exception e)
                 {
@@ -192,33 +323,13 @@ namespace RaceVoice
         }
 
 
-        public static string GetLocalIPAddress()
-        {
-            bool isether = false;
-            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
-            {
-                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
-                {
-                    Console.WriteLine(ni.Name);
-                    if (ni.Name.ToUpper().Contains("ETHERNET")) isether = true;
-                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
-                    {
-                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                        {
-                            Console.WriteLine(ip.Address.ToString());
-                            if (isether) return ip.Address.ToString();
-                        }
-                    }
-                }
-            }
-            return "255.255.255.255";
-        }
 
 
         public void startit()
         {
            // timer.Enabled = true;
             wrapper.Start();
+            //globals.WriteLine("Start!!");
 
         }
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
@@ -241,26 +352,40 @@ namespace RaceVoice
             {
                 string telem = "";
                 telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
+                globals.WriteLine(telem);
                 byte[] data = Encoding.ASCII.GetBytes(telem);
                 int bt=Udp.Send(data, data.Length,BroadcastEP);
-                Console.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
-            } catch (Exception ee)
+                //globals.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
+            }
+            catch (Exception ee)
             {
 
-                Console.WriteLine(ee.Message);
+                globals.WriteLine(ee.Message);
             }
 
         }
         private void OnTelemetryUpdated(object sender, SdkWrapper.TelemetryUpdatedEventArgs e)
         {
+            try
+            {
 
-            // Use live telemetry...
-            float rpm = e.TelemetryInfo.RPM.Value;
-            float distance = e.TelemetryInfo.LapDist.Value;
-            float mph = e.TelemetryInfo.Speed.Value;
-            float lapnum = e.TelemetryInfo.Lap.Value;
-            float tps = e.TelemetryInfo.Throttle.Value;
-            SendUDP(rpm, distance, mph, tps,lapnum);        }
+
+                // Use live telemetry...
+                float rpm = e.TelemetryInfo.RPM.Value;
+                float distance = e.TelemetryInfo.LapDist.Value;
+                float mph = e.TelemetryInfo.Speed.Value;
+                float lapnum = e.TelemetryInfo.Lap.Value;
+                float tps = e.TelemetryInfo.Throttle.Value;
+                SendUDP(rpm, distance, mph, tps, lapnum);
+            } 
+            catch (Exception ee)
+            {
+                globals.WriteLine(ee.Message);
+            }
+        }
 
     }
+
+
+#endif
 }
