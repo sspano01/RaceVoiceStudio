@@ -2449,6 +2449,11 @@ namespace RaceVoice
                 }
             }).ShowDialog();
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
 #endif
     }
 }

@@ -238,12 +238,12 @@ namespace RaceVoice
             ////voice.Rate = 2;
 
             Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
-            thread.Start();
+            //thread.Start();
 
 
             // Create instance
             wrapper = new SdkWrapper();
-            wrapper.TelemetryUpdateFrequency = 10;
+            wrapper.TelemetryUpdateFrequency = 30;
             // Listen to events
             wrapper.TelemetryUpdated += OnTelemetryUpdated;
             wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
@@ -259,6 +259,44 @@ namespace RaceVoice
         private void speakdone(object sender, SpeakCompletedEventArgs sp)
         {
             speaking = false;
+        }
+
+        private void process(string indata)
+        {
+            try
+            {
+
+                string[] sp = indata.Split(',');
+
+                //sp[2] = "50";
+                sp[3] = "1";
+                //sp[0] = "5000";
+                double mph = Convert.ToDouble(sp[2]);
+                mph *= 2.25; // wtf??
+
+                indata = sp[0] + "," + sp[1] + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(Convert.ToDouble(sp[3]) * 100) + "," + sp[4];
+                Console.WriteLine(indata);
+                byte[] db = Encoding.ASCII.GetBytes(indata);
+                if (configured)
+                {
+                    DLLPushMessage(db, db.Length);
+                    StringBuilder speech_msg = new StringBuilder(200);
+                    if (DLLGetSpeech(speech_msg) != 0)
+                    {
+                        Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
+                        string msg = speech_msg.ToString();
+                        if (!speaking)
+                        {
+                            speaking = true;
+                            voice.SpeakAsync(msg);
+                        }
+                    }
+                }
+            }
+            catch (Exception ee)
+            {
+                globals.WriteLine(ee.Message);
+            }
         }
 
         public void ListenThreadFunction()
@@ -278,33 +316,8 @@ namespace RaceVoice
                     // Blocks until a message returns on this socket from a remote host.
                     Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                     string indata = Encoding.ASCII.GetString(receiveBytes);
-
-                    string[] sp = indata.Split(',');
-
-                    //sp[2] = "50";
-                    sp[3] = "1";
-                    //sp[0] = "5000";
-                    double mph = Convert.ToDouble(sp[2]);
-                    mph *= 2.25; // wtf??
-
-                    indata = sp[0] + "," + sp[1] + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(Convert.ToDouble(sp[3])*100) + "," + sp[4];
-                    Console.WriteLine(indata);
-                    byte[] db = Encoding.ASCII.GetBytes(indata);
-                    if (configured)
-                    {
-                        DLLPushMessage(db, db.Length);
-                        StringBuilder speech_msg = new StringBuilder(200);
-                        if (DLLGetSpeech(speech_msg) != 0)
-                        {
-                            Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
-                            string msg = speech_msg.ToString();
-                            if (!speaking)
-                            {
-                                speaking = true;
-                                voice.SpeakAsync(msg);
-                            }
-                        }
-                    }
+                    process(indata);
+                    
                     //voice.SpeakAsync("HELLO!!!");
                     //voice.SpeakAsync(indata);
 
@@ -327,7 +340,7 @@ namespace RaceVoice
 
         public void startit()
         {
-           // timer.Enabled = true;
+            // timer.Enabled = true;
             wrapper.Start();
             //globals.WriteLine("Start!!");
 
@@ -352,6 +365,7 @@ namespace RaceVoice
             {
                 string telem = "";
                 telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
+                process(telem);
                 globals.WriteLine(telem);
                 byte[] data = Encoding.ASCII.GetBytes(telem);
                 int bt=Udp.Send(data, data.Length,BroadcastEP);
