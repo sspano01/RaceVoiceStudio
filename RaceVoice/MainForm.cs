@@ -807,7 +807,6 @@ namespace RaceVoice
             webCharts.Navigate(chartUrl);
             webTables.Navigate(tablesUrl);
 
-            irace.startit();
         }
 
         private void UpdateSplits()
@@ -2236,6 +2235,8 @@ namespace RaceVoice
             ReRender();
             irace.configure(_carMetadata, _trackModel);
             btnSaveTrack.Enabled = false;
+            irace.startit();
+
 #endif
         }
 

@@ -134,7 +134,6 @@ namespace RaceVoice
 
     class iracing
     {
-        private bool speaking = false;
         private readonly SdkWrapper wrapper;
         private UdpClient Udp;
         private static System.Timers.Timer timer;
@@ -142,6 +141,8 @@ namespace RaceVoice
         private IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
         private float[] va = new float[10];
         private SpeechSynthesizer voice = new SpeechSynthesizer();
+        private StreamWriter sw;
+        private StreamReader sr;
 
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void DLLPushMessage(byte[] msg,int ln);
@@ -162,6 +163,13 @@ namespace RaceVoice
         static extern void DLLSetupSplit(int slot, int enable, int distance);
 
         private bool configured = false;
+
+        private string path = @"c:\\temp\\telemetry.txt";
+        private string playpath = @"c:\\temp\\short_course.txt";
+
+        private bool play = false;
+        private bool running = false;
+        private Queue<string> speech_queue = new Queue<string>();
         private int BTOI(bool val)
         {
             if (val) return 1; else return 0;
@@ -188,7 +196,7 @@ namespace RaceVoice
             DLLSetup((int)CMD.RESET, 0);
 
             carMetadata.DynamicsData.AnnounceSpeed = true;
-            carMetadata.DynamicsData.SpeedThreshold = 10;
+            carMetadata.DynamicsData.SpeedThreshold = 105;
             DLLSetup((int)CMD.SETUP_MPH_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceSpeed));
             DLLSetup((int)CMD.SETUP_MPH, carMetadata.DynamicsData.SpeedThreshold);
 
@@ -203,6 +211,7 @@ namespace RaceVoice
 
             for (int slot = 0; slot < track.Segments.Count(); slot++)
             {
+                track.Segments[0].DataBits = 1;
                 DLLSetupSegment(slot, NBTOI(track.Segments[slot].Hidden), track.Segments[slot].StartDistance, track.Segments[slot].EndDistance,track.Segments[slot].DataBits);
             }
 
@@ -222,6 +231,7 @@ namespace RaceVoice
             //DLLPushMessage(db,db.Length);
             //DLLCloseFiles();
 
+
             Udp = new UdpClient();
             Udp.ExclusiveAddressUse = false;
             Udp.EnableBroadcast = true;
@@ -229,7 +239,7 @@ namespace RaceVoice
             Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
 
             timer = new System.Timers.Timer();
-            timer.Interval = 100;
+            timer.Interval = 30;
 
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
@@ -237,9 +247,20 @@ namespace RaceVoice
             voice.Volume = 100;
             ////voice.Rate = 2;
 
-            Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
-            //thread.Start();
-
+            Thread threadS = new Thread(new ThreadStart(SpeechIt));
+            threadS.Start();
+            if (!play)
+            {
+                Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
+                //thread.Start();
+                // Start it!
+                sw = File.CreateText(path);
+                sw.Close();
+            }
+            else
+            {
+                sr = File.OpenText(playpath);
+            }
 
             // Create instance
             wrapper = new SdkWrapper();
@@ -247,9 +268,8 @@ namespace RaceVoice
             // Listen to events
             wrapper.TelemetryUpdated += OnTelemetryUpdated;
             wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
-            // Start it!
 
-            voice.Speak("RaceVoice Ready");
+            speech_queue.Enqueue("RaceVoice Is Ready");
 
             voice.SpeakCompleted += speakdone;
 
@@ -258,24 +278,52 @@ namespace RaceVoice
 
         private void speakdone(object sender, SpeakCompletedEventArgs sp)
         {
-            speaking = false;
         }
 
-        private void process(string indata)
+        private void process(string indata,bool asis)
         {
             try
             {
-
+                string ln = "";
+                int dist = 0;
+                double mph;
+                double tps;
                 string[] sp = indata.Split(',');
 
                 //sp[2] = "50";
-                sp[3] = "1";
+                //sp[3] = "1";
                 //sp[0] = "5000";
-                double mph = Convert.ToDouble(sp[2]);
-                mph *= 2.25; // wtf??
 
-                indata = sp[0] + "," + sp[1] + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(Convert.ToDouble(sp[3]) * 100) + "," + sp[4];
-                Console.WriteLine(indata);
+                if (!asis)
+                {
+                    dist = Convert.ToInt32(Convert.ToDouble(sp[1]) * 3.4);
+                    mph = Convert.ToDouble(sp[2]);
+                    mph *= 2.25; // wtf??
+                    tps = Convert.ToDouble(sp[3]) * 100;
+                }
+                else
+                {
+                    dist = Convert.ToInt32(sp[1]);
+                    mph = Convert.ToDouble(sp[2]);
+                    tps = Convert.ToDouble(sp[3]);
+
+                }
+                indata = sp[0] + "," + dist + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(tps) + "," + sp[4];
+
+                ln = "RPM=" + sp[0] + "  DISTANCE=" + dist + "  MPH=" + sp[2] + "  TPS=" + Convert.ToInt32(tps) + "  LAP=" + sp[4];
+                if (!play)
+                {
+                     Console.WriteLine(ln);
+                    sw = File.AppendText(path);
+                    sw.WriteLine(ln);
+                    sw.Close();
+                }
+                else
+                {
+                    // Console.WriteLine(ln);
+                }
+
+               // Console.WriteLine(ln);
                 byte[] db = Encoding.ASCII.GetBytes(indata);
                 if (configured)
                 {
@@ -285,11 +333,8 @@ namespace RaceVoice
                     {
                         Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
                         string msg = speech_msg.ToString();
-                        if (!speaking)
-                        {
-                            speaking = true;
-                            voice.SpeakAsync(msg);
-                        }
+                        speech_queue.Enqueue(msg);
+
                     }
                 }
             }
@@ -299,6 +344,21 @@ namespace RaceVoice
             }
         }
 
+        public void SpeechIt()
+        {
+
+            while(true)
+            {
+                if (speech_queue.Count>0)
+                {
+                    string ele = speech_queue.Peek();
+                    voice.Speak(ele);
+                    speech_queue.Dequeue();
+                    Console.WriteLine(ele);
+                }
+                Thread.Sleep(100);
+            }
+        }
         public void ListenThreadFunction()
         {
             bool runit = true;
@@ -316,7 +376,7 @@ namespace RaceVoice
                     // Blocks until a message returns on this socket from a remote host.
                     Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                     string indata = Encoding.ASCII.GetString(receiveBytes);
-                    process(indata);
+                    process(indata,false);
                     
                     //voice.SpeakAsync("HELLO!!!");
                     //voice.SpeakAsync(indata);
@@ -340,17 +400,36 @@ namespace RaceVoice
 
         public void startit()
         {
+
+            voice.Speak("Start");
+            if (running) return;
+            running = true;
+            voice.Speak("Started");
             // timer.Enabled = true;
             wrapper.Start();
+            if (play) timer.Enabled = true;
             //globals.WriteLine("Start!!");
 
+            voice.Speak("Start");
         }
+
+
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            SendUDP(va[0], va[1], va[2], va[3],va[4]);
-            va[0] += 100;
-            if (va[0] > 7000) va[0] = 0;
-           // Console.WriteLine("Raised: {0}", e.SignalTime);
+            timer.Enabled = false;
+            string lt = sr.ReadLine();
+            string[] lts = lt.Split(new Char[] { '=', ' ' });
+
+            lt=lts[1]+","+lts[4] + "," + lts[7] + "," + lts[10] + "," + lts[13];
+            process(lt, true);
+//            Console.WriteLine(lt);
+            if (sr.EndOfStream)
+            {
+                sr.Close();
+                 sr = File.OpenText(playpath);
+            }
+            timer.Enabled = true;
+
         }
 
 
@@ -359,13 +438,15 @@ namespace RaceVoice
 
         }
 
-        private void SendUDP(float rpm, float distance, float mph, float lapnum,float tps)
+        private void SendUDP(float rpm, float distance, float mph, float tps,float  lapnum)
         {
             try
             {
                 string telem = "";
                 telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
-                process(telem);
+                //sw = File.AppendText(path);
+                //sw.WriteLine(telem);
+                //process(telem);
                 globals.WriteLine(telem);
                 byte[] data = Encoding.ASCII.GetBytes(telem);
                 int bt=Udp.Send(data, data.Length,BroadcastEP);
@@ -383,19 +464,27 @@ namespace RaceVoice
             try
             {
 
-
+                voice.Speak("In Telem");
                 // Use live telemetry...
                 float rpm = e.TelemetryInfo.RPM.Value;
                 float distance = e.TelemetryInfo.LapDist.Value;
                 float mph = e.TelemetryInfo.Speed.Value;
                 float lapnum = e.TelemetryInfo.Lap.Value;
                 float tps = e.TelemetryInfo.Throttle.Value;
+
+                string units = "dist=" + e.TelemetryInfo.LapDist.Unit + "speed=" + e.TelemetryInfo.Speed.Unit;
+                MessageBox.Show(units);
+                voice.Speak(units);
                 SendUDP(rpm, distance, mph, tps, lapnum);
-            } 
+               // if (!gottel) voice.Speak("Telemtry Running");
+
+            }
             catch (Exception ee)
             {
                 globals.WriteLine(ee.Message);
+               voice.Speak("Telemtry Error:"+ee.Message);
             }
+
         }
 
     }

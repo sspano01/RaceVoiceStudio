@@ -1,7 +1,7 @@
 {
   "EngineData": {
     "EcuType": 6,
-    "EcuName": "",
+    "EcuName": "Standalone Mode",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 0,
-    "TrackSelectionName": "Area 27",
+    "TrackSelectionIndex": 71,
+    "TrackSelectionName": "Watkins Glen Long",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -29,7 +29,7 @@
     "BrakeThresholdPsi": 100,
     "WheelSpeedPercentDifference": 1,
     "AnnounceSpeed": true,
-    "SpeedThreshold": 10,
+    "SpeedThreshold": 105,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
@@ -39,7 +39,7 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
+    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AB0KLUVY",
     "FeatureCode": "VN6RYT-124HHO-1TX8QNM-1TMAR1J",
     "Version": "RACE VOICE-SA,  VERSION,  MARCH 18, 2020, A1",

@@ -117,7 +117,7 @@ namespace RaceVoice
                 if (!first)
                 {
                     wb = Waypoints[start_line_index];
-                    Console.WriteLine("Last=" + last_index + " Now=" + start_line_index);
+                    //Console.WriteLine("Last=" + last_index + " Now=" + start_line_index);
                     dist += (int)distance(wa.Latitude, wa.Longitude, wb.Latitude, wb.Longitude,'F');
                 }
 
