@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace RaceVoice
 {
@@ -132,8 +133,9 @@ namespace RaceVoice
                 first = false;
             }
 
-            Console.WriteLine("Distance from Start-Finish to Index" + posidx + " Is " + dist);
-            return dist;
+            int pct = Convert.ToInt32((double)start_line_index/ (double)(track_index_length) * (double)100);
+            Console.WriteLine("Distance from Start-Finish to Index" + posidx + " Is " + dist +" Percent="+pct);
+            return pct;
         }
         public void CalculateDistances(int maxseg,int maxsplit)
         {

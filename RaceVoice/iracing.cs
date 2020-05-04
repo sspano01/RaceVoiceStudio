@@ -41,98 +41,7 @@ namespace RaceVoice
 
         SETUP_END
     };
-
-#if (APP)
-
-    class iracing
-    {
-        private readonly SdkWrapper wrapper;
-        private UdpClient Udp;
-        private static IPEndPoint BroadcastEP = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 90);
-        private IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
-
-
-        public void configure(CarMetadata carMetadata, TrackModel track)
-        {
-
-        }
-
-        public iracing()
-        {
-            // Create instance
-            wrapper = new SdkWrapper();
-            wrapper.TelemetryUpdateFrequency = 30;
-            // Listen to events
-            wrapper.TelemetryUpdated += OnTelemetryUpdated;
-            wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
-
-            Udp = new UdpClient();
-            Udp.ExclusiveAddressUse = false;
-            Udp.EnableBroadcast = true;
-            Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
-
-
-        }
-        private void OnSessionInfoUpdated(object sender, SdkWrapper.SessionInfoUpdatedEventArgs e)
-        {
-
-        }
-
-        private void OnTelemetryUpdated(object sender, SdkWrapper.TelemetryUpdatedEventArgs e)
-        {
-            try
-            {
-
-
-
-                // Use live telemetry...
-                float rpm = e.TelemetryInfo.RPM.Value;
-                float distance = e.TelemetryInfo.LapDist.Value;
-                float mph = e.TelemetryInfo.Speed.Value;
-                float lapnum = e.TelemetryInfo.Lap.Value;
-                float tps = e.TelemetryInfo.Throttle.Value;
-                globals.WriteLine("TPS=" + tps.ToString());
-                SendUDP(rpm, distance, mph, tps, lapnum);
-
-            }
-            catch (Exception ee)
-            {
-                globals.WriteLine(ee.Message);
-            }
-        }
-
-        private void SendUDP(float rpm, float distance, float mph, float lapnum, float tps)
-        {
-            try
-            {
-                string telem = "";
-                telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
-                globals.WriteLine(telem);
-                byte[] data = Encoding.ASCII.GetBytes(telem);
-                int bt = Udp.Send(data, data.Length, BroadcastEP);
-                //globals.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
-            }
-            catch (Exception ee)
-            {
-
-                globals.WriteLine(ee.Message);
-            }
-
-        }
-
-
-        public void startit()
-        {
-            wrapper.Start();
-
-        }
-
-    }
-
-#else
-
-    class iracing
+        class iracing
     {
         private readonly SdkWrapper wrapper;
         private UdpClient Udp;
@@ -143,6 +52,7 @@ namespace RaceVoice
         private SpeechSynthesizer voice = new SpeechSynthesizer();
         private StreamWriter sw;
         private StreamReader sr;
+        private bool sdk_on = false;
 
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void DLLPushMessage(byte[] msg,int ln);
@@ -179,11 +89,7 @@ namespace RaceVoice
             if (val) return 0; else return 1;
         }
 
-        private void SendConfig()
-        {
-
-
-        }
+        
         public void configure(CarMetadata carMetadata, TrackModel track)
         {
             byte[] db = new byte[20];
@@ -373,6 +279,12 @@ namespace RaceVoice
                 try
                 {
 
+                    if (sdk_on)
+                    {
+                        Thread.Sleep(100);
+                        continue;
+                    }
+
                     // Blocks until a message returns on this socket from a remote host.
                     Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                     string indata = Encoding.ASCII.GetString(receiveBytes);
@@ -435,7 +347,7 @@ namespace RaceVoice
 
         private void OnSessionInfoUpdated(object sender, SdkWrapper.SessionInfoUpdatedEventArgs e)
         {
-
+            sdk_on = true;
         }
 
         private void SendUDP(float rpm, float distance, float mph, float tps,float  lapnum)
@@ -447,7 +359,7 @@ namespace RaceVoice
                 //sw = File.AppendText(path);
                 //sw.WriteLine(telem);
                 //process(telem);
-                globals.WriteLine(telem);
+                //globals.WriteLine(telem);
                 byte[] data = Encoding.ASCII.GetBytes(telem);
                 int bt=Udp.Send(data, data.Length,BroadcastEP);
                 //globals.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
@@ -461,20 +373,18 @@ namespace RaceVoice
         }
         private void OnTelemetryUpdated(object sender, SdkWrapper.TelemetryUpdatedEventArgs e)
         {
+            sdk_on = true;
             try
             {
 
-                voice.Speak("In Telem");
                 // Use live telemetry...
                 float rpm = e.TelemetryInfo.RPM.Value;
-                float distance = e.TelemetryInfo.LapDist.Value;
+                float distance = e.TelemetryInfo.LapDistPct.Value;
+//                float distance = e.TelemetryInfo.LapDist.Value;
                 float mph = e.TelemetryInfo.Speed.Value;
                 float lapnum = e.TelemetryInfo.Lap.Value;
                 float tps = e.TelemetryInfo.Throttle.Value;
 
-                string units = "dist=" + e.TelemetryInfo.LapDist.Unit + "speed=" + e.TelemetryInfo.Speed.Unit;
-                MessageBox.Show(units);
-                voice.Speak(units);
                 SendUDP(rpm, distance, mph, tps, lapnum);
                // if (!gottel) voice.Speak("Telemtry Running");
 
@@ -482,7 +392,6 @@ namespace RaceVoice
             catch (Exception ee)
             {
                 globals.WriteLine(ee.Message);
-               voice.Speak("Telemtry Error:"+ee.Message);
             }
 
         }
@@ -490,5 +399,4 @@ namespace RaceVoice
     }
 
 
-#endif
 }
