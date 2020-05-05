@@ -27,7 +27,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "05-01-2020-A1";
+        public static string UIVersion = "05-05-2020-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -39,7 +39,7 @@ namespace RaceVoice
         public static bool first_connected = false;
         public static bool no_unit_check =true;
         public static string forcePort = "";
-        public static bool no_track_check = false;
+        public static bool no_track_check = true;
         public static bool no_license_check = true;
         public static bool terminal = false;
 
@@ -53,9 +53,10 @@ namespace RaceVoice
         public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
-        public static bool trace = true; 
+        public static bool trace = true;
 
-
+        public static int irace_hb = 0;
+        public static bool iracing_mode = false;
         public static string last_rx = "";
 
         public static int MAX_SEGMENTS = 10;

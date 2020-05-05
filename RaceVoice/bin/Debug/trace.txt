@@ -35987,3 +35987,381 @@
 5/4/2020 8:15:32 PM:Bypassed for debug!
 
 5/4/2020 8:15:32 PM:UUID==11HJTQZ-10840RE-EKZ2QB-11NMKWF
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM: 
+5/5/2020 12:04:23 PM:****** STARTUP
+5/5/2020 12:04:23 PM:The following serial ports were found:
+5/5/2020 12:04:23 PM:COM6
+5/5/2020 12:04:23 PM:COM7
+5/5/2020 12:04:25 PM:Starting OnlineTest Test..
+
+5/5/2020 12:04:25 PM:Bypassed for debug!
+
+5/5/2020 12:04:25 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:04:25 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:04:25 PM:Done  - success: True
+5/5/2020 12:04:25 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:04:25 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:04:25 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:04:25 PM:FOUND!
+5/5/2020 12:04:27 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:04:40 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:04:40 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM: 
+5/5/2020 12:05:52 PM:****** STARTUP
+5/5/2020 12:05:52 PM:The following serial ports were found:
+5/5/2020 12:05:52 PM:COM6
+5/5/2020 12:05:52 PM:COM7
+5/5/2020 12:05:53 PM:Starting OnlineTest Test..
+
+5/5/2020 12:05:53 PM:Bypassed for debug!
+
+5/5/2020 12:05:53 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:05:53 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:05:54 PM:Done  - success: True
+5/5/2020 12:05:54 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:05:54 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:05:54 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:05:54 PM:FOUND!
+5/5/2020 12:05:55 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM: 
+5/5/2020 12:12:31 PM:****** STARTUP
+5/5/2020 12:12:31 PM:The following serial ports were found:
+5/5/2020 12:12:31 PM:COM6
+5/5/2020 12:12:31 PM:COM7
+5/5/2020 12:12:32 PM:Starting OnlineTest Test..
+
+5/5/2020 12:12:32 PM:Bypassed for debug!
+
+5/5/2020 12:12:33 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:12:33 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:12:33 PM:Done  - success: True
+5/5/2020 12:12:33 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:12:33 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:12:33 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:12:33 PM:FOUND!
+5/5/2020 12:12:34 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:12:45 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:12:45 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:12:45 PM:Starting OnlineTest Test..
+
+5/5/2020 12:12:45 PM:Bypassed for debug!
+
+5/5/2020 12:12:45 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:12:50 PM:Load Track:Tracks\Pocono_Internation_Full.csv
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM: 
+5/5/2020 12:13:31 PM:****** STARTUP
+5/5/2020 12:13:31 PM:The following serial ports were found:
+5/5/2020 12:13:31 PM:COM6
+5/5/2020 12:13:31 PM:COM7
+5/5/2020 12:13:32 PM:Starting OnlineTest Test..
+
+5/5/2020 12:13:32 PM:Bypassed for debug!
+
+5/5/2020 12:13:32 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:13:33 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:13:33 PM:Done  - success: True
+5/5/2020 12:13:33 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:13:33 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:13:33 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:13:33 PM:FOUND!
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM: 
+5/5/2020 12:16:57 PM:****** STARTUP
+5/5/2020 12:16:57 PM:The following serial ports were found:
+5/5/2020 12:16:57 PM:COM6
+5/5/2020 12:16:57 PM:COM7
+5/5/2020 12:16:58 PM:Starting OnlineTest Test..
+
+5/5/2020 12:16:58 PM:Bypassed for debug!
+
+5/5/2020 12:16:58 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:16:58 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:16:59 PM:Done  - success: True
+5/5/2020 12:16:59 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:16:59 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:16:59 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:16:59 PM:FOUND!
+5/5/2020 12:17:00 PM:Load Track:Tracks\Pocono_Internation_Full.csv
+5/5/2020 12:17:03 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:17:03 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:17:03 PM:Starting OnlineTest Test..
+
+5/5/2020 12:17:03 PM:Bypassed for debug!
+
+5/5/2020 12:17:04 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:17:09 PM:Load Track:Tracks\Sonoma_Raceway.csv
+5/5/2020 12:17:14 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM: 
+5/5/2020 12:20:10 PM:****** STARTUP
+5/5/2020 12:20:10 PM:The following serial ports were found:
+5/5/2020 12:20:10 PM:COM6
+5/5/2020 12:20:10 PM:COM7
+5/5/2020 12:20:11 PM:Starting OnlineTest Test..
+
+5/5/2020 12:20:11 PM:Bypassed for debug!
+
+5/5/2020 12:20:11 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:20:11 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:20:12 PM:Done  - success: True
+5/5/2020 12:20:12 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:20:12 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:20:12 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:20:12 PM:FOUND!
+5/5/2020 12:20:12 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:20:16 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:20:16 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:20:16 PM:Starting OnlineTest Test..
+
+5/5/2020 12:20:16 PM:Bypassed for debug!
+
+5/5/2020 12:20:16 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM: 
+5/5/2020 12:20:53 PM:****** STARTUP
+5/5/2020 12:20:53 PM:The following serial ports were found:
+5/5/2020 12:20:53 PM:COM6
+5/5/2020 12:20:53 PM:COM7
+5/5/2020 12:20:54 PM:Starting OnlineTest Test..
+
+5/5/2020 12:20:54 PM:Bypassed for debug!
+
+5/5/2020 12:20:54 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:20:54 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:20:54 PM:Done  - success: True
+5/5/2020 12:20:54 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:20:54 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:20:54 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:20:54 PM:FOUND!
+5/5/2020 12:20:55 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:20:58 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:20:58 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:20:59 PM:Starting OnlineTest Test..
+
+5/5/2020 12:20:59 PM:Bypassed for debug!
+
+5/5/2020 12:20:59 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:21:05 PM:!!!
+5/5/2020 12:21:05 PM:The following serial ports were found:
+5/5/2020 12:21:05 PM:COM6
+5/5/2020 12:21:05 PM:COM7
+5/5/2020 12:21:13 PM:!!!
+5/5/2020 12:21:13 PM:The following serial ports were found:
+5/5/2020 12:21:13 PM:COM6
+5/5/2020 12:21:13 PM:COM7
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:32 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM: 
+5/5/2020 12:21:33 PM:****** STARTUP
+5/5/2020 12:21:33 PM:The following serial ports were found:
+5/5/2020 12:21:33 PM:COM6
+5/5/2020 12:21:33 PM:COM7
+5/5/2020 12:21:34 PM:Starting OnlineTest Test..
+
+5/5/2020 12:21:34 PM:Bypassed for debug!
+
+5/5/2020 12:21:34 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:21:34 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:21:34 PM:Done  - success: True
+5/5/2020 12:21:34 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:21:34 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:21:34 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:21:34 PM:FOUND!
+5/5/2020 12:21:35 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:21:38 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:21:38 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:21:38 PM:Starting OnlineTest Test..
+
+5/5/2020 12:21:38 PM:Bypassed for debug!
+
+5/5/2020 12:21:39 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM: 
+5/5/2020 12:26:22 PM:****** STARTUP
+5/5/2020 12:26:23 PM:The following serial ports were found:
+5/5/2020 12:26:23 PM:COM6
+5/5/2020 12:26:23 PM:COM7
+5/5/2020 12:26:24 PM:Starting OnlineTest Test..
+
+5/5/2020 12:26:24 PM:Bypassed for debug!
+
+5/5/2020 12:26:24 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/5/2020 12:26:24 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/5/2020 12:26:24 PM:Done  - success: True
+5/5/2020 12:26:24 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/5/2020 12:26:24 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/5/2020 12:26:24 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/5/2020 12:26:24 PM:FOUND!
+5/5/2020 12:26:25 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/5/2020 12:26:28 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/5/2020 12:26:28 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/5/2020 12:26:28 PM:Starting OnlineTest Test..
+
+5/5/2020 12:26:28 PM:Bypassed for debug!
+
+5/5/2020 12:26:28 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R

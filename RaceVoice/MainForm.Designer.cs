@@ -150,6 +150,7 @@
             this.webTables = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DownloadData = new System.Windows.Forms.Button();
+            this.heartbeat = new System.Windows.Forms.Timer(this.components);
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.segmentGroupBox.SuspendLayout();
@@ -1622,6 +1623,10 @@
             this.DownloadData.UseVisualStyleBackColor = true;
             this.DownloadData.Click += new System.EventHandler(this.DownloadData_Click);
             // 
+            // heartbeat
+            // 
+            this.heartbeat.Tick += new System.EventHandler(this.heartbeat_Tick);
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 869);
@@ -1814,6 +1819,7 @@
         private System.Windows.Forms.Button btnHideAllSpeechTags;
         private System.Windows.Forms.CheckedListBox lstSpeechTags;
         private System.Windows.Forms.Button btnSpeechTagDelete;
+        private System.Windows.Forms.Timer heartbeat;
     }
 }
 

@@ -25,7 +25,8 @@ namespace RaceVoice
         VBOX,
         AUTOSPORT,
         STANDALONE,
-        OBDII
+        OBDII,
+        IRACING
 
     }
 

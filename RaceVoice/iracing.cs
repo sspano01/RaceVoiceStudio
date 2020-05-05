@@ -93,7 +93,7 @@ namespace RaceVoice
         }
 
         
-        public void configure(CarMetadata carMetadata, TrackModel track)
+        public void configure(CarMetadata carMetadata, TrackMetadata trackdata, TrackModel track)
         {
             byte[] db = new byte[20];
             if (!configured)
@@ -130,6 +130,8 @@ namespace RaceVoice
             }
 
             configured = true;
+
+            voice.Speak(trackdata.TrackName+ " is configured");
 
         }
 
@@ -322,16 +324,13 @@ namespace RaceVoice
         public void startit()
         {
 
-            voice.Speak("Start");
             if (running) return;
             running = true;
-            voice.Speak("Started");
+            //voice.Speak("Started");
             // timer.Enabled = true;
             wrapper.Start();
             if (play) timer.Enabled = true;
-            //globals.WriteLine("Start!!");
 
-            voice.Speak("Start");
         }
 
 
@@ -366,7 +365,8 @@ namespace RaceVoice
                 string telem = "";
                 telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
                 process(telem,false);
-
+                globals.irace_hb++;
+                if (globals.irace_hb >= 100) globals.irace_hb = 0;
                 return;
 
                 //sw = File.AppendText(path);
@@ -388,7 +388,7 @@ namespace RaceVoice
         {
             if (!sdk_on)
             {
-               //voice.SpeakAsync("Telemetry Running");
+               voice.SpeakAsync("Telemetry Running");
             }
             sdk_on = true;
             try

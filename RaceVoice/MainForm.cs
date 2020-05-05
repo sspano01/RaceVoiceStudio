@@ -807,6 +807,8 @@ namespace RaceVoice
             webCharts.Navigate(chartUrl);
             webTables.Navigate(tablesUrl);
 
+            heartbeat.Enabled = true;
+
         }
 
         private void UpdateSplits()
@@ -1349,6 +1351,19 @@ namespace RaceVoice
         {
             if (globals.IsDemoMode(true)) return;
 
+            if (globals.iracing_mode)
+            {
+                try
+                {
+                    irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                }
+                return;
+            }
+
             WriteDataToFwTrace();
             if (!globals.first_connected)
             {
@@ -1746,6 +1761,8 @@ namespace RaceVoice
 
         private void AdjustUIForFeatures()
         {
+            if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING) globals.iracing_mode = true; else globals.iracing_mode = false;
+
             if (globals.terminal) terminalToolStripMenuItem.Visible = true;
             if (globals.license_feature == (int)globals.FeatureState.LITE)
             {
@@ -1843,6 +1860,19 @@ namespace RaceVoice
                     break;
 
 
+            }
+
+            if (globals.iracing_mode)
+            {
+                getConfig.Visible = false;
+                DownloadData.Visible = false;
+                sendConfig.Text = "Update iRacing";
+            }
+            else
+            {
+                getConfig.Visible = true;
+                DownloadData.Visible = true;
+                sendConfig.Text = "Send Configuration";
             }
 
         }
@@ -2236,7 +2266,7 @@ namespace RaceVoice
             btnSaveTrack.Enabled = false;
             try
             {
-                irace.configure(_carMetadata, _trackModel);
+                irace.configure(_carMetadata, _trackMetadata,_trackModel);
             }
             catch (Exception ee)
             {
@@ -2404,7 +2434,6 @@ namespace RaceVoice
         public bool WriteDataToRaceVoice()
         {
             bool valid = true;
-            irace.configure(_carMetadata, _trackModel);
             if (globals.no_unit_check) return true;
 
             if (!globals.IsRaceVoiceConnected()) return false;
@@ -2469,6 +2498,14 @@ namespace RaceVoice
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void heartbeat_Tick(object sender, EventArgs e)
+        {
+            if (globals.iracing_mode)
+            {
+                progressBar1.Value = globals.irace_hb;
+            }
         }
 #endif
     }
