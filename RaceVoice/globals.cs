@@ -39,7 +39,7 @@ namespace RaceVoice
         public static bool first_connected = false;
         public static bool no_unit_check =true;
         public static string forcePort = "";
-        public static bool no_track_check = true;
+        public static bool no_track_check =false;
         public static bool no_license_check = true;
         public static bool terminal = false;
 
@@ -56,6 +56,7 @@ namespace RaceVoice
         public static bool trace = true;
 
         public static int irace_hb = 0;
+        public static bool iracing_telemetry = false;
         public static bool iracing_mode = false;
         public static string last_rx = "";
 

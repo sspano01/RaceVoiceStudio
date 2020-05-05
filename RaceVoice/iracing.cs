@@ -365,6 +365,7 @@ namespace RaceVoice
                 string telem = "";
                 telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
                 process(telem,false);
+                globals.iracing_telemetry = true;
                 globals.irace_hb++;
                 if (globals.irace_hb >= 100) globals.irace_hb = 0;
                 return;

@@ -2502,6 +2502,13 @@ namespace RaceVoice
 
         private void heartbeat_Tick(object sender, EventArgs e)
         {
+            if (globals.iracing_telemetry)
+            {
+                if ((EcuType)cmbEcuType.SelectedIndex!=EcuType.IRACING)
+                {
+                    cmbEcuType.SelectedIndex = (int)EcuType.IRACING;
+                }
+            }
             if (globals.iracing_mode)
             {
                 progressBar1.Value = globals.irace_hb;

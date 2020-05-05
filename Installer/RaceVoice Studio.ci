@@ -1,4 +1,4 @@
-﻿<project version = 9 civer = 8.6.2 winver = "2.12/6.2.9200" >
+﻿<project version = 9 civer = 8.7.0 winver = "2.12/6.2.9200" >
    <autorun >1</>
    <autoclose >1</>
    <compname ></>
@@ -120,22 +120,6 @@ Please make sure this computer has Internet Access before continuing</>
                   <srclist >
                      <rows >
                         <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
                            <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
                            <recurse >1</>
                            <justfile >0</>
@@ -152,47 +136,7 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll</>
-                           <recurse >0</>
-                           <justfile >0</>
-                           <emptydir >0</>
-                           <exclude ></>
-                           <comm ></>
-                        </>
-                        <_ >
-                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll</>
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\*.dll</>
                            <recurse >0</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -445,6 +389,7 @@ Please make sure this computer has Internet Access before continuing</>
             <noadmin >0</>
             <selfdelete >0</>
             <allowinst >0</>
+            <priv >0</>
          </>
       </>
    </>
@@ -499,6 +444,7 @@ Please make sure this computer has Internet Access before continuing</>
             <leftimg >uninstall - 1</>
             <caption ></>
             <noadmin >0</>
+            <priv >0</>
          </>
       </>
    </>
@@ -710,6 +656,7 @@ Please make sure this computer has Internet Access before continuing</>
             <leftimg >update - 1</>
             <caption ></>
             <noadmin >1</>
+            <priv >0</>
          </>
       </>
    </>

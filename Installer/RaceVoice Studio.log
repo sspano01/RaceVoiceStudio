@@ -1,11 +1,11 @@
 
-Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 5/5/2020 11:46:17 AM
+Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 5/5/2020 12:31:22 PM
 Log file: C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.log 
 Generating Sources... 
 Compiling Gentee Sources... 
 Build setup file: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Adding temporary file(s) to EXE 
-C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 5/5/2020 11:46:18 AM 3273  46.01%
+C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 5/5/2020 12:31:22 PM 3273  46.01%
 c:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg 3/18/2020 10:25:33 AM 3002  94.97%
 C:\Program Files (x86)\CreateInstall Free\res\logo\default - 1.bmp 3/20/2018 12:19:53 PM 7308  52.55%
 C:\Program Files (x86)\CreateInstall Free\res\leftimg\install\install - 1.bmp 3/20/2018 12:19:53 PM 20678  33.44%
@@ -17,25 +17,23 @@ Code signing result: 0  OK
 Getting list of files 
 Packing files... 
 ================================ 
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll 6/27/2019 9:13:27 AM 145920  40.73%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll 6/27/2019 9:13:27 AM 458752  61.66%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico 6/27/2019 9:13:27 AM 39198  47.23%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftbusui.dll 6/27/2019 9:13:27 AM 168112  48.32%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftcserco.dll 6/27/2019 9:13:27 AM 74968  34.24%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx.lib 6/27/2019 9:13:27 AM 20260  20.65%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx64.dll 6/27/2019 9:13:27 AM 314552  47.79%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftdibus.sys 6/27/2019 9:13:27 AM 129448  45.85%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftlang.dll 6/27/2019 9:13:27 AM 274616  18.97%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftser2k.sys 6/27/2019 9:13:27 AM 89792  42.47%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftserui2.dll 6/27/2019 9:13:27 AM 65240  34.63%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftbusui.dll 6/27/2019 9:13:27 AM 155832  41.90%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftcserco.dll 6/27/2019 9:13:27 AM 78552  50.64%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.dll 6/27/2019 9:13:27 AM 271672  46.36%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.lib 6/27/2019 9:13:27 AM 22190  18.93%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftdibus.sys 6/27/2019 9:13:27 AM 105200  47.75%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftlang.dll 6/27/2019 9:13:27 AM 254264  19.06%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftser2k.sys 6/27/2019 9:13:27 AM 75896  42.93%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftserui2.dll 6/27/2019 9:13:27 AM 63192  31.88%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico 6/27/2019 9:13:27 AM 39198  47.51%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftbusui.dll 6/27/2019 9:13:27 AM 168112  48.42%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftcserco.dll 6/27/2019 9:13:27 AM 74968  34.21%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx.lib 6/27/2019 9:13:27 AM 20260  20.70%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx64.dll 6/27/2019 9:13:27 AM 314552  33.21%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftdibus.sys 6/27/2019 9:13:27 AM 129448  45.01%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftlang.dll 6/27/2019 9:13:27 AM 274616  18.80%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftser2k.sys 6/27/2019 9:13:27 AM 89792  55.17%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftserui2.dll 6/27/2019 9:13:27 AM 65240  37.93%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftbusui.dll 6/27/2019 9:13:27 AM 155832  44.20%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftcserco.dll 6/27/2019 9:13:27 AM 78552  35.72%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.dll 6/27/2019 9:13:27 AM 271672  33.02%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.lib 6/27/2019 9:13:27 AM 22190  18.96%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftdibus.sys 6/27/2019 9:13:27 AM 105200  46.42%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftlang.dll 6/27/2019 9:13:27 AM 254264  18.68%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftser2k.sys 6/27/2019 9:13:27 AM 75896  58.10%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftserui2.dll 6/27/2019 9:13:27 AM 63192  36.84%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\Static\amd64\ftd2xx.lib 6/27/2019 9:13:27 AM 1129626  18.82%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\Static\i386\ftd2xx.lib 6/27/2019 9:13:27 AM 1027798  17.89%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftd2xx.h 6/27/2019 9:13:27 AM 40993  22.27%
@@ -43,18 +41,24 @@ c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdibus.cat 6
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdibus.inf 6/27/2019 9:13:27 AM 25872  23.50%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdiport.cat 6/27/2019 9:13:27 AM 17974  10.90%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftdiport.inf 6/27/2019 9:13:27 AM 16486  6.41%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll 6/27/2019 9:13:26 AM 73336  33.12%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll 5/4/2020 12:50:55 PM 20992  42.25%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll 4/4/2017 7:39:34 PM 8192  34.66%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll 6/27/2019 9:13:27 AM 431104  40.94%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.dll 6/27/2019 9:13:27 AM 145920  40.51%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.dll 6/27/2019 9:13:27 AM 458752  61.67%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\EmailValidation.dll 4/4/2017 7:39:34 PM 8192  35.79%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll 6/27/2019 9:13:26 AM 73336  32.81%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\iRacingSdkWrapper.dll 2/26/2019 1:37:44 AM 38400  41.38%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\iRSDKSharp.dll 2/26/2019 1:37:44 AM 15360  39.64%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\MySql.Data.dll 6/27/2019 9:13:27 AM 431104  41.17%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll 6/27/2019 9:13:27 AM 675240  38.39%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll 6/27/2019 9:13:28 AM 79208  36.92%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceDLL.dll 5/5/2020 12:27:21 PM 33792  53.25%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll 5/5/2020 11:52:13 AM 20992  41.41%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll 6/27/2019 9:13:28 AM 79208  37.04%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\YamlDotNet.dll 10/22/2016 12:26:44 PM 139776  41.39%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex 3/18/2020 10:25:33 AM 372751  33.60%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex 7/9/2019 2:19:23 PM 236231  30.25%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt 3/19/2020 12:01:22 PM 3316  47.43%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png 6/27/2019 9:13:27 AM 1665  54.11%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 5/4/2020 12:50:55 PM 847360  27.77%
-c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\bootstrap.min.css 3/18/2020 10:25:33 AM 121205  18.96%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 5/5/2020 12:30:19 PM 846848  27.78%
+c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\bootstrap.min.css 3/18/2020 10:25:33 AM 121205  18.95%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\Chart.bundle.min.js 3/18/2020 10:25:33 AM 210428  33.01%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\charting.css 3/18/2020 10:25:33 AM 583  49.57%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\charting.js 3/18/2020 10:25:33 AM 10236  24.82%
@@ -68,8 +72,8 @@ c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\shared.js 3/18
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\tabledata.js 3/18/2020 10:25:33 AM 11199  17.42%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\tables.html 3/18/2020 10:25:33 AM 8203  19.00%
 ================================ 
-All files: 50 [ 9098KB => 2942KB ] 
+All files: 54 [ 9319KB => 2974KB ] 
 Code signing: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Code signing result: 0  OK 
-File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3093 KB 
-Finish Successful 5/5/2020 11:46:40 AM
+File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3125 KB 
+Finish Successful 5/5/2020 12:31:45 PM
