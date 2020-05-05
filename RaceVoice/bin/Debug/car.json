@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 8,
-    "EcuName": "iRacing PC Mode",
+    "EcuType": 6,
+    "EcuName": "Standalone Mode",
     "OverRevEnabled": false,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -41,7 +41,7 @@
   "HardwareData": {
     "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
     "Name": "AC01T8MN",
-    "FeatureCode": "VN6RYT-124HHO-1TX8QNM-1TMAR1J",
+    "FeatureCode": "MYFKF4-UDKZUG-EHEEA9-WL05B3",
     "Version": "RACE VOICE,  VERSION,  JANUARY 11, 2020, A1",
     "Volume": 5,
     "SWVersion": "05-05-2020-A1",

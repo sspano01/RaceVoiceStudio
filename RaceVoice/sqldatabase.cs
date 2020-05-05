@@ -2,6 +2,9 @@
 using System.IO;
 using System.Data;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Sockets;
+
 #if (!APP)
 using System.Windows.Forms;
 #else
@@ -15,7 +18,47 @@ namespace RaceVoice
     internal class sqldatabase
     {
 
-        
+        public static DateTime GetNetworkTime()
+        {
+            const string NtpServer = "pool.ntp.org";
+
+            const int DaysTo1900 = 1900 * 365 + 95; // 95 = offset for leap-years etc.
+            const long TicksPerSecond = 10000000L;
+            const long TicksPerDay = 24 * 60 * 60 * TicksPerSecond;
+            const long TicksTo1900 = DaysTo1900 * TicksPerDay;
+
+            var ntpData = new byte[48];
+            ntpData[0] = 0x1B; // LeapIndicator = 0 (no warning), VersionNum = 3 (IPv4 only), Mode = 3 (Client Mode)
+
+            var addresses = Dns.GetHostEntry(NtpServer).AddressList;
+            var ipEndPoint = new IPEndPoint(addresses[0], 123);
+            long pingDuration = Stopwatch.GetTimestamp(); // temp access (JIT-Compiler need some time at first call)
+            using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))
+            {
+                socket.Connect(ipEndPoint);
+                socket.ReceiveTimeout = 5000;
+                socket.Send(ntpData);
+                pingDuration = Stopwatch.GetTimestamp(); // after Send-Method to reduce WinSocket API-Call time
+
+                socket.Receive(ntpData);
+                pingDuration = Stopwatch.GetTimestamp() - pingDuration;
+            }
+
+            long pingTicks = pingDuration * TicksPerSecond / Stopwatch.Frequency;
+
+            // optional: display response-time
+            // Console.WriteLine("{0:N2} ms", new TimeSpan(pingTicks).TotalMilliseconds);
+
+            long intPart = (long)ntpData[40] << 24 | (long)ntpData[41] << 16 | (long)ntpData[42] << 8 | ntpData[43];
+            long fractPart = (long)ntpData[44] << 24 | (long)ntpData[45] << 16 | (long)ntpData[46] << 8 | ntpData[47];
+            long netTicks = intPart * TicksPerSecond + (fractPart * TicksPerSecond >> 32);
+
+            var networkDateTime = new DateTime(TicksTo1900 + netTicks + pingTicks / 2);
+
+            return networkDateTime.ToLocalTime(); // without ToLocalTime() = faster
+        }
+
+
 
         public bool ValidateUUID(string uuid,bool set, CarMetadata cm)
         {
@@ -28,6 +71,10 @@ namespace RaceVoice
             int access_count = 0;
             bool all_stop = false;
 
+            if (globals.network_time.Length==0)
+            {
+                globals.network_time = GetNetworkTime().ToString();
+            }
             connetionString = "Data Source=" + globals.racevoice_sqlserver + "; Initial Catalog = racevoice;Integrated Security=False;User ID=root;Password=#RaceVoice01;connection timeout=30";
 
             //connectionString="Data Source=104.155.20.171;Initial Catalog=bookshelf;Integrated Security=False;User ID=dotnetapp;Password=test;MultipleActiveResultSets=True"
@@ -63,6 +110,7 @@ namespace RaceVoice
                     dbauth = reader.GetValue(4).ToString().ToUpper().Trim();
                     string purchasedate = reader.GetValue(5).ToString();
                     access_count = Convert.ToInt32(reader.GetValue(6));
+                    globals.expire_time = reader.GetValue(9).ToString();
                     if (dbuuid.Contains(uuid))
                     {
                         match_uuid = true;
@@ -161,21 +209,51 @@ namespace RaceVoice
                     {
                         globals.WriteLine(ee.Message);
                     }
-                    if (dbauth.Contains("VALID"))
+                    dbauth = dbauth.ToUpper();
+                    bool valid_lic = false;
+                    bool valid_irace = false;
+                    bool demo_only = false;
+                    if (dbauth.Contains("VALID")) valid_lic = true;
+                    if (dbauth.Contains("IRACING")) valid_irace = true;
+                    if (dbauth.Contains("DEMO")) demo_only = true;
+
+                    if (!demo_only)
                     {
-                        if (dbauth.Contains("LITE"))
+                        if (valid_lic)
                         {
-                            globals.license_state = "VALID LITE";
+                            if (dbauth.Contains("LITE"))
+                            {
+                                globals.license_state = "VALID LITE";
+                                sqlConnection1.Close();
+                                return true;
+                            }
                         }
-                        else
+
+                        if (valid_irace && !valid_lic)
+                        {
+
+                            globals.license_state = "IRACING";
+                            sqlConnection1.Close();
+                            return true;
+                        }
+
+                        if (valid_lic && valid_irace)
+                        {
+                            globals.license_state = "VALID-IRACING";
+                            sqlConnection1.Close();
+                            return true;
+                        }
+
+                        if (valid_lic && !valid_irace)
                         {
                             globals.license_state = "VALID";
+                            sqlConnection1.Close();
+                            return true;
                         }
-                        sqlConnection1.Close();
-                        return true;
                     }
-                    if (dbauth.Contains("DEMO"))
+                    else
                     {
+                            if (valid_irace) globals.license_state = "DEMO-IRACING"; else
                             globals.license_state = "DEMO";
                             sqlConnection1.Close();
                             return true;
@@ -262,8 +340,11 @@ namespace RaceVoice
                     MessageBox.Show("Your email was not found\r\nRaceVoice Studio will be activated in Demonstration Mode.\r\n", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int ac = 1;
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
-                    cmd.CommandText = "INSERT INTO license VALUES (@name, @uuid, @lastaccess, @email, @authorization, @purchasedate, @accesscount, @swversion, @unitversion)";
-                    dbauth = "demo";
+                    cmd.CommandText = "INSERT INTO license VALUES (@name, @uuid, @lastaccess, @email, @authorization, @purchasedate, @accesscount, @swversion, @unitversion, @expire)";
+                    dbauth = "DEMO-IRACING";
+                    DateTime tnow= Convert.ToDateTime(globals.network_time);
+                    tnow = tnow.AddDays(30);
+                    string expire_time = tnow.ToString("MM/dd/yyyy");
                     cmd.Parameters.AddWithValue("@name", user_name);
                     cmd.Parameters.AddWithValue("@uuid", uuid);
                     cmd.Parameters.AddWithValue("@lastaccess", timedate);
@@ -273,6 +354,7 @@ namespace RaceVoice
                     cmd.Parameters.AddWithValue("@accesscount", ac);
                     cmd.Parameters.AddWithValue("@swversion", globals.UIVersion);
                     cmd.Parameters.AddWithValue("@unitversion",dbauth);
+                    cmd.Parameters.AddWithValue("@expire", expire_time);
                     try
                     {
                         cmd.ExecuteNonQuery();

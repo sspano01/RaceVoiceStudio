@@ -1,30 +1,31 @@
 {
   "TrackName": "Road America",
   "DataBitfields": [
-    1,
-    2,
-    8,
     0,
     0,
     0,
-    23,
-    4,
-    32,
-    64
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
   ],
-  "Rotation": 92,
-  "Zoom": 94,
+  "Rotation": 0,
+  "Zoom": 90,
   "XPan": 0,
-  "YPan": 1,
+  "YPan": 0,
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
+    false,
+    false,
     false,
     false,
     false,
     false,
     false
-  ]
+  ],
+  "SpeechTagEnabledStates": null
 }

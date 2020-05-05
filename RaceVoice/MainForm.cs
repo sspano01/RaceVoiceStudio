@@ -208,6 +208,8 @@ namespace RaceVoice
             string key_lite = EncodeFeature("VALID LITE");
             string key_full = EncodeFeature("VALID");
             string key_demo = EncodeFeature("DEMO");
+            string key_full_iracing = EncodeFeature("VALID-IRACING");
+            string key_demo_iracing = EncodeFeature("DEMO-RACING");
             globals.license_feature = 0;
             string local_key = _carMetadata.HardwareData.FeatureCode.Trim().ToUpper();
 
@@ -217,8 +219,10 @@ namespace RaceVoice
 
             }
             if (local_key.Contains(key_demo)) globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
+            if (local_key.Contains(key_demo_iracing)) globals.license_feature = (int)globals.FeatureState.DEMO_IRACING; // demo version
             if (local_key.Contains(key_full)) globals.license_feature = (int)globals.FeatureState.FULL; // full version
             if (local_key.Contains(key_lite)) globals.license_feature = (int)globals.FeatureState.LITE; // lite version
+            if (local_key.Contains(key_full_iracing)) globals.license_feature = (int)globals.FeatureState.FULL_IRACING; // full with iracing
 
 
         }
@@ -1349,21 +1353,28 @@ namespace RaceVoice
 
         private void sendConfigButton(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
 
             if (globals.iracing_mode)
             {
-                try
+                if (globals.AllowIracing())
                 {
-                    irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                    try
+                    {
+                        irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                    }
                 }
-                catch (Exception ee)
+                else
                 {
-                    MessageBox.Show(ee.Message);
+                    irace.LicenseMessage(false);
                 }
                 return;
             }
 
+            if (globals.IsDemoMode(true)) return;
             WriteDataToFwTrace();
             if (!globals.first_connected)
             {
@@ -1754,6 +1765,8 @@ namespace RaceVoice
             if (globals.no_license_check) return true;
             if (globals.license_feature == (int)globals.FeatureState.FULL) return true;
             if (globals.license_feature == (int)globals.FeatureState.DEMO) return true;
+            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING) return true;
+            if (globals.license_feature == (int)globals.FeatureState.FULL_IRACING) return true;
             MessageBox.Show("Sorry, this feature is not available in RaceVoice Lite\r\nContact RaceVoice to upgrade your license", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
 
@@ -1761,7 +1774,20 @@ namespace RaceVoice
 
         private void AdjustUIForFeatures()
         {
-            if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING) globals.iracing_mode = true; else globals.iracing_mode = false;
+            if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING)
+            {
+                if (globals.AllowIracing())
+                {
+                    globals.iracing_mode = true;
+                }
+                else
+                {
+                    globals.iracing_mode = false;
+                    irace.LicenseMessage(false);
+                    cmbEcuType.SelectedIndex = (int)EcuType.STANDALONE;
+                }
+            }
+            else globals.iracing_mode = false;
 
             if (globals.terminal) terminalToolStripMenuItem.Visible = true;
             if (globals.license_feature == (int)globals.FeatureState.LITE)
@@ -2264,22 +2290,35 @@ namespace RaceVoice
             _trackFile = filename;
             ReRender();
             btnSaveTrack.Enabled = false;
-            try
+            globals.AllowIracing();
+            irace.LicenseMessage(false);
+            if (globals.AllowIracing())
             {
-                irace.configure(_carMetadata, _trackMetadata,_trackModel);
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.Message);
-            }
+                try
+                {
+                    irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                }
 
-            try
-            {
-                irace.startit();
+                try
+                {
+                    irace.startit();
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                }
             }
-            catch (Exception ee)
+            else
             {
-                MessageBox.Show(ee.Message);
+                if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING)
+                {
+                    cmbEcuType.SelectedIndex = (int)EcuType.STANDALONE;
+                }
+
             }
 
 #endif
@@ -2502,17 +2541,30 @@ namespace RaceVoice
 
         private void heartbeat_Tick(object sender, EventArgs e)
         {
-            if (globals.iracing_telemetry)
+            if (globals.AllowIracing())
             {
-                if ((EcuType)cmbEcuType.SelectedIndex!=EcuType.IRACING)
+                if (globals.iracing_telemetry)
                 {
-                    cmbEcuType.SelectedIndex = (int)EcuType.IRACING;
+                    if ((EcuType)cmbEcuType.SelectedIndex != EcuType.IRACING)
+                    {
+                        cmbEcuType.SelectedIndex = (int)EcuType.IRACING;
+                    }
+                }
+                if (globals.iracing_mode)
+                {
+                    progressBar1.Value = globals.irace_hb;
                 }
             }
-            if (globals.iracing_mode)
-            {
-                progressBar1.Value = globals.irace_hb;
-            }
+        }
+
+        private void licenseRenewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            irace.Renew();
+        }
+
+        private void licenseCheckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            irace.LicenseMessage(true);
         }
 #endif
     }

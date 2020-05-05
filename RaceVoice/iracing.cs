@@ -180,7 +180,7 @@ namespace RaceVoice
             wrapper.TelemetryUpdated += OnTelemetryUpdated;
             wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
 
-            speech_queue.Enqueue("RaceVoice Is Ready");
+            //speech_queue.Enqueue("RaceVoice Is Ready");
 
             voice.SpeakCompleted += speakdone;
             voice.Volume = 100;
@@ -382,6 +382,43 @@ namespace RaceVoice
             {
 
                 globals.WriteLine(ee.Message);
+            }
+
+        }
+
+        public void Renew()
+        {
+            System.Diagnostics.Process.Start("https://www.racevoice.com/product/ear-buds/");
+        }
+        public void LicenseMessage(bool check)
+        {
+            string msg;
+            if (globals.license_days_left >= 15)
+            {
+                if (check)
+                {
+                    msg = "You Have " + globals.license_days_left + " days remaining on your RaceVoiceSIM License";
+                    MessageBox.Show(msg, "License Check", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+
+                }
+                return;
+            }
+            if (check == false)
+            { 
+                if (globals.license_days_left <= (-5)) return;
+            }
+            msg = "Your RaceVoiceSIM License has expired\r\nWould you like to renew?";
+            if (globals.license_days_left < 15)
+            {
+                if (globals.license_days_left >= 1)
+                {
+                    msg = "Your RaceVoiceSIM License will expire in " + globals.license_days_left + " days\r\nWould you like to renew?";
+                }
+                if (MessageBox.Show(msg, "License Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Hand)==DialogResult.Yes)
+                {
+                    Renew();
+                }
+
             }
 
         }

@@ -40,7 +40,7 @@ namespace RaceVoice
         public static bool no_unit_check =true;
         public static string forcePort = "";
         public static bool no_track_check =false;
-        public static bool no_license_check = true;
+        public static bool no_license_check = false;
         public static bool terminal = false;
 
         public static bool disabled_charts = false;
@@ -67,15 +67,19 @@ namespace RaceVoice
         public static int ENABLE_GAIN_LAP = 2;
         public static bool network_ok = false;
         public static int MAX_TRACK_NAME = 48;
-
+        public static string network_time="";
+        public static string expire_time = "";
+        public static int license_days_left = 0;
         public static bool all_stop = false;
 
         public enum FeatureState
         {
-            NONE,
-            FULL,
-            LITE,
-            DEMO
+            NONE,  //0
+            FULL,  //1
+            LITE,  //2
+            DEMO,  //3
+            DEMO_IRACING,
+            FULL_IRACING
         }
 
 
@@ -406,10 +410,37 @@ namespace RaceVoice
         }
 
 #if !APP
+        public static bool AllowIracing()
+        {
+            bool yes = false;
+            if (globals.license_feature==(int)globals.FeatureState.FULL_IRACING)
+            {
+                yes = true;
+            }
+            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING)
+            {
+                yes = true;
+            }
+
+            if (yes)
+            {
+                DateTime current = Convert.ToDateTime(globals.network_time);
+                DateTime license = Convert.ToDateTime(globals.expire_time);
+                double remain = (license - current).TotalDays;
+                license_days_left = (int)remain;
+
+                if (license_days_left <= 0) return false;
+
+            }
+            return yes;
+
+        }
+
+
         public static bool IsDemoMode(bool nag)
         {
 
-            if (globals.license_feature == (int)globals.FeatureState.DEMO)
+            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING || globals.license_feature == (int)globals.FeatureState.DEMO)
             {
                 if (nag)
                 {

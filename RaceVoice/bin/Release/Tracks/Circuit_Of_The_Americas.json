@@ -19,8 +19,9 @@
   "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true
-  ]
+    false,
+    false,
+    false
+  ],
+  "SpeechTagEnabledStates": null
 }

@@ -1,12 +1,12 @@
 {
   "TrackName": "Thompson Motor Speedway",
   "DataBitfields": [
-    1,
     0,
-    5,
     0,
-    2,
-    4
+    0,
+    0,
+    0,
+    0
   ],
   "Rotation": 0,
   "Zoom": 90,
@@ -18,5 +18,6 @@
     false,
     false,
     false
-  ]
+  ],
+  "SpeechTagEnabledStates": null
 }

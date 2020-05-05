@@ -151,6 +151,9 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DownloadData = new System.Windows.Forms.Button();
             this.heartbeat = new System.Windows.Forms.Timer(this.components);
+            this.raceVoiceSIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseRenewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.segmentGroupBox.SuspendLayout();
@@ -446,6 +449,7 @@
             this.updatesToolStripMenuItem,
             this.chartsMenuItem,
             this.advancedToolStripMenuItem,
+            this.raceVoiceSIMToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -1627,6 +1631,29 @@
             // 
             this.heartbeat.Tick += new System.EventHandler(this.heartbeat_Tick);
             // 
+            // raceVoiceSIMToolStripMenuItem
+            // 
+            this.raceVoiceSIMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.licenseRenewToolStripMenuItem,
+            this.licenseCheckToolStripMenuItem});
+            this.raceVoiceSIMToolStripMenuItem.Name = "raceVoiceSIMToolStripMenuItem";
+            this.raceVoiceSIMToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.raceVoiceSIMToolStripMenuItem.Text = "RaceVoiceSIM";
+            // 
+            // licenseRenewToolStripMenuItem
+            // 
+            this.licenseRenewToolStripMenuItem.Name = "licenseRenewToolStripMenuItem";
+            this.licenseRenewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenseRenewToolStripMenuItem.Text = "License Renew";
+            this.licenseRenewToolStripMenuItem.Click += new System.EventHandler(this.licenseRenewToolStripMenuItem_Click);
+            // 
+            // licenseCheckToolStripMenuItem
+            // 
+            this.licenseCheckToolStripMenuItem.Name = "licenseCheckToolStripMenuItem";
+            this.licenseCheckToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenseCheckToolStripMenuItem.Text = "License Check";
+            this.licenseCheckToolStripMenuItem.Click += new System.EventHandler(this.licenseCheckToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 869);
@@ -1820,6 +1847,9 @@
         private System.Windows.Forms.CheckedListBox lstSpeechTags;
         private System.Windows.Forms.Button btnSpeechTagDelete;
         private System.Windows.Forms.Timer heartbeat;
+        private System.Windows.Forms.ToolStripMenuItem raceVoiceSIMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licenseRenewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licenseCheckToolStripMenuItem;
     }
 }
 
