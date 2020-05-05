@@ -2233,9 +2233,24 @@ namespace RaceVoice
 
             _trackFile = filename;
             ReRender();
-            irace.configure(_carMetadata, _trackModel);
             btnSaveTrack.Enabled = false;
-            irace.startit();
+            try
+            {
+                irace.configure(_carMetadata, _trackModel);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+
+            try
+            {
+                irace.startit();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
 
 #endif
         }
