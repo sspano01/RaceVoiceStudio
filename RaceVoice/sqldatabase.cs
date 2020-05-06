@@ -71,10 +71,10 @@ namespace RaceVoice
             int access_count = 0;
             bool all_stop = false;
 
-            if (globals.network_time.Length==0)
-            {
-                globals.network_time = GetNetworkTime().ToString();
-            }
+           // if (globals.network_time.Length==0)
+           // {
+            //    globals.network_time = GetNetworkTime().ToString();
+           // }
             connetionString = "Data Source=" + globals.racevoice_sqlserver + "; Initial Catalog = racevoice;Integrated Security=False;User ID=root;Password=#RaceVoice01;connection timeout=30";
 
             //connectionString="Data Source=104.155.20.171;Initial Catalog=bookshelf;Integrated Security=False;User ID=dotnetapp;Password=test;MultipleActiveResultSets=True"
@@ -92,6 +92,16 @@ namespace RaceVoice
             try
             {
                 sqlConnection1.Open();
+
+                cmd.CommandText = "SELECT CURDATE()";
+                cmd.Connection = sqlConnection1;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    globals.network_time= reader.GetValue(0).ToString();
+                }
+                reader.Close();
+
 
                 cmd.CommandText = "SELECT * FROM license where UUID like '%" + uuid + "%'";
                 //cmd.CommandType = Command

@@ -45068,3 +45068,825 @@
 5/5/2020 3:40:37 PM:PASS..
 
 5/5/2020 3:40:38 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM: 
+5/6/2020 1:23:41 PM:****** STARTUP
+5/6/2020 1:23:41 PM:The following serial ports were found:
+5/6/2020 1:23:41 PM:COM6
+5/6/2020 1:23:41 PM:COM7
+5/6/2020 1:23:42 PM:Starting OnlineTest Test..
+
+5/6/2020 1:23:42 PM:PASS..
+
+5/6/2020 1:23:43 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM: 
+5/6/2020 1:24:22 PM:****** STARTUP
+5/6/2020 1:24:22 PM:The following serial ports were found:
+5/6/2020 1:24:22 PM:COM6
+5/6/2020 1:24:22 PM:COM7
+5/6/2020 1:24:23 PM:Starting OnlineTest Test..
+
+5/6/2020 1:24:23 PM:PASS..
+
+5/6/2020 1:24:24 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:24:34 PM:FUNCTION racevoice.GETDATA does not exist
+5/6/2020 1:24:34 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/6/2020 1:24:34 PM:Done  - success: True
+5/6/2020 1:24:34 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/6/2020 1:24:34 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/6/2020 1:24:34 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/6/2020 1:24:34 PM:FOUND!
+5/6/2020 1:24:34 PM:Read [http://racevoice.serveftp.com/tracks.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remotetracks.php]
+5/6/2020 1:24:34 PM:Done  - success: True
+5/6/2020 1:24:34 PM:Area_27.csv,ab4f85470f074bb9a7b4552004ab42b7,November 27 2019 20:41:09
+5/6/2020 1:24:35 PM:Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,April 29 2019 13:16:11
+5/6/2020 1:24:35 PM:Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Calabogie_East.csv,ba0b7162be37675e12c988ebf7840c9e,August 14 2019 12:27:28
+5/6/2020 1:24:35 PM:Calabogie_Full_Course.csv,1af873eb1da0f6d9d2db1877babe49dc,August 14 2019 12:27:28
+5/6/2020 1:24:35 PM:Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,April 29 2019 13:16:11
+5/6/2020 1:24:35 PM:Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,April 29 2019 13:16:11
+5/6/2020 1:24:35 PM:Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Homestead-Miami_RoadCourse_Chicane.csv,8310f004987227235836f33563058342,August 24 2019 18:02:11
+5/6/2020 1:24:35 PM:Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Indianapolis_F1.csv,7f0be5c9943a3ba365f3d372adc26287,August 06 2019 21:42:51
+5/6/2020 1:24:35 PM:Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,July 03 2019 12:49:55
+5/6/2020 1:24:35 PM:Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,April 29 2019 13:27:57
+5/6/2020 1:24:35 PM:Limerock_Park.csv,90c30cc5a3264af220c379178888405d,June 16 2019 15:16:31
+5/6/2020 1:24:35 PM:MSR_Cresson.csv,13e0ff9fbb313d4ec38c383c5c2ae58a,March 07 2020 20:22:39
+5/6/2020 1:24:35 PM:MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Mid_Ohio_Club_Chicane.csv,8cd86f4e5d6eeda840fb6da53673b42d,August 24 2019 18:02:11
+5/6/2020 1:24:35 PM:Mid_Ohio_Sports.csv,7b895a1a29cc51dbfc71c9f27551f329,August 24 2019 18:02:11
+5/6/2020 1:24:35 PM:Mission_Raceway.csv,438e90d95b3d552c306234dbc7ff962f,November 27 2019 20:41:09
+5/6/2020 1:24:35 PM:Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,June 16 2019 16:04:15
+5/6/2020 1:24:35 PM:Mosport_-_Canadian_Tire_Motorsport_Park.csv,1ee625cdffa25f07878c4c5e33531baa,August 14 2019 12:27:38
+5/6/2020 1:24:35 PM:NCM_Grand_Course.csv,9507dab94dad60d24926484a3c196718,September 13 2019 14:26:45
+5/6/2020 1:24:35 PM:NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,April 25 2019 20:09:33
+5/6/2020 1:24:35 PM:New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,April 24 2019 12:26:21
+5/6/2020 1:24:35 PM:Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,April 29 2019 13:27:57
+5/6/2020 1:24:35 PM:Pacific_Raceways.csv,72a8518b249bef876b458088937b9281,August 26 2019 13:07:15
+5/6/2020 1:24:35 PM:Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,April 29 2019 13:16:11
+5/6/2020 1:24:35 PM:Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,May 24 2019 13:21:52
+5/6/2020 1:24:35 PM:Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,April 29 2019 13:27:57
+5/6/2020 1:24:35 PM:Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,May 24 2019 13:21:52
+5/6/2020 1:24:35 PM:Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,April 27 2019 21:09:26
+5/6/2020 1:24:35 PM:Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Watkins_Glen_Short.csv,fb4865afe7bde6aa279ec4b4198e3ac1,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,April 15 2019 21:59:40
+5/6/2020 1:24:35 PM:Local Scan->Area_27.csv,ab4f85470f074bb9a7b4552004ab42b7,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Calabogie_East.csv,ba0b7162be37675e12c988ebf7840c9e,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Calabogie_Full_Course.csv,1af873eb1da0f6d9d2db1877babe49dc,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Homestead-Miami_RoadCourse_Chicane.csv,8310f004987227235836f33563058342,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Indianapolis_F1.csv,7f0be5c9943a3ba365f3d372adc26287,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Limerock_Park.csv,90c30cc5a3264af220c379178888405d,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Mid_Ohio_Club_Chicane.csv,8cd86f4e5d6eeda840fb6da53673b42d,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Mid_Ohio_Sports.csv,7b895a1a29cc51dbfc71c9f27551f329,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Mission_Raceway.csv,438e90d95b3d552c306234dbc7ff962f,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Mosport_-_Canadian_Tire_Motorsport_Park.csv,1ee625cdffa25f07878c4c5e33531baa,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->MSR_Cresson.csv,13e0ff9fbb313d4ec38c383c5c2ae58a,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->NCM_Grand_Course.csv,9507dab94dad60d24926484a3c196718,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Pacific_Raceways.csv,72a8518b249bef876b458088937b9281,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,03/19/2020
+5/6/2020 1:24:35 PM:Local Scan->Watkins_Glen_Short.csv,f525f91485e40bc9525c4c2c664c3ce4,05/05/2020
+5/6/2020 1:24:35 PM:Local Scan->Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,03/19/2020
+5/6/2020 1:24:36 PM:Area_27.csv DATE Local=03/19/2020 vs 11/27/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Arizona_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Atlanta_Motorsport_Park_Kart.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Atlanta_Motorsports_Park_Main.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Auto_Club_Speedway_Sport_Cars.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Autobahn_Country_Club_Full_Circuit.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Barber_Motorsport_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Blackhawk_Farms.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Brainerd_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Brainerd_International_Raceway_Long_Track.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Buttonwillow_Raceway_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Calabogie_East.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Calabogie_Full_Course.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Carolina_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Charlotte_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Chuckwalla_Valley_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Circuit_Of_The_Americas.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Club_Motorsports.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Daytona_International.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Dominion_Raceway.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Exotics_Racing.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Firebird_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Giants_Despair_Hillclimb.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:GingerMan_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Grattan_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Hallett_Motor_Racing_Circuit.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Heartland_Park_Topeka.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:High_Plains_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Homestead-Miami_RoadCourse_Chicane.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Homestead-Miami_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Inde_Motorsport_Ranch.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Indianapolis_F1.csv DATE Local=03/19/2020 vs 08/06/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Indianapolis_GrandPrix.csv DATE Local=03/19/2020 vs 07/03/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Laguna_Seca.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Limerock_Park.csv DATE Local=03/19/2020 vs 06/16/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:MSR_Cresson.csv DATE Local=03/19/2020 vs 03/07/2020 Local Is Newer=True
+5/6/2020 1:24:36 PM:MSR_Houston.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Mid_Ohio_Club_Chicane.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Mid_Ohio_Sports.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Mission_Raceway.csv DATE Local=03/19/2020 vs 11/27/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Mont_Tremblant.csv DATE Local=03/19/2020 vs 06/16/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Mosport_-_Canadian_Tire_Motorsport_Park.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:NCM_Grand_Course.csv DATE Local=03/19/2020 vs 09/13/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:NJMP_Lightning.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:NJMP_Thunderbolt.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:NYST_New_York_Safety_Track.csv DATE Local=03/19/2020 vs 04/25/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:New_Hampshire_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:New_Hampshire_Motor_Speedway_Chicane.csv DATE Local=03/19/2020 vs 04/24/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Nola_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Pacific_Raceways.csv DATE Local=03/19/2020 vs 08/26/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Palm_Beach_International_Raceway.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Palmer_Motorsports_Park.csv DATE Local=03/19/2020 vs 05/24/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Pittsburg_International.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Pocono_Internation_Full.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Pocono_International_North.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Portland_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Pueblo_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Remlap(Palmer)_Motorsports_Park.csv DATE Local=03/19/2020 vs 05/24/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Road_America.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Road_Atlanta.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Roebling_Road.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Sebring_Full_Course.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Silverstone_GP.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Sonoma_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Summit_Point_Shenandoah_NoCarousel.csv DATE Local=03/19/2020 vs 04/27/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Summit_Pointe_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Thompson_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Thunderhill_Long.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Thunderhill_Short.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Virgina_Internation_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Watkins_Glen_Long.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Watkins_Glen_Short.csv DATE Local=05/05/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:36 PM:Willow_Springs_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:24:37 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/6/2020 1:24:40 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/6/2020 1:24:40 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/6/2020 1:24:40 PM:Starting OnlineTest Test..
+
+5/6/2020 1:24:40 PM:PASS..
+
+5/6/2020 1:24:40 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM: 
+5/6/2020 1:27:46 PM:****** STARTUP
+5/6/2020 1:27:46 PM:The following serial ports were found:
+5/6/2020 1:27:46 PM:COM6
+5/6/2020 1:27:46 PM:COM7
+5/6/2020 1:27:47 PM:Starting OnlineTest Test..
+
+5/6/2020 1:27:48 PM:PASS..
+
+5/6/2020 1:27:48 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:28:10 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/6/2020 1:28:10 PM:Done  - success: True
+5/6/2020 1:28:10 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/6/2020 1:28:10 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/6/2020 1:28:10 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/6/2020 1:28:10 PM:FOUND!
+5/6/2020 1:28:10 PM:Read [http://racevoice.serveftp.com/tracks.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remotetracks.php]
+5/6/2020 1:28:10 PM:Done  - success: True
+5/6/2020 1:28:10 PM:Area_27.csv,ab4f85470f074bb9a7b4552004ab42b7,November 27 2019 20:41:09
+5/6/2020 1:28:10 PM:Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,April 29 2019 13:16:11
+5/6/2020 1:28:10 PM:Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Calabogie_East.csv,ba0b7162be37675e12c988ebf7840c9e,August 14 2019 12:27:28
+5/6/2020 1:28:10 PM:Calabogie_Full_Course.csv,1af873eb1da0f6d9d2db1877babe49dc,August 14 2019 12:27:28
+5/6/2020 1:28:10 PM:Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,April 29 2019 13:16:11
+5/6/2020 1:28:10 PM:Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,April 29 2019 13:16:11
+5/6/2020 1:28:10 PM:Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Homestead-Miami_RoadCourse_Chicane.csv,8310f004987227235836f33563058342,August 24 2019 18:02:11
+5/6/2020 1:28:10 PM:Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Indianapolis_F1.csv,7f0be5c9943a3ba365f3d372adc26287,August 06 2019 21:42:51
+5/6/2020 1:28:10 PM:Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,July 03 2019 12:49:55
+5/6/2020 1:28:10 PM:Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,April 29 2019 13:27:57
+5/6/2020 1:28:10 PM:Limerock_Park.csv,90c30cc5a3264af220c379178888405d,June 16 2019 15:16:31
+5/6/2020 1:28:10 PM:MSR_Cresson.csv,13e0ff9fbb313d4ec38c383c5c2ae58a,March 07 2020 20:22:39
+5/6/2020 1:28:10 PM:MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Mid_Ohio_Club_Chicane.csv,8cd86f4e5d6eeda840fb6da53673b42d,August 24 2019 18:02:11
+5/6/2020 1:28:10 PM:Mid_Ohio_Sports.csv,7b895a1a29cc51dbfc71c9f27551f329,August 24 2019 18:02:11
+5/6/2020 1:28:10 PM:Mission_Raceway.csv,438e90d95b3d552c306234dbc7ff962f,November 27 2019 20:41:09
+5/6/2020 1:28:10 PM:Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,June 16 2019 16:04:15
+5/6/2020 1:28:10 PM:Mosport_-_Canadian_Tire_Motorsport_Park.csv,1ee625cdffa25f07878c4c5e33531baa,August 14 2019 12:27:38
+5/6/2020 1:28:10 PM:NCM_Grand_Course.csv,9507dab94dad60d24926484a3c196718,September 13 2019 14:26:45
+5/6/2020 1:28:10 PM:NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,April 25 2019 20:09:33
+5/6/2020 1:28:10 PM:New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,April 24 2019 12:26:21
+5/6/2020 1:28:10 PM:Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,April 29 2019 13:27:57
+5/6/2020 1:28:10 PM:Pacific_Raceways.csv,72a8518b249bef876b458088937b9281,August 26 2019 13:07:15
+5/6/2020 1:28:10 PM:Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,April 29 2019 13:16:11
+5/6/2020 1:28:10 PM:Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,May 24 2019 13:21:52
+5/6/2020 1:28:10 PM:Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,April 29 2019 13:27:57
+5/6/2020 1:28:10 PM:Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,May 24 2019 13:21:52
+5/6/2020 1:28:10 PM:Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,April 27 2019 21:09:26
+5/6/2020 1:28:10 PM:Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Watkins_Glen_Short.csv,fb4865afe7bde6aa279ec4b4198e3ac1,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,April 15 2019 21:59:40
+5/6/2020 1:28:10 PM:Local Scan->Area_27.csv,ab4f85470f074bb9a7b4552004ab42b7,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Calabogie_East.csv,ba0b7162be37675e12c988ebf7840c9e,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Calabogie_Full_Course.csv,1af873eb1da0f6d9d2db1877babe49dc,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Homestead-Miami_RoadCourse_Chicane.csv,8310f004987227235836f33563058342,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Indianapolis_F1.csv,7f0be5c9943a3ba365f3d372adc26287,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Limerock_Park.csv,90c30cc5a3264af220c379178888405d,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Mid_Ohio_Club_Chicane.csv,8cd86f4e5d6eeda840fb6da53673b42d,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Mid_Ohio_Sports.csv,7b895a1a29cc51dbfc71c9f27551f329,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Mission_Raceway.csv,438e90d95b3d552c306234dbc7ff962f,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Mosport_-_Canadian_Tire_Motorsport_Park.csv,1ee625cdffa25f07878c4c5e33531baa,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->MSR_Cresson.csv,13e0ff9fbb313d4ec38c383c5c2ae58a,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->NCM_Grand_Course.csv,9507dab94dad60d24926484a3c196718,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Pacific_Raceways.csv,72a8518b249bef876b458088937b9281,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,03/19/2020
+5/6/2020 1:28:10 PM:Local Scan->Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,03/19/2020
+5/6/2020 1:28:11 PM:Local Scan->Watkins_Glen_Short.csv,f525f91485e40bc9525c4c2c664c3ce4,05/05/2020
+5/6/2020 1:28:11 PM:Local Scan->Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,03/19/2020
+5/6/2020 1:28:11 PM:Area_27.csv DATE Local=03/19/2020 vs 11/27/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Arizona_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Atlanta_Motorsport_Park_Kart.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Atlanta_Motorsports_Park_Main.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Auto_Club_Speedway_Sport_Cars.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Autobahn_Country_Club_Full_Circuit.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Barber_Motorsport_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Blackhawk_Farms.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Brainerd_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Brainerd_International_Raceway_Long_Track.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Buttonwillow_Raceway_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Calabogie_East.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Calabogie_Full_Course.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Carolina_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Charlotte_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Chuckwalla_Valley_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Circuit_Of_The_Americas.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Club_Motorsports.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Daytona_International.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Dominion_Raceway.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Exotics_Racing.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Firebird_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Giants_Despair_Hillclimb.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:GingerMan_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Grattan_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Hallett_Motor_Racing_Circuit.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Heartland_Park_Topeka.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:High_Plains_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Homestead-Miami_RoadCourse_Chicane.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Homestead-Miami_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Inde_Motorsport_Ranch.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Indianapolis_F1.csv DATE Local=03/19/2020 vs 08/06/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Indianapolis_GrandPrix.csv DATE Local=03/19/2020 vs 07/03/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Laguna_Seca.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Limerock_Park.csv DATE Local=03/19/2020 vs 06/16/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:MSR_Cresson.csv DATE Local=03/19/2020 vs 03/07/2020 Local Is Newer=True
+5/6/2020 1:28:11 PM:MSR_Houston.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Mid_Ohio_Club_Chicane.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Mid_Ohio_Sports.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Mission_Raceway.csv DATE Local=03/19/2020 vs 11/27/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Mont_Tremblant.csv DATE Local=03/19/2020 vs 06/16/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Mosport_-_Canadian_Tire_Motorsport_Park.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:NCM_Grand_Course.csv DATE Local=03/19/2020 vs 09/13/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:NJMP_Lightning.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:NJMP_Thunderbolt.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:NYST_New_York_Safety_Track.csv DATE Local=03/19/2020 vs 04/25/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:New_Hampshire_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:New_Hampshire_Motor_Speedway_Chicane.csv DATE Local=03/19/2020 vs 04/24/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Nola_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Pacific_Raceways.csv DATE Local=03/19/2020 vs 08/26/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Palm_Beach_International_Raceway.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Palmer_Motorsports_Park.csv DATE Local=03/19/2020 vs 05/24/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Pittsburg_International.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Pocono_Internation_Full.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Pocono_International_North.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Portland_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Pueblo_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Remlap(Palmer)_Motorsports_Park.csv DATE Local=03/19/2020 vs 05/24/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Road_America.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Road_Atlanta.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Roebling_Road.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Sebring_Full_Course.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Silverstone_GP.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Sonoma_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Summit_Point_Shenandoah_NoCarousel.csv DATE Local=03/19/2020 vs 04/27/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Summit_Pointe_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Thompson_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Thunderhill_Long.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Thunderhill_Short.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Virgina_Internation_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Watkins_Glen_Long.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Watkins_Glen_Short.csv DATE Local=05/05/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:11 PM:Willow_Springs_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:28:12 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/6/2020 1:28:15 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/6/2020 1:28:15 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/6/2020 1:28:15 PM:Starting OnlineTest Test..
+
+5/6/2020 1:28:15 PM:PASS..
+
+5/6/2020 1:28:16 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:29:37 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM: 
+5/6/2020 1:29:38 PM:****** STARTUP
+5/6/2020 1:29:38 PM:The following serial ports were found:
+5/6/2020 1:29:38 PM:COM6
+5/6/2020 1:29:38 PM:COM7
+5/6/2020 1:29:39 PM:Starting OnlineTest Test..
+
+5/6/2020 1:29:39 PM:PASS..
+
+5/6/2020 1:29:39 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
+5/6/2020 1:29:41 PM:Read [http://racevoice.serveftp.com/ecus.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remoteecus.php]
+5/6/2020 1:29:41 PM:Done  - success: True
+5/6/2020 1:29:41 PM:spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,January 19 2020 16:45:54
+5/6/2020 1:29:41 PM:Local Scan->spec_racer_ford_gen3.json,621b07786aba2d0aeaa97db9ac5d58f4,01/16/2020
+5/6/2020 1:29:41 PM:ECU Compare spec_racer_ford_gen3.json vs spec_racer_ford_gen3.json
+5/6/2020 1:29:41 PM:FOUND!
+5/6/2020 1:29:41 PM:Read [http://racevoice.serveftp.com/tracks.php] and save to [C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\remotetracks.php]
+5/6/2020 1:29:41 PM:Done  - success: True
+5/6/2020 1:29:42 PM:Area_27.csv,ab4f85470f074bb9a7b4552004ab42b7,November 27 2019 20:41:09
+5/6/2020 1:29:42 PM:Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,April 29 2019 13:16:11
+5/6/2020 1:29:42 PM:Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Calabogie_East.csv,ba0b7162be37675e12c988ebf7840c9e,August 14 2019 12:27:28
+5/6/2020 1:29:42 PM:Calabogie_Full_Course.csv,1af873eb1da0f6d9d2db1877babe49dc,August 14 2019 12:27:28
+5/6/2020 1:29:42 PM:Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,April 29 2019 13:16:11
+5/6/2020 1:29:42 PM:Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,April 29 2019 13:16:11
+5/6/2020 1:29:42 PM:Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Homestead-Miami_RoadCourse_Chicane.csv,8310f004987227235836f33563058342,August 24 2019 18:02:11
+5/6/2020 1:29:42 PM:Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Indianapolis_F1.csv,7f0be5c9943a3ba365f3d372adc26287,August 06 2019 21:42:51
+5/6/2020 1:29:42 PM:Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,July 03 2019 12:49:55
+5/6/2020 1:29:42 PM:Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,April 29 2019 13:27:57
+5/6/2020 1:29:42 PM:Limerock_Park.csv,90c30cc5a3264af220c379178888405d,June 16 2019 15:16:31
+5/6/2020 1:29:42 PM:MSR_Cresson.csv,13e0ff9fbb313d4ec38c383c5c2ae58a,March 07 2020 20:22:39
+5/6/2020 1:29:42 PM:MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Mid_Ohio_Club_Chicane.csv,8cd86f4e5d6eeda840fb6da53673b42d,August 24 2019 18:02:11
+5/6/2020 1:29:42 PM:Mid_Ohio_Sports.csv,7b895a1a29cc51dbfc71c9f27551f329,August 24 2019 18:02:11
+5/6/2020 1:29:42 PM:Mission_Raceway.csv,438e90d95b3d552c306234dbc7ff962f,November 27 2019 20:41:09
+5/6/2020 1:29:42 PM:Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,June 16 2019 16:04:15
+5/6/2020 1:29:42 PM:Mosport_-_Canadian_Tire_Motorsport_Park.csv,1ee625cdffa25f07878c4c5e33531baa,August 14 2019 12:27:38
+5/6/2020 1:29:42 PM:NCM_Grand_Course.csv,9507dab94dad60d24926484a3c196718,September 13 2019 14:26:45
+5/6/2020 1:29:42 PM:NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,April 25 2019 20:09:33
+5/6/2020 1:29:42 PM:New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,April 24 2019 12:26:21
+5/6/2020 1:29:42 PM:Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,April 29 2019 13:27:57
+5/6/2020 1:29:42 PM:Pacific_Raceways.csv,72a8518b249bef876b458088937b9281,August 26 2019 13:07:15
+5/6/2020 1:29:42 PM:Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,April 29 2019 13:16:11
+5/6/2020 1:29:42 PM:Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,May 24 2019 13:21:52
+5/6/2020 1:29:42 PM:Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,April 29 2019 13:27:57
+5/6/2020 1:29:42 PM:Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,May 24 2019 13:21:52
+5/6/2020 1:29:42 PM:Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,April 27 2019 21:09:26
+5/6/2020 1:29:42 PM:Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Watkins_Glen_Short.csv,fb4865afe7bde6aa279ec4b4198e3ac1,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,April 15 2019 21:59:40
+5/6/2020 1:29:42 PM:Local Scan->Area_27.csv,ab4f85470f074bb9a7b4552004ab42b7,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Arizona_Motorsports_Park.csv,111e841793ec4ea9b07cf59e537ae641,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Atlanta_Motorsport_Park_Kart.csv,eb4a1b712670ba98f83bd1c16aafee83,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Atlanta_Motorsports_Park_Main.csv,337f6f7f0e35039970779394e6192d4b,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Auto_Club_Speedway_Sport_Cars.csv,5964e2134d7ed169d8c0aa73b596128d,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Autobahn_Country_Club_Full_Circuit.csv,e807a13de7c7944498ed5ba603368f8b,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Barber_Motorsport_Park.csv,74d81c6c9bd10c493bd8d9dc9d9116e5,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Blackhawk_Farms.csv,6d83b5f9ecc7ff61491c8ea2c18d5823,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Brainerd_International_Raceway.csv,2f6cebfec0afdbdf69a27bdfe22b7b61,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Brainerd_International_Raceway_Long_Track.csv,e80f155422c8d8409e1e2733eae9ad11,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Buttonwillow_Raceway_Park.csv,6d093c043f872d27d84a91ad2ecabbd8,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Calabogie_East.csv,ba0b7162be37675e12c988ebf7840c9e,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Calabogie_Full_Course.csv,1af873eb1da0f6d9d2db1877babe49dc,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Carolina_Motorsports_Park.csv,218ecb2d867df4dc00a577ca2ed25a9c,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Charlotte_Motor_Speedway.csv,2591cccfcf43d5d9ebc3b219f8e31ccc,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Chuckwalla_Valley_Raceway.csv,10473e01eb362f55e836dd356ac60e42,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Circuit_Of_The_Americas.csv,b62a3322400a0025ed187ffeca545026,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Club_Motorsports.csv,f889ed2dbc2442ffca66e021dae8c7aa,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Daytona_International.csv,3600a2b80311b209c96ef331b2aff602,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Dominion_Raceway.csv,ccd48fd35ae5b426f2a1e2749b6c09bc,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Exotics_Racing.csv,92d6053024b4adfdc86accf782f200cc,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Firebird_International_Raceway.csv,7d069dba25276fa0642893bb1e3024e7,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Giants_Despair_Hillclimb.csv,28b6638db16ac0a2ba4e2ae23f660ca7,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->GingerMan_Raceway.csv,e5b84847fe48ad1c3a1767abc3a3fe65,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Grattan_Raceway.csv,bb0f266184055c0796d158005ef4e229,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Hallett_Motor_Racing_Circuit.csv,7b9cc2589780e39687951b00727b93b5,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Heartland_Park_Topeka.csv,fbc4809c2bccd59110236ba5f17457f6,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->High_Plains_Raceway.csv,7edba792169c2fc0c2f5719b4c3829c0,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Homestead-Miami_RoadCourse_Chicane.csv,8310f004987227235836f33563058342,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Homestead-Miami_Speedway.csv,d45810492255519be94c1ad3e43ed7e4,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Inde_Motorsport_Ranch.csv,d03315f42c5d18c65078dd3accf2b953,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Indianapolis_F1.csv,7f0be5c9943a3ba365f3d372adc26287,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Indianapolis_GrandPrix.csv,e601a3f66160b99c8ba2727824425862,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Laguna_Seca.csv,e26aa8b83a5496a80b7eace636523526,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Limerock_Park.csv,90c30cc5a3264af220c379178888405d,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Mid_Ohio_Club_Chicane.csv,8cd86f4e5d6eeda840fb6da53673b42d,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Mid_Ohio_Sports.csv,7b895a1a29cc51dbfc71c9f27551f329,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Mission_Raceway.csv,438e90d95b3d552c306234dbc7ff962f,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Mont_Tremblant.csv,25e90b92922cd7527d04b88adfcaa637,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Mosport_-_Canadian_Tire_Motorsport_Park.csv,1ee625cdffa25f07878c4c5e33531baa,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->MSR_Cresson.csv,13e0ff9fbb313d4ec38c383c5c2ae58a,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->MSR_Houston.csv,f28ea02f3ac43ffb9e2e1a27a2001b22,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->NCM_Grand_Course.csv,9507dab94dad60d24926484a3c196718,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->New_Hampshire_Motor_Speedway.csv,03a09885969da2139df684804f11b76c,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->New_Hampshire_Motor_Speedway_Chicane.csv,5a3f55998e88bc312453c25ef17f1dec,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->NJMP_Lightning.csv,caaffe6e3671131a79d197d1bd2bcfbd,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->NJMP_Thunderbolt.csv,b24ff95ccf650cdeb8445f9144cbe5e5,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Nola_Motorsports_Park.csv,4eb8a65217c95e671ba61867ac312812,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->NYST_New_York_Safety_Track.csv,48ea671b4c0208b1c0dddbf53ef9f301,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Pacific_Raceways.csv,72a8518b249bef876b458088937b9281,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Palm_Beach_International_Raceway.csv,ba617d17953b51ab701167f2e1bc1872,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Palmer_Motorsports_Park.csv,d0cf3cd1c951882801889fec3316decd,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Pittsburg_International.csv,fd67cd099cdede4a5ccd9a8b3d8cce8c,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Pocono_Internation_Full.csv,21461e160db1d5b3ae30f9b66a42d491,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Pocono_International_North.csv,949e88db495324b80d72980ee3c3f3d5,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Portland_International_Raceway.csv,173f2aeee041dedf72852196f179e31f,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Pueblo_Motorsports_Park.csv,c04cdab85cb7047c4524968d3b5d6511,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Remlap(Palmer)_Motorsports_Park.csv,f4bc3861255168694f07ea72d5f324cc,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Road_America.csv,d9d07d36e64eec3ae190e03e587e8092,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Road_Atlanta.csv,c34dfff19dc25f9cb57b98132182f6d2,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Roebling_Road.csv,a76aeb9bb95629f6880d87b0406521c1,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Sebring_Full_Course.csv,89da3e1bc0250ab629e11a1a0437f26b,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Silverstone_GP.csv,d401ab4a2d990b7bf2340d3f9a1db3b6,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Sonoma_Raceway.csv,3403bf850350a971d81096ae0437634b,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Summit_Point_Shenandoah_NoCarousel.csv,dddd42209451d1e03d891392da40a0e6,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Summit_Pointe_Raceway.csv,495f67eb3b5a030e4f188ac5bcf8d3ed,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Thompson_Motor_Speedway.csv,8727d10dba5e9da1b886651bd4e72f89,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Thunderhill_Long.csv,c60a366fb489f04a72d7f5e001f60e0e,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Thunderhill_Short.csv,7154b1a863da5552f0c9aff87662def2,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Virgina_Internation_Raceway.csv,76f0325474b21fd6d6c2f2be3a0b72b9,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Watkins_Glen_Long.csv,36786ed5b3e8b9aa441625efc0e5d399,03/19/2020
+5/6/2020 1:29:42 PM:Local Scan->Watkins_Glen_Short.csv,f525f91485e40bc9525c4c2c664c3ce4,05/05/2020
+5/6/2020 1:29:42 PM:Local Scan->Willow_Springs_International_Raceway.csv,f6f96aef4ae111dbfc2115c6de3ebc34,03/19/2020
+5/6/2020 1:29:43 PM:Area_27.csv DATE Local=03/19/2020 vs 11/27/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Arizona_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Atlanta_Motorsport_Park_Kart.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Atlanta_Motorsports_Park_Main.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Auto_Club_Speedway_Sport_Cars.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Autobahn_Country_Club_Full_Circuit.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Barber_Motorsport_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Blackhawk_Farms.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Brainerd_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Brainerd_International_Raceway_Long_Track.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Buttonwillow_Raceway_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Calabogie_East.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Calabogie_Full_Course.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Carolina_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Charlotte_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Chuckwalla_Valley_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Circuit_Of_The_Americas.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Club_Motorsports.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Daytona_International.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Dominion_Raceway.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Exotics_Racing.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Firebird_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Giants_Despair_Hillclimb.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:GingerMan_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Grattan_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Hallett_Motor_Racing_Circuit.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Heartland_Park_Topeka.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:High_Plains_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Homestead-Miami_RoadCourse_Chicane.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Homestead-Miami_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Inde_Motorsport_Ranch.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Indianapolis_F1.csv DATE Local=03/19/2020 vs 08/06/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Indianapolis_GrandPrix.csv DATE Local=03/19/2020 vs 07/03/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Laguna_Seca.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Limerock_Park.csv DATE Local=03/19/2020 vs 06/16/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:MSR_Cresson.csv DATE Local=03/19/2020 vs 03/07/2020 Local Is Newer=True
+5/6/2020 1:29:43 PM:MSR_Houston.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Mid_Ohio_Club_Chicane.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Mid_Ohio_Sports.csv DATE Local=03/19/2020 vs 08/24/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Mission_Raceway.csv DATE Local=03/19/2020 vs 11/27/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Mont_Tremblant.csv DATE Local=03/19/2020 vs 06/16/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Mosport_-_Canadian_Tire_Motorsport_Park.csv DATE Local=03/19/2020 vs 08/14/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:NCM_Grand_Course.csv DATE Local=03/19/2020 vs 09/13/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:NJMP_Lightning.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:NJMP_Thunderbolt.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:NYST_New_York_Safety_Track.csv DATE Local=03/19/2020 vs 04/25/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:New_Hampshire_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:New_Hampshire_Motor_Speedway_Chicane.csv DATE Local=03/19/2020 vs 04/24/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Nola_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Pacific_Raceways.csv DATE Local=03/19/2020 vs 08/26/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Palm_Beach_International_Raceway.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Palmer_Motorsports_Park.csv DATE Local=03/19/2020 vs 05/24/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Pittsburg_International.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Pocono_Internation_Full.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Pocono_International_North.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Portland_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Pueblo_Motorsports_Park.csv DATE Local=03/19/2020 vs 04/29/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Remlap(Palmer)_Motorsports_Park.csv DATE Local=03/19/2020 vs 05/24/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Road_America.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Road_Atlanta.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Roebling_Road.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Sebring_Full_Course.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Silverstone_GP.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Sonoma_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Summit_Point_Shenandoah_NoCarousel.csv DATE Local=03/19/2020 vs 04/27/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Summit_Pointe_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Thompson_Motor_Speedway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Thunderhill_Long.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Thunderhill_Short.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Virgina_Internation_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Watkins_Glen_Long.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Watkins_Glen_Short.csv DATE Local=05/05/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Willow_Springs_International_Raceway.csv DATE Local=03/19/2020 vs 04/15/2019 Local Is Newer=True
+5/6/2020 1:29:43 PM:Load Track:Tracks\Watkins_Glen_Short.csv
+5/6/2020 1:29:46 PM:Could not find file 'C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\uploads.txt'.
+5/6/2020 1:29:46 PM:Parse ECU File->ECUs\spec_racer_ford_gen3.json
+5/6/2020 1:29:46 PM:Starting OnlineTest Test..
+
+5/6/2020 1:29:47 PM:PASS..
+
+5/6/2020 1:29:47 PM:UUID==Q0TWB0-YW3E3X-GJD6YC-14R1O7R
