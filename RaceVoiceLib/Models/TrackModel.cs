@@ -137,7 +137,7 @@ namespace RaceVoice
             Console.WriteLine("Distance from Start-Finish to Index" + posidx + " Is " + dist +" Percent="+pct);
             return pct;
         }
-        public void CalculateDistances(int maxseg,int maxsplit)
+        public void CalculateDistances(int maxseg,int maxsplit,int maxtags)
         {
 
             for (int i = 0; i < maxseg; i++)
@@ -170,10 +170,25 @@ namespace RaceVoice
 
 
             }
+
+            for (int i = 0; i < maxtags; i++)
+            {
+                Waypoint waypoint = new Waypoint();
+                if (i<SpeechTags.Count)
+                {
+                    var split = SpeechTags[i];
+                    waypoint = GetSpeechWaypoint(split);
+                    Console.WriteLine("Speech " + i.ToString() + " Distace=" + split.Distance+" Tag="+split.Phrase);
+                    SpeechTags[i].Distance = CalcDistance(split.Index);
+                }
+
+
+            }
+
         }
 
 
-            public IList<Waypoint> GetSegmentWaypoints(TrackSegment segment)
+        public IList<Waypoint> GetSegmentWaypoints(TrackSegment segment)
         {
             return Waypoints.Skip(segment.StartIndex)
                 .Take(segment.EndIndex - segment.StartIndex)
@@ -183,6 +198,11 @@ namespace RaceVoice
         public Waypoint GetSplitWaypoint(TrackSplit split)
         {
             return Waypoints[split.Index];
+        }
+
+        public Waypoint GetSpeechWaypoint(TrackSpeechTag tag)
+        {
+            return Waypoints[tag.Index];
         }
     }
 }

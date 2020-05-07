@@ -71,6 +71,7 @@ namespace RaceVoice
         public static string expire_time = "";
         public static int license_days_left = 0;
         public static bool all_stop = false;
+        public static int last_dash = -1;
 
         public enum FeatureState
         {

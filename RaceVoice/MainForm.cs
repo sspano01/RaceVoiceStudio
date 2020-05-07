@@ -1353,7 +1353,6 @@ namespace RaceVoice
 
         private void sendConfigButton(object sender, EventArgs e)
         {
-
             if (globals.iracing_mode)
             {
                 if (globals.AllowIracing())
@@ -1788,6 +1787,26 @@ namespace RaceVoice
                 }
             }
             else globals.iracing_mode = false;
+
+            if (globals.iracing_mode)
+            {
+                if (globals.last_dash >= 0)
+                {
+                    if (globals.last_dash!=cmbEcuType.SelectedIndex)
+                    {
+                        try
+                        {
+                            irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                        }
+                        catch (Exception ee)
+                        {
+                            MessageBox.Show(ee.Message);
+                        }
+                    }
+
+                }
+            }
+            globals.last_dash = cmbEcuType.SelectedIndex;
 
             if (globals.terminal) terminalToolStripMenuItem.Visible = true;
             if (globals.license_feature == (int)globals.FeatureState.LITE)
@@ -2233,7 +2252,7 @@ namespace RaceVoice
                     _trackModel.Segments[i].Hidden = bits == 0;
                 }
             }
-            _trackModel.CalculateDistances(globals.MAX_SEGMENTS,globals.MAX_SPLITS);
+            _trackModel.CalculateDistances(globals.MAX_SEGMENTS,globals.MAX_SPLITS,globals.MAX_SPEECH_TAGS);
 #endif
             var rendererSettings = new TrackRendererSettings(_trackMetadata.ClusterSize)
             {
@@ -2289,14 +2308,18 @@ namespace RaceVoice
 
             _trackFile = filename;
             ReRender();
+            globals.last_dash = (int)_carMetadata.EngineData.EcuType;
             btnSaveTrack.Enabled = false;
             globals.AllowIracing();
             irace.LicenseMessage(false);
             if (globals.AllowIracing())
-            {
+            { 
                 try
                 {
-                    irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                    if (globals.iracing_mode)
+                    {
+                        irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                    }
                 }
                 catch (Exception ee)
                 {
@@ -2320,6 +2343,7 @@ namespace RaceVoice
                 }
 
             }
+
 
 #endif
         }

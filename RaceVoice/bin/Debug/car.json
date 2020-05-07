@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 6,
-    "EcuName": "Standalone Mode",
+    "EcuType": 8,
+    "EcuName": "iRacing PC Mode",
     "OverRevEnabled": false,
     "OverRev": 8000,
     "ShiftNotificationType": 0,

@@ -44,7 +44,9 @@ namespace RaceVoice
         class iracing
     {
         private readonly SdkWrapper wrapper;
+#if (UDP)
         private UdpClient Udp;
+#endif
         private static System.Timers.Timer timer;
         private static IPEndPoint BroadcastEP = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 90);
         private IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
@@ -54,6 +56,8 @@ namespace RaceVoice
         //private StreamReader sr;
         private bool sdk_on = false;
 
+        [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        static extern void DLLDebug(int mode);
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void DLLPushMessage(byte[] msg,int ln);
 
@@ -71,6 +75,9 @@ namespace RaceVoice
 
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void DLLSetupSplit(int slot, int enable, int distance);
+
+        [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        static extern void DLLSetupSpeechTags(int slot, int enable, int distance,byte[] tag);
 
         private bool configured = false;
 
@@ -102,6 +109,7 @@ namespace RaceVoice
                 DLLPushMessage(db, db.Length);
 
             }
+            //DLLDebug(1);
             DLLSetup((int)CMD.RESET, 0);
 
             carMetadata.DynamicsData.AnnounceSpeed = true;
@@ -129,6 +137,17 @@ namespace RaceVoice
                 DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
             }
 
+            for (int slot = 0; slot < track.Splits.Count(); slot++)
+            {
+                DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
+            }
+
+            for (int slot = 0; slot < track.SpeechTags.Count(); slot++)
+            {
+                byte[] sb = Encoding.ASCII.GetBytes(track.SpeechTags[slot].Phrase);
+                DLLSetupSpeechTags(slot, NBTOI(track.SpeechTags[slot].Hidden), track.SpeechTags[slot].Distance,sb);
+            }
+
             configured = true;
 
             voice.Speak(trackdata.TrackName+ " is configured");
@@ -143,12 +162,13 @@ namespace RaceVoice
             //DLLCloseFiles();
 
 
+#if (UDP)
             Udp = new UdpClient();
             Udp.ExclusiveAddressUse = false;
             Udp.EnableBroadcast = true;
             Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
-
+#endif
             timer = new System.Timers.Timer();
             timer.Interval = 30;
 
