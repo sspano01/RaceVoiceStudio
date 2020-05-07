@@ -90,6 +90,7 @@ namespace RaceVoice
         private Queue<string> speech_queue = new Queue<string>();
 
         private int last_dist = 0;
+        private int speech_rate = 2;
         private int BTOI(bool val)
         {
             if (val) return 1; else return 0;
@@ -112,8 +113,8 @@ namespace RaceVoice
             //DLLDebug(1);
             DLLSetup((int)CMD.RESET, 0);
 
-            carMetadata.DynamicsData.AnnounceSpeed = true;
-            carMetadata.DynamicsData.SpeedThreshold = 105;
+            //carMetadata.DynamicsData.AnnounceSpeed = true;
+            //carMetadata.DynamicsData.SpeedThreshold = 105;
             DLLSetup((int)CMD.SETUP_MPH_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceSpeed));
             DLLSetup((int)CMD.SETUP_MPH, carMetadata.DynamicsData.SpeedThreshold);
 
@@ -149,7 +150,7 @@ namespace RaceVoice
             }
 
             configured = true;
-
+            voice.Rate = 0;
             voice.Speak(trackdata.TrackName+ " is configured");
 
         }
@@ -176,8 +177,7 @@ namespace RaceVoice
             timer.AutoReset = true;
 
             voice.Volume = 100;
-            ////voice.Rate = 2;
-
+            voice.Rate = speech_rate;
             Thread threadS = new Thread(new ThreadStart(SpeechIt));
             threadS.Start();
             if (!play)
@@ -270,8 +270,18 @@ namespace RaceVoice
                     {
                         Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
                         string msg = speech_msg.ToString();
-                        speech_queue.Enqueue(msg);
-
+                        if (msg.Contains("MPH:"))
+                        {
+                            // don't stack up the MPH announcements
+                            if (speech_queue.Count==0)
+                            {
+                                speech_queue.Enqueue(msg);
+                            }
+                        }
+                        else
+                        {
+                            speech_queue.Enqueue(msg);
+                        }
                     }
                 }
             }
@@ -289,6 +299,14 @@ namespace RaceVoice
                 if (speech_queue.Count>0)
                 {
                     string ele = speech_queue.Peek();
+                    
+                    if (ele.Contains("MPH:"))
+                    {
+                        string[] msplit = ele.Split(':');
+                        ele = msplit[1];
+                    }
+
+                    voice.Rate = speech_rate;
                     voice.Speak(ele);
                     speech_queue.Dequeue();
                     Console.WriteLine(ele);
