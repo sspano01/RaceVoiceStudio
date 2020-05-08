@@ -17,6 +17,7 @@ using System.Threading;
 using System.Speech.Synthesis;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic.Logging;
 
 //https://stackoverflow.com/questions/4844581/how-do-i-make-a-udp-server-in-c
 //https://stackoverflow.com/questions/20038943/simple-udp-example-to-send-and-receive-data-from-same-socket
@@ -44,9 +45,7 @@ namespace RaceVoice
         class iracing
     {
         private readonly SdkWrapper wrapper;
-#if (UDP)
         private UdpClient Udp;
-#endif
         private static System.Timers.Timer timer;
         private static IPEndPoint BroadcastEP = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 90);
         private IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
@@ -81,10 +80,9 @@ namespace RaceVoice
 
         private bool configured = false;
 
-        //private string xpath = @"c:\\temp\\telemetry.txt";
-        
-        //private string xplaypath = @"c:\\temp\\short_course.txt";
-
+        private bool logging = false;
+        private string log_path = @"c:\\temp\\irace_data_log.txt";
+        private StreamWriter logfile;
         private bool play = false;
         private bool running = false;
         private Queue<string> speech_queue = new Queue<string>();
@@ -162,14 +160,28 @@ namespace RaceVoice
             //DLLPushMessage(db,db.Length);
             //DLLCloseFiles();
 
+            if (globals.irace_data_log)
+            {
+                try
+                {
+                    logfile = new StreamWriter(log_path, true);
+                    logging = true;
+                }
+                catch (Exception ee)
+                {
+                    globals.WriteLine(ee.Message);
+                }
 
-#if (UDP)
-            Udp = new UdpClient();
-            Udp.ExclusiveAddressUse = false;
-            Udp.EnableBroadcast = true;
-            Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
-#endif
+            }
+            if (globals.irace_udp_send)
+            {
+                Udp = new UdpClient();
+                Udp.ExclusiveAddressUse = false;
+                Udp.EnableBroadcast = true;
+                Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
+            }
+
             timer = new System.Timers.Timer();
             timer.Interval = 30;
 
@@ -180,17 +192,11 @@ namespace RaceVoice
             voice.Rate = speech_rate;
             Thread threadS = new Thread(new ThreadStart(SpeechIt));
             threadS.Start();
-            if (!play)
-            {
+
+            if (globals.irace_udp_recv)
+            { 
                 Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
-                //thread.Start();
-                // Start it!
-                //sw = File.CreateText(path);
-                //sw.Close();
-            }
-            else
-            {
-               // sr = File.OpenText(playpath);
+                thread.Start();
             }
 
             // Create instance
@@ -212,7 +218,7 @@ namespace RaceVoice
         {
         }
 
-        private void process(string indata,bool asis)
+        private void process(string indata)
         {
             try
             {
@@ -220,47 +226,30 @@ namespace RaceVoice
                 int dist = 0;
                 double mph;
                 double tps;
+                double latg;
+                double psi;
                 string[] sp = indata.Split(',');
 
+                if (logging)
+                {
+                    logfile.WriteLineAsync(indata);
+                }
                 //sp[2] = "50";
                 //sp[3] = "1";
                 //sp[0] = "5000";
 
                 ln = "distance=" + sp[1];
-               // Console.WriteLine(ln);
-                if (!asis)
-                {
-                    dist = Convert.ToInt32(Convert.ToDouble(sp[1])*100);
-                    //dist = Convert.ToInt32(Convert.ToDouble(sp[1]) * 3.4);
-                    mph = Convert.ToDouble(sp[2]);
-                    mph *= 2.25; // wtf??
-                    tps = Convert.ToDouble(sp[3]) * 100;
-                }
-                else
-                {
-                    dist = Convert.ToInt32(sp[1]);
-                    mph = Convert.ToDouble(sp[2]);
-                    tps = Convert.ToDouble(sp[3]);
-
-                }
+                dist = Convert.ToInt32(Convert.ToDouble(sp[1])*100);
+                mph = Convert.ToDouble(sp[2]) * 2.23694; // scale from m/s to mph
+                tps = Convert.ToDouble(sp[3]) * 100; // scale from 0 to 100%
+                latg = Convert.ToDouble(sp[5]) * 9.8*100; // this is m/s2 so covert to g and then scale up 100x so its 3-digit signed integer
+                psi = Convert.ToDouble(sp[6])*1000; // scale all PSI from 0 to 1000
+ 
                 //if (dist == last_dist) return;
                 last_dist = dist;
-                indata = sp[0] + "," + dist + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(tps) + "," + sp[4];
+                indata = sp[0] + "," + dist + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(tps) + "," + sp[4] + "," + Convert.ToInt32(latg) + "," + Convert.ToInt32(psi); ;
 
-                ln = "RPM=" + sp[0] + "  DISTANCE=" + dist + "  MPH=" + mph + "  TPS=" + Convert.ToInt32(tps) + "  LAP=" + sp[4];
-                if (!play)
-                {
-                     Console.WriteLine(ln);
-                    //sw = File.AppendText(path);
-                    //sw.WriteLine(ln);
-                    //sw.Close();
-                }
-                else
-                {
-                    // Console.WriteLine(ln);
-                }
-
-               // Console.WriteLine(ln);
+                ln = "RPM=" + sp[0] + "  DISTANCE=" + dist + "  MPH=" + mph + "  TPS=" + Convert.ToInt32(tps) + "  LAP=" + sp[4] + "  Latg=" + sp[5] + " " + "Brake=" + sp[6];
                 byte[] db = Encoding.ASCII.GetBytes(indata);
                 if (configured)
                 {
@@ -337,7 +326,7 @@ namespace RaceVoice
                     // Blocks until a message returns on this socket from a remote host.
                     Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                     string indata = Encoding.ASCII.GetString(receiveBytes);
-                    process(indata,false);
+                    process(indata);
                     
                     //voice.SpeakAsync("HELLO!!!");
                     //voice.SpeakAsync(indata);
@@ -396,25 +385,28 @@ namespace RaceVoice
             sdk_on = true;
         }
 
-        private void SendUDP(float rpm, float distance, float mph, float tps,float  lapnum)
+        private void SendUDP(float rpm, float distance, float mph, float tps,float  lapnum,float latg, float psi)
         {
             try
             {
                 string telem = "";
-                telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum);
-                process(telem,false);
-                globals.iracing_telemetry = true;
-                globals.irace_hb++;
-                if (globals.irace_hb >= 100) globals.irace_hb = 0;
-                return;
+                telem = Convert.ToString(rpm) + "," + Convert.ToString(distance) + "," + Convert.ToString(mph) + "," + Convert.ToString(tps) + "," + Convert.ToString(lapnum)+","+Convert.ToString(latg)+","+Convert.ToString(psi);
 
-                //sw = File.AppendText(path);
-                //sw.WriteLine(telem);
-                //process(telem);
-                //globals.WriteLine(telem);
-                //byte[] data = Encoding.ASCII.GetBytes(telem);
-                //int bt=Udp.Send(data, data.Length,BroadcastEP);
-                //globals.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
+                if (globals.irace_udp_send)
+                {
+
+                    byte[] data = Encoding.ASCII.GetBytes(telem);
+                    int bt=Udp.Send(data, data.Length,BroadcastEP);
+                    //globals.WriteLine("SEND->" + telem+" Bytes on wire="+bt);
+
+                }
+                else
+                {
+                    process(telem);
+                    globals.iracing_telemetry = true;
+                    globals.irace_hb++;
+                    if (globals.irace_hb >= 100) globals.irace_hb = 0;
+                }
             }
             catch (Exception ee)
             {
@@ -431,6 +423,17 @@ namespace RaceVoice
         public void LicenseMessage(bool check)
         {
             string msg;
+
+            if (globals.iracing_node_error)
+            {
+                msg = "Sorry, RaceVoiceSIM is not Licensed for this computer.\r\n";
+                msg += "Current Computer = " + globals.theUUID+"\r\n";
+                msg +=" Licensed Computer = "+globals.iracing_node + "\r\n"; ;
+                msg += "Please contact RaceVoice to discuss licensing an additional computer or moving a license.";
+                MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+
+            }
             if (globals.license_days_left >= 15)
             {
                 if (check)
@@ -477,8 +480,10 @@ namespace RaceVoice
                 float mph = e.TelemetryInfo.Speed.Value;
                 float lapnum = e.TelemetryInfo.Lap.Value;
                 float tps = e.TelemetryInfo.Throttle.Value;
+                float latg = e.TelemetryInfo.LatAccel.Value;
+                float psi = e.TelemetryInfo.Brake.Value;
 
-                SendUDP(rpm, distance, mph, tps, lapnum);
+                SendUDP(rpm, distance, mph, tps, lapnum,latg,psi);
                // if (!gottel) voice.Speak("Telemtry Running");
 
             }

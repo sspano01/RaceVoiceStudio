@@ -27,7 +27,7 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "05-07-2020-A1";
+        public static string UIVersion = "05-08-2020-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -69,9 +69,15 @@ namespace RaceVoice
         public static int MAX_TRACK_NAME = 48;
         public static string network_time="";
         public static string expire_time = "";
+        public static string iracing_node = "";
+        public static bool iracing_node_error = false;
         public static int license_days_left = 0;
         public static bool all_stop = false;
         public static int last_dash = -1;
+
+        public static bool irace_udp_send = false;
+        public static bool irace_udp_recv = false;
+        public static bool irace_data_log = false;
 
         public enum FeatureState
         {
@@ -431,6 +437,25 @@ namespace RaceVoice
                 license_days_left = (int)remain;
 
                 if (license_days_left <= 0) return false;
+
+                if (globals.iracing_node.ToUpper().Contains("ALL"))
+                {
+                    globals.iracing_node_error = false;
+                    return true;
+                }
+                else
+                {
+                    if (globals.theUUID.ToUpper().Contains(globals.iracing_node.ToUpper()) == false)
+                    {
+                        globals.iracing_node_error = true;
+                    }
+                    else
+                    {
+                        globals.iracing_node_error = false;
+                        return true;
+                    }
+                }
+                return false;
 
             }
             return yes;
