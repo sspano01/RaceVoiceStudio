@@ -39,8 +39,8 @@ namespace RaceVoice
         public static bool first_connected = false;
         public static bool no_unit_check =true;
         public static string forcePort = "";
-        public static bool no_track_check =false;
-        public static bool no_license_check = false;
+        public static bool no_track_check = true;
+        public static bool no_license_check = true;
         public static bool terminal = false;
 
         public static bool disabled_charts = false;
@@ -77,7 +77,7 @@ namespace RaceVoice
 
         public static bool irace_udp_send = false;
         public static bool irace_udp_recv = false;
-        public static bool irace_data_log = false;
+        public static bool irace_data_log = true;
 
         public enum FeatureState
         {
@@ -420,6 +420,8 @@ namespace RaceVoice
         public static bool AllowIracing()
         {
             bool yes = false;
+            if (globals.no_license_check) return true;
+
             if (globals.license_feature==(int)globals.FeatureState.FULL_IRACING)
             {
                 yes = true;

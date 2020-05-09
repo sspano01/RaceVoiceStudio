@@ -232,7 +232,7 @@ namespace RaceVoice
 
                 if (logging)
                 {
-                    logfile.WriteLineAsync(indata);
+                    logfile.WriteLine(indata);
                 }
                 //sp[2] = "50";
                 //sp[3] = "1";
@@ -242,7 +242,7 @@ namespace RaceVoice
                 dist = Convert.ToInt32(Convert.ToDouble(sp[1])*100);
                 mph = Convert.ToDouble(sp[2]) * 2.23694; // scale from m/s to mph
                 tps = Convert.ToDouble(sp[3]) * 100; // scale from 0 to 100%
-                latg = Convert.ToDouble(sp[5]) * 9.8*100; // this is m/s2 so covert to g and then scale up 100x so its 3-digit signed integer
+                latg = Convert.ToDouble(sp[5]) * 0.101 *100; // this is m/s2 so covert to g and then scale up 100x so its 3-digit signed integer
                 psi = Convert.ToDouble(sp[6])*1000; // scale all PSI from 0 to 1000
  
                 //if (dist == last_dist) return;
@@ -424,6 +424,8 @@ namespace RaceVoice
         {
             string msg;
 
+            if (globals.no_license_check) return;
+
             if (globals.iracing_node_error)
             {
                 msg = "Sorry, RaceVoiceSIM is not Licensed for this computer.\r\n";
@@ -481,7 +483,7 @@ namespace RaceVoice
                 float lapnum = e.TelemetryInfo.Lap.Value;
                 float tps = e.TelemetryInfo.Throttle.Value;
                 float latg = e.TelemetryInfo.LatAccel.Value;
-                float psi = e.TelemetryInfo.Brake.Value;
+                float psi = e.TelemetryInfo.Brake.Value; 
 
                 SendUDP(rpm, distance, mph, tps, lapnum,latg,psi);
                // if (!gottel) voice.Speak("Telemtry Running");
