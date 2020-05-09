@@ -52,6 +52,7 @@ namespace RaceVoice
 
 #if (!APP)
         private Image _chequeredFlagImage;
+        private Image _carImage;
         private static StringFormat _splitStringFormat;
         private static StringFormat _segmentStringFormat;
         private static StringFormat _speechTagStringFormat;
@@ -95,6 +96,7 @@ namespace RaceVoice
 
 #if !APP
             _chequeredFlagImage = Image.FromFile(_settings.ChequeredFlagImage);
+            _carImage = Image.FromFile(_settings.carImage);
 #endif
             Zoom = 1f;
         }
@@ -449,7 +451,8 @@ namespace RaceVoice
 #if APP
         public void Render(SkiaSharp.SKCanvas g, SKImageInfo info)
 #else
-        public void Render(Bitmap renderTarget)
+       
+       public void Render(Bitmap renderTarget)
 #endif
         {
             if (_transformedSegments == null)
@@ -660,12 +663,35 @@ namespace RaceVoice
                     }
                 }
 
+
                 var flagDirection = new PointF(_transformedTrack[_model.FlagPosition + 1].X - _transformedTrack[_model.FlagPosition].X, _transformedTrack[_model.FlagPosition + 1].Y - _transformedTrack[_model.FlagPosition].Y);
                 var flagRotation = Math.Atan2(flagDirection.Y, flagDirection.X);
                 g.TranslateTransform(_transformedTrack[_model.FlagPosition].X, _transformedTrack[_model.FlagPosition].Y);
                 g.RotateTransform((float)((flagRotation + (Math.PI / 2)) * RAD2DEG));
                 g.DrawImage(_chequeredFlagImage, (-_chequeredFlagImage.Width * Zoom / 2) + (_settings.TrackThickness * Zoom / 2), -_chequeredFlagImage.Height * Zoom / 2, _chequeredFlagImage.Width * Zoom, _chequeredFlagImage.Height * Zoom);
                 g.ResetTransform();
+
+                if (globals.irace_track_distance > 0)
+                {
+                    int xp = _transformedTrack.Length * globals.irace_track_distance / 100;
+                    int yp = _transformedTrack.Length * globals.irace_track_distance / 100;
+                    if (xp >= _transformedTrack.Length) xp = _transformedTrack.Length - 1;
+                    if (yp >= _transformedTrack.Length) yp = _transformedTrack.Length - 1;
+
+                    int pxp = _transformedTrack.Length * globals.irace_track_distance / 100;
+                    int pyp = _transformedTrack.Length * globals.irace_track_distance / 100;
+                    if (pxp >= (_transformedTrack.Length-2)) pxp = _transformedTrack.Length - 2;
+                    if (pyp >= (_transformedTrack.Length-2)) pyp = _transformedTrack.Length - 2;
+
+
+                    var posDirection = new PointF(_transformedTrack[pxp+1].X - _transformedTrack[pxp].X, _transformedTrack[pyp+1].Y - _transformedTrack[pyp].Y);
+                    var posRotation = Math.Atan2(posDirection.Y, posDirection.X);
+
+                    g.TranslateTransform(_transformedTrack[xp].X, _transformedTrack[yp].Y);
+                    g.RotateTransform((float)((posRotation + (Math.PI / 2)) * RAD2DEG));
+                    g.DrawImage(_carImage, (-_carImage.Width * Zoom / 2) + (_settings.TrackThickness * Zoom / 2), -_carImage.Height * Zoom / 2, _carImage.Width * Zoom, _carImage.Height * Zoom);
+                    g.ResetTransform();
+                }
 
                 for (int i = 0; i < _model.Segments.Count; i++)
                 {

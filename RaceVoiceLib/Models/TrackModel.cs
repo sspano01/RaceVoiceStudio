@@ -137,6 +137,7 @@ namespace RaceVoice
             Console.WriteLine("Distance from Start-Finish to Index" + posidx + " Is " + dist +" Percent="+pct);
             return pct;
         }
+
         public void CalculateDistances(int maxseg,int maxsplit,int maxtags)
         {
 

@@ -30,6 +30,7 @@ namespace RaceVoice
         public int MouseIndicatorSize { get; set; }
 
         public string ChequeredFlagImage { get; set; }
+        public string carImage { get; set; }
 
         public bool UseCurveRendering { get; set; }
 

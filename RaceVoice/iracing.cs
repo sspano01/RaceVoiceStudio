@@ -51,8 +51,6 @@ namespace RaceVoice
         private IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
         private float[] va = new float[10];
         private SpeechSynthesizer voice = new SpeechSynthesizer();
-        //private StreamWriter sw;
-        //private StreamReader sr;
         private bool sdk_on = false;
 
         [DllImport("RaceVoiceDLL.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -83,7 +81,11 @@ namespace RaceVoice
         private bool logging = false;
         private string log_path = @"c:\\temp\\irace_data_log.txt";
         private StreamWriter logfile;
+
+        private string playpath = @"c:\\temp\\irace_limerock.txt";
+        private StreamReader sr;
         private bool play = false;
+        
         private bool running = false;
         private Queue<string> speech_queue = new Queue<string>();
 
@@ -250,6 +252,9 @@ namespace RaceVoice
                 indata = sp[0] + "," + dist + "," + Convert.ToInt32(mph) + "," + Convert.ToInt32(tps) + "," + sp[4] + "," + Convert.ToInt32(latg) + "," + Convert.ToInt32(psi); ;
 
                 ln = "RPM=" + sp[0] + "  DISTANCE=" + dist + "  MPH=" + mph + "  TPS=" + Convert.ToInt32(tps) + "  LAP=" + sp[4] + "  Latg=" + sp[5] + " " + "Brake=" + sp[6];
+                globals.irace_track_distance = dist;
+                if (play) Console.WriteLine(ln);
+                  
                 byte[] db = Encoding.ASCII.GetBytes(indata);
                 if (configured)
                 {
@@ -259,7 +264,7 @@ namespace RaceVoice
                     {
                         Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
                         string msg = speech_msg.ToString();
-                        if (msg.Contains("MPH:"))
+                        if (msg.Contains(":"))
                         {
                             // don't stack up the MPH announcements
                             if (speech_queue.Count==0)
@@ -289,7 +294,7 @@ namespace RaceVoice
                 {
                     string ele = speech_queue.Peek();
                     
-                    if (ele.Contains("MPH:"))
+                    if (ele.Contains(":"))
                     {
                         string[] msplit = ele.Split(':');
                         ele = msplit[1];
@@ -356,25 +361,24 @@ namespace RaceVoice
             //voice.Speak("Started");
             // timer.Enabled = true;
             wrapper.Start();
-            if (play) timer.Enabled = true;
-
+            if (play)
+            {
+                sr = File.OpenText(playpath);
+                timer.Enabled = true;
+            }
         }
 
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             timer.Enabled = false;
-            //string lt = sr.ReadLine();
-            //string[] lts = lt.Split(new Char[] { '=', ' ' });
-
-            //lt=lts[1]+","+lts[4] + "," + lts[7] + "," + lts[10] + "," + lts[13];
-            //process(lt, true);
-//            Console.WriteLine(lt);
-            //if (sr.EndOfStream)
-           // {
-            //    sr.Close();
-            //     sr = File.OpenText(playpath);
-            //}
+            string lt = sr.ReadLine();
+            process(lt);
+            if (sr.EndOfStream)
+            {
+                sr.Close();
+                sr = File.OpenText(playpath);
+            }
             timer.Enabled = true;
 
         }

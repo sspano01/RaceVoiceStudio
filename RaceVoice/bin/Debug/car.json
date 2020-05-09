@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": false,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 71,
-    "TrackSelectionName": "Watkins Glen Short",
+    "TrackSelectionIndex": 34,
+    "TrackSelectionName": "Limerock Park",
     "FindTrackByName": true
   },
   "DynamicsData": {
@@ -28,8 +28,8 @@
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
     "WheelSpeedPercentDifference": 5,
-    "AnnounceSpeed": false,
-    "SpeedThreshold": 105,
+    "AnnounceSpeed": true,
+    "SpeedThreshold": 90,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,

@@ -2282,6 +2282,7 @@ namespace RaceVoice
                 SpeechTagIndicatorThickness = 4,
                 TrackColor = Color.Black,
                 ChequeredFlagImage = globals.LocalFolder() + "\\flag.png",
+                carImage = globals.LocalFolder() + "\\car.png",
 
                 UseCurveRendering = _trackMetadata.UseCurveRendering,
                 ShowGpsPoints = true,
@@ -2578,6 +2579,11 @@ namespace RaceVoice
                 {
                     progressBar1.Value = globals.irace_hb;
                 }
+            }
+
+            if (globals.irace_track_distance>0)
+            {
+                ReRender();
             }
         }
 
