@@ -34,6 +34,10 @@ namespace RaceVoice
         {
             try
             {
+                if (filepath.ToUpper().Contains("LIMEROCK"))
+                {
+                    Console.WriteLine("lime");
+                }
                 return JsonConvert.DeserializeObject<TrackMetadata>(File.ReadAllText(filepath));
             }
             catch
