@@ -176,6 +176,14 @@ Please make sure this computer has Internet Access before continuing</>
                            <comm ></>
                         </>
                         <_ >
+                           <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\car.png</>
+                           <recurse >0</>
+                           <justfile >0</>
+                           <emptydir >0</>
+                           <exclude ></>
+                           <comm ></>
+                        </>
+                        <_ >
                            <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe</>
                            <recurse >0</>
                            <justfile >0</>
