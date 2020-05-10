@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 8,
-    "EcuName": "iRacing PC Mode",
+    "EcuType": 6,
+    "EcuName": "Standalone Mode",
     "OverRevEnabled": true,
     "OverRev": 6500,
     "ShiftNotificationType": 0,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 34,
-    "TrackSelectionName": "Limerock Park",
+    "TrackSelectionIndex": 71,
+    "TrackSelectionName": "Watkins Glen Short",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -39,9 +39,9 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
+    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "AB0KLUVY",
-    "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
+    "FeatureCode": "UPLWVT-36QGRY-1449BWT-1T4NHIQ",
     "Version": "RACE VOICE-SA,  VERSION,  MARCH 18, 2020, A1",
     "Volume": 5,
     "SWVersion": "05-09-2020-A1",

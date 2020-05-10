@@ -1,7 +1,7 @@
 {
   "TrackName": "Watkins Glen Long",
   "DataBitfields": [
-    1,
+    0,
     0,
     0,
     0,
@@ -11,7 +11,7 @@
     0,
     0
   ],
-  "Rotation": 264,
+  "Rotation": 0,
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
@@ -27,5 +27,7 @@
     false,
     false
   ],
-  "SpeechTagEnabledStates": null
+  "SpeechTagEnabledStates": [
+    false
+  ]
 }

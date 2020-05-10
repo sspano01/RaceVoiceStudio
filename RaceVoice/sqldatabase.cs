@@ -69,6 +69,7 @@ namespace RaceVoice
             string email_address = "none";
             string user_name = "";
             int access_count = 0;
+            string this_pc_uuid = "";
             bool all_stop = false;
 
            // if (globals.network_time.Length==0)
@@ -85,6 +86,7 @@ namespace RaceVoice
             // string conStr = "Server=xxx.xxx.xxx.xxx;Database=DB_NAME;Uid=USER_NAME;Password=PASSWORD;
 
             uuid = uuid.ToUpper().Trim();
+            this_pc_uuid = uuid;
             MySqlConnection sqlConnection1 = new MySqlConnection(connetionString);
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader reader;
@@ -211,7 +213,7 @@ namespace RaceVoice
                     if (globals.iracing_node.Length < 2)
                     {
                         cmd.CommandText = "UPDATE license SET lastaccess = @lastaccess, accesscount = @accesscount, iracingnode = @iracingnode Where uuid like '%" + uuid + "%'";
-                        cmd.Parameters.AddWithValue("@iracingnode", uuid);
+                        cmd.Parameters.AddWithValue("@iracingnode", this_pc_uuid);
                     }
                     else
                     {
@@ -307,13 +309,13 @@ namespace RaceVoice
                     MessageBox.Show("Thank you for Purchasing Your RaceVoice!\r\nWe will now license your PC for use of RaceVoice Studio.\r\nThe license entitles you to free track map updates, feature requests, feature updates, and support@racevoice.com.", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int ac = 1;
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
-                    cmd.CommandText = "UPDATE license SET name = @name, uuid = @uuid, lastaccess = @lastaccess, accesscount = @accesscount, @iracingnode = iracingnode Where email = @email";
+                    cmd.CommandText = "UPDATE license SET name = @name, uuid = @uuid, lastaccess = @lastaccess, accesscount = @accesscount, iracingnode = @iracingnode Where email = @email";
                     cmd.Parameters.AddWithValue("@name", user_name);
                     cmd.Parameters.AddWithValue("@uuid", uuid);
                     cmd.Parameters.AddWithValue("@lastaccess", timedate);
                     cmd.Parameters.AddWithValue("@accesscount", ac);
                     cmd.Parameters.AddWithValue("@email", email_address);
-                    cmd.Parameters.AddWithValue("@iracingnode", uuid);
+                    cmd.Parameters.AddWithValue("@iracingnode", this_pc_uuid);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -375,7 +377,7 @@ namespace RaceVoice
                     cmd.Parameters.AddWithValue("@swversion", globals.UIVersion);
                     cmd.Parameters.AddWithValue("@unitversion",dbauth);
                     cmd.Parameters.AddWithValue("@expire", expire_time);
-                    cmd.Parameters.AddWithValue("@iracingnode", uuid);
+                    cmd.Parameters.AddWithValue("@iracingnode", this_pc_uuid);
                     try
                     {
                         cmd.ExecuteNonQuery();
