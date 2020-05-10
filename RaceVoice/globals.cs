@@ -53,7 +53,7 @@ namespace RaceVoice
         public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
-        public static bool trace = true;
+        public static bool trace = false;
 
         public static int irace_hb = 0;
         public static bool iracing_telemetry = false;

@@ -2,23 +2,23 @@
   "EngineData": {
     "EcuType": 8,
     "EcuName": "iRacing PC Mode",
-    "OverRevEnabled": false,
+    "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
-    "UpShiftEnabled": false,
-    "UpShift": 6100,
+    "UpShiftEnabled": true,
+    "UpShift": 6550,
     "DownShiftEnabled": false,
     "DownShift": 4000,
-    "OilPressureEnabled": false,
+    "OilPressureEnabled": true,
     "OilPressurePsi": 10,
-    "OilPressureRpm": 1500,
-    "TemperatureEnabled": false,
-    "Temperature": 215,
-    "VoltageEnabled": false,
+    "OilPressureRpm": 1200,
+    "TemperatureEnabled": true,
+    "Temperature": 220,
+    "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 34,
-    "TrackSelectionName": "Limerock Park",
-    "FindTrackByName": true
+    "TrackSelectionIndex": 71,
+    "TrackSelectionName": "Watkins Glen Short",
+    "FindTrackByName": false
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
@@ -27,22 +27,22 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 5,
-    "AnnounceSpeed": true,
-    "SpeedThreshold": 90,
+    "WheelSpeedPercentDifference": 1,
+    "AnnounceSpeed": false,
+    "SpeedThreshold": 0,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
-    "BrakeThresholdMin": 500,
-    "BrakeThresholdMax": 600,
+    "BrakeThresholdMin": 100,
+    "BrakeThresholdMax": 100,
     "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "AC01T8MN",
+    "Name": "NONE",
     "FeatureCode": "UPLWVT-36QGRY-1449BWT-1T4NHIQ",
-    "Version": "RACE VOICE,  VERSION,  JANUARY 11, 2020, A1",
+    "Version": "NONE",
     "Volume": 5,
     "SWVersion": "05-09-2020-A1",
     "Pitch": 50,
@@ -52,38 +52,5 @@
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
-  "MessageTriggers": [
-    {
-      "Phrase": "BLANK0",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK1",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK2",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK3",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK4",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK5",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK6",
-      "Repeat": 0
-    },
-    {
-      "Phrase": "BLANK7",
-      "Repeat": 0
-    }
-  ]
+  "MessageTriggers": []
 }

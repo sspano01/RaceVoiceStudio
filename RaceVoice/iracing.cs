@@ -129,7 +129,6 @@ namespace RaceVoice
 
             for (int slot = 0; slot < track.Segments.Count(); slot++)
             {
-                track.Segments[0].DataBits = 1;
                 DLLSetupSegment(slot, NBTOI(track.Segments[slot].Hidden), track.Segments[slot].StartDistance, track.Segments[slot].EndDistance,track.Segments[slot].DataBits);
             }
 

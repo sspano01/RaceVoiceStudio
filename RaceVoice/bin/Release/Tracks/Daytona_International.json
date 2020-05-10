@@ -25,5 +25,7 @@
     false,
     false
   ],
-  "SpeechTagEnabledStates": null
+  "SpeechTagEnabledStates": [
+    false
+  ]
 }

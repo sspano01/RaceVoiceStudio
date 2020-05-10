@@ -876,14 +876,16 @@ namespace RaceVoice
             }
         }
 
-        private void UpdateDataCheckboxes()
+        private void UpdateDataCheckboxes(bool from_load)
         {
+            UInt16 selectedBits;
             _dataCheckboxesUpdating = true;
-            UInt16 selectedBits = _renderer.SelectedSegment != null ? _renderer.SelectedSegment.DataBits : (UInt16)0;
-            for (int i = 0; i < _dataCheckboxes.Length; i++)
-            {
-                _dataCheckboxes[i].Checked = (selectedBits & (1 << i)) != 0;
-            }
+          
+                selectedBits = _renderer.SelectedSegment != null ? _renderer.SelectedSegment.DataBits : (UInt16)0;
+                for (int i = 0; i < _dataCheckboxes.Length; i++)
+                {
+                    _dataCheckboxes[i].Checked = (selectedBits & (1 << i)) != 0;
+                }
             AdjustUIForFeatures();
             _dataCheckboxesUpdating = false;
         }
@@ -1504,7 +1506,7 @@ namespace RaceVoice
             }
 
             ReRender();
-            UpdateDataCheckboxes();
+            UpdateDataCheckboxes(false);
         }
 
         private void loadCSVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1531,6 +1533,7 @@ namespace RaceVoice
         private void SaveTrack()
         {
             TrackModelParser.SaveFile(_trackFile, _trackModel);
+            _trackMetadata.Save(_trackMetafile);
             btnSaveTrack.Enabled = false;
         }
 
@@ -2281,8 +2284,13 @@ namespace RaceVoice
 
             for (int i=0; i<_trackMetadata.SpeechTagEnabledStates.Count; i++)
             {
-                _trackModel.SpeechTags[i].Hidden = !_trackMetadata.SpeechTagEnabledStates[i];
-
+                if (_trackModel.SpeechTags.Count > 0)
+                {
+                    if ((i + 1) <= _trackModel.SpeechTags.Count)
+                    {
+                        _trackModel.SpeechTags[i].Hidden = !_trackMetadata.SpeechTagEnabledStates[i];
+                    }
+                }
             }
             for (int i = 0; i < _trackMetadata.SplitEnabledStates.Count; i++)
             {
@@ -2347,7 +2355,7 @@ namespace RaceVoice
             UpdateSegments();
             UpdateEngineDataValues();
             UpdateDynamicsDataValues();
-            UpdateDataCheckboxes();
+            UpdateDataCheckboxes(true);
 
             zoom.Value = Math.Max(zoom.Minimum, Math.Min(zoom.Maximum, _trackMetadata.Zoom));
             rotation.Value = Math.Max(rotation.Minimum, Math.Min(rotation.Maximum, _trackMetadata.Rotation));
