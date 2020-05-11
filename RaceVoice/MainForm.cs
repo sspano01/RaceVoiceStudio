@@ -285,11 +285,11 @@ namespace RaceVoice
             int ri = 0;
             int li = 0;
 
-            // download the ecu files
-            fd.DownloadFile("ecus.php", "remoteecus.php");
-            // now load the data into an array
             try
             {
+                // download the ecu files
+                fd.DownloadFile("ecus.php", "remoteecus.php");
+                // now load the data into an array
                 path = globals.LocalFolder() + "\\remoteecus.php";
                 System.IO.StreamReader file = new System.IO.StreamReader(path);
                 while ((line = file.ReadLine()) != null)

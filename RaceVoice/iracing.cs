@@ -36,6 +36,8 @@ namespace RaceVoice
         SETUP_RPM_HIGH,
         SETUP_DOWNSHIFT_ANNOUNCE,
         SETUP_RPM_LOW,
+        SETUP_OVERREV_ANNOUNCE,
+        SETUP_OVERREV,
         SETUP_LATERAL_ANNOUNCE,
         SETUP_LATERAL_THRESHOLD,
 
@@ -82,7 +84,8 @@ namespace RaceVoice
         private string log_path = @"c:\\temp\\irace_data_log.txt";
         private StreamWriter logfile;
 
-        private string playpath = @"c:\\temp\\irace_limerock.txt";
+        private string playpath = @"c:\\temp\\overrev.txt";
+        //private string playpath = @"c:\\temp\\irace_limerock.txt";
         private StreamReader sr;
         private bool play = false;
         
@@ -123,6 +126,10 @@ namespace RaceVoice
 
             DLLSetup((int)CMD.SETUP_DOWNSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.DownShiftEnabled));
             DLLSetup((int)CMD.SETUP_RPM_LOW, carMetadata.EngineData.DownShift);
+
+            DLLSetup((int)CMD.SETUP_OVERREV_ANNOUNCE, BTOI(carMetadata.EngineData.OverRevEnabled));
+            DLLSetup((int)CMD.SETUP_OVERREV, carMetadata.EngineData.OverRev);
+
 
             DLLSetup((int)CMD.SETUP_LATERAL_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceLateralGForce));
             DLLSetup((int)CMD.SETUP_LATERAL_THRESHOLD, (int)(carMetadata.DynamicsData.LateralGForceThreshold*10));
@@ -263,7 +270,7 @@ namespace RaceVoice
                     {
                         Console.WriteLine("WILL SPEAK=[" + speech_msg + "]");
                         string msg = speech_msg.ToString();
-                        if (msg.Contains(":"))
+                        if (msg.Contains(":") || msg.Contains("OVER"))
                         {
                             // don't stack up the MPH announcements
                             if (speech_queue.Count==0)
