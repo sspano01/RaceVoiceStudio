@@ -428,7 +428,7 @@ namespace RaceVoice
 
         public void Renew()
         {
-            System.Diagnostics.Process.Start("https://www.racevoice.com/product/ear-buds/");
+            System.Diagnostics.Process.Start("https://www.racevoice.com/sim/");
         }
         public void LicenseMessage(bool check)
         {

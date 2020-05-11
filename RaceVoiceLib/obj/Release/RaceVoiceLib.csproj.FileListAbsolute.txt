@@ -47,3 +47,4 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.cspro
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csprojAssemblyReference.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoiceLib\obj\Release\RaceVoiceLib.csproj.CoreCompileInputs.cache
