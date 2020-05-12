@@ -1811,6 +1811,7 @@ namespace RaceVoice
             }
             globals.last_dash = cmbEcuType.SelectedIndex;
 
+
             if (globals.terminal) terminalToolStripMenuItem.Visible = true;
             if (globals.license_feature == (int)globals.FeatureState.LITE)
             {
@@ -1915,13 +1916,60 @@ namespace RaceVoice
                 getConfig.Visible = false;
                 DownloadData.Visible = false;
                 sendConfig.Text = "Update iRacing";
+
+
+                chkTemperature.Checked = false;
+                chkTemperature.Enabled = false;
+                numTemperature.Enabled = false;
+
+                chkVoltage.Checked = false;
+                chkVoltage.Enabled = false;
+                numVoltage.Enabled = false;
+
+                chkOilPressure.Enabled = false;
+                chkOilPressure.Checked = false;
+                numOilPressurePsi.Enabled = false;
+                numOilPressureRpm.Enabled = false;
+
+                chkActiveWheelLockDetection.Checked = false;
+                chkActiveWheelLockDetection.Enabled = false;
+                numBrakePSI.Enabled = false;
+                numWheelSpeedDiff.Enabled = false;
+
+                chkAnnounceLapDelta.Enabled = false;
+                chkAnnounceLapDelta.Checked = false;
+                rdoSpeechNotify.Checked = true;
+                rdoToneNotify.Checked = false;
+                rdoToneNotify.Enabled = false;
+
+
             }
             else
             {
                 getConfig.Visible = true;
                 DownloadData.Visible = true;
                 sendConfig.Text = "Send Configuration";
+
+
+                chkTemperature.Enabled = true;
+                numTemperature.Enabled = true;
+                chkVoltage.Enabled = true;
+                numVoltage.Enabled = true;
+
+                chkOilPressure.Enabled = true;
+                numOilPressurePsi.Enabled = true;
+                numOilPressureRpm.Enabled = true;
+
+                chkActiveWheelLockDetection.Enabled = true;
+                numBrakePSI.Enabled = true;
+                numWheelSpeedDiff.Enabled = true;
+
+                chkAnnounceLapDelta.Enabled = true;
+                rdoToneNotify.Enabled = true;
+
+
             }
+
 
         }
 

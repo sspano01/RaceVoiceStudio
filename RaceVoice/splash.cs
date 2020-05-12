@@ -14,7 +14,7 @@ namespace RaceVoice
         private string[] ports = SerialPort.GetPortNames();
         private static int isplash = 0;
         private static bool first_start = true;
-
+        private static bool first_poll = true;
         public splash(int splash)
         {
             isplash = splash;
@@ -29,6 +29,7 @@ namespace RaceVoice
                     while ((line = file.ReadLine()) != null)
                     {
                         line = line.ToUpper();
+                        if (line.Equals("QUICK-START")) globals.quick_start = true;
                         if (line.Equals("NO-UNIT-CHECK")) globals.no_unit_check = true;
                         if (line.Equals("NO-TRACK-CHECK")) globals.no_track_check = true;
                         if (line.Equals("NO-LICENSE-CHECK")) globals.no_license_check = true;
@@ -76,6 +77,19 @@ namespace RaceVoice
 
         private void splash_Load(object sender, EventArgs e)
         {
+            if (isplash==0)
+            {
+
+                if (first_poll)
+                {
+                    first_poll = false;
+                    if (globals.quick_start)
+                    {
+                        this.Close();
+                        return;
+                    }
+                }
+            }
             if (isplash == 0 || isplash==1)
             {
                 this.FormBorderStyle = FormBorderStyle.None;

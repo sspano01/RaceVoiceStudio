@@ -475,11 +475,17 @@ namespace RaceVoice
             }
 
         }
+
+// – Add lap information to telemetry. (LapBestLap, LapBestLapTime, LapCurrentLapTime, LapLastLapTime) 
+//– Add delta time information to telemetry. (LapDeltaToBestLap, LapDeltaToBestLap_DD, 
+ //       LapDeltaToBestLap_OK, LapDeltaToOptimalLap, LapDeltaToOptimalLap_DD, LapDeltaToOptimalLap_OK, 
+  //      LapDeltaToSessionBestLap, LapDeltaToSessionBestLap_DD, LapDeltaToSessionBestLap_OK, LapDeltaToSessionOptimalLap,
+   //     LapDeltaToSessionOptimalLap_DD, LapDeltaToSessionOptimalLap_OK) 
         private void OnTelemetryUpdated(object sender, SdkWrapper.TelemetryUpdatedEventArgs e)
         {
             if (!sdk_on)
             {
-               voice.SpeakAsync("Telemetry Running");
+               voice.SpeakAsync("iRacing Link is Running");
             }
             sdk_on = true;
             try
@@ -493,8 +499,8 @@ namespace RaceVoice
                 float lapnum = e.TelemetryInfo.Lap.Value;
                 float tps = e.TelemetryInfo.Throttle.Value;
                 float latg = e.TelemetryInfo.LatAccel.Value;
-                float psi = e.TelemetryInfo.Brake.Value; 
-
+                var tpsi = wrapper.GetTelemetryValue<float>("BrakeRaw");
+                float psi = tpsi.Value * (float)1000;
                 SendUDP(rpm, distance, mph, tps, lapnum,latg,psi);
                // if (!gottel) voice.Speak("Telemtry Running");
 
