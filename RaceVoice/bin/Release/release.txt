@@ -1,3 +1,8 @@
+05-15-20
+===================================
+Improved support for RaceVoice-SA firmware management
+Added RaceVoiceSIM mode for using RaceVoiceStudio with iRacing for speech announcements
+
 03-15-20
 ===================================
 Released initial support for RaceVoice-SA, configurable ECU scripts, data charting

@@ -38,7 +38,7 @@ namespace RaceVoice
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
         public static bool no_unit_check = false;
-        public static bool quick_start = true;
+        public static bool quick_start = false;
         public static string forcePort = "";
         public static bool no_track_check = false;
         public static bool no_license_check =false;

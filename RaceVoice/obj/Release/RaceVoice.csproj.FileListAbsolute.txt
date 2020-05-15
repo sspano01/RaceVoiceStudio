@@ -145,3 +145,4 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.Copy
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.exe
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\YamlDotNet.dll
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.CoreCompileInputs.cache

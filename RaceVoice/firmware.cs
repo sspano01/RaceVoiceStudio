@@ -69,6 +69,20 @@ namespace RaceVoice
             return -1;
         }
 
+
+        private bool IsDowngrade(string file_month,string file_day,string file_year)
+        {
+
+            DateTime fw_file_date = new DateTime(Convert.ToInt32(file_year), globals.FwMonth(file_month), Convert.ToInt32(file_day));
+            DateTime fw_unit_date = new DateTime(Convert.ToInt32(fw_unit_year), globals.FwMonth(fw_unit_month), Convert.ToInt32(fw_unit_day));
+
+            if (DateTime.Compare(fw_file_date, fw_unit_date) < 0) return true;
+
+            return false;
+
+        }
+
+
         private bool IsFirmwareLess(string date)
         {
             string mm = date.Substring(0, 2);
@@ -133,6 +147,16 @@ namespace RaceVoice
             dr = MessageBox.Show(fwm, "Firmware Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+
+                if (IsDowngrade(fw_file_month, fw_file_day, fw_file_year))
+                {
+                    fwm = "You are about to downgrade the firmware on your RaceVoice\r\nAre you sure you want to do this?\r\n";
+                    dr = MessageBox.Show(fwm, "Firmware Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr != DialogResult.Yes)
+                    {
+                        MessageBox.Show("Aborted", "Firmware Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
                 splash isplash = new splash(1);
                 string fn = globals.LocalFolder() + "\\firmware.hex";
                 if (apply_patch==1)

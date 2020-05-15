@@ -1375,16 +1375,19 @@ namespace RaceVoice
 
                 if (!save_settings)
                 {
-                    if (carMetadata.HardwareData.Name.Contains("NONE"))
+                    if (carMetadata != null)
                     {
-                        //NameBox nb = new NameBox();
-                        //nb.ShowDialog();
-                        if (globals.theSerialNumber.Length > 0)
+                        if (carMetadata.HardwareData.Name.Contains("NONE"))
                         {
-                            string txt = "SET NAME " + globals.theSerialNumber;
-                            if (WriteSingleCmd(_serialPort, txt))
+                            //NameBox nb = new NameBox();
+                            //nb.ShowDialog();
+                            if (globals.theSerialNumber.Length > 0)
                             {
-                                carMetadata.HardwareData.Name = globals.theSerialNumber;
+                                string txt = "SET NAME " + globals.theSerialNumber;
+                                if (WriteSingleCmd(_serialPort, txt))
+                                {
+                                    carMetadata.HardwareData.Name = globals.theSerialNumber;
+                                }
                             }
                         }
                     }

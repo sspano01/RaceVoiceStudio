@@ -1,0 +1,29 @@
+{
+  "TrackName": "Spa Franchorchamps",
+  "DataBitfields": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "Rotation": 274,
+  "Zoom": 90,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 1,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "SpeechTagEnabledStates": [
+    false
+  ]
+}
