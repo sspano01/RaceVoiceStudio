@@ -209,7 +209,7 @@ namespace RaceVoice
             string key_full = EncodeFeature("VALID");
             string key_demo = EncodeFeature("DEMO");
             string key_full_iracing = EncodeFeature("VALID-IRACING");
-            string key_demo_iracing = EncodeFeature("DEMO-RACING");
+            string key_demo_iracing = EncodeFeature("DEMO-IRACING");
             globals.license_feature = 0;
             string local_key = _carMetadata.HardwareData.FeatureCode.Trim().ToUpper();
 
@@ -680,6 +680,7 @@ namespace RaceVoice
         {
             bool state = false;
             if (globals.all_stop) return false;
+
 
             globals.theUUID = HardwareInfo.GenerateUID("RACEVOICE");
             globals.WriteLine("UUID==" + globals.theUUID);

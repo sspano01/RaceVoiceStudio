@@ -433,7 +433,7 @@ namespace RaceVoice
         public void LicenseMessage(bool check)
         {
             string msg;
-
+            int days_to_go = 15;
             if (globals.no_license_check) return;
 
             if (globals.iracing_node_error)
@@ -446,6 +446,8 @@ namespace RaceVoice
                 return;
 
             }
+
+
             if (globals.license_days_left >= 15)
             {
                 if (check)
@@ -460,8 +462,11 @@ namespace RaceVoice
             { 
                 if (globals.license_days_left <= (-5)) return;
             }
-            msg = "Your RaceVoiceSIM License has expired\r\nWould you like to renew?";
-            if (globals.license_days_left < 15)
+
+            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING) days_to_go = 4;
+
+                msg = "Your RaceVoiceSIM License has expired\r\nWould you like to renew?";
+            if (globals.license_days_left < days_to_go)
             {
                 if (globals.license_days_left >= 1)
                 {

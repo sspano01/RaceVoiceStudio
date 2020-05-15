@@ -60,7 +60,8 @@ namespace RaceVoice
                 }
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("racevoicestudio@racevoice.com", "#InFieldUpdate#");
+                //login #InFieldUpdate#
+                SmtpServer.Credentials = new System.Net.NetworkCredential("racevoicestudio@racevoice.com", "yryveqlzbprlriqb");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.SendCompleted += (s, e) => {
                     SmtpServer.Dispose();

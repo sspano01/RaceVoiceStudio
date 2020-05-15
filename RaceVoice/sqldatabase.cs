@@ -359,13 +359,13 @@ namespace RaceVoice
                         uuid = dbuuid + "," + uuid; // append a computer ID
                     }
                     // tell the user we are going to license them for the first time
-                    MessageBox.Show("Your email was not found\r\nRaceVoice Studio will be activated in Demonstration Mode.\r\n", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your email was not found\r\nRaceVoice Studio will be activated in Demonstration Mode.\r\nThis includes a 10-day trial to RaceVoiceSIM", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int ac = 1;
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
                     cmd.CommandText = "INSERT INTO license VALUES (@name, @uuid, @lastaccess, @email, @authorization, @purchasedate, @accesscount, @swversion, @unitversion, @expire, @iracingnode)";
                     dbauth = "DEMO-IRACING";
                     DateTime tnow= Convert.ToDateTime(globals.network_time);
-                    tnow = tnow.AddDays(30);
+                    tnow = tnow.AddDays(10);
                     string expire_time = tnow.ToString("MM/dd/yyyy");
                     cmd.Parameters.AddWithValue("@name", user_name);
                     cmd.Parameters.AddWithValue("@uuid", uuid);

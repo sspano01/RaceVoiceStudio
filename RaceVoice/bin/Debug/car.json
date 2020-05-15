@@ -9,15 +9,15 @@
     "UpShift": 6550,
     "DownShiftEnabled": false,
     "DownShift": 4000,
-    "OilPressureEnabled": true,
+    "OilPressureEnabled": false,
     "OilPressurePsi": 10,
     "OilPressureRpm": 1200,
     "TemperatureEnabled": false,
     "Temperature": 220,
     "VoltageEnabled": false,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 71,
-    "TrackSelectionName": "Watkins Glen Short",
+    "TrackSelectionIndex": 66,
+    "TrackSelectionName": "Spa Franchorchamps",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -39,9 +39,9 @@
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
+    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
     "Name": "NONE",
-    "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
+    "FeatureCode": "UPLWVT-36QGRY-1449BWT-1T4NHIQ",
     "Version": "NONE",
     "Volume": 5,
     "SWVersion": "05-12-2020-A2",
