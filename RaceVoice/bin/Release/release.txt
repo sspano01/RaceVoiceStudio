@@ -1,3 +1,8 @@
+05-17-20
+===================================
+Fixup bug where multiple instances of RaceVoiceStudio could be running at the same time
+Improve segment tracking for iRacing
+
 05-15-20
 ===================================
 Improved support for RaceVoice-SA firmware management
