@@ -23,6 +23,24 @@ namespace RaceVoice
             {
                 string debug_mode = globals.LocalFolder() + "\\admin.txt";
                 string line;
+
+                if (first_start)
+                {
+                    string cf = globals.LocalFolder() + "\\car.json";
+                    if (File.Exists(cf))
+                    {
+                        System.IO.StreamReader file = new System.IO.StreamReader(cf);
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            line = line.ToUpper();
+                            if (line.Contains("PC MODE"))
+                            {
+                                globals.quick_start = true;
+                            }
+                        }
+                        file.Close();
+                    }
+                }
                 if (File.Exists(debug_mode))
                 {
                     System.IO.StreamReader file = new System.IO.StreamReader(debug_mode);
@@ -54,8 +72,9 @@ namespace RaceVoice
                     first_start = false;
                 }
             }
-            catch
+            catch (Exception ee)
             {
+                globals.WriteLine(ee.Message);
                 // no problem, just move along
             }
         }

@@ -776,8 +776,56 @@ namespace RaceVoice
             UpdateTitle();
         }
 
+        public class WindowStateInfo
+        {
+            public FormWindowState? WindowState { get; set; }
+
+            public Point? WindowLocation { get; set; }
+            public int width;
+            public int height;
+        }
+
+        private void SaveWindowState(Form form)
+        {
+            string fn = globals.LocalFolder() + "\\appsetting.json";
+            var state = new WindowStateInfo
+            {
+                WindowLocation = form.Location,
+                WindowState = form.WindowState,
+                width = form.Width,
+                height = form.Height
+            };
+
+            File.WriteAllText(fn, JsonConvert.SerializeObject(state));
+        }
+
+        private void LoadWindowState(Form form)
+        {
+            try
+            {
+                string fn = globals.LocalFolder() + "\\appsetting.json";
+                if (!File.Exists(fn)) return;
+
+                var state = JsonConvert.DeserializeObject<WindowStateInfo>(File.ReadAllText(fn));
+
+                    if (state.height>0 && state.width>0)
+                 {
+                        form.Width = state.width;
+                        form.Height = state.height;
+                 }
+               if (state.WindowState.HasValue) form.WindowState = state.WindowState.Value;
+                if (state.WindowLocation.HasValue) form.Location = state.WindowLocation.Value;
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee.Message);
+            }
+        }
+
+
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadWindowState(this);
             EcuMetadata ecuMetadata = new EcuMetadata();
             _dataCheckboxes = new CheckBox[]
             {
@@ -2666,6 +2714,7 @@ namespace RaceVoice
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SaveWindowState(this);
             Environment.Exit(0);
         }
 

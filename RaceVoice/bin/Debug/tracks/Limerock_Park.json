@@ -1,13 +1,13 @@
 {
   "TrackName": "Limerock Park",
   "DataBitfields": [
-    1,
-    7,
-    4,
+    0,
+    2,
     0,
     0,
-    0,
-    0
+    5,
+    5,
+    5
   ],
   "Rotation": 0,
   "Zoom": 90,
@@ -24,6 +24,6 @@
   ],
   "SpeechTagEnabledStates": [
     true,
-    false
+    true
   ]
 }

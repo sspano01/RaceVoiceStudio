@@ -84,10 +84,11 @@ namespace RaceVoice
         private string log_path = @"c:\\temp\\irace_data_log.txt";
         private StreamWriter logfile;
 
-        private string playpath = @"c:\\temp\\overrev.txt";
-        //private string playpath = @"c:\\temp\\irace_limerock.txt";
-        private StreamReader sr;
+ //       private string playpath = @"c:\\temp\\overrev.txt";
+
         private bool play = false;
+        private string playpath = @"c:\\temp\\irace_limerock.txt";
+        private StreamReader sr;
         
         private bool running = false;
         private Queue<string> speech_queue = new Queue<string>();
@@ -259,7 +260,7 @@ namespace RaceVoice
 
                 ln = "RPM=" + sp[0] + "  DISTANCE=" + dist + "  MPH=" + mph + "  TPS=" + Convert.ToInt32(tps) + "  LAP=" + sp[4] + "  Latg=" + sp[5] + " " + "Brake=" + sp[6];
                 globals.irace_track_distance = dist;
-                if (play) Console.WriteLine(ln);
+               // if (play) Console.WriteLine(ln);
                   
                 byte[] db = Encoding.ASCII.GetBytes(indata);
                 if (configured)
