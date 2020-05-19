@@ -164,7 +164,7 @@ namespace RaceVoice
                 splashbox.Items.Add("Warning: IT IS THE DRIVER'S RESPONSIBILITY TO MAINTAIN CONTROL!");
                 splashbox.Items.Add("Warning: UNDER ALL ROAD/WEATHER/SURFACE/COMPETITION CONDTIONS!");
                 for (int i = 0; i < 2; i++) splashbox.Items.Add("\r\n");
-                splashbox.Items.Add("Copyright 2019, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
+                splashbox.Items.Add("Copyright 2020, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
             }
 
             if (isplash == 3)
@@ -195,7 +195,7 @@ namespace RaceVoice
 
                 splashbox.Items.Add(" ");
                 splashbox.Items.Add(" ");
-                splashbox.Items.Add("Copyright 2019, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
+                splashbox.Items.Add("Copyright 2020, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
             }
 
         }

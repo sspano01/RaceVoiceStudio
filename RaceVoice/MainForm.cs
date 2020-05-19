@@ -215,6 +215,88 @@ namespace RaceVoice
         }
 
 
+        private void CheckNewUI()
+        {
+
+            FileDownloader fd = new FileDownloader();
+            string[] rui = new string[2000];
+            string path = globals.LocalFolder() + "\\";
+            string line;
+            int ri = 0;
+
+            try
+            {
+                // download the ecu files
+                fd.DownloadFile("ui.php", "remoteui.php");
+                // now load the data into an array
+                path = globals.LocalFolder() + "\\remoteui.php";
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                while ((line = file.ReadLine()) != null)
+                {
+                    globals.WriteLine(line);
+                    rui[ri] = line;
+                    ri++;
+                }
+                file.Close();
+                System.IO.File.Delete(path);
+
+                // now find the latest file on the server
+                string[] ours = globals.UIVersion.Split('-');
+                string mm = ours[0];
+                string dd = ours[1];
+                string yy = ours[2];
+                DateTime ui_date = new DateTime(Convert.ToInt32(yy), Convert.ToInt32(mm), Convert.ToInt32(dd));
+                for (int i =0;i<ri;i++)
+                {
+                    string[] rs = rui[i].Split('_');
+
+                    mm = rs[1];
+                    dd = rs[2];
+                    yy = rs[3];
+                    if (yy.Length == 2) yy = "20" + yy;
+                    // any letters?
+                    bool skip = false;
+                    for (int j=0;j<yy.Length;j++)
+                    {
+                        if (yy[j] < '0' || yy[j] > '9') skip = true;
+                    }
+                    if (yy.Length > 4) skip = true;
+                    if (skip) continue;
+
+                    //yy = "2020";
+                    //mm = "06";
+                    DateTime rem_date = new DateTime(Convert.ToInt32(yy), Convert.ToInt32(mm), Convert.ToInt32(dd));
+
+                    Console.WriteLine("UI Date=" + ui_date.ToString() +" VS Remote Date="+rem_date.ToString());
+
+
+                    if (DateTime.Compare(rem_date,ui_date)>0)
+                    {
+
+                        DialogResult dr = MessageBox.Show("A new version of RaceVoiceStudio is available\r\nWould you like to update to the latest one?\r\n", "New Software", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dr==DialogResult.Yes)
+                        {
+
+                            MessageBox.Show("Great, the RaceVoice.com webpage will open and you can download the installer from there.\r\n", "New Software", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            System.Diagnostics.Process.Start("https://www.racevoice.com/download/");
+                            Environment.Exit(0);
+                        }
+
+                        return;
+
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                globals.WriteLine(e.Message);
+                return;
+            }
+
+
+        }
         private void CheckNewEcus(splash isplash)
         {
             FileDownloader fd = new FileDownloader();
@@ -366,12 +448,12 @@ namespace RaceVoice
                     isplash.Close();
                     return;
                 }
-                CheckNewEcus(isplash);
-
                 if (!globals.no_track_check)
                 {
                     isplash.setbar(80);
                     isplash.setlabel("Checking For Updates ....");
+                    CheckNewUI();
+                    CheckNewEcus(isplash);
 
                     fd.DownloadFile("tracks.php", "remotetracks.php");
                     //MessageBox.Show("hi");

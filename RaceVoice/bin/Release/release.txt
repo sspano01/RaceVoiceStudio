@@ -7,6 +7,8 @@ Increase software launch speed for when iRacing dash has been set
 Add ability to remember the size/position of the UI between software launches
 Always donwnload tracks on first installation, do not prompt user for yes/no
 Fix bug for null-pointer on trackRender code
+Add routine to fix pronunciation of certain track names in iRacing mode
+Added ability to check racevoice.com to see if there is a new RaceVoiceStudio installer available and prompt for download
 
 05-15-20
 ===================================
