@@ -592,9 +592,11 @@ namespace RaceVoice
 
             if (track_stat.Length > 0)
             {
-                DialogResult dr = FlexibleMessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                // DialogResult dr = MessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = DialogResult.Yes;
+                if (globals.virgin_load == false)
+                {
+                   dr = FlexibleMessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
                 if (dr == DialogResult.Yes)
                 {
                     isplash.setbar(0);
