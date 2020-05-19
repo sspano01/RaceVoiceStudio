@@ -158,7 +158,7 @@ namespace RaceVoice
 
             configured = true;
             voice.Rate = 0;
-            voice.Speak(trackdata.TrackName+ " is configured");
+            voice.Speak(globals.FixName(trackdata.TrackName,true)+ " is configured");
 
         }
 

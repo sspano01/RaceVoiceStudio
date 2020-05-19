@@ -108,65 +108,6 @@ namespace RaceVoice
                     var metaFile = GetMetaFileForCsv(f);
                     var metadata = TrackMetadata.Load(metaFile);
                     metadata = CheckTrackMetaData(f, metaFile, metadata, trackModel);
-                    /*
-                                        if (metadata == null)
-                                        {
-                                            no_json = true;
-                                            metadata = new TrackMetadata()
-                                            {
-                                                TrackName = Path.GetFileNameWithoutExtension(f).Replace('_', ' '),
-                                                DataBitfields = new List<UInt16>(trackModel.Segments.Count),
-                                                ClusterSize = trackModel.SampleRate == 0 ? 4 : trackModel.SampleRate
-                                            };
-
-
-                                            foreach (var segment in trackModel.Segments)
-                                            {
-                                                metadata.DataBitfields.Add(0);
-                                            }
-
-                                            metadata.Save(metaFile);
-                                        }
-
-
-                                        // ensure we always have bitfields for the segments
-                                        if (trackModel.Segments.Count()!=metadata.DataBitfields.Count())
-                                        {
-                                            int i = 0;
-                                            foreach (var segment in trackModel.Segments)
-                                            {
-                                                if (i>=metadata.DataBitfields.Count())
-                                                {
-                                                 metadata.DataBitfields.Add(0);
-                                                }
-
-                                                i++;
-
-                                            }
-                                            metadata.Save(metaFile);
-                                        }
-
-
-                                        if (metadata.SplitEnabledStates == null || metadata.SplitEnabledStates.Count != trackModel.Splits.Count)
-                                        {
-                                            metadata.SplitEnabledStates = new List<bool>(trackModel.Splits.Count);
-                                            for (int i = 0; i < trackModel.Splits.Count; i++)
-                                            {
-                                                if (no_json)
-                                                {
-
-                                                    metadata.SplitEnabledStates.Add(false);
-                                                }
-                                                else
-
-                                                metadata.SplitEnabledStates.Add(!trackModel.Splits[i].Hidden);
-                                            }
-
-                                            metadata.Save(metaFile);
-                                        }
-
-                                        cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = f });
-                                        */
                 }
             }
 
@@ -2332,7 +2273,7 @@ namespace RaceVoice
                 metadata.Save(metaFile);
             }
 
-            cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = filename });
+            cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = globals.FixName(metadata.TrackName,false), Value = filename });
             return metadata;
 #else
                 //bool no_json = false;

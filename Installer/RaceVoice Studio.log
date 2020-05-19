@@ -1,11 +1,11 @@
 
-Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 5/18/2020 1:24:28 PM
+Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 5/19/2020 11:00:42 AM
 Log file: C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.log 
 Generating Sources... 
 Compiling Gentee Sources... 
 Build setup file: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Adding temporary file(s) to EXE 
-C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 5/18/2020 1:24:29 PM 3273  46.01%
+C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 5/19/2020 11:00:42 AM 3273  46.01%
 c:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg 3/18/2020 10:25:33 AM 3002  94.97%
 C:\Program Files (x86)\CreateInstall Free\res\logo\default - 1.bmp 3/20/2018 12:19:53 PM 7308  52.55%
 C:\Program Files (x86)\CreateInstall Free\res\leftimg\install\install - 1.bmp 3/20/2018 12:19:53 PM 20678  33.44%
@@ -55,10 +55,10 @@ c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\YamlDotNet.dll 10/22/2016 12:26:44 PM 139776  41.38%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\firmware.hex 3/18/2020 10:25:33 AM 372751  33.60%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex 7/9/2019 2:19:23 PM 236231  30.25%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt 5/18/2020 1:24:07 PM 3883  45.30%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png 6/27/2019 9:13:27 AM 1665  54.05%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt 5/19/2020 11:00:37 AM 4007  45.37%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png 6/27/2019 9:13:27 AM 1665  54.11%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\car.png 5/9/2020 2:54:59 PM 2077  100.43%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 5/18/2020 1:23:07 PM 857088  27.87%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 5/19/2020 10:58:08 AM 857088  27.87%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\bootstrap.min.css 3/18/2020 10:25:33 AM 121205  18.95%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\Chart.bundle.min.js 3/18/2020 10:25:33 AM 210428  33.01%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\charting.css 3/18/2020 10:25:33 AM 583  49.57%
@@ -77,4 +77,4 @@ All files: 55 [ 9340KB => 2983KB ]
 Code signing: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Code signing result: 0  OK 
 File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3134 KB 
-Finish Successful 5/18/2020 1:25:29 PM
+Finish Successful 5/19/2020 11:01:06 AM

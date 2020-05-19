@@ -1,10 +1,12 @@
-05-18-20
+05-19-20
 ===================================
 Fixup bug where multiple instances of RaceVoiceStudio could be running at the same time
 Improve segment tracking for iRacing
 Fixup announcement bug for exit + minimum tracking
 Increase software launch speed for when iRacing dash has been set
 Add ability to remember the size/position of the UI between software launches
+Always donwnload tracks on first installation, do not prompt user for yes/no
+Fix bug for null-pointer on trackRender code
 
 05-15-20
 ===================================

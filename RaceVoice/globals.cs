@@ -195,6 +195,44 @@ namespace RaceVoice
             return good;
         }
 
+        public static string FixName(string name,bool forspeech)
+        {
+            string[] ns = name.Split(' ');
+            string nnew= "";
+            if (ns.Length>1)
+            {
+                for (int i=0;i<ns.Length;i++)
+                {
+                    string seg = ns[i];
+                    if (seg.Equals("Internation",StringComparison.OrdinalIgnoreCase))
+                    {
+                        seg = "International";
+                    }
+                    if (seg.Equals("Virgina", StringComparison.OrdinalIgnoreCase))
+                    {
+                        seg = "Virginia";
+                    }
+
+                    if (forspeech)
+                    {
+                        if (seg.Equals("gingerman", StringComparison.OrdinalIgnoreCase))
+                        {
+                            seg = "Ginger Man";
+                        }
+
+                    }
+                    nnew += seg + " ";
+                }
+
+                nnew = nnew.Trim();
+            }
+            else
+            {
+                nnew= name;
+            }
+
+            return nnew;
+        }
         public static bool DeleteTrack(string track)
         {
             bool good = true;
