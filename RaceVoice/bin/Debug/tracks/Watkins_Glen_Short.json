@@ -1,17 +1,16 @@
 {
   "TrackName": "Watkins Glen Short",
   "DataBitfields": [
-    5,
     0,
-    5,
-    5,
-    5
+    0,
+    0,
+    0
   ],
-  "Rotation": 266,
+  "Rotation": 0,
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
-  "ClusterSize": 1,
+  "ClusterSize": 4,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
     false,
@@ -21,9 +20,6 @@
     false
   ],
   "SpeechTagEnabledStates": [
-    false,
-    false,
-    false,
     false
   ]
 }

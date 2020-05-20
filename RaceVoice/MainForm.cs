@@ -707,7 +707,7 @@ namespace RaceVoice
             if (globals.all_stop) return false;
 
 
-            globals.theUUID = HardwareInfo.GenerateUID("RACEVOICE");
+            globals.theUUID = HardwareInfo.GenerateUID(globals.UUID_KEY);
             globals.WriteLine("UUID==" + globals.theUUID);
             sqldatabase sql = new sqldatabase();
             if (globals.no_license_check)
@@ -721,7 +721,10 @@ namespace RaceVoice
             {
                 if (globals.license_state.Contains("RELOAD"))
                 {
-                    state = sql.ValidateUUID(globals.theUUID, false, _carMetadata); // re-read the license state after the first registration
+                    while (globals.license_state.Contains("RELOAD"))
+                    {
+                        state = sql.ValidateUUID(globals.theUUID, false, _carMetadata); // re-read the license state after the first registration
+                    }
                 }
                 sql.ValidateUUID(globals.theUUID, true, _carMetadata);
                 _carMetadata.HardwareData.FeatureCode = EncodeFeature(globals.license_state);
@@ -866,6 +869,11 @@ namespace RaceVoice
 
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
+            if (_carMetadata.HardwareData.HideWarnings.Contains("YES"))
+            {
+                licenseHideWarnings.Checked = true;
+                globals.license_hide_warnings = true;
+            }
 
             CheckNewTracks(false, false, "");
 
@@ -2774,6 +2782,29 @@ namespace RaceVoice
         private void licenseCheckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             irace.LicenseMessage(true);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void licenseHideWarnings_Click(object sender, EventArgs e)
+        {
+            if (licenseHideWarnings.Checked)
+            {
+                _carMetadata.HardwareData.HideWarnings = "YES";
+                globals.license_hide_warnings = true;
+                _carMetadata.Save(_carMetafile);
+
+            }
+            else
+            {
+                _carMetadata.HardwareData.HideWarnings = "NO";
+                globals.license_hide_warnings = false;
+                _carMetadata.Save(_carMetafile);
+
+            }
         }
 #endif
     }

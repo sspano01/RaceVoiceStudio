@@ -1,3 +1,8 @@
+05-20-20
+===================================
+Add option to minimize license warnings at first startup of RaceVoiceStudio
+Fixbug to allow existing RaceVoice customers to auto-register 10-day trial of RaceVoiceStudio
+
 05-19-20
 ===================================
 Fixup bug where multiple instances of RaceVoiceStudio could be running at the same time

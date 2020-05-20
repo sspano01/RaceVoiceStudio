@@ -434,7 +434,7 @@ namespace RaceVoice
         public void LicenseMessage(bool check)
         {
             string msg;
-            int days_to_go = 15;
+            int days_to_go = 5;
             if (globals.no_license_check) return;
 
             if (globals.iracing_node_error)
@@ -443,7 +443,11 @@ namespace RaceVoice
                 msg += "Current Computer = " + globals.theUUID+"\r\n";
                 msg +=" Licensed Computer = "+globals.iracing_node + "\r\n"; ;
                 msg += "Please contact RaceVoice to discuss licensing an additional computer or moving a license.";
-                MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                // skip it at boot, so we show only the second time
+                if (globals.license_hide_warnings == false || check)
+                {
+                    MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
                 return;
 
             }

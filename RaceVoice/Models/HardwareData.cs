@@ -4,6 +4,7 @@
     {
         public string LicenseState { get; set; }
         public string Name { get; set; }
+        public string HideWarnings { get; set; }
         public string FeatureCode { get; set; }
         public string Version { get; set; }
         public int Volume { get; set; }
@@ -21,6 +22,7 @@
         public HardwareData()
         {
             LicenseState = "NONE";
+            HideWarnings = "NONE";
             Name = "NONE";
             BaudRate = 1;
             FeatureCode = "NONE";

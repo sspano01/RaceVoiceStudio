@@ -209,11 +209,36 @@ namespace RaceVoice
                 if (match_uuid)
                 {
                     // update the access date and count
+                    dbauth = dbauth.ToUpper();
+                    bool valid_lic = false;
+                    bool valid_irace = false;
+                    bool demo_only = false;
+                    bool doreload = false;
+                    if (dbauth.Contains("VALID")) valid_lic = true;
+                    if (dbauth.Contains("IRACING")) valid_irace = true;
+                    if (dbauth.Contains("DEMO")) demo_only = true;
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
                     if (globals.iracing_node.Length < 2)
                     {
-                        cmd.CommandText = "UPDATE license SET lastaccess = @lastaccess, accesscount = @accesscount, iracingnode = @iracingnode Where uuid like '%" + uuid + "%'";
+                        cmd.CommandText = "UPDATE license SET lastaccess = @lastaccess, accesscount = @accesscount, iracingnode = @iracingnode, authorization = @authorization, expire = @expire Where uuid like '%" + uuid + "%'";
                         cmd.Parameters.AddWithValue("@iracingnode", this_pc_uuid);
+
+                        string authfield = "DEMO-IRACING";
+                        if (demo_only == false)
+                        {
+                            authfield = "VALID-IRACING";
+                        }
+                        cmd.Parameters.AddWithValue("@authorization", authfield);
+
+                        DateTime tnow = Convert.ToDateTime(globals.network_time);
+                        tnow = tnow.AddDays(10);
+                        string expire_time = tnow.ToString("MM/dd/yyyy");
+                        globals.expire_time = expire_time;
+                        cmd.Parameters.AddWithValue("@expire", expire_time);
+
+                        doreload = true;
+
+
                     }
                     else
                     {
@@ -230,21 +255,20 @@ namespace RaceVoice
                     {
                         globals.WriteLine(ee.Message);
                     }
-                    dbauth = dbauth.ToUpper();
-                    bool valid_lic = false;
-                    bool valid_irace = false;
-                    bool demo_only = false;
-                    if (dbauth.Contains("VALID")) valid_lic = true;
-                    if (dbauth.Contains("IRACING")) valid_irace = true;
-                    if (dbauth.Contains("DEMO")) demo_only = true;
 
+                    if (doreload)
+                    {
+                        globals.license_state = "RELOAD";
+                        sqlConnection1.Close();
+                        return true;
+                    }
                     if (!demo_only)
                     {
                         if (valid_lic)
                         {
                             if (dbauth.Contains("LITE"))
                             {
-                                globals.license_state = "VALID LITE";
+                                globals.license_state = "VALID-LITE";
                                 sqlConnection1.Close();
                                 return true;
                             }
@@ -309,13 +333,12 @@ namespace RaceVoice
                     MessageBox.Show("Thank you for Purchasing Your RaceVoice!\r\nWe will now license your PC for use of RaceVoice Studio.\r\nThe license entitles you to free track map updates, feature requests, feature updates, and support@racevoice.com.", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int ac = 1;
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
-                    cmd.CommandText = "UPDATE license SET name = @name, uuid = @uuid, lastaccess = @lastaccess, accesscount = @accesscount, iracingnode = @iracingnode Where email = @email";
+                    cmd.CommandText = "UPDATE license SET name = @name, uuid = @uuid, lastaccess = @lastaccess, accesscount = @accesscount  Where email = @email";
                     cmd.Parameters.AddWithValue("@name", user_name);
                     cmd.Parameters.AddWithValue("@uuid", uuid);
                     cmd.Parameters.AddWithValue("@lastaccess", timedate);
                     cmd.Parameters.AddWithValue("@accesscount", ac);
                     cmd.Parameters.AddWithValue("@email", email_address);
-                    cmd.Parameters.AddWithValue("@iracingnode", this_pc_uuid);
                     try
                     {
                         cmd.ExecuteNonQuery();

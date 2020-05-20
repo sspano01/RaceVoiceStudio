@@ -154,9 +154,18 @@ namespace RaceVoice
 
                 splashbox.Items.Add("Local UUID: " + globals.theUUID);
                 splashbox.Items.Add("License State: " + globals.license_state + " Feature State: " + globals.license_feature);
-                if (globals.expire_time.Length > 2)
+                if (globals.iracing_node_error)
                 {
-                    splashbox.Items.Add("RaceVoiceSIM License Expires on: " + globals.expire_time);
+                    splashbox.Items.Add("RaceVoiceSIM Is NOT LICENSED for this computer");
+                    splashbox.Items.Add("License Exists for: "+globals.iracing_node);
+
+                }
+                else
+                {
+                    if (globals.expire_time.Length > 2)
+                    {
+                        splashbox.Items.Add("RaceVoiceSIM License Expires on: " + globals.expire_time);
+                    }
                 }
                 splashbox.Items.Add("Total Available Tracks: " + trackCount);
                 for (int i = 0; i < 2; i++) splashbox.Items.Add("\r\n");

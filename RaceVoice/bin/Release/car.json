@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 8,
-    "EcuName": "iRacing PC Mode",
+    "EcuType": 6,
+    "EcuName": "Standalone Mode",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -41,10 +41,11 @@
   "HardwareData": {
     "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
     "Name": "AK06E47D",
+    "HideWarnings": "NONE",
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
     "Version": "RACE VOICE-SA,  VERSION,  APRIL 19, 2020, A1",
     "Volume": 5,
-    "SWVersion": "05-19-2020-A1",
+    "SWVersion": "05-20-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
