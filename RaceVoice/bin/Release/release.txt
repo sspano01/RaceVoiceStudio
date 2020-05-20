@@ -1,6 +1,7 @@
 05-20-20
 ===================================
 Add option to minimize license warnings at first startup of RaceVoiceStudio
+Improvements for zTrack importing
 Fixbug to allow existing RaceVoice customers to auto-register 10-day trial of RaceVoiceStudio
 
 05-19-20

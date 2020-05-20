@@ -79,7 +79,7 @@ namespace RaceVoice
         {
             //import aim_import = new import();
             //string file = globals.LocalFolder() + "\\aim\\mugello.ztracks";
-            //string oname ="mugello";
+            //string oname ="mug";
             //aim_import.ImportZTRACK(file,oname);
             //aim_import.Parse(true);
 

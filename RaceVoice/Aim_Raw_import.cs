@@ -154,6 +154,65 @@ namespace RaceVoice
                 bool first = true;
                 string wl = "";
                 int ct = 0;
+                double last_lat, last_lng = 0;
+                double lat, lng = 0;
+
+                last_lat = 0;
+                lat = 0;
+                lng = 0;
+                last_lng = 0;
+
+                for (int i = offset; i < fdata.Length; i = i + 12)
+                {
+                            globals.WriteLine("Mark @ " + i);
+
+                    if (first)
+                    {
+                        if (fdata[i] == 0 && fdata[i + 1] == 0 && fdata[i + 2] == 0 && fdata[i + 3] == 0x3e)
+                        {
+                            //globals.WriteLine("Start Mark @ " + i);
+                            ofile.WriteLine("Lattitude,Longitude,Misc,Misc," + trackname);
+                            ofile.WriteLine("samplerate,1");
+                            wl = toGPS(fdata, (i + 4));
+                            first = false;
+
+                        }
+                    }
+                    else
+                    {
+                        wl = toGPS(fdata, i+4);
+                        string[] wls = wl.Split(',');
+                        if (wls.Length >= 4)
+                        {
+                            lat = Convert.ToDouble(wls[0]);
+                            lng = Convert.ToDouble(wls[1]);
+
+                            if (last_lat != 0 && last_lng != 0)
+                            {
+                                if (Math.Abs(lat-last_lat)>1 || Math.Abs(lng-last_lng)>1) break;
+                            }
+                            last_lat = lat;
+                            last_lng = lng;
+                        }
+                        else
+                        {
+
+                            break;
+                        }
+                        if (wl.Length > 0)
+                        {
+
+                            globals.WriteLine("Writing @ " + i + " " + wl);
+                            ofile.WriteLine(wl);
+                        }
+                    }
+
+                    ct++;
+                    //first = false;
+                }
+
+
+                /*
                 for (int i = offset; i < fdata.Length; i = i + 12)
                 {
                     if (first)
@@ -192,10 +251,8 @@ namespace RaceVoice
                     }
                     ct++;
                     first = false;
-
-
                 }
-
+                */
                 ofile.Close();
             }
             catch (Exception ee)

@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 6,
-    "EcuName": "Standalone Mode",
+    "EcuType": 8,
+    "EcuName": "iRacing PC Mode",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": false,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 34,
-    "TrackSelectionName": "Limerock Park",
+    "TrackSelectionIndex": 45,
+    "TrackSelectionName": "mug",
     "FindTrackByName": false
   },
   "DynamicsData": {
