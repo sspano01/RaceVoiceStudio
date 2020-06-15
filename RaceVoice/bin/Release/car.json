@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 8,
-    "EcuName": "iRacing PC Mode",
+    "EcuType": 0,
+    "EcuName": "AIM EVO5,MXL2,MXP/G/S,DL2",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -16,8 +16,8 @@
     "Temperature": 215,
     "VoltageEnabled": false,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 5,
-    "TrackSelectionName": "Autodromo Jose Carlos Pace",
+    "TrackSelectionIndex": 58,
+    "TrackSelectionName": "NYST New York Safety Track",
     "FindTrackByName": true
   },
   "DynamicsData": {

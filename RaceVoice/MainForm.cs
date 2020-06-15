@@ -157,13 +157,34 @@ namespace RaceVoice
             if (local_key.Contains("NONE"))
             {
                 globals.license_feature = (int)globals.FeatureState.FULL; // assume we have full version
-
+                globals.license_state = "LOCAL-LICENSE-FULL";
             }
-            if (local_key.Contains(key_demo)) globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
-            if (local_key.Contains(key_demo_iracing)) globals.license_feature = (int)globals.FeatureState.DEMO_IRACING; // demo version
-            if (local_key.Contains(key_full)) globals.license_feature = (int)globals.FeatureState.FULL; // full version
-            if (local_key.Contains(key_lite)) globals.license_feature = (int)globals.FeatureState.LITE; // lite version
-            if (local_key.Contains(key_full_iracing)) globals.license_feature = (int)globals.FeatureState.FULL_IRACING; // full with iracing
+            if (local_key.Contains(key_demo))
+            {
+                globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
+                globals.license_state = "DEMO";
+            }
+            if (local_key.Contains(key_demo_iracing))
+            {
+                globals.license_feature = (int)globals.FeatureState.DEMO_IRACING; // demo version
+                globals.license_state = "DEMO-IRACING";
+            }
+            if (local_key.Contains(key_full))
+            {
+                globals.license_feature = (int)globals.FeatureState.FULL; // full version
+                globals.license_state = "VALID";
+            }
+            if (local_key.Contains(key_lite))
+            {
+                globals.license_feature = (int)globals.FeatureState.LITE; // lite version
+                globals.license_state = "VALID-LITE";
+            }
+
+            if (local_key.Contains(key_full_iracing))
+            {
+                globals.license_state = "VALID-IRACING";
+                globals.license_feature = (int)globals.FeatureState.FULL_IRACING; // full with iracing
+            }
 
 
         }
@@ -530,8 +551,6 @@ namespace RaceVoice
                     MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     _carMetadata.Save(_carMetafile);
                     globals.Terminate();
-
-
                 }
             }
 

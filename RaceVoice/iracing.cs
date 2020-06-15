@@ -435,6 +435,16 @@ namespace RaceVoice
         {
             string msg;
             int days_to_go = 5;
+            if (!globals.network_ok)
+            {
+                if (check)
+                {
+                    msg = "Sorry, there is no internet connection.\r\nLicense cannot be validated";
+                    MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+
+                }
+                return;
+            }
             if (globals.no_license_check) return;
 
             if (globals.iracing_node_error)

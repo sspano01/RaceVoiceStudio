@@ -31,7 +31,7 @@ namespace RaceVoice
         // master license phrase, don't change!
         public static string UUID_KEY= "RACEVOICE";
         //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "05-20-2020-A1";
+        public static string UIVersion = "06-15-2020-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -479,6 +479,11 @@ namespace RaceVoice
 
             if (yes)
             {
+                if (!globals.network_ok)
+                {
+                    return false;
+
+                }
                 DateTime current = Convert.ToDateTime(globals.network_time);
                 DateTime license = Convert.ToDateTime(globals.expire_time);
                 double remain = (license - current).TotalDays;

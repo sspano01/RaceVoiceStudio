@@ -650,19 +650,22 @@ namespace RaceVoice
 
 #if (!APP)
 
+                bool dash_error = false;
                 if (!carMetadata.HardwareData.Version.ToUpper().Contains("RACEVOICE-SA"))
                 {
                     if (DASH.Equals("CUSTOM") || DASH.Equals("OBDII"))
                     {
+                        dash_error = true;
                         MessageBox.Show("RaceVoice-DI does not support VCI/OBD-II formats.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     if (DASH.Equals("STANDALONE"))
                     {
+                        dash_error = true;
                         MessageBox.Show("RaceVoice-DI does not support STANDALONE operation.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
-                else
+                if (!dash_error)
                 {
                     if (DASH.Equals("CUSTOM"))
                     {

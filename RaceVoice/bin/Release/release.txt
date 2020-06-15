@@ -1,3 +1,8 @@
+06-15-20
+===================================
+Bug fix for attempting to resolve RaceVoiceSIM license state without an internet connection 
+Bug fix for not allowing non-Aim dashboards to be selected on RaceVoice-DI units.
+
 05-20-20
 ===================================
 Add option to minimize license warnings at first startup of RaceVoiceStudio
