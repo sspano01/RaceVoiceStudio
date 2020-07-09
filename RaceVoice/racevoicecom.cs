@@ -651,7 +651,7 @@ namespace RaceVoice
 #if (!APP)
 
                 bool dash_error = false;
-                if (!carMetadata.HardwareData.Version.ToUpper().Contains("RACEVOICE-SA"))
+                if (!carMetadata.HardwareData.Version.ToUpper().Contains("RACE VOICE-SA"))
                 {
                     if (DASH.Equals("CUSTOM") || DASH.Equals("OBDII"))
                     {
