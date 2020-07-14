@@ -79,7 +79,7 @@ namespace RaceVoice
         {
             //import aim_import = new import();
             //string file = globals.LocalFolder() + "\\aim\\mugello.ztracks";
-            //string oname ="mugello";
+            //string oname ="mug";
             //aim_import.ImportZTRACK(file,oname);
             //aim_import.Parse(true);
 
@@ -108,65 +108,6 @@ namespace RaceVoice
                     var metaFile = GetMetaFileForCsv(f);
                     var metadata = TrackMetadata.Load(metaFile);
                     metadata = CheckTrackMetaData(f, metaFile, metadata, trackModel);
-                    /*
-                                        if (metadata == null)
-                                        {
-                                            no_json = true;
-                                            metadata = new TrackMetadata()
-                                            {
-                                                TrackName = Path.GetFileNameWithoutExtension(f).Replace('_', ' '),
-                                                DataBitfields = new List<UInt16>(trackModel.Segments.Count),
-                                                ClusterSize = trackModel.SampleRate == 0 ? 4 : trackModel.SampleRate
-                                            };
-
-
-                                            foreach (var segment in trackModel.Segments)
-                                            {
-                                                metadata.DataBitfields.Add(0);
-                                            }
-
-                                            metadata.Save(metaFile);
-                                        }
-
-
-                                        // ensure we always have bitfields for the segments
-                                        if (trackModel.Segments.Count()!=metadata.DataBitfields.Count())
-                                        {
-                                            int i = 0;
-                                            foreach (var segment in trackModel.Segments)
-                                            {
-                                                if (i>=metadata.DataBitfields.Count())
-                                                {
-                                                 metadata.DataBitfields.Add(0);
-                                                }
-
-                                                i++;
-
-                                            }
-                                            metadata.Save(metaFile);
-                                        }
-
-
-                                        if (metadata.SplitEnabledStates == null || metadata.SplitEnabledStates.Count != trackModel.Splits.Count)
-                                        {
-                                            metadata.SplitEnabledStates = new List<bool>(trackModel.Splits.Count);
-                                            for (int i = 0; i < trackModel.Splits.Count; i++)
-                                            {
-                                                if (no_json)
-                                                {
-
-                                                    metadata.SplitEnabledStates.Add(false);
-                                                }
-                                                else
-
-                                                metadata.SplitEnabledStates.Add(!trackModel.Splits[i].Hidden);
-                                            }
-
-                                            metadata.Save(metaFile);
-                                        }
-
-                                        cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = f });
-                                        */
                 }
             }
 
@@ -216,13 +157,34 @@ namespace RaceVoice
             if (local_key.Contains("NONE"))
             {
                 globals.license_feature = (int)globals.FeatureState.FULL; // assume we have full version
-
+                globals.license_state = "LOCAL-LICENSE-FULL";
             }
-            if (local_key.Contains(key_demo)) globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
-            if (local_key.Contains(key_demo_iracing)) globals.license_feature = (int)globals.FeatureState.DEMO_IRACING; // demo version
-            if (local_key.Contains(key_full)) globals.license_feature = (int)globals.FeatureState.FULL; // full version
-            if (local_key.Contains(key_lite)) globals.license_feature = (int)globals.FeatureState.LITE; // lite version
-            if (local_key.Contains(key_full_iracing)) globals.license_feature = (int)globals.FeatureState.FULL_IRACING; // full with iracing
+            if (local_key.Contains(key_demo))
+            {
+                globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
+                globals.license_state = "DEMO";
+            }
+            if (local_key.Contains(key_demo_iracing))
+            {
+                globals.license_feature = (int)globals.FeatureState.DEMO_IRACING; // demo version
+                globals.license_state = "DEMO-IRACING";
+            }
+            if (local_key.Contains(key_full))
+            {
+                globals.license_feature = (int)globals.FeatureState.FULL; // full version
+                globals.license_state = "VALID";
+            }
+            if (local_key.Contains(key_lite))
+            {
+                globals.license_feature = (int)globals.FeatureState.LITE; // lite version
+                globals.license_state = "VALID-LITE";
+            }
+
+            if (local_key.Contains(key_full_iracing))
+            {
+                globals.license_state = "VALID-IRACING";
+                globals.license_feature = (int)globals.FeatureState.FULL_IRACING; // full with iracing
+            }
 
 
         }
@@ -274,6 +236,88 @@ namespace RaceVoice
         }
 
 
+        private void CheckNewUI()
+        {
+
+            FileDownloader fd = new FileDownloader();
+            string[] rui = new string[2000];
+            string path = globals.LocalFolder() + "\\";
+            string line;
+            int ri = 0;
+
+            try
+            {
+                // download the ecu files
+                fd.DownloadFile("ui.php", "remoteui.php");
+                // now load the data into an array
+                path = globals.LocalFolder() + "\\remoteui.php";
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                while ((line = file.ReadLine()) != null)
+                {
+                    globals.WriteLine(line);
+                    rui[ri] = line;
+                    ri++;
+                }
+                file.Close();
+                System.IO.File.Delete(path);
+
+                // now find the latest file on the server
+                string[] ours = globals.UIVersion.Split('-');
+                string mm = ours[0];
+                string dd = ours[1];
+                string yy = ours[2];
+                DateTime ui_date = new DateTime(Convert.ToInt32(yy), Convert.ToInt32(mm), Convert.ToInt32(dd));
+                for (int i =0;i<ri;i++)
+                {
+                    string[] rs = rui[i].Split('_');
+
+                    mm = rs[1];
+                    dd = rs[2];
+                    yy = rs[3];
+                    if (yy.Length == 2) yy = "20" + yy;
+                    // any letters?
+                    bool skip = false;
+                    for (int j=0;j<yy.Length;j++)
+                    {
+                        if (yy[j] < '0' || yy[j] > '9') skip = true;
+                    }
+                    if (yy.Length > 4) skip = true;
+                    if (skip) continue;
+
+                    //yy = "2020";
+                    //mm = "06";
+                    DateTime rem_date = new DateTime(Convert.ToInt32(yy), Convert.ToInt32(mm), Convert.ToInt32(dd));
+
+                    Console.WriteLine("UI Date=" + ui_date.ToString() +" VS Remote Date="+rem_date.ToString());
+
+
+                    if (DateTime.Compare(rem_date,ui_date)>0)
+                    {
+
+                        DialogResult dr = MessageBox.Show("A new version of RaceVoiceStudio is available\r\nWould you like to update to the latest one?\r\n", "New Software", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dr==DialogResult.Yes)
+                        {
+
+                            MessageBox.Show("Great, the RaceVoice.com webpage will open and you can download the installer from there.\r\n", "New Software", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            System.Diagnostics.Process.Start("https://www.racevoice.com/download/");
+                            Environment.Exit(0);
+                        }
+
+                        return;
+
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                globals.WriteLine(e.Message);
+                return;
+            }
+
+
+        }
         private void CheckNewEcus(splash isplash)
         {
             FileDownloader fd = new FileDownloader();
@@ -425,12 +469,12 @@ namespace RaceVoice
                     isplash.Close();
                     return;
                 }
-                CheckNewEcus(isplash);
-
                 if (!globals.no_track_check)
                 {
                     isplash.setbar(80);
                     isplash.setlabel("Checking For Updates ....");
+                    CheckNewUI();
+                    CheckNewEcus(isplash);
 
                     fd.DownloadFile("tracks.php", "remotetracks.php");
                     //MessageBox.Show("hi");
@@ -507,8 +551,6 @@ namespace RaceVoice
                     MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     _carMetadata.Save(_carMetafile);
                     globals.Terminate();
-
-
                 }
             }
 
@@ -592,9 +634,11 @@ namespace RaceVoice
 
             if (track_stat.Length > 0)
             {
-                DialogResult dr = FlexibleMessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                // DialogResult dr = MessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = DialogResult.Yes;
+                if (globals.virgin_load == false)
+                {
+                   dr = FlexibleMessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
                 if (dr == DialogResult.Yes)
                 {
                     isplash.setbar(0);
@@ -682,7 +726,7 @@ namespace RaceVoice
             if (globals.all_stop) return false;
 
 
-            globals.theUUID = HardwareInfo.GenerateUID("RACEVOICE");
+            globals.theUUID = HardwareInfo.GenerateUID(globals.UUID_KEY);
             globals.WriteLine("UUID==" + globals.theUUID);
             sqldatabase sql = new sqldatabase();
             if (globals.no_license_check)
@@ -696,7 +740,10 @@ namespace RaceVoice
             {
                 if (globals.license_state.Contains("RELOAD"))
                 {
-                    state = sql.ValidateUUID(globals.theUUID, false, _carMetadata); // re-read the license state after the first registration
+                    while (globals.license_state.Contains("RELOAD"))
+                    {
+                        state = sql.ValidateUUID(globals.theUUID, false, _carMetadata); // re-read the license state after the first registration
+                    }
                 }
                 sql.ValidateUUID(globals.theUUID, true, _carMetadata);
                 _carMetadata.HardwareData.FeatureCode = EncodeFeature(globals.license_state);
@@ -776,8 +823,56 @@ namespace RaceVoice
             UpdateTitle();
         }
 
+        public class WindowStateInfo
+        {
+            public FormWindowState? WindowState { get; set; }
+
+            public Point? WindowLocation { get; set; }
+            public int width;
+            public int height;
+        }
+
+        private void SaveWindowState(Form form)
+        {
+            string fn = globals.LocalFolder() + "\\appsetting.json";
+            var state = new WindowStateInfo
+            {
+                WindowLocation = form.Location,
+                WindowState = form.WindowState,
+                width = form.Width,
+                height = form.Height
+            };
+
+            File.WriteAllText(fn, JsonConvert.SerializeObject(state));
+        }
+
+        private void LoadWindowState(Form form)
+        {
+            try
+            {
+                string fn = globals.LocalFolder() + "\\appsetting.json";
+                if (!File.Exists(fn)) return;
+
+                var state = JsonConvert.DeserializeObject<WindowStateInfo>(File.ReadAllText(fn));
+
+                    if (state.height>0 && state.width>0)
+                 {
+                        form.Width = state.width;
+                        form.Height = state.height;
+                 }
+               if (state.WindowState.HasValue) form.WindowState = state.WindowState.Value;
+                if (state.WindowLocation.HasValue) form.Location = state.WindowLocation.Value;
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee.Message);
+            }
+        }
+
+
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadWindowState(this);
             EcuMetadata ecuMetadata = new EcuMetadata();
             _dataCheckboxes = new CheckBox[]
             {
@@ -793,6 +888,11 @@ namespace RaceVoice
 
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
+            if (_carMetadata.HardwareData.HideWarnings.Contains("YES"))
+            {
+                licenseHideWarnings.Checked = true;
+                globals.license_hide_warnings = true;
+            }
 
             CheckNewTracks(false, false, "");
 
@@ -2282,7 +2382,7 @@ namespace RaceVoice
                 metadata.Save(metaFile);
             }
 
-            cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = metadata.TrackName, Value = filename });
+            cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = globals.FixName(metadata.TrackName,false), Value = filename });
             return metadata;
 #else
                 //bool no_json = false;
@@ -2666,6 +2766,7 @@ namespace RaceVoice
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SaveWindowState(this);
             Environment.Exit(0);
         }
 
@@ -2700,6 +2801,29 @@ namespace RaceVoice
         private void licenseCheckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             irace.LicenseMessage(true);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void licenseHideWarnings_Click(object sender, EventArgs e)
+        {
+            if (licenseHideWarnings.Checked)
+            {
+                _carMetadata.HardwareData.HideWarnings = "YES";
+                globals.license_hide_warnings = true;
+                _carMetadata.Save(_carMetafile);
+
+            }
+            else
+            {
+                _carMetadata.HardwareData.HideWarnings = "NO";
+                globals.license_hide_warnings = false;
+                _carMetadata.Save(_carMetafile);
+
+            }
         }
 #endif
     }

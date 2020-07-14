@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
+using System.Security.Policy;
 #if !APP
 using System.Windows.Forms;
 #else
@@ -27,7 +28,10 @@ namespace RaceVoice
         public static string theSerialNumber = "";
         public static string theUUID = "";
 
-        public static string UIVersion = "05-15-2020-A1";
+        // master license phrase, don't change!
+        public static string UUID_KEY= "RACEVOICE";
+        //public static string UUID_KEY = "RACEVOICED";
+        public static string UIVersion = "07-08-2020-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -38,7 +42,7 @@ namespace RaceVoice
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
         public static bool no_unit_check = false;
-        public static bool quick_start = true;
+        public static bool quick_start = false;
         public static string forcePort = "";
         public static bool no_track_check = false;
         public static bool no_license_check =false;
@@ -71,6 +75,7 @@ namespace RaceVoice
         public static string network_time="";
         public static string expire_time = "";
         public static string iracing_node = "";
+        public static bool license_hide_warnings = false;
         public static bool iracing_node_error = false;
         public static int license_days_left = 0;
         public static bool all_stop = false;
@@ -195,6 +200,44 @@ namespace RaceVoice
             return good;
         }
 
+        public static string FixName(string name,bool forspeech)
+        {
+            string[] ns = name.Split(' ');
+            string nnew= "";
+            if (ns.Length>1)
+            {
+                for (int i=0;i<ns.Length;i++)
+                {
+                    string seg = ns[i];
+                    if (seg.Equals("Internation",StringComparison.OrdinalIgnoreCase))
+                    {
+                        seg = "International";
+                    }
+                    if (seg.Equals("Virgina", StringComparison.OrdinalIgnoreCase))
+                    {
+                        seg = "Virginia";
+                    }
+
+                    if (forspeech)
+                    {
+                        if (seg.Equals("gingerman", StringComparison.OrdinalIgnoreCase))
+                        {
+                            seg = "Ginger Man";
+                        }
+
+                    }
+                    nnew += seg + " ";
+                }
+
+                nnew = nnew.Trim();
+            }
+            else
+            {
+                nnew= name;
+            }
+
+            return nnew;
+        }
         public static bool DeleteTrack(string track)
         {
             bool good = true;
@@ -436,6 +479,11 @@ namespace RaceVoice
 
             if (yes)
             {
+                if (!globals.network_ok)
+                {
+                    return false;
+
+                }
                 DateTime current = Convert.ToDateTime(globals.network_time);
                 DateTime license = Convert.ToDateTime(globals.expire_time);
                 double remain = (license - current).TotalDays;

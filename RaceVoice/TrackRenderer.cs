@@ -455,6 +455,10 @@ namespace RaceVoice
        public void Render(Bitmap renderTarget)
 #endif
         {
+
+#if !APP
+            if (renderTarget == null) return;
+#endif
             if (_transformedSegments == null)
             {
                 _transformedSegments = new List<PointF[]>(_model.Segments.Count);

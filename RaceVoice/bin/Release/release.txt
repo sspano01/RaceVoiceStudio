@@ -1,3 +1,35 @@
+07-08-20
+===================================
+Bug fix for selecting OBD-II mode on RaceVoice-SA
+
+06-15-20
+===================================
+Bug fix for attempting to resolve RaceVoiceSIM license state without an internet connection 
+Bug fix for not allowing non-Aim dashboards to be selected on RaceVoice-DI units.
+
+05-20-20
+===================================
+Add option to minimize license warnings at first startup of RaceVoiceStudio
+Improvements for zTrack importing
+Fixbug to allow existing RaceVoice customers to auto-register 10-day trial of RaceVoiceStudio
+
+05-19-20
+===================================
+Fixup bug where multiple instances of RaceVoiceStudio could be running at the same time
+Improve segment tracking for iRacing
+Fixup announcement bug for exit + minimum tracking
+Increase software launch speed for when iRacing dash has been set
+Add ability to remember the size/position of the UI between software launches
+Always donwnload tracks on first installation, do not prompt user for yes/no
+Fix bug for null-pointer on trackRender code
+Add routine to fix pronunciation of certain track names in iRacing mode
+Added ability to check racevoice.com to see if there is a new RaceVoiceStudio installer available and prompt for download
+
+05-15-20
+===================================
+Improved support for RaceVoice-SA firmware management
+Added RaceVoiceSIM mode for using RaceVoiceStudio with iRacing for speech announcements
+
 03-15-20
 ===================================
 Released initial support for RaceVoice-SA, configurable ECU scripts, data charting

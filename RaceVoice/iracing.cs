@@ -84,10 +84,11 @@ namespace RaceVoice
         private string log_path = @"c:\\temp\\irace_data_log.txt";
         private StreamWriter logfile;
 
-        private string playpath = @"c:\\temp\\overrev.txt";
-        //private string playpath = @"c:\\temp\\irace_limerock.txt";
-        private StreamReader sr;
+ //       private string playpath = @"c:\\temp\\overrev.txt";
+
         private bool play = false;
+        private string playpath = @"c:\\temp\\irace_limerock.txt";
+        private StreamReader sr;
         
         private bool running = false;
         private Queue<string> speech_queue = new Queue<string>();
@@ -157,7 +158,7 @@ namespace RaceVoice
 
             configured = true;
             voice.Rate = 0;
-            voice.Speak(trackdata.TrackName+ " is configured");
+            voice.Speak(globals.FixName(trackdata.TrackName,true)+ " is configured");
 
         }
 
@@ -259,7 +260,7 @@ namespace RaceVoice
 
                 ln = "RPM=" + sp[0] + "  DISTANCE=" + dist + "  MPH=" + mph + "  TPS=" + Convert.ToInt32(tps) + "  LAP=" + sp[4] + "  Latg=" + sp[5] + " " + "Brake=" + sp[6];
                 globals.irace_track_distance = dist;
-                if (play) Console.WriteLine(ln);
+               // if (play) Console.WriteLine(ln);
                   
                 byte[] db = Encoding.ASCII.GetBytes(indata);
                 if (configured)
@@ -433,7 +434,17 @@ namespace RaceVoice
         public void LicenseMessage(bool check)
         {
             string msg;
-            int days_to_go = 15;
+            int days_to_go = 5;
+            if (!globals.network_ok)
+            {
+                if (check)
+                {
+                    msg = "Sorry, there is no internet connection.\r\nLicense cannot be validated";
+                    MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+
+                }
+                return;
+            }
             if (globals.no_license_check) return;
 
             if (globals.iracing_node_error)
@@ -442,7 +453,11 @@ namespace RaceVoice
                 msg += "Current Computer = " + globals.theUUID+"\r\n";
                 msg +=" Licensed Computer = "+globals.iracing_node + "\r\n"; ;
                 msg += "Please contact RaceVoice to discuss licensing an additional computer or moving a license.";
-                MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                // skip it at boot, so we show only the second time
+                if (globals.license_hide_warnings == false || check)
+                {
+                    MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
                 return;
 
             }

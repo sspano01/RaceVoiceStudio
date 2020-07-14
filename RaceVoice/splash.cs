@@ -23,6 +23,24 @@ namespace RaceVoice
             {
                 string debug_mode = globals.LocalFolder() + "\\admin.txt";
                 string line;
+
+                if (first_start)
+                {
+                    string cf = globals.LocalFolder() + "\\car.json";
+                    if (File.Exists(cf))
+                    {
+                        System.IO.StreamReader file = new System.IO.StreamReader(cf);
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            line = line.ToUpper();
+                            if (line.Contains("PC MODE"))
+                            {
+                                globals.quick_start = true;
+                            }
+                        }
+                        file.Close();
+                    }
+                }
                 if (File.Exists(debug_mode))
                 {
                     System.IO.StreamReader file = new System.IO.StreamReader(debug_mode);
@@ -54,8 +72,9 @@ namespace RaceVoice
                     first_start = false;
                 }
             }
-            catch
+            catch (Exception ee)
             {
+                globals.WriteLine(ee.Message);
                 // no problem, just move along
             }
         }
@@ -135,9 +154,18 @@ namespace RaceVoice
 
                 splashbox.Items.Add("Local UUID: " + globals.theUUID);
                 splashbox.Items.Add("License State: " + globals.license_state + " Feature State: " + globals.license_feature);
-                if (globals.expire_time.Length > 2)
+                if (globals.iracing_node_error)
                 {
-                    splashbox.Items.Add("RaceVoiceSIM License Expires on: " + globals.expire_time);
+                    splashbox.Items.Add("RaceVoiceSIM Is NOT LICENSED for this computer");
+                    splashbox.Items.Add("License Exists for: "+globals.iracing_node);
+
+                }
+                else
+                {
+                    if (globals.expire_time.Length > 2)
+                    {
+                        splashbox.Items.Add("RaceVoiceSIM License Expires on: " + globals.expire_time);
+                    }
                 }
                 splashbox.Items.Add("Total Available Tracks: " + trackCount);
                 for (int i = 0; i < 2; i++) splashbox.Items.Add("\r\n");
@@ -145,7 +173,7 @@ namespace RaceVoice
                 splashbox.Items.Add("Warning: IT IS THE DRIVER'S RESPONSIBILITY TO MAINTAIN CONTROL!");
                 splashbox.Items.Add("Warning: UNDER ALL ROAD/WEATHER/SURFACE/COMPETITION CONDTIONS!");
                 for (int i = 0; i < 2; i++) splashbox.Items.Add("\r\n");
-                splashbox.Items.Add("Copyright 2019, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
+                splashbox.Items.Add("Copyright 2020, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
             }
 
             if (isplash == 3)
@@ -176,7 +204,7 @@ namespace RaceVoice
 
                 splashbox.Items.Add(" ");
                 splashbox.Items.Add(" ");
-                splashbox.Items.Add("Copyright 2019, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
+                splashbox.Items.Add("Copyright 2020, RaceVoice LLC, Patent Pending, www.RaceVoice.com");
             }
 
         }

@@ -1,23 +1,23 @@
 {
   "EngineData": {
-    "EcuType": 8,
-    "EcuName": "iRacing PC Mode",
+    "EcuType": 7,
+    "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6550,
+    "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
-    "OilPressureEnabled": false,
+    "OilPressureEnabled": true,
     "OilPressurePsi": 10,
-    "OilPressureRpm": 1200,
-    "TemperatureEnabled": false,
-    "Temperature": 220,
-    "VoltageEnabled": false,
+    "OilPressureRpm": 1500,
+    "TemperatureEnabled": true,
+    "Temperature": 215,
+    "VoltageEnabled": true,
     "Voltage": 11.5,
-    "TrackSelectionIndex": 66,
-    "TrackSelectionName": "Spa Franchorchamps",
+    "TrackSelectionIndex": 8,
+    "TrackSelectionName": "Autodromo Jose Carlos Pace",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -27,30 +27,64 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 1,
+    "WheelSpeedPercentDifference": 4,
     "AnnounceSpeed": false,
-    "SpeedThreshold": 0,
+    "SpeedThreshold": 105,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThreshold": false,
-    "BrakeThresholdMin": 100,
-    "BrakeThresholdMax": 100,
+    "BrakeThresholdMin": 500,
+    "BrakeThresholdMax": 600,
     "BrakeToneHz": 900,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
-    "LicenseState": "1QWLTMA-7AJVPJ-ZVKWYU-Q3EQAP",
-    "Name": "NONE",
-    "FeatureCode": "UPLWVT-36QGRY-1449BWT-1T4NHIQ",
-    "Version": "NONE",
+    "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
+    "Name": "AK06E47D",
+    "HideWarnings": "NO",
+    "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
+    "Version": "RACE VOICE-SA,  VERSION,  MARCH 18, 2020, A1",
     "Volume": 5,
-    "SWVersion": "05-12-2020-A2",
+    "SWVersion": "07-08-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 1,
+    "BaudRate": 2,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
-  "MessageTriggers": []
+  "MessageTriggers": [
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "NONE",
+      "Repeat": 0
+    }
+  ]
 }

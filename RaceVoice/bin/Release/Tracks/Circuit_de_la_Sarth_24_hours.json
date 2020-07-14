@@ -1,0 +1,32 @@
+{
+  "TrackName": "Circuit de la Sarth 24 hours",
+  "DataBitfields": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "Rotation": 273,
+  "Zoom": 90,
+  "XPan": 0,
+  "YPan": 0,
+  "ClusterSize": 1,
+  "UseCurveRendering": false,
+  "SplitEnabledStates": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "SpeechTagEnabledStates": [
+    false
+  ]
+}

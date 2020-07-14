@@ -650,24 +650,22 @@ namespace RaceVoice
 
 #if (!APP)
 
+                bool dash_error = false;
                 if (!carMetadata.HardwareData.Version.ToUpper().Contains("RACE VOICE-SA"))
                 {
                     if (DASH.Equals("CUSTOM") || DASH.Equals("OBDII"))
                     {
+                        dash_error = true;
                         MessageBox.Show("RaceVoice-DI does not support VCI/OBD-II formats.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
                     if (DASH.Equals("STANDALONE"))
                     {
+                        dash_error = true;
                         MessageBox.Show("RaceVoice-DI does not support STANDALONE operation.\r\nPress OK to continue configuration.", "Dash/ECU Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        SendSerial("SET DASH " + DASH);
                     }
 
                 }
-                else
+                if (!dash_error)
                 {
                     if (DASH.Equals("CUSTOM"))
                     {
@@ -1380,16 +1378,19 @@ namespace RaceVoice
 
                 if (!save_settings)
                 {
-                    if (carMetadata.HardwareData.Name.Contains("NONE"))
+                    if (carMetadata != null)
                     {
-                        //NameBox nb = new NameBox();
-                        //nb.ShowDialog();
-                        if (globals.theSerialNumber.Length > 0)
+                        if (carMetadata.HardwareData.Name.Contains("NONE"))
                         {
-                            string txt = "SET NAME " + globals.theSerialNumber;
-                            if (WriteSingleCmd(_serialPort, txt))
+                            //NameBox nb = new NameBox();
+                            //nb.ShowDialog();
+                            if (globals.theSerialNumber.Length > 0)
                             {
-                                carMetadata.HardwareData.Name = globals.theSerialNumber;
+                                string txt = "SET NAME " + globals.theSerialNumber;
+                                if (WriteSingleCmd(_serialPort, txt))
+                                {
+                                    carMetadata.HardwareData.Name = globals.theSerialNumber;
+                                }
                             }
                         }
                     }
