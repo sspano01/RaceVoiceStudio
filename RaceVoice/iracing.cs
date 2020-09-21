@@ -487,11 +487,13 @@ namespace RaceVoice
                 {
                     msg = "Your RaceVoiceSIM License will expire in " + globals.license_days_left + " days\r\nWould you like to renew?";
                 }
-                if (MessageBox.Show(msg, "License Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Hand)==DialogResult.Yes)
+                if (check)
                 {
-                    Renew();
+                    if (MessageBox.Show(msg, "License Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                    {
+                        Renew();
+                    }
                 }
-
             }
 
         }

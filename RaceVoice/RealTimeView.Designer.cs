@@ -44,6 +44,8 @@
             this.voltage = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lastspeechcode = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -170,12 +172,31 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lastspeechcode
+            // 
+            this.lastspeechcode.Location = new System.Drawing.Point(334, 40);
+            this.lastspeechcode.Name = "lastspeechcode";
+            this.lastspeechcode.Size = new System.Drawing.Size(188, 20);
+            this.lastspeechcode.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(256, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Speech Code";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
             // RealTimeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(556, 188);
+            this.Controls.Add(this.lastspeechcode);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.voltage);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.brakePSI);
@@ -220,5 +241,7 @@
         private System.Windows.Forms.TextBox voltage;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox lastspeechcode;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -63,6 +63,8 @@ namespace RaceVoice
         {
             timer1.Enabled = false;
             rvcom.WriteSingleCmd("DATA TRACE");
+            try
+            {
                 string[] fields = globals.last_rx.Split(',');
                 if (fields[0].Contains("*SOM*"))
                 {
@@ -73,9 +75,16 @@ namespace RaceVoice
                     brakePSI.Text = fields[5].ToString() + " PSI";
                     voltage.Text = fields[6].ToString();
                     gps.Text = fields[7].ToString() + "," + fields[8].ToString();
+                    lastspeechcode.Text = "0x"+Convert.ToInt32(fields[11]).ToString("X");
                 }
-                //globals.WriteLine(fields);
-                timer1.Enabled = true;
+            }
+            catch (Exception ee)
+            {
+                gps.Text = "Data Error";
+
+            }
+            //globals.WriteLine(fields);
+            timer1.Enabled = true;
         }
 
         private void RealTimeView_FormClosing(object sender, FormClosingEventArgs e)
@@ -119,6 +128,11 @@ namespace RaceVoice
         private void latlng_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

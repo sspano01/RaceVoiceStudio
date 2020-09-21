@@ -1,6 +1,12 @@
-07-08-20
+09-21-20
 ===================================
-Bug fix for selecting OBD-II mode on RaceVoice-SA
+Bug fix for RaceVoice-SIM license screen
+Update firmware to correct bug for Mode1-2 operation with SmartyCam
+Added in debug flag for "last speech state" for viewing in data trace window
+
+07-20-20
+===================================
+Bug fix for selecting OBD-II mode on RaceVoice-SA. Minor other fixes.
 
 06-15-20
 ===================================
