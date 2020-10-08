@@ -75,11 +75,14 @@ namespace RaceVoice
                     brakePSI.Text = fields[5].ToString() + " PSI";
                     voltage.Text = fields[6].ToString();
                     gps.Text = fields[7].ToString() + "," + fields[8].ToString();
+                    latg.Text = fields[9].ToString();
+                    ling.Text = fields[10].ToString();
                     lastspeechcode.Text = "0x"+Convert.ToInt32(fields[11]).ToString("X");
                 }
             }
             catch (Exception ee)
             {
+                globals.WriteLine(ee.Message);
                 gps.Text = "Data Error";
 
             }

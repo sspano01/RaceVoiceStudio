@@ -6,8 +6,7 @@ using System.Windows.Forms;
 #endif
 using System.Threading;
 using System.Linq;
-
-
+using System.Diagnostics;
 
 namespace RaceVoice
 {
@@ -155,6 +154,8 @@ namespace RaceVoice
     internal class racevoicecom
     {
         private static SerialPort _serialPort = null;
+        private static bool can_capture = false;
+        private static int can_capture_size = 200;
 
 
 #if APP
@@ -264,7 +265,33 @@ namespace RaceVoice
             return false;
         }
 
+        private void LogCanCapture(string msg, bool end)
+        {
+            string tracetxt = "";
+            string path = globals.LocalFolder() + "//canbus_capture.txt";
+            tracetxt = DateTime.Now.ToString() + ":" + msg;
+            tracetxt = tracetxt.Replace("0X", "");
+            globals.WriteLine(tracetxt);
+            // This text is added only once to the file.
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(tracetxt);
+                }
+            }
+            else
+            {
+                // This text is always added, making the file longer over time
+                // if it is not deleted.
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(tracetxt);
+                }
+            }
 
+        }
         public void ReadTimeout(int to)
         {
             if (_serialPort != null)
@@ -390,6 +417,11 @@ namespace RaceVoice
             if (ischecked) return "1"; else return "0";
         }
 
+        public void CollectCanbus()
+        {
+            can_capture = true;
+            SendSerial("CAN CAPTURE "+can_capture_size.ToString());
+        }
 #if(!APP)
         private void DownloadCustomCan(CarMetadata carMetadata)
         {
@@ -1007,15 +1039,19 @@ namespace RaceVoice
                     if (cmd.StartsWith("SET")) save_settings = true;
                     if (cmd.StartsWith("CAN CONFIG")) save_settings = true;
                     if (cmd.Contains("SHOW SETTINGS") && !get_version) get_settings = true;
-                    if (message.ToUpper().Contains("INVALID") || message.ToUpper().Contains("SHELL") || message[0]=='\r')
+                    if (can_capture == false)
                     {
-                        // trap on a null being sent, which is basically just a carriage return 
-                        if (cmd[0] == 0)
+                        if (message.ToUpper().Contains("INVALID") || message.ToUpper().Contains("SHELL") || message[0] == '\r')
                         {
-                            return "OK";
-                        }
+                            // trap on a null being sent, which is basically just a carriage return 
+                            if (cmd[0] == 0)
+                            {
+                                return "OK";
+                            }
 
+                        }
                     }
+                    if (can_capture) Bar(can_capture_size);
                     while (save_settings)
                     {
                         Bar(1);
@@ -1034,7 +1070,7 @@ namespace RaceVoice
                         if (message.Contains("ERROR")) break;
                     }
 
-                    while (get_settings || get_version)
+                    while (get_settings || get_version || can_capture)
                     {
                         Bar(1);
                         message = _serialPort.ReadLine(); // this should be a reply
@@ -1042,6 +1078,17 @@ namespace RaceVoice
                         message = message.ToUpper();
                         message = message.TrimEnd('\r', '\n');
                         // strip any non ascii characters
+                        if (message.Contains("CANCAP"))
+                        {
+                            LogCanCapture(message, false);
+                            continue;
+                        }
+                        if (message.Contains("CAN-CAPTURE-DONE"))
+                        {
+                            Bar(0);
+                            LogCanCapture(message, true);
+                            break;
+                        }
                         string[] fields = message.Split(' ');
 
                         if (message.Contains("VERSION"))

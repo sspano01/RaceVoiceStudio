@@ -2825,6 +2825,34 @@ namespace RaceVoice
 
             }
         }
+
+        private void CanCapture_Click(object sender, EventArgs e)
+        {
+            if (globals.IsDemoMode(true)) return;
+            try
+            {
+                DialogResult dr = MessageBox.Show("For the CANBus capture to work, make sure the BLUE Led is flashing\r\nOn your RaceVoice Unit before pressing 'YES'\r\n", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    if (!globals.IsRaceVoiceConnected())
+                    {
+                        return;
+                    }
+                    if (rvcom.OpenSerial())
+                    {
+                        rvcom.CollectCanbus();
+                        rvcom.CloseSerial();
+                        MessageBox.Show("CANBus capture is complete\r\n", "Capture", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error During Capture");
+            }
+
+        }
 #endif
     }
 }

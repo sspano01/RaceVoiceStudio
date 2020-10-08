@@ -1,20 +1,20 @@
 {
   "EngineData": {
-    "EcuType": 2,
+    "EcuType": 0,
     "EcuName": "",
-    "OverRevEnabled": false,
+    "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
-    "UpShiftEnabled": false,
+    "UpShiftEnabled": true,
     "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
-    "OilPressureEnabled": false,
+    "OilPressureEnabled": true,
     "OilPressurePsi": 10,
     "OilPressureRpm": 1500,
-    "TemperatureEnabled": false,
+    "TemperatureEnabled": true,
     "Temperature": 215,
-    "VoltageEnabled": false,
+    "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
     "TrackSelectionName": "NO-SELECTION",
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 5,
+    "WheelSpeedPercentDifference": 2,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -40,50 +40,50 @@
   },
   "HardwareData": {
     "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
-    "Name": "AC022PSO",
+    "Name": "AB0KLUVV",
     "HideWarnings": "NONE",
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
-    "Version": "RACE VOICE,  VERSION,  SEPTEMBER 21, 2020, A1",
+    "Version": "RACE VOICE-SA,  VERSION,  OCTOBER 8 2020, A1",
     "Volume": 5,
-    "SWVersion": "09-21-2020-A1",
+    "SWVersion": "10-08-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
-    "BaudRate": 3,
+    "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
   "MessageTriggers": [
     {
-      "Phrase": "BLANK0",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK1",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK2",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK3",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK4",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK5",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK6",
+      "Phrase": "NONE",
       "Repeat": 0
     },
     {
-      "Phrase": "BLANK7",
+      "Phrase": "NONE",
       "Repeat": 0
     }
   ]
