@@ -437,6 +437,7 @@ namespace RaceVoice
             int li = 0;
             int changes = 0;
             bool ping_good = false;
+            bool s1, s2;
             string[] remotetracks = new string[2000];
             string[] localtracks = new string[2000];
             string[] updates = new string[2000];
@@ -451,8 +452,12 @@ namespace RaceVoice
                 globals.network_ok = true;
                 isplash.setbar(60);
                 isplash.setlabel("Checking License ....");
-                if (!CheckLicensedUser() && !DecodeLicense())
+                s1 = CheckLicensedUser();
+                s2 = DecodeLicense();
+                globals.WriteLine("CheckingLicense: Final States = "+s1+","+s2);
+               if (!s1 && !s2)
                 {
+
                     _carMetadata.HardwareData.LicenseState = EncodeLicense(false);
                     _carMetadata.Save(_carMetafile);
                     isplash.Close();
@@ -723,21 +728,25 @@ namespace RaceVoice
         private bool CheckLicensedUser()
         {
             bool state = false;
+
+            globals.WriteLine("CheckLicenseUser:Stop=" + globals.all_stop);
             if (globals.all_stop) return false;
 
 
             globals.theUUID = HardwareInfo.GenerateUID(globals.UUID_KEY);
-            globals.WriteLine("UUID==" + globals.theUUID);
+            globals.WriteLine("CheckLicensedUser UUID==" + globals.theUUID);
             sqldatabase sql = new sqldatabase();
             if (globals.no_license_check)
             {
                 globals.license_state = "VALID SUPER USER";
+                globals.WriteLine("CheckLicensedUser:" + globals.license_state);
                 return true;
             }
 
             state = sql.ValidateUUID(globals.theUUID, false, _carMetadata);
             if (state)
             {
+                
                 if (globals.license_state.Contains("RELOAD"))
                 {
                     while (globals.license_state.Contains("RELOAD"))
@@ -748,6 +757,8 @@ namespace RaceVoice
                 sql.ValidateUUID(globals.theUUID, true, _carMetadata);
                 _carMetadata.HardwareData.FeatureCode = EncodeFeature(globals.license_state);
             }
+
+            globals.WriteLine("CheckLicensedUser FinalState=" + state);
             return state;
 
             //MessageBox.Show(local_uuid);

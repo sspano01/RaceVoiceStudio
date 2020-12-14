@@ -31,7 +31,7 @@ namespace RaceVoice
         // master license phrase, don't change!
         public static string UUID_KEY= "RACEVOICE";
         //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "10-08-2020-A1";
+        public static string UIVersion = "12-14-2020-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -58,7 +58,7 @@ namespace RaceVoice
         public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
-        public static bool trace = false;
+        public static bool trace = true;
 
         public static int irace_hb = 0;
         public static bool iracing_telemetry = false;
