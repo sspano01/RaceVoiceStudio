@@ -31,7 +31,7 @@ namespace RaceVoice
         // master license phrase, don't change!
         public static string UUID_KEY= "RACEVOICE";
         //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "12-14-2020-A1";
+        public static string UIVersion = "12-14-2020-A2";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -292,6 +292,13 @@ namespace RaceVoice
        
 
     }
+
+        public static void HandleException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            globals.WriteLine("AppHandlercaught : " + e.Message);
+            MessageBox.Show("Critical Error:Send screenshot and \r\nC:\\RaceVoiceStudio\\trace.txt to \r\nsupport@racevoice.com\r\n\r\n"+e.Message, "Critica Error");
+        }
 
         public static string NormalizeLength(string value, int maxLength)
         {

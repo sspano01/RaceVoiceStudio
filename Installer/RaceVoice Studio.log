@@ -1,11 +1,11 @@
 
-Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 10/8/2020 3:28:59 PM
+Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 10/13/2020 3:24:43 PM
 Log file: C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.log 
 Generating Sources... 
 Compiling Gentee Sources... 
 Build setup file: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Adding temporary file(s) to EXE 
-C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 10/8/2020 3:28:59 PM 3273  46.01%
+C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 10/13/2020 3:24:43 PM 3273  46.01%
 c:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg 3/18/2020 10:25:33 AM 3002  94.97%
 C:\Program Files (x86)\CreateInstall Free\res\logo\default - 1.bmp 3/20/2018 12:19:53 PM 7308  52.55%
 C:\Program Files (x86)\CreateInstall Free\res\leftimg\install\install - 1.bmp 3/20/2018 12:19:53 PM 20678  33.44%
@@ -13,7 +13,7 @@ C:\Program Files (x86)\CreateInstall Free\res\leftimg\uninstall\uninstall - 1.bm
 Build setup file: C:\Users\Steve\AppData\Local\Temp\gentee01\uninstall.exe 
 Adding uninstall file(s) to EXE 
 Code signing: C:\Users\Steve\AppData\Local\Temp\gentee01\uninstall.exe 
-Code signing result: 1  ERROR 
+Code signing result: 0  OK 
 Getting list of files 
 Packing files... 
 ================================ 
@@ -74,6 +74,6 @@ c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\tables.html 3/
 ================================ 
 All files: 54 [ 9218KB => 2932KB ] 
 Code signing: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
-Code signing result: 1  ERROR 
-File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3071 KB 
-Finish Successful 10/8/2020 3:29:07 PM
+Code signing result: 0  OK 
+File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3083 KB 
+Finish Successful 10/13/2020 3:25:04 PM

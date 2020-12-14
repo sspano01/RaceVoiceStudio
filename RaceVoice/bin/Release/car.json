@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 0,
-    "EcuName": "",
+    "EcuType": 8,
+    "EcuName": "iRacing PC Mode",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -9,15 +9,15 @@
     "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
-    "OilPressureEnabled": true,
+    "OilPressureEnabled": false,
     "OilPressurePsi": 10,
     "OilPressureRpm": 1500,
-    "TemperatureEnabled": true,
+    "TemperatureEnabled": false,
     "Temperature": 215,
-    "VoltageEnabled": true,
+    "VoltageEnabled": false,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionName": "Area 27",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 2,
+    "WheelSpeedPercentDifference": 1,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -35,17 +35,17 @@
     "AnnounceBrakeThreshold": false,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 900,
+    "BrakeToneHz": 1500,
     "BrakeToneDuration": 50
   },
   "HardwareData": {
     "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
-    "Name": "AB0KLUVV",
+    "Name": "AB0KLUVM",
     "HideWarnings": "NONE",
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
-    "Version": "RACE VOICE-SA,  VERSION,  OCTOBER 8 2020, A1",
+    "Version": "RACE VOICE-SA,  VERSION,  MARCH 18, 2020, A1",
     "Volume": 5,
-    "SWVersion": "10-08-2020-A1",
+    "SWVersion": "12-14-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
@@ -55,35 +55,35 @@
   },
   "MessageTriggers": [
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK0",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK1",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK2",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK3",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK4",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK5",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK6",
       "Repeat": 0
     },
     {
-      "Phrase": "NONE",
+      "Phrase": "BLANK7",
       "Repeat": 0
     }
   ]

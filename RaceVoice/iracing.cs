@@ -108,57 +108,65 @@ namespace RaceVoice
         public void configure(CarMetadata carMetadata, TrackMetadata trackdata, TrackModel track)
         {
             byte[] db = new byte[20];
-            if (!configured)
+
+            try
             {
-                db[0] = 0;
-                DLLPushMessage(db, db.Length);
+                if (!configured)
+                {
+                    db[0] = 0;
+                    DLLPushMessage(db, db.Length);
 
-            }
-            //DLLDebug(1);
-            DLLSetup((int)CMD.RESET, 0);
+                }
+                //DLLDebug(1);
+                DLLSetup((int)CMD.RESET, 0);
 
-            //carMetadata.DynamicsData.AnnounceSpeed = true;
-            //carMetadata.DynamicsData.SpeedThreshold = 105;
-            DLLSetup((int)CMD.SETUP_MPH_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceSpeed));
-            DLLSetup((int)CMD.SETUP_MPH, carMetadata.DynamicsData.SpeedThreshold);
+                //carMetadata.DynamicsData.AnnounceSpeed = true;
+                //carMetadata.DynamicsData.SpeedThreshold = 105;
+                DLLSetup((int)CMD.SETUP_MPH_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceSpeed));
+                DLLSetup((int)CMD.SETUP_MPH, carMetadata.DynamicsData.SpeedThreshold);
 
-            DLLSetup((int)CMD.SETUP_UPSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.UpShiftEnabled));
-            DLLSetup((int)CMD.SETUP_RPM_HIGH, carMetadata.EngineData.UpShift);
+                DLLSetup((int)CMD.SETUP_UPSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.UpShiftEnabled));
+                DLLSetup((int)CMD.SETUP_RPM_HIGH, carMetadata.EngineData.UpShift);
 
-            DLLSetup((int)CMD.SETUP_DOWNSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.DownShiftEnabled));
-            DLLSetup((int)CMD.SETUP_RPM_LOW, carMetadata.EngineData.DownShift);
+                DLLSetup((int)CMD.SETUP_DOWNSHIFT_ANNOUNCE, BTOI(carMetadata.EngineData.DownShiftEnabled));
+                DLLSetup((int)CMD.SETUP_RPM_LOW, carMetadata.EngineData.DownShift);
 
-            DLLSetup((int)CMD.SETUP_OVERREV_ANNOUNCE, BTOI(carMetadata.EngineData.OverRevEnabled));
-            DLLSetup((int)CMD.SETUP_OVERREV, carMetadata.EngineData.OverRev);
+                DLLSetup((int)CMD.SETUP_OVERREV_ANNOUNCE, BTOI(carMetadata.EngineData.OverRevEnabled));
+                DLLSetup((int)CMD.SETUP_OVERREV, carMetadata.EngineData.OverRev);
 
 
-            DLLSetup((int)CMD.SETUP_LATERAL_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceLateralGForce));
-            DLLSetup((int)CMD.SETUP_LATERAL_THRESHOLD, (int)(carMetadata.DynamicsData.LateralGForceThreshold*10));
+                DLLSetup((int)CMD.SETUP_LATERAL_ANNOUNCE, BTOI(carMetadata.DynamicsData.AnnounceLateralGForce));
+                DLLSetup((int)CMD.SETUP_LATERAL_THRESHOLD, (int)(carMetadata.DynamicsData.LateralGForceThreshold * 10));
 
-            for (int slot = 0; slot < track.Segments.Count(); slot++)
+                for (int slot = 0; slot < track.Segments.Count(); slot++)
+                {
+                    DLLSetupSegment(slot, NBTOI(track.Segments[slot].Hidden), track.Segments[slot].StartDistance, track.Segments[slot].EndDistance, track.Segments[slot].DataBits);
+                }
+
+                for (int slot = 0; slot < track.Splits.Count(); slot++)
+                {
+                    DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
+                }
+
+                for (int slot = 0; slot < track.Splits.Count(); slot++)
+                {
+                    DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
+                }
+
+                for (int slot = 0; slot < track.SpeechTags.Count(); slot++)
+                {
+                    byte[] sb = Encoding.ASCII.GetBytes(track.SpeechTags[slot].Phrase);
+                    DLLSetupSpeechTags(slot, NBTOI(track.SpeechTags[slot].Hidden), track.SpeechTags[slot].Distance, sb);
+                }
+
+                configured = true;
+                voice.Rate = 0;
+                voice.Speak(globals.FixName(trackdata.TrackName, true) + " is configured");
+            } 
+            catch (Exception ee)
             {
-                DLLSetupSegment(slot, NBTOI(track.Segments[slot].Hidden), track.Segments[slot].StartDistance, track.Segments[slot].EndDistance,track.Segments[slot].DataBits);
+                globals.WriteLine("Iracing:Configure Fail "+ee.Message);
             }
-
-            for (int slot = 0; slot < track.Splits.Count(); slot++)
-            {
-                DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
-            }
-
-            for (int slot = 0; slot < track.Splits.Count(); slot++)
-            {
-                DLLSetupSplit(slot, NBTOI(track.Splits[slot].Hidden), track.Splits[slot].Distance);
-            }
-
-            for (int slot = 0; slot < track.SpeechTags.Count(); slot++)
-            {
-                byte[] sb = Encoding.ASCII.GetBytes(track.SpeechTags[slot].Phrase);
-                DLLSetupSpeechTags(slot, NBTOI(track.SpeechTags[slot].Hidden), track.SpeechTags[slot].Distance,sb);
-            }
-
-            configured = true;
-            voice.Rate = 0;
-            voice.Speak(globals.FixName(trackdata.TrackName,true)+ " is configured");
 
         }
 
@@ -169,58 +177,67 @@ namespace RaceVoice
             //DLLPushMessage(db,db.Length);
             //DLLCloseFiles();
 
-            if (globals.irace_data_log)
+            try
             {
-                try
+                if (globals.irace_data_log)
                 {
-                    logfile = new StreamWriter(log_path, true);
-                    logging = true;
+                    try
+                    {
+                        logfile = new StreamWriter(log_path, true);
+                        logging = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        globals.WriteLine(ee.Message);
+                    }
+
                 }
-                catch (Exception ee)
+                if (globals.irace_udp_send)
                 {
-                    globals.WriteLine(ee.Message);
+                    Udp = new UdpClient();
+                    Udp.ExclusiveAddressUse = false;
+                    Udp.EnableBroadcast = true;
+                    Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                    Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
                 }
 
+                timer = new System.Timers.Timer();
+                timer.Interval = 30;
+
+                timer.Elapsed += OnTimedEvent;
+                timer.AutoReset = true;
+
+                voice.Volume = 100;
+                voice.Rate = speech_rate;
+                Thread threadS = new Thread(new ThreadStart(SpeechIt));
+                threadS.Start();
+
+                if (globals.irace_udp_recv)
+                {
+                    Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
+                    thread.Start();
+                }
+
+                // Create instance
+                wrapper = new SdkWrapper();
+                wrapper.TelemetryUpdateFrequency = 30;
+                // Listen to events
+                wrapper.TelemetryUpdated += OnTelemetryUpdated;
+                wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
+
+                //speech_queue.Enqueue("RaceVoice Is Ready");
+
+                voice.SpeakCompleted += speakdone;
+                voice.Volume = 100;
             }
-            if (globals.irace_udp_send)
+            catch (Exception ee)
             {
-                Udp = new UdpClient();
-                Udp.ExclusiveAddressUse = false;
-                Udp.EnableBroadcast = true;
-                Udp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                Udp.Client.Bind(new IPEndPoint(IPAddress.Parse(globals.GetLocalIPAddress()), 90));
+                globals.WriteLine("Iracing:Initialization Fail " + ee.Message);
             }
-
-            timer = new System.Timers.Timer();
-            timer.Interval = 30;
-
-            timer.Elapsed += OnTimedEvent;
-            timer.AutoReset = true;
-
-            voice.Volume = 100;
-            voice.Rate = speech_rate;
-            Thread threadS = new Thread(new ThreadStart(SpeechIt));
-            threadS.Start();
-
-            if (globals.irace_udp_recv)
-            { 
-                Thread thread = new Thread(new ThreadStart(ListenThreadFunction));
-                thread.Start();
-            }
-
-            // Create instance
-            wrapper = new SdkWrapper();
-            wrapper.TelemetryUpdateFrequency = 30;
-            // Listen to events
-            wrapper.TelemetryUpdated += OnTelemetryUpdated;
-            wrapper.SessionInfoUpdated += OnSessionInfoUpdated;
-
-            //speech_queue.Enqueue("RaceVoice Is Ready");
-
-            voice.SpeakCompleted += speakdone;
-            voice.Volume = 100;
 
         }
+
+    
 
 
         private void speakdone(object sender, SpeakCompletedEventArgs sp)
@@ -288,19 +305,21 @@ namespace RaceVoice
             }
             catch (Exception ee)
             {
-                globals.WriteLine(ee.Message);
+                globals.WriteLine("IracingProcess Fail:"+ee.Message);
             }
         }
 
         public void SpeechIt()
         {
 
-            while(true)
+        while (true)
+        {
+            if (speech_queue.Count > 0)
             {
-                if (speech_queue.Count>0)
+                try
                 {
                     string ele = speech_queue.Peek();
-                    
+
                     if (ele.Contains(":"))
                     {
                         string[] msplit = ele.Split(':');
@@ -312,8 +331,14 @@ namespace RaceVoice
                     speech_queue.Dequeue();
                     Console.WriteLine(ele);
                 }
-                Thread.Sleep(100);
+                catch (Exception ee)
+                {
+                    globals.WriteLine("Iracing:Speech Out Fail " + ee.Message);
+                }
             }
+
+            Thread.Sleep(100);
+        }
         }
         public void ListenThreadFunction()
         {
@@ -349,11 +374,11 @@ namespace RaceVoice
                                         //        " on their port number " +
                                           //      RemoteIpEndPoint.Port.ToString());
                 }
-                catch (Exception e)
+              catch (Exception ee)
                 {
-                    Console.WriteLine(e.ToString());
+                    globals.WriteLine("Iracing:Listen Fail " + ee.Message);
                 }
-                Thread.Sleep(10);
+
             }
         }
 
@@ -516,7 +541,6 @@ namespace RaceVoice
                 // Use live telemetry...
                 float rpm = e.TelemetryInfo.RPM.Value;
                 float distance = e.TelemetryInfo.LapDistPct.Value;
-//                float distance = e.TelemetryInfo.LapDist.Value;
                 float mph = e.TelemetryInfo.Speed.Value;
                 float lapnum = e.TelemetryInfo.Lap.Value;
                 float tps = e.TelemetryInfo.Throttle.Value;

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Collections;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 using RaceVoiceLib.Parser;
@@ -75,6 +76,8 @@ namespace RaceVoice
         private bool _dataCheckboxesUpdating;
 
 
+
+
         public MainForm()
         {
             //import aim_import = new import();
@@ -83,6 +86,7 @@ namespace RaceVoice
             //aim_import.ImportZTRACK(file,oname);
             //aim_import.Parse(true);
 
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(globals.HandleException);
             InitializeComponent();
 
             if (globals.disabled_charts)

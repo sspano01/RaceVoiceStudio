@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 0,
-    "EcuName": "",
+    "EcuType": 8,
+    "EcuName": "iRacing PC Mode",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -9,15 +9,15 @@
     "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
-    "OilPressureEnabled": true,
+    "OilPressureEnabled": false,
     "OilPressurePsi": 10,
     "OilPressureRpm": 1500,
-    "TemperatureEnabled": true,
+    "TemperatureEnabled": false,
     "Temperature": 215,
-    "VoltageEnabled": true,
+    "VoltageEnabled": false,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionName": "Area 27",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -45,7 +45,7 @@
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
     "Version": "RACE VOICE,  VERSION,  OCTOBER 7, 2020, A1",
     "Volume": 5,
-    "SWVersion": "10-07-2020-A1",
+    "SWVersion": "12-14-2020-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "BaudRate": 1,
