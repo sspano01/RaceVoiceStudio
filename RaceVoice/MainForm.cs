@@ -85,7 +85,6 @@ namespace RaceVoice
             //string oname ="mug";
             //aim_import.ImportZTRACK(file,oname);
             //aim_import.Parse(true);
-
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(globals.HandleException);
             InitializeComponent();
 
@@ -2866,6 +2865,13 @@ namespace RaceVoice
             {
                 MessageBox.Show("Error During Capture");
             }
+
+        }
+
+        private void audioMixerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            audiomixing mixer = new audiomixing();
+            mixer.Show();
 
         }
 #endif

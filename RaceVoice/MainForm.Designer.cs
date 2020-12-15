@@ -75,6 +75,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.installUSBDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.CanCapture = new System.Windows.Forms.ToolStripMenuItem();
             this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raceVoiceSIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseRenewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +156,9 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DownloadData = new System.Windows.Forms.Button();
             this.heartbeat = new System.Windows.Forms.Timer(this.components);
-            this.CanCapture = new System.Windows.Forms.ToolStripMenuItem();
+            this.audioMixerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.segmentGroupBox.SuspendLayout();
@@ -625,6 +628,13 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
             // 
+            // CanCapture
+            // 
+            this.CanCapture.Name = "CanCapture";
+            this.CanCapture.Size = new System.Drawing.Size(190, 22);
+            this.CanCapture.Text = "CANBus Data Capture";
+            this.CanCapture.Click += new System.EventHandler(this.CanCapture_Click);
+            // 
             // terminalToolStripMenuItem
             // 
             this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
@@ -638,6 +648,9 @@
             this.raceVoiceSIMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.licenseRenewToolStripMenuItem,
             this.licenseCheckToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.audioMixerToolStripMenuItem,
+            this.toolStripSeparator7,
             this.licenseHideWarnings});
             this.raceVoiceSIMToolStripMenuItem.Name = "raceVoiceSIMToolStripMenuItem";
             this.raceVoiceSIMToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
@@ -1665,12 +1678,22 @@
             // 
             this.heartbeat.Tick += new System.EventHandler(this.heartbeat_Tick);
             // 
-            // CanCapture
+            // audioMixerToolStripMenuItem
             // 
-            this.CanCapture.Name = "CanCapture";
-            this.CanCapture.Size = new System.Drawing.Size(190, 22);
-            this.CanCapture.Text = "CANBus Data Capture";
-            this.CanCapture.Click += new System.EventHandler(this.CanCapture_Click);
+            this.audioMixerToolStripMenuItem.Name = "audioMixerToolStripMenuItem";
+            this.audioMixerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.audioMixerToolStripMenuItem.Text = "Audio Mixer";
+            this.audioMixerToolStripMenuItem.Click += new System.EventHandler(this.audioMixerToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(191, 6);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(191, 6);
             // 
             // MainForm
             // 
@@ -1870,6 +1893,9 @@
         private System.Windows.Forms.ToolStripMenuItem licenseCheckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licenseHideWarnings;
         private System.Windows.Forms.ToolStripMenuItem CanCapture;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem audioMixerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
 

@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace RaceVoice
+{
+    public partial class audiomixing : Form
+    {
+        int iracing_vol = 0;
+        int racevoice_vol = 0;
+        int iracing_pid = 0;
+        int current_pid = 0;
+        public audiomixing()
+        {
+            InitializeComponent();
+
+            current_pid = AudioManager.GetProcessID("racevoice");
+            iracing_pid=AudioManager.GetProcessID("iracingsim");
+
+            racevoice_vol = AudioManager.GetApplicationVolume(current_pid);
+            iracing_vol = AudioManager.GetApplicationVolume(current_pid);
+
+            globals.WriteLine("Mixer:Iracing Volume=" + iracing_vol + " RaceVoice Volume=" + racevoice_vol);
+
+        }
+    }
+}

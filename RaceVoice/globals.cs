@@ -31,7 +31,7 @@ namespace RaceVoice
         // master license phrase, don't change!
         public static string UUID_KEY= "RACEVOICE";
         //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "12-14-2020-A2";
+        public static string UIVersion = "12-14-2020-A3";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        

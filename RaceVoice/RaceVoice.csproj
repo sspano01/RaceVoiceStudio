@@ -112,6 +112,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aim_Raw_import.cs" />
+    <Compile Include="audiomixer.cs" />
+    <Compile Include="audiomixing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="audiomixing.Designer.cs">
+      <DependentUpon>audiomixing.cs</DependentUpon>
+    </Compile>
     <Compile Include="BASE36.cs" />
     <Compile Include="CanBusSettings.cs">
       <SubType>Form</SubType>
@@ -224,6 +231,9 @@
     <Compile Include="VoiceAdjust.Designer.cs">
       <DependentUpon>VoiceAdjust.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="audiomixing.resx">
+      <DependentUpon>audiomixing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CanBusSettings.resx">
       <DependentUpon>CanBusSettings.cs</DependentUpon>
     </EmbeddedResource>
