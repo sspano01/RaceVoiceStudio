@@ -48,6 +48,8 @@
     "SWVersion": "12-14-2020-A3",
     "Pitch": 50,
     "GPSWindow": 1,
+    "iRacingVolume": 71,
+    "SimVolume": 69,
     "BaudRate": 1,
     "Trace": 0,
     "GetConfigAtStart": true,

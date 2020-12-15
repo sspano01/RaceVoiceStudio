@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 using RaceVoiceLib.Parser;
+using System.Runtime.CompilerServices;
 #if (!APP)
 using System.Windows.Forms;
 using JR.Utils.GUI.Forms;
@@ -1477,6 +1478,7 @@ namespace RaceVoice
                     try
                     {
                         irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                        UpdateSimVolumes();
                     }
                     catch (Exception ee)
                     {
@@ -2868,10 +2870,21 @@ namespace RaceVoice
 
         }
 
+        private void UpdateSimVolumes()
+        {
+            audiomixing mixer = new audiomixing();
+            mixer.UpdateVolumes(_carMetadata);
+        }
+        
         private void audioMixerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             audiomixing mixer = new audiomixing();
+            mixer.SetData(_carMetadata);
             mixer.Show();
+            mixer.UpdateVolumes(_carMetadata);
+            _carMetadata.Save(_carMetafile);
+            UpdateSimVolumes();
+
 
         }
 #endif

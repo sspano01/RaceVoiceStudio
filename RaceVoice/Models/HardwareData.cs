@@ -12,6 +12,9 @@
         public int Pitch { get; set; }
         public int GPSWindow { get; set; }
 
+        public int iRacingVolume { get; set; }
+        public int SimVolume { get; set; }
+
         //0      , 1      , 2      , 3
         //125Kb/s, 250Kb/s, 500Kb/s, 1Mb/s
         public int BaudRate { get; set; }
@@ -34,6 +37,8 @@
             Pitch = 50; // fixed
             GetConfigAtStart = true;
             ShareNewTracks = true;
+            iRacingVolume = 0;
+            SimVolume = 0;
         }
     }
 }
