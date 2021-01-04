@@ -58,7 +58,7 @@ namespace RaceVoice
         public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
-        public static bool trace = false;
+        public static bool trace = true;
 
         public static int irace_hb = 0;
         public static bool iracing_telemetry = false;
@@ -676,12 +676,20 @@ namespace RaceVoice
             string dy = "";
             string yy = "";
 
+            globals.WriteLine("FileModifiedNewer:" + file + "," + localdate + "," + remotedate + "," + localmd5 + "," + remotemd5);
+         
             if (file.ToLower().Contains("shen"))
             {
                 Console.Write("!");
             }
             remotedate = remotedate.ToUpper();
             string[] rsplit = remotedate.Split(' ');
+
+            if (rsplit.Length < 3)
+            {
+                globals.WriteLine("RSPLIT Len=" + rsplit.Length);
+                return false;
+            }
             if (rsplit[0].Contains("JAN")) mm = "01";
             if (rsplit[0].Contains("FEB")) mm = "02";
             if (rsplit[0].Contains("MAR")) mm = "03";
@@ -706,6 +714,24 @@ namespace RaceVoice
             //So e.g. Convert.ToDateTime("12/24/2019") on a UK pc will throw an exception
             DateTime r1 = new DateTime(int.Parse(yy), int.Parse(mm), int.Parse(dy));
             string[] localDateSplit = localdate.Split('/');
+
+            // on Tim Lambies'PC ... that local filesystem dataes were reported in the form of 
+            //mm-dd-yyyy instead of mm/dd/yyyy 
+            // must be some localization issue?
+            if (localDateSplit.Length<3)
+            {
+                globals.WriteLine("LocalDateSplit.length=" + localDateSplit.Length);
+                globals.WriteLine("Attempt to split using DASH signs...\r\n");
+                localDateSplit = localdate.Split('-');
+                if (localDateSplit.Length==3)
+                {
+                    globals.WriteLine("New LocalDateSplit.length=" + localDateSplit.Length);
+                    if (localDateSplit.Length<3)
+                    {
+                        return false;
+                    }
+                }
+            }
             DateTime r2 = new DateTime(int.Parse(localDateSplit[2]), int.Parse(localDateSplit[0]), int.Parse(localDateSplit[1]));
 
             if (r2 == r1)
