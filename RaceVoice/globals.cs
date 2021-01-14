@@ -31,7 +31,7 @@ namespace RaceVoice
         // master license phrase, don't change!
         public static string UUID_KEY= "RACEVOICE";
         //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "12-15-2020-A1";
+        public static string UIVersion = "01-11-2021-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -58,7 +58,7 @@ namespace RaceVoice
         public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
-        public static bool trace = true;
+        public static bool trace = false; // force the trace log
 
         public static int irace_hb = 0;
         public static bool iracing_telemetry = false;
@@ -723,13 +723,10 @@ namespace RaceVoice
                 globals.WriteLine("LocalDateSplit.length=" + localDateSplit.Length);
                 globals.WriteLine("Attempt to split using DASH signs...\r\n");
                 localDateSplit = localdate.Split('-');
-                if (localDateSplit.Length==3)
+                globals.WriteLine("New LocalDateSplit.length=" + localDateSplit.Length);
+                if (localDateSplit.Length <3)
                 {
-                    globals.WriteLine("New LocalDateSplit.length=" + localDateSplit.Length);
-                    if (localDateSplit.Length<3)
-                    {
                         return false;
-                    }
                 }
             }
             DateTime r2 = new DateTime(int.Parse(localDateSplit[2]), int.Parse(localDateSplit[0]), int.Parse(localDateSplit[1]));
