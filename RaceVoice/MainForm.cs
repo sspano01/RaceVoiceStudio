@@ -11,6 +11,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using RaceVoiceLib.Parser;
 using System.Runtime.CompilerServices;
+using System.CodeDom.Compiler;
 #if (!APP)
 using System.Windows.Forms;
 using JR.Utils.GUI.Forms;
@@ -78,6 +79,7 @@ namespace RaceVoice
 
 
 
+      
 
         public MainForm()
         {
@@ -1256,9 +1258,33 @@ namespace RaceVoice
             numAnnounceSpeed.Enabled = chkAnnounceSpeed.Checked = _carMetadata.DynamicsData.AnnounceSpeed;
             numAnnounceSpeed.Value = _carMetadata.DynamicsData.SpeedThreshold;
 
-            numMaxBrakeThreshold.Enabled = numMinBrakeThreshold.Enabled = chkBrakeThreshold.Checked = _carMetadata.DynamicsData.AnnounceBrakeThreshold;
+            cmbBrakeThreshold.SelectedIndex= _carMetadata.DynamicsData.AnnounceBrakeThresholdIndex;
+            if (cmbBrakeThreshold.SelectedIndex==0)
+            {
+                numMaxBrakeHz.Enabled = false;
+                numMaxBrakeThreshold.Enabled = false;
+                numMinBrakeHz.Enabled = false;
+                numMinBrakeThreshold.Enabled = false;
+            }
+            if (cmbBrakeThreshold.SelectedIndex == 1)
+            {
+                numMaxBrakeHz.Enabled = true;
+                numMaxBrakeThreshold.Enabled = true;
+                numMinBrakeHz.Enabled = false;
+                numMinBrakeThreshold.Enabled = false;
+            }
+            if (cmbBrakeThreshold.SelectedIndex == 2)
+            {
+                numMaxBrakeHz.Enabled = true;
+                numMaxBrakeThreshold.Enabled = true;
+                numMinBrakeHz.Enabled = true;
+                numMinBrakeThreshold.Enabled = true;
+            }
+
             numMaxBrakeThreshold.Value = _carMetadata.DynamicsData.BrakeThresholdMax;
             numMinBrakeThreshold.Value = _carMetadata.DynamicsData.BrakeThresholdMin;
+            numMaxBrakeHz.Value = _carMetadata.DynamicsData.BrakeMaxHz;
+            numMinBrakeHz.Value = _carMetadata.DynamicsData.BrakeMinHz;
 
             chkAnnounceBestLap.Checked = _carMetadata.DynamicsData.AnnounceBestLap;
             chkAnnounceLapDelta.Checked = _carMetadata.DynamicsData.AnnounceLapDelta;
@@ -1281,6 +1307,12 @@ namespace RaceVoice
                 numMaxBrakeThreshold.Value = numMinBrakeThreshold.Value;
                 numMinBrakeThreshold.Value = v;
             }
+            if (numMinBrakeHz.Value > numMaxBrakeHz.Value)
+            {
+                var v = numMaxBrakeHz.Value;
+                numMaxBrakeHz.Value = numMinBrakeHz.Value;
+                numMinBrakeHz.Value = v;
+            }
 
             numBrakePSI.Enabled = numWheelSpeedDiff.Enabled = _carMetadata.DynamicsData.ActiveWheelLockDetectionEnabled = chkActiveWheelLockDetection.Checked;
             _carMetadata.DynamicsData.AnnounceBestLap = chkAnnounceBestLap.Checked;
@@ -1288,7 +1320,6 @@ namespace RaceVoice
             numLateralGForce.Enabled = _carMetadata.DynamicsData.AnnounceLateralGForce = chkLateralGForce.Checked;
             numLinearGForce.Enabled = _carMetadata.DynamicsData.AnnounceLinearGForce = chkLinearGForce.Checked;
             numAnnounceSpeed.Enabled = _carMetadata.DynamicsData.AnnounceSpeed = chkAnnounceSpeed.Checked;
-            numMinBrakeThreshold.Enabled = numMaxBrakeThreshold.Enabled = _carMetadata.DynamicsData.AnnounceBrakeThreshold = chkBrakeThreshold.Checked;
             _carMetadata.DynamicsData.BrakeThresholdPsi = (int)numBrakePSI.Value;
             _carMetadata.DynamicsData.LateralGForceThreshold = (double)numLateralGForce.Value;
             _carMetadata.DynamicsData.LinearGForceThreshold = (double)numLinearGForce.Value;
@@ -1297,7 +1328,31 @@ namespace RaceVoice
             _carMetadata.DynamicsData.BrakeThresholdMin = (int)numMinBrakeThreshold.Value;
             _carMetadata.DynamicsData.BrakeThresholdMax = (int)numMaxBrakeThreshold.Value;
 
+            _carMetadata.DynamicsData.BrakeMinHz = (int)numMinBrakeHz.Value;
+            _carMetadata.DynamicsData.BrakeMaxHz = (int)numMaxBrakeHz.Value;
+            _carMetadata.DynamicsData.AnnounceBrakeThresholdIndex = cmbBrakeThreshold.SelectedIndex;
 
+            if (cmbBrakeThreshold.SelectedIndex == 0)
+            {
+                numMaxBrakeHz.Enabled = false;
+                numMaxBrakeThreshold.Enabled = false;
+                numMinBrakeHz.Enabled = false;
+                numMinBrakeThreshold.Enabled = false;
+            }
+            if (cmbBrakeThreshold.SelectedIndex == 1)
+            {
+                numMaxBrakeHz.Enabled = true;
+                numMaxBrakeThreshold.Enabled = true;
+                numMinBrakeHz.Enabled = false;
+                numMinBrakeThreshold.Enabled = false;
+            }
+            if (cmbBrakeThreshold.SelectedIndex == 2)
+            {
+                numMaxBrakeHz.Enabled = true;
+                numMaxBrakeThreshold.Enabled = true;
+                numMinBrakeHz.Enabled = true;
+                numMinBrakeThreshold.Enabled = true;
+            }
             _carMetadata.Save(_carMetafile);
 
             _dynamicsValuesUpdating = false;
@@ -1937,14 +1992,13 @@ namespace RaceVoice
                 chkAnnounceSpeed.Checked = false;
                 chkAnnounceBestLap.Checked = false;
                 chkAnnounceLapDelta.Checked = false;
-                chkBrakeThreshold.Checked = false;
                 chkLinearGForce.Checked = false;
+                cmbBrakeThreshold.SelectedIndex = 0;
 
                 chkActiveWheelLockDetection.Enabled = false;
                 chkAnnounceSpeed.Enabled = false;
                 chkAnnounceBestLap.Enabled = false;
                 chkAnnounceLapDelta.Enabled = false;
-                chkBrakeThreshold.Enabled = false;
                 chkLinearGForce.Enabled = false;
 
                 btnSaveTrack.Enabled = false;
@@ -1976,7 +2030,8 @@ namespace RaceVoice
                     splitsBox.Visible = false;
                     wheelLockbox.Visible = false;
                     braketonebox.Visible = false;
-                    chkBrakeThreshold.Enabled = false;
+                    cmbBrakeThreshold.SelectedIndex = 0;
+                    cmbBrakeThreshold.Enabled = false;
                     chkActiveWheelLockDetection.Enabled = false;
                     chkAnnounceBestLap.Enabled = chkAnnounceBestLap.Checked = false;
                     chkAnnounceLapDelta.Enabled = chkAnnounceLapDelta.Checked = false;
@@ -1994,7 +2049,8 @@ namespace RaceVoice
                     splitsBox.Visible = false;
                     wheelLockbox.Visible = false;
                     braketonebox.Visible = false;
-                    chkBrakeThreshold.Enabled = false;
+                    cmbBrakeThreshold.SelectedIndex = 0;
+                    cmbBrakeThreshold.Enabled = false;
                     chkActiveWheelLockDetection.Enabled = false;
                     chkAnnounceBestLap.Enabled = chkAnnounceBestLap.Checked = false;
                     chkAnnounceLapDelta.Enabled = chkAnnounceLapDelta.Checked = false;
@@ -2012,7 +2068,7 @@ namespace RaceVoice
                     chkAnnounceLapDelta.Enabled = true;
                     wheelLockbox.Visible = true;
                     braketonebox.Visible = true;
-                    chkBrakeThreshold.Enabled = true;
+                    cmbBrakeThreshold.Enabled= true;
                     chkActiveWheelLockDetection.Enabled = true;
 
                     chkOverRev.Enabled = true;
@@ -2887,6 +2943,8 @@ namespace RaceVoice
 
 
         }
-#endif
+
     }
+#endif
+    
 }

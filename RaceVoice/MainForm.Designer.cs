@@ -80,6 +80,9 @@
             this.raceVoiceSIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseRenewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.audioMixerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.licenseHideWarnings = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,11 +117,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabDynamics = new System.Windows.Forms.TabPage();
             this.braketonebox = new System.Windows.Forms.GroupBox();
+            this.cmbBrakeThreshold = new System.Windows.Forms.ComboBox();
+            this.numMaxBrakeHz = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numMinBrakeHz = new System.Windows.Forms.NumericUpDown();
             this.numMaxBrakeThreshold = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.numMinBrakeThreshold = new System.Windows.Forms.NumericUpDown();
-            this.chkBrakeThreshold = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.chkAnnounceLapDelta = new System.Windows.Forms.CheckBox();
             this.chkAnnounceBestLap = new System.Windows.Forms.CheckBox();
@@ -156,9 +163,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DownloadData = new System.Windows.Forms.Button();
             this.heartbeat = new System.Windows.Forms.Timer(this.components);
-            this.audioMixerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.rendererRightClickMenu.SuspendLayout();
             this.splitsBox.SuspendLayout();
             this.segmentGroupBox.SuspendLayout();
@@ -176,6 +180,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numOverRev)).BeginInit();
             this.tabDynamics.SuspendLayout();
             this.braketonebox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxBrakeHz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinBrakeHz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxBrakeThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinBrakeThreshold)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -670,6 +676,23 @@
             this.licenseCheckToolStripMenuItem.Text = "License Check";
             this.licenseCheckToolStripMenuItem.Click += new System.EventHandler(this.licenseCheckToolStripMenuItem_Click);
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(191, 6);
+            // 
+            // audioMixerToolStripMenuItem
+            // 
+            this.audioMixerToolStripMenuItem.Name = "audioMixerToolStripMenuItem";
+            this.audioMixerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.audioMixerToolStripMenuItem.Text = "Audio Mixer";
+            this.audioMixerToolStripMenuItem.Click += new System.EventHandler(this.audioMixerToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(191, 6);
+            // 
             // licenseHideWarnings
             // 
             this.licenseHideWarnings.CheckOnClick = true;
@@ -1111,17 +1134,106 @@
             // 
             // braketonebox
             // 
+            this.braketonebox.Controls.Add(this.cmbBrakeThreshold);
+            this.braketonebox.Controls.Add(this.numMaxBrakeHz);
+            this.braketonebox.Controls.Add(this.label11);
+            this.braketonebox.Controls.Add(this.label12);
+            this.braketonebox.Controls.Add(this.numMinBrakeHz);
             this.braketonebox.Controls.Add(this.numMaxBrakeThreshold);
             this.braketonebox.Controls.Add(this.label10);
             this.braketonebox.Controls.Add(this.label9);
             this.braketonebox.Controls.Add(this.numMinBrakeThreshold);
-            this.braketonebox.Controls.Add(this.chkBrakeThreshold);
             this.braketonebox.Location = new System.Drawing.Point(5, 340);
             this.braketonebox.Name = "braketonebox";
-            this.braketonebox.Size = new System.Drawing.Size(205, 99);
+            this.braketonebox.Size = new System.Drawing.Size(205, 154);
             this.braketonebox.TabIndex = 18;
             this.braketonebox.TabStop = false;
             this.braketonebox.Text = "Brake Threshold Tone";
+            // 
+            // cmbBrakeThreshold
+            // 
+            this.cmbBrakeThreshold.FormattingEnabled = true;
+            this.cmbBrakeThreshold.Items.AddRange(new object[] {
+            "Disable",
+            "Single Tone",
+            "Modulated Tone"});
+            this.cmbBrakeThreshold.Location = new System.Drawing.Point(7, 20);
+            this.cmbBrakeThreshold.Name = "cmbBrakeThreshold";
+            this.cmbBrakeThreshold.Size = new System.Drawing.Size(192, 21);
+            this.cmbBrakeThreshold.TabIndex = 25;
+            this.cmbBrakeThreshold.SelectedIndexChanged += new System.EventHandler(this.DynamicsDataValueChanged);
+            // 
+            // numMaxBrakeHz
+            // 
+            this.numMaxBrakeHz.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numMaxBrakeHz.Location = new System.Drawing.Point(107, 101);
+            this.numMaxBrakeHz.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.numMaxBrakeHz.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numMaxBrakeHz.Name = "numMaxBrakeHz";
+            this.numMaxBrakeHz.Size = new System.Drawing.Size(94, 20);
+            this.numMaxBrakeHz.TabIndex = 24;
+            this.numMaxBrakeHz.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(104, 85);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Max (Hz)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(4, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Min (Hz)";
+            // 
+            // numMinBrakeHz
+            // 
+            this.numMinBrakeHz.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numMinBrakeHz.Location = new System.Drawing.Point(7, 101);
+            this.numMinBrakeHz.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.numMinBrakeHz.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numMinBrakeHz.Name = "numMinBrakeHz";
+            this.numMinBrakeHz.Size = new System.Drawing.Size(94, 20);
+            this.numMinBrakeHz.TabIndex = 22;
+            this.numMinBrakeHz.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // numMaxBrakeThreshold
             // 
@@ -1196,17 +1308,6 @@
             0,
             0});
             this.numMinBrakeThreshold.ValueChanged += new System.EventHandler(this.DynamicsDataValueChanged);
-            // 
-            // chkBrakeThreshold
-            // 
-            this.chkBrakeThreshold.AutoSize = true;
-            this.chkBrakeThreshold.Location = new System.Drawing.Point(6, 19);
-            this.chkBrakeThreshold.Name = "chkBrakeThreshold";
-            this.chkBrakeThreshold.Size = new System.Drawing.Size(65, 17);
-            this.chkBrakeThreshold.TabIndex = 18;
-            this.chkBrakeThreshold.Text = "Enabled";
-            this.chkBrakeThreshold.UseVisualStyleBackColor = true;
-            this.chkBrakeThreshold.CheckedChanged += new System.EventHandler(this.DynamicsDataValueChanged);
             // 
             // groupBox6
             // 
@@ -1678,23 +1779,6 @@
             // 
             this.heartbeat.Tick += new System.EventHandler(this.heartbeat_Tick);
             // 
-            // audioMixerToolStripMenuItem
-            // 
-            this.audioMixerToolStripMenuItem.Name = "audioMixerToolStripMenuItem";
-            this.audioMixerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.audioMixerToolStripMenuItem.Text = "Audio Mixer";
-            this.audioMixerToolStripMenuItem.Click += new System.EventHandler(this.audioMixerToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(191, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(191, 6);
-            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1257, 869);
@@ -1737,6 +1821,8 @@
             this.tabDynamics.ResumeLayout(false);
             this.braketonebox.ResumeLayout(false);
             this.braketonebox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxBrakeHz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinBrakeHz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxBrakeThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinBrakeThreshold)).EndInit();
             this.groupBox6.ResumeLayout(false);
@@ -1856,7 +1942,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numMinBrakeThreshold;
-        private System.Windows.Forms.CheckBox chkBrakeThreshold;
         private System.Windows.Forms.CheckBox chkAnnounceLapDelta;
         private System.Windows.Forms.ToolStripMenuItem messageTriggersToolStripMenuItem;
         private System.Windows.Forms.Button btnSaveTrack;
@@ -1896,6 +1981,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem audioMixerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.NumericUpDown numMaxBrakeHz;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown numMinBrakeHz;
+        private System.Windows.Forms.ComboBox cmbBrakeThreshold;
     }
 }
 

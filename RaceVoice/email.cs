@@ -38,13 +38,6 @@ namespace RaceVoice
                 }
                 mail.From = new MailAddress("racevoicestudio@racevoice.com");
                 mail.To.Add("steve@racevoice.com");
-                if (subject.ToUpper().Contains("REGISTER"))
-                {
-
-                    mail.To.Add("dave@racevoice.com");
-                    mail.To.Add("jamesr@pointsw.com");
-
-                }
                 mail.Subject = subject +"Site="+globals.theUUID;
                 if (path.Length > 0)
                 {

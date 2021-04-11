@@ -25,11 +25,16 @@ namespace RaceVoice
         public bool AnnounceBestLap { get; set; }
         public bool AnnounceLapDelta { get; set; }
 
-        public bool AnnounceBrakeThreshold { get; set; }
+        public int AnnounceBrakeThresholdIndex { get; set; }
         public int BrakeThresholdMin { get; set; }
         public int BrakeThresholdMax { get; set; }
-        public int BrakeToneHz { get; set; }
+        public int BrakeMinHz { get; set; }
+        public int BrakeMaxHz { get; set; }
         public int BrakeToneDuration { get; set; }
+
+
+        //no longer used, just for backward compatability with JSON
+        public bool AnnounceBrakeThreshold { get; set; }
 
 
         public DynamicsData()
@@ -47,10 +52,13 @@ namespace RaceVoice
             AnnounceLapDelta = false;
             AnnounceSpeed = false;
 
+            AnnounceBrakeThresholdIndex = 0;
+
             AnnounceBrakeThreshold = false;
             BrakeThresholdMin = 100;
             BrakeThresholdMax = 100;
-            BrakeToneHz = 900;
+            BrakeMinHz = 900;
+            BrakeMaxHz = 900;
             BrakeToneDuration = 50;
         }
     }

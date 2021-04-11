@@ -770,15 +770,10 @@ namespace RaceVoice
                 string sendout = "SET BRAKE TONE ";
                 sendout += carMetadata.DynamicsData.BrakeThresholdMin.ToString() + " ";
                 sendout += carMetadata.DynamicsData.BrakeThresholdMax.ToString() + " ";
-                // force settings for now
-                carMetadata.DynamicsData.BrakeToneHz = 900; // hz
-                carMetadata.DynamicsData.BrakeToneDuration = 50; // half a second
-                sendout += carMetadata.DynamicsData.BrakeToneHz.ToString() + " ";
+                sendout += carMetadata.DynamicsData.BrakeMinHz.ToString() + " ";
+                sendout += carMetadata.DynamicsData.BrakeMaxHz.ToString() + " ";
                 sendout += carMetadata.DynamicsData.BrakeToneDuration.ToString() + " ";
-
-                string bt = "0";
-                bt = CheckString(carMetadata.DynamicsData.AnnounceBrakeThreshold);
-                sendout +=bt;
+                sendout += carMetadata.DynamicsData.AnnounceBrakeThresholdIndex.ToString();
                 SendSerial(sendout);
 
 
@@ -1162,12 +1157,10 @@ namespace RaceVoice
                             {
                                 carMetadata.DynamicsData.BrakeThresholdMin = Convert.ToInt32(fields[3]);
                                 carMetadata.DynamicsData.BrakeThresholdMax = Convert.ToInt32(fields[4]);
-                                carMetadata.DynamicsData.BrakeToneHz = Convert.ToInt32(fields[5]);
-                                carMetadata.DynamicsData.BrakeToneDuration = Convert.ToInt32(fields[6]);
-                                if (fields[7].Contains("1"))
-                                    carMetadata.DynamicsData.AnnounceBrakeThreshold = true;
-                                else
-                                    carMetadata.DynamicsData.AnnounceBrakeThreshold = false;
+                                carMetadata.DynamicsData.BrakeMinHz = Convert.ToInt32(fields[5]);
+                                carMetadata.DynamicsData.BrakeMaxHz = Convert.ToInt32(fields[6]);
+                                carMetadata.DynamicsData.BrakeToneDuration = Convert.ToInt32(fields[7]);
+                                carMetadata.DynamicsData.AnnounceBrakeThresholdIndex = Convert.ToInt32(fields[8]);
 
                             }
 
