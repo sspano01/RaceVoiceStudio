@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Globalization;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Security.Policy;
@@ -31,7 +32,7 @@ namespace RaceVoice
         // master license phrase, don't change!
         public static string UUID_KEY= "RACEVOICE";
         //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "04-09-2021-A1";
+        public static string UIVersion = "04-12-2021-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -492,7 +493,9 @@ namespace RaceVoice
 
                 }
                 DateTime current = Convert.ToDateTime(globals.network_time);
-                DateTime license = Convert.ToDateTime(globals.expire_time);
+                //                DateTime license = Convert.ToDateTime(globals.expire_time);
+                Console.WriteLine("Expire=[" + globals.expire_time + "]");
+                DateTime license = Convert.ToDateTime(DateTime.ParseExact(globals.expire_time,"mm/dd/yyyy",CultureInfo.InvariantCulture));
                 double remain = (license - current).TotalDays;
                 license_days_left = (int)remain;
 

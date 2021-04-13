@@ -17,7 +17,7 @@
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
-    "TrackSelectionName": "NO-SELECTION",
+    "TrackSelectionName": "Area 27",
     "FindTrackByName": false
   },
   "DynamicsData": {
@@ -47,7 +47,7 @@
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
     "Version": "RACE VOICE-SA,  VERSION,  APRIL 7 2021, A1",
     "Volume": 5,
-    "SWVersion": "01-11-2021-A1",
+    "SWVersion": "04-09-2021-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "iRacingVolume": 0,

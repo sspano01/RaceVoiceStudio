@@ -1,0 +1,108 @@
+04-13-21
+===================================
+Improved RaceVoiceSIM Compatibility
+Added modulated brake tone feedback
+Bug fixes to improve SC Mode
+
+10-08-20
+===================================
+Added CANBus data trace option for customer debug
+Improved g-force handling with SmartyCam and RaceVoice-SA
+
+09-21-20
+===================================
+Bug fix for RaceVoice-SIM license screen
+Update firmware to correct bug for Mode1-2 operation with SmartyCam
+Added in debug flag for "last speech state" for viewing in data trace window
+
+07-20-20
+===================================
+Bug fix for selecting OBD-II mode on RaceVoice-SA. Minor other fixes.
+
+06-15-20
+===================================
+Bug fix for attempting to resolve RaceVoiceSIM license state without an internet connection 
+Bug fix for not allowing non-Aim dashboards to be selected on RaceVoice-DI units.
+
+05-20-20
+===================================
+Add option to minimize license warnings at first startup of RaceVoiceStudio
+Improvements for zTrack importing
+Fixbug to allow existing RaceVoice customers to auto-register 10-day trial of RaceVoiceStudio
+
+05-19-20
+===================================
+Fixup bug where multiple instances of RaceVoiceStudio could be running at the same time
+Improve segment tracking for iRacing
+Fixup announcement bug for exit + minimum tracking
+Increase software launch speed for when iRacing dash has been set
+Add ability to remember the size/position of the UI between software launches
+Always donwnload tracks on first installation, do not prompt user for yes/no
+Fix bug for null-pointer on trackRender code
+Add routine to fix pronunciation of certain track names in iRacing mode
+Added ability to check racevoice.com to see if there is a new RaceVoiceStudio installer available and prompt for download
+
+05-15-20
+===================================
+Improved support for RaceVoice-SA firmware management
+Added RaceVoiceSIM mode for using RaceVoiceStudio with iRacing for speech announcements
+
+03-15-20
+===================================
+Released initial support for RaceVoice-SA, configurable ECU scripts, data charting
+
+10-29-19
+===================================
+Fixed a bug where SmartyCam mode would sometimes allow split timing to be reported even though no data is present
+Added support for RaceVoice Studio DEMO mode
+Improved compatibility for use with Windows on Mac/Parallels
+
+
+08-08-19
+===================================
+Fixed a bug where last corner performance triggers could be missed depending on distance to start/finish
+Fixed a bug where split-time announcements could be dropped under certain conditions
+Fixed a bug where wheel speed rate value could cause an exception error
+Fixed a bug where CANBus could hang at boot with multiple devices or transmission timing
+Further improved GPS matching algorithim for both segment and split time locations
+Added support to sync tracks by name between the RaceVoice unit and RaceVoice Studio, not just numerical index
+Changed UI to provide a button to set the CANBus baud rate, this is no longer downloaded with "SendConfiguration"
+Added support for SmartyCam emulation
+Added support for VBOX Motorola Data Frame
+
+06-14-19
+===================================
+Add support for RaceVoice Pro and RaceVoice Lite
+Improve startup detection of RaceVoice unit
+Fix issue with missing communication link when using one RaceVoice Studio to control multiple units
+
+
+05-08-19
+===================================
+Fixup exception addition "600" exception on clean installs
+Improve remote track download and syncrhonization code
+Improved track selection so that it will find a track by name OR index number when synchronizing with the RaceVoice unit
+Added ability to restore the currently selected track, instead of all tracks at once
+Added Tracks->Import menu with ability to import a CSV track map (column1 = lattitude, column2 = longitude) and Aim's ZTRACK format
+Added Tracks->Delete, Clone methods for track managemenet
+Added Advanced->Preferences menu with controllable options for startup and sharing imported tracks with RaceVoice users
+Changed split markers to follow convention of segments. Blue=Active and Gray=NOT-Active splits
+Updated license check routine to provide version data back to server to improve in-field updates
+Firmware updated to correct a low-signal gps condition that could also cause corner segments to fail to report
+Firmware changed to announce "GPS VALID" once the gps signal becomes valid AFTER it a "GPS ERROR" was reported
+Firmware changed to improve segment based lateral-g force announcement
+
+
+04-25-19
+===================================
+Fixup exception occurs with value "600" on a clean install without RaceVoice hardware connection
+Fixup new segments can be overlapped into existing segments, causing crash/exception
+Fixup crash event if new segments have bee added and then a track with less segments is restored
+Fixup "Restore-All-Tracks" menu option
+Change track rendering to show segments as GRAY for valid segments that do not have performance data selected.
+Change so that first start defaults all splits to not-enabled
+Add in release notes under About->Release
+
+04-15-19
+===================================
+Release with updated track rendering and framework
