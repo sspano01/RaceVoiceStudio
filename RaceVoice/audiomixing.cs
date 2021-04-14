@@ -44,8 +44,14 @@ namespace RaceVoice
         public void SetData(CarMetadata _metadata)
         {
             metadata = _metadata;
-            racevoice_vol = (int)AudioManager.GetApplicationVolume(current_pid);
-            iracing_vol = (int)AudioManager.GetApplicationVolume(iracing_pid);
+            if (AudioManager.GetApplicationVolume(current_pid) != null)
+            {
+                racevoice_vol = (int)AudioManager.GetApplicationVolume(current_pid);
+            }
+            if (AudioManager.GetApplicationVolume(iracing_pid) != null)
+            {
+                iracing_vol = (int)AudioManager.GetApplicationVolume(iracing_pid);
+            }
 
             iracing_trackbar.Value = iracing_vol;
             RaceVoice_trackbar.Value = racevoice_vol;

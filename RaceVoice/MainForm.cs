@@ -2944,6 +2944,10 @@ namespace RaceVoice
 
         }
 
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckNewTracks(true, false, "");
+        }
     }
 #endif
     

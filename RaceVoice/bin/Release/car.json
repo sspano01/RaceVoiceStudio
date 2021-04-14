@@ -32,11 +32,13 @@
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
-    "AnnounceBrakeThreshold": false,
+    "AnnounceBrakeThresholdIndex": 0,
     "BrakeThresholdMin": 500,
     "BrakeThresholdMax": 600,
-    "BrakeToneHz": 1500,
-    "BrakeToneDuration": 50
+    "BrakeMinHz": 900,
+    "BrakeMaxHz": 900,
+    "BrakeToneDuration": 50,
+    "AnnounceBrakeThreshold": false
   },
   "HardwareData": {
     "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
@@ -45,7 +47,7 @@
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
     "Version": "RACE VOICE-SA,  VERSION,  MARCH 18, 2020, A1",
     "Volume": 5,
-    "SWVersion": "01-11-2021-A1",
+    "SWVersion": "04-12-2021-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "iRacingVolume": 80,

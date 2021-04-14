@@ -36,7 +36,7 @@ namespace RaceVoice
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
-        public static string racevoice_http = "racevoice.serveftp.com";
+        public static string racevoice_http = "racevoice.com/downloads/";
 
         public static string racevoice_sqlserver = "racevoicesql.servep2p.com";
 
