@@ -50,7 +50,6 @@ namespace RaceVoice
                         if (line.Equals("QUICK-START")) globals.quick_start = true;
                         if (line.Equals("NO-UNIT-CHECK")) globals.no_unit_check = true;
                         if (line.Equals("NO-TRACK-CHECK")) globals.no_track_check = true;
-                        if (line.Equals("NO-LICENSE-CHECK")) globals.no_license_check = true;
                         if (line.Equals("IRACE-UDP-SEND")) globals.irace_udp_send = true;
                         if (line.Equals("IRACE-UDP-RCV")) globals.irace_udp_recv = true;
                         if (line.Equals("IRACE-DATA-LOG")) globals.irace_data_log = true;
@@ -153,7 +152,6 @@ namespace RaceVoice
                 int trackCount = Directory.GetFiles(globals.track_folder, "*.csv").Length;
 
                 splashbox.Items.Add("Local UUID: " + globals.theUUID);
-                splashbox.Items.Add("License State: " + globals.license_state + " Feature State: " + globals.license_feature);
                 if (globals.iracing_node_error)
                 {
                     splashbox.Items.Add("RaceVoiceSIM Is NOT LICENSED for this computer");

@@ -83,15 +83,11 @@ namespace RaceVoice
         }
         private void sendVoice_Click(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
-
             SaveVoice();
         }
 
         private void testVoice_Click(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
-
             racevoicecom rvcom = new racevoicecom();
             if (!globals.IsRaceVoiceConnected()) this.Close();
             if (rvcom.OpenSerial())
@@ -118,7 +114,6 @@ namespace RaceVoice
 
             _meta.HardwareData.Pitch=sldPitch.Value = 60;
             _meta.HardwareData.Volume = volumeBox.SelectedIndex = 5;
-            if (globals.IsDemoMode(true)) return;
             SaveVoice();
         }
     }

@@ -135,73 +135,7 @@ namespace RaceVoice
         }
 
 
-        private bool DecodeLicense()
-        {
-            bool valid = false;
-            string local_license = EncodeLicense(true);
-            string local_key = _carMetadata.HardwareData.LicenseState.Trim().ToUpper();
-            local_license = local_license.Trim().ToUpper();
-            if (local_license == local_key) valid = true;
-            return valid;
-        }
-
-        private string EncodeFeature(string feature)
-        {
-            return HardwareInfo.GenerateUID(feature);
-        }
-
-        private void DecodeFeature()
-        {
-            string key_lite = EncodeFeature("VALID LITE");
-            string key_full = EncodeFeature("VALID");
-            string key_demo = EncodeFeature("DEMO");
-            string key_full_iracing = EncodeFeature("VALID-IRACING");
-            string key_demo_iracing = EncodeFeature("DEMO-IRACING");
-            globals.license_feature = 0;
-            string local_key = _carMetadata.HardwareData.FeatureCode.Trim().ToUpper();
-
-            if (local_key.Contains("NONE"))
-            {
-                globals.license_feature = (int)globals.FeatureState.FULL; // assume we have full version
-                globals.license_state = "LOCAL-LICENSE-FULL";
-            }
-            if (local_key.Contains(key_demo))
-            {
-                globals.license_feature = (int)globals.FeatureState.DEMO; // demo version
-                globals.license_state = "DEMO";
-            }
-            if (local_key.Contains(key_demo_iracing))
-            {
-                globals.license_feature = (int)globals.FeatureState.DEMO_IRACING; // demo version
-                globals.license_state = "DEMO-IRACING";
-            }
-            if (local_key.Contains(key_full))
-            {
-                globals.license_feature = (int)globals.FeatureState.FULL; // full version
-                globals.license_state = "VALID";
-            }
-            if (local_key.Contains(key_lite))
-            {
-                globals.license_feature = (int)globals.FeatureState.LITE; // lite version
-                globals.license_state = "VALID-LITE";
-            }
-
-            if (local_key.Contains(key_full_iracing))
-            {
-                globals.license_state = "VALID-IRACING";
-                globals.license_feature = (int)globals.FeatureState.FULL_IRACING; // full with iracing
-            }
-
-
-        }
-        private string EncodeLicense(bool state)
-        {
-            string enc = "";
-            if (state == false) return "*NOLICENSE*";
-            enc = HardwareInfo.GenerateUID("#VALID#LICENSE#");
-            return enc;
-        }
-
+    
         private void QueueTrackForSending(string name)
         {
             if (_carMetadata.HardwareData.ShareNewTracks)
@@ -435,7 +369,7 @@ namespace RaceVoice
 
         private void CheckNewTracks(bool pushversions, bool force, string download_name)
         {
-
+            sqldatabase sql = new sqldatabase();
             FileDownloader fd = new FileDownloader();
             string path = globals.LocalFolder() + "\\";
             string line;
@@ -443,36 +377,21 @@ namespace RaceVoice
             int li = 0;
             int changes = 0;
             bool ping_good = false;
-            bool s1, s2;
             string[] remotetracks = new string[2000];
             string[] localtracks = new string[2000];
             string[] updates = new string[2000];
             splash isplash = new splash(1);
             isplash.Show();
 
+            globals.theUUID = HardwareInfo.GenerateUID();
             isplash.setbar(30);
             isplash.setlabel("Communicating ....");
             ping_good = globals.IsOnlineTest();
-            if (ping_good || globals.no_license_check)
+            if (ping_good)
             {
                 globals.network_ok = true;
                 isplash.setbar(60);
-                isplash.setlabel("Checking License ....");
-                s1 = CheckLicensedUser();
-                s2 = DecodeLicense();
-                globals.WriteLine("CheckingLicense: Final States = "+s1+","+s2);
-               if (!s1 && !s2)
-                {
-
-                    _carMetadata.HardwareData.LicenseState = EncodeLicense(false);
-                    _carMetadata.Save(_carMetafile);
-                    isplash.Close();
-                    globals.Terminate();
-
-                    return;
-                }
-
-                _carMetadata.HardwareData.LicenseState = EncodeLicense(true);
+                sql.ValidateSystem(_carMetadata);
                 _carMetadata.Save(_carMetafile);
 
                 if (pushversions)
@@ -555,18 +474,11 @@ namespace RaceVoice
             }
             else
             {
-                globals.network_ok = false;
-                // ping test failed, so check to see if we are licensed locally
-                if (!DecodeLicense())
-                {
-                    MessageBox.Show("License Registration Failed.\r\nThis PC is not valid.\r\nPlease contact support@racevoice.com", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    _carMetadata.Save(_carMetafile);
-                    globals.Terminate();
-                }
+                // ping fail...
+                isplash.Close();
+                return;
+
             }
-
-            DecodeFeature(); // regardless of how we got the license, we need to now decode the feature code in the license file
-
 
             string[] remotes;
             string[] locals;
@@ -695,23 +607,10 @@ namespace RaceVoice
         {
             string debug = "";
             string MainFormText = "RaceVoice Studio ";
-            if (globals.license_feature == (int)globals.FeatureState.LITE) MainFormText += "Lite ";
-            else if (globals.license_feature == (int)globals.FeatureState.DEMO) MainFormText += "Demo Mode "; else MainFormText += "Pro ";
 
             MainFormText += "Version " + globals.UIVersion;
             if (globals.no_track_check) debug += " DEBUG:NO TRACK CHECKING";
             if (globals.no_unit_check) debug += " DEBUG:NO UNIT COMMUNICATION";
-            /*
-            if (uuidlabel.Text.Length == 0)
-            {
-                uuidlabel.Text = "SN:" + HardwareInfo.GenerateUID("RACEVOICE");
-                uuidlabel.ReadOnly = true;
-                uuidlabel.BorderStyle = 0;
-                uuidlabel.BackColor = this.BackColor;
-                uuidlabel.TabStop = false;
-            }
-            */
-
             if (globals.fake_connection)
             {
                 this.Text = MainFormText + " : Unit [A9771341]  Version [April 4, 2019]";
@@ -731,47 +630,7 @@ namespace RaceVoice
             }
         }
 
-        private bool CheckLicensedUser()
-        {
-            bool state = false;
-
-            globals.WriteLine("CheckLicenseUser:Stop=" + globals.all_stop);
-            if (globals.all_stop) return false;
-
-
-            globals.theUUID = HardwareInfo.GenerateUID(globals.UUID_KEY);
-            globals.WriteLine("CheckLicensedUser UUID==" + globals.theUUID);
-            sqldatabase sql = new sqldatabase();
-            if (globals.no_license_check)
-            {
-                globals.license_state = "VALID SUPER USER";
-                globals.WriteLine("CheckLicensedUser:" + globals.license_state);
-                return true;
-            }
-
-            state = sql.ValidateUUID(globals.theUUID, false, _carMetadata);
-            if (state)
-            {
-                
-                if (globals.license_state.Contains("RELOAD"))
-                {
-                    while (globals.license_state.Contains("RELOAD"))
-                    {
-                        state = sql.ValidateUUID(globals.theUUID, false, _carMetadata); // re-read the license state after the first registration
-                    }
-                }
-                sql.ValidateUUID(globals.theUUID, true, _carMetadata);
-                _carMetadata.HardwareData.FeatureCode = EncodeFeature(globals.license_state);
-            }
-
-            globals.WriteLine("CheckLicensedUser FinalState=" + state);
-            return state;
-
-            //MessageBox.Show(local_uuid);
-
-            // return isgood;
-        }
-
+    
         private void InitRaceVoiceHW(bool atboot)
         {
             firmware updater = new firmware();
@@ -783,7 +642,7 @@ namespace RaceVoice
                 if (!globals.IsRaceVoiceConnected()) return;
             }
 
-            if (globals.thePort.Length == 0 || globals.IsDemoMode(false))
+            if (globals.thePort.Length == 0)
             {
 
                 _carMetadata.Save(_carMetafile); // save what we read
@@ -1010,7 +869,6 @@ namespace RaceVoice
 
         private void TrackView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!FeatureAllowed()) return;
             if (_renderer == null) return;
 
             if (_renderer.HandleMouseDown(sender, e))
@@ -1021,7 +879,6 @@ namespace RaceVoice
 
         private void TrackView_MouseUp(object sender, MouseEventArgs e)
         {
-            if (!FeatureAllowed()) return;
             if (_renderer == null) return;
 
             if (_renderer.HandleMouseUp(sender, e))
@@ -1496,8 +1353,6 @@ namespace RaceVoice
         }
         private void dataTraceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
-
             try
             {
                 RealTimeView rtv = new RealTimeView();
@@ -1547,7 +1402,6 @@ namespace RaceVoice
                 return;
             }
 
-            if (globals.IsDemoMode(true)) return;
             WriteDataToFwTrace();
             if (!globals.first_connected)
             {
@@ -1558,7 +1412,6 @@ namespace RaceVoice
 
         private void getConfigButton(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -1693,7 +1546,6 @@ namespace RaceVoice
 
         private void messageTriggersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!FeatureAllowed()) return;
             new MessageTriggers(_carMetafile, _carMetadata).ShowDialog();
         }
 
@@ -1791,7 +1643,6 @@ namespace RaceVoice
         {
             bool status = false;
             string track_name = "";
-            if (!FeatureAllowed()) return;
             import aim_import = new import();
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
@@ -1866,7 +1717,6 @@ namespace RaceVoice
         private void cloneCurrentTrackToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string current_track = "";
-            if (!FeatureAllowed()) return;
             current_track = cmbTracks.Text;
             DialogResult dr = MessageBox.Show("Clone Track <" + current_track + "> ?", "Clone", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
@@ -1902,7 +1752,6 @@ namespace RaceVoice
         {
             string current_track = "";
             current_track = cmbTracks.Text;
-            if (!FeatureAllowed()) return;
             DialogResult dr = MessageBox.Show("Delete Track <" + current_track + "> ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
@@ -1934,18 +1783,7 @@ namespace RaceVoice
             }
         }
 
-        private bool FeatureAllowed()
-        {
-            if (globals.no_license_check) return true;
-            if (globals.license_feature == (int)globals.FeatureState.FULL) return true;
-            if (globals.license_feature == (int)globals.FeatureState.DEMO) return true;
-            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING) return true;
-            if (globals.license_feature == (int)globals.FeatureState.FULL_IRACING) return true;
-            MessageBox.Show("Sorry, this feature is not available in RaceVoice Lite\r\nContact RaceVoice to upgrade your license", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-
-        }
-
+     
         private void AdjustUIForFeatures()
         {
             if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING)
@@ -1985,44 +1823,6 @@ namespace RaceVoice
 
 
             if (globals.terminal) terminalToolStripMenuItem.Visible = true;
-            if (globals.license_feature == (int)globals.FeatureState.LITE)
-            {
-
-                chkActiveWheelLockDetection.Checked = false;
-                chkAnnounceSpeed.Checked = false;
-                chkAnnounceBestLap.Checked = false;
-                chkAnnounceLapDelta.Checked = false;
-                chkLinearGForce.Checked = false;
-                cmbBrakeThreshold.SelectedIndex = 0;
-
-                chkActiveWheelLockDetection.Enabled = false;
-                chkAnnounceSpeed.Enabled = false;
-                chkAnnounceBestLap.Enabled = false;
-                chkAnnounceLapDelta.Enabled = false;
-                chkLinearGForce.Enabled = false;
-
-                btnSaveTrack.Enabled = false;
-                btnSaveTrack.Visible = false;
-                btnSegmentDelete.Enabled = false;
-                btnSplitDelete.Enabled = false;
-                btnSegmentDelete.Visible = false;
-                btnSplitDelete.Visible = false;
-
-                chkEntrySpeed.Enabled = chkEntrySpeed.Checked = false;
-                chkExitSpeed.Enabled = chkExitSpeed.Checked = false;
-                chkTurnInSpeed.Enabled = chkTurnInSpeed.Checked = false;
-                chkMaxLinearG.Enabled = chkMaxLinearG.Checked = false;
-
-                chkOverRev.Checked = chkOverRev.Enabled = false;
-                chkDownShift.Checked = chkDownShift.Enabled = false;
-                chkVoltage.Checked = chkVoltage.Enabled = false;
-
-                rdoSpeechNotify.Enabled = false;
-                rdoToneNotify.Enabled = false;
-                rdoSpeechNotify.Checked = true;
-
-            }
-
             switch (_carMetadata.EngineData.EcuType)
             {
                 case EcuType.SmartyCam1:
@@ -2244,7 +2044,6 @@ namespace RaceVoice
 
         private void firmwareUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
             firmware updater = new firmware();
             int update_stat = 0;
             if (ReadDataFromRaceVoice(true)) // get the version from the unit
@@ -2803,7 +2602,6 @@ namespace RaceVoice
         private void DownloadData_Click(object sender, EventArgs e)
         {
 #if (!APP)
-            if (globals.IsDemoMode(true)) return;
             if (!globals.first_connected)
             {
                 InitRaceVoiceHW(false);
@@ -2900,7 +2698,6 @@ namespace RaceVoice
 
         private void CanCapture_Click(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
             try
             {
                 DialogResult dr = MessageBox.Show("For the CANBus capture to work, make sure the BLUE Led is flashing\r\nOn your RaceVoice Unit before pressing 'YES'\r\n", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

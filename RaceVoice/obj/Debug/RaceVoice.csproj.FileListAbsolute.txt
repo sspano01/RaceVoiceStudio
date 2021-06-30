@@ -159,7 +159,6 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\FTD2XX_NET.xml
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\Newtonsoft.Json.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\Newtonsoft.Json.xml
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\System.ValueTuple.xml
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csprojAssemblyReference.cache
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.CanBusSettings.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.GpsSettings.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.licenseemail.resources
@@ -180,3 +179,4 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.SpeechTagDial
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CoreCompileInputs.cache
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\YamlDotNet.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.audiomixing.resources
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.AssemblyReference.cache

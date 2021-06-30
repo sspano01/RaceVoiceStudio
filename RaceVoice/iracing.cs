@@ -470,8 +470,6 @@ namespace RaceVoice
                 }
                 return;
             }
-            if (globals.no_license_check) return;
-
             if (globals.iracing_node_error)
             {
                 msg = "Sorry, RaceVoiceSIM is not Licensed for this computer.\r\n";
@@ -503,9 +501,8 @@ namespace RaceVoice
                 if (globals.license_days_left <= (-5)) return;
             }
 
-            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING) days_to_go = 4;
 
-                msg = "Your RaceVoiceSIM License has expired\r\nWould you like to renew?";
+             msg = "Your RaceVoiceSIM License has expired\r\nWould you like to renew?";
             if (globals.license_days_left < days_to_go)
             {
                 if (globals.license_days_left >= 1)

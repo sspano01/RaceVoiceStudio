@@ -15,6 +15,7 @@ namespace RaceVoice
 {
     internal static class globals
     {
+        public static bool trace = true; // force the trace log
 
 #if APP
         public static string selected_track = "";
@@ -30,9 +31,7 @@ namespace RaceVoice
         public static string theUUID = "";
 
         // master license phrase, don't change!
-        public static string UUID_KEY= "RACEVOICE";
-        //public static string UUID_KEY = "RACEVOICED";
-        public static string UIVersion = "04-12-2021-A1";
+        public static string UIVersion = "06-29-2021-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -42,24 +41,20 @@ namespace RaceVoice
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
-        public static bool no_unit_check = false;
+        public static bool no_unit_check = true;
         public static bool quick_start = false;
         public static string forcePort = "";
         public static bool no_track_check = false;
-        public static bool no_license_check =false;
         public static bool terminal = false;
 
         public static bool disabled_charts = false;
 
         public static bool virgin_load = false;
-        public static string license_state = "UNKNOWN";
-        public static int license_feature = 0;
 
         public const string track_folder = "Tracks";
         public const string ecu_folder = "ECUs";
 
         public static bool fake_connection = false;
-        public static bool trace = false; // force the trace log
 
         public static int irace_hb = 0;
         public static bool iracing_telemetry = false;
@@ -473,21 +468,8 @@ namespace RaceVoice
 #if !APP
         public static bool AllowIracing()
         {
-            bool yes = false;
-            if (globals.no_license_check) return true;
-
-            if (globals.license_feature==(int)globals.FeatureState.FULL_IRACING)
-            {
-                yes = true;
-            }
-            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING)
-            {
-                yes = true;
-            }
-
-            if (yes)
-            {
-                if (!globals.network_ok)
+           
+                if (!globals.network_ok || globals.network_time.Length==0 || globals.expire_time.Length==0)
                 {
                     return false;
 
@@ -520,27 +502,10 @@ namespace RaceVoice
                 }
                 return false;
 
-            }
-            return yes;
-
         }
 
 
-        public static bool IsDemoMode(bool nag)
-        {
-
-            if (globals.license_feature == (int)globals.FeatureState.DEMO_IRACING || globals.license_feature == (int)globals.FeatureState.DEMO)
-            {
-                if (nag)
-                {
-                    MessageBox.Show("RaceVoice Studio is in Demonstration Mode\r\n\r\nGoto www.RaceVoice.com\r\nto purchase a unit for full access to RaceVoice Studio", "RaceVoice Demo Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                return true;
-            }
-            return false;
-
-        }
+    
 
         
         public static bool IsRaceVoiceConnected()
@@ -609,7 +574,7 @@ namespace RaceVoice
         {
             globals.WriteLine("Starting OnlineTest Test..\r\n");
 
-            if (globals.no_license_check || globals.no_track_check)
+            if (globals.no_track_check)
             {
                 globals.WriteLine("Bypassed for debug!\r\n");
                 return true;

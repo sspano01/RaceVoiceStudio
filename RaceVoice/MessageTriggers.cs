@@ -47,7 +47,6 @@ namespace RaceVoice
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (globals.IsDemoMode(true)) return;
 
             MessageTrigger[] triggers = new MessageTrigger[8];
             _metadata.MessageTriggers = triggers;

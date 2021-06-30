@@ -91,9 +91,10 @@ namespace RaceVoice
         /// Combine CPU ID, Disk C Volume Serial Number and Motherboard Serial Number as device Id
         /// </summary>
         /// <returns></returns>
-        public static string GenerateUID(string appName)
+        public static string GenerateUID()
         {
             //Combine the IDs and get bytes
+            string appName = "RACEVOICE";
             string _id = string.Concat(appName, GetProcessorId(), GetMotherboardID(), GetDiskVolumeSerialNumber());
             byte[] _byteIds = Encoding.UTF8.GetBytes(_id);
 
