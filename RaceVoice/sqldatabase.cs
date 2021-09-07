@@ -164,16 +164,9 @@ namespace RaceVoice
 
                 if (match_email && !match_uuid)
                 {
-                    if (dbuuid.Length > 0 && dbuuid.Contains("NONE") == false)
-                    {
-                        uuid = dbuuid + "," + uuid; // append a computer ID
-                        //string str = "Expected=" + uuid + "\r\nFound=" + dbuuid;
-                        //MessageBox.Show("This RaceVoice is already Licensed to another PC.\r\nPlease contact support@racevoice.com for assistance.\r\n"+str, "License Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        //sqlConnection1.Close();
-                        //Application.Exit();
-                    }
+                  
                     // tell the user we are going to license them for the first time
-                    MessageBox.Show("Thank you for Purchasing Your RaceVoice!\r\nWe will now license your PC for use of RaceVoice Studio.\r\nThe license entitles you to free track map updates, feature requests, feature updates, and support@racevoice.com.", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thank you for Registering with RaceVoice!", "License Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int ac = 1;
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
                     cmd.CommandText = "UPDATE license SET name = @name, uuid = @uuid, lastaccess = @lastaccess, accesscount = @accesscount  Where email = @email";

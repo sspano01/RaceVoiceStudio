@@ -177,6 +177,5 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.exe
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.SpeechTagDialogue.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CoreCompileInputs.cache
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\YamlDotNet.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.audiomixing.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.AssemblyReference.cache

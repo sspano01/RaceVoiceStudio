@@ -477,7 +477,7 @@ namespace RaceVoice
                 msg +=" Licensed Computer = "+globals.iracing_node + "\r\n"; ;
                 msg += "Please contact RaceVoice to discuss licensing an additional computer or moving a license.";
                 // skip it at boot, so we show only the second time
-                if (globals.license_hide_warnings == false || check)
+                if (globals.license_hide_warnings == false && check)
                 {
                     MessageBox.Show(msg, "License Warning", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }

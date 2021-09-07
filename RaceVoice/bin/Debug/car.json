@@ -6,14 +6,14 @@
     "OverRev": 8000,
     "ShiftNotificationType": 0,
     "UpShiftEnabled": true,
-    "UpShift": 6550,
+    "UpShift": 6620,
     "DownShiftEnabled": false,
     "DownShift": 4000,
     "OilPressureEnabled": true,
     "OilPressurePsi": 10,
-    "OilPressureRpm": 1200,
+    "OilPressureRpm": 1500,
     "TemperatureEnabled": true,
-    "Temperature": 220,
+    "Temperature": 215,
     "VoltageEnabled": true,
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
@@ -29,23 +29,23 @@
     "BrakeThresholdPsi": 100,
     "WheelSpeedPercentDifference": 1,
     "AnnounceSpeed": false,
-    "SpeedThreshold": 0,
+    "SpeedThreshold": 105,
     "AnnounceBestLap": false,
     "AnnounceLapDelta": false,
     "AnnounceBrakeThresholdIndex": 0,
-    "BrakeThresholdMin": 100,
-    "BrakeThresholdMax": 100,
-    "BrakeMinHz": 900,
-    "BrakeMaxHz": 900,
+    "BrakeThresholdMin": 500,
+    "BrakeThresholdMax": 600,
+    "BrakeMinHz": 1500,
+    "BrakeMaxHz": 1500,
     "BrakeToneDuration": 50,
     "AnnounceBrakeThreshold": false
   },
   "HardwareData": {
     "LicenseState": "NONE",
-    "Name": "NONE",
+    "Name": "AM00C7GG",
     "HideWarnings": "NONE",
     "FeatureCode": "NONE",
-    "Version": "NONE",
+    "Version": "RACE VOICE,  VERSION,  APRIL 7 2021, A1",
     "Volume": 5,
     "SWVersion": "06-29-2021-A1",
     "Pitch": 50,
@@ -57,5 +57,38 @@
     "GetConfigAtStart": true,
     "ShareNewTracks": true
   },
-  "MessageTriggers": []
+  "MessageTriggers": [
+    {
+      "Phrase": "BLANK0",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK1",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK2",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK3",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK4",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK5",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK6",
+      "Repeat": 0
+    },
+    {
+      "Phrase": "BLANK7",
+      "Repeat": 0
+    }
+  ]
 }

@@ -15,7 +15,7 @@ namespace RaceVoice
 {
     internal static class globals
     {
-        public static bool trace = true; // force the trace log
+        public static bool trace = false; // force the trace log
 
 #if APP
         public static string selected_track = "";
@@ -31,7 +31,7 @@ namespace RaceVoice
         public static string theUUID = "";
 
         // master license phrase, don't change!
-        public static string UIVersion = "06-29-2021-A1";
+        public static string UIVersion = "09-06-2021-A1";
 
         //public static string racevoice_http = "racevoice.servep2p.com";
        
@@ -41,7 +41,7 @@ namespace RaceVoice
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
-        public static bool no_unit_check = true;
+        public static bool no_unit_check = false;
         public static bool quick_start = false;
         public static string forcePort = "";
         public static bool no_track_check = false;
@@ -83,16 +83,7 @@ namespace RaceVoice
 
         public static int irace_track_distance = 0;
 
-        public enum FeatureState
-        {
-            NONE,  //0
-            FULL,  //1
-            LITE,  //2
-            DEMO,  //3
-            DEMO_IRACING,
-            FULL_IRACING
-        }
-
+       
 
 
 
@@ -476,7 +467,7 @@ namespace RaceVoice
                 }
                 DateTime current = Convert.ToDateTime(globals.network_time);
                 //                DateTime license = Convert.ToDateTime(globals.expire_time);
-                Console.WriteLine("Expire=[" + globals.expire_time + "]");
+                //Console.WriteLine("Expire=[" + globals.expire_time + "]");
                 DateTime license = Convert.ToDateTime(DateTime.ParseExact(globals.expire_time,"mm/dd/yyyy",CultureInfo.InvariantCulture));
                 double remain = (license - current).TotalDays;
                 license_days_left = (int)remain;
