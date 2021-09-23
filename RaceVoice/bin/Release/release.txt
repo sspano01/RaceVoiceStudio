@@ -1,6 +1,8 @@
 09-06-21
 ===================================
-Simplified/removed all license checkis
+Simplified/removed all license checks
+Improved communication respond
+Fixed minor database bugs
 
 04-13-21
 ===================================

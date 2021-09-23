@@ -145,6 +145,7 @@ namespace RaceVoice
                     }
                     string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
                     cmd.CommandText = "UPDATE license SET lastaccess = @lastaccess, accesscount = @accesscount Where uuid like '%" + uuid + "%'";
+                    cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@lastaccess", timedate);
                     cmd.Parameters.AddWithValue("@accesscount", access_count + 1);
                     cmd.Parameters.AddWithValue("@uuid", uuid);
