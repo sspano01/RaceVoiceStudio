@@ -1073,6 +1073,9 @@ namespace RaceVoice
                         message = message.ToUpper();
                         message = message.TrimEnd('\r', '\n');
                         // strip any non ascii characters
+#if APP
+
+#else
                         if (message.Contains("CANCAP"))
                         {
                             LogCanCapture(message, false);
@@ -1084,6 +1087,7 @@ namespace RaceVoice
                             LogCanCapture(message, true);
                             break;
                         }
+#endif
                         string[] fields = message.Split(' ');
 
                         if (message.Contains("VERSION"))

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Globalization;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
-using System.Security.Policy;
 #if !APP
+using System.Security.Policy;
 using System.Windows.Forms;
 #else
 using Xamarin.Forms;
@@ -282,7 +282,10 @@ namespace RaceVoice
         {
             Exception e = (Exception)args.ExceptionObject;
             globals.WriteLine("AppHandlercaught : " + e.Message);
+#if APP
+#else
             MessageBox.Show("Critical Error:Send screenshot to\r\nsupport@racevoice.com\r\n\r\n"+e.Message, "Critica Error");
+#endif
         }
 
         public static string NormalizeLength(string value, int maxLength)

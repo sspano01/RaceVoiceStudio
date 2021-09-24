@@ -44,7 +44,7 @@ namespace RaceVoice
         public CarMetadata _carMetadata;
         public RaceVoicePCMain()
         {
-            _carMetafile=globals.LocalFolder()+"//car.json";
+            _carMetafile = globals.LocalFolder() + "//car.json";
             _carMetadata = CarMetadata.Load(_carMetafile);
             rvcom = new racevoicecom();
 
@@ -52,7 +52,7 @@ namespace RaceVoice
 
         public int GetComBarValue()
         {
-            if (rvcom!=null)
+            if (rvcom != null)
             {
                 return rvcom.barval;
             }
@@ -2120,13 +2120,13 @@ namespace RaceVoice
 #endif
 
 #if APP
-       public int GetRenderView(int mode)
+        public int GetRenderView(int mode)
         {
             return _renderer.GetRenderView(mode);
         }
         public string ReRender(SkiaSharp.SKCanvas canvas, SkiaSharp.SKImageInfo info)
         {
-            _renderer.Render(canvas,info);
+            _renderer.Render(canvas, info);
             return _renderer.debug;
         }
 
@@ -2256,8 +2256,8 @@ namespace RaceVoice
             cmbTracks.Items.Add(new ComboBoxItem<string>() { Text = globals.FixName(metadata.TrackName,false), Value = filename });
             return metadata;
 #else
-                //bool no_json = false;
-                if (metadata == null)
+            //bool no_json = false;
+            if (metadata == null)
             {
                 //no_json = true;
                 metadata = new TrackMetadata()
@@ -2296,7 +2296,7 @@ namespace RaceVoice
             _trackMetadata = TrackMetadata.Load(_trackMetafile);
             _trackModel = TrackModelParser.LoadFile(filename);
 #if (APP)
-           _trackMetadata= CheckTrackMetaData(filename, _trackMetafile, _trackMetadata, _trackModel);
+            _trackMetadata = CheckTrackMetaData(filename, _trackMetafile, _trackMetadata, _trackModel);
             // _trackMetadata=CheckTrackMetaData(_trackMetadata);
 #endif
             TrackRenderer.SmoothTrack(_trackModel, 10);
@@ -2747,5 +2747,6 @@ namespace RaceVoice
         }
     }
 #endif
-    
+
+    }
 }
