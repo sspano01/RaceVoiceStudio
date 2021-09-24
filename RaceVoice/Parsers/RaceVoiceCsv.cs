@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CsvHelper;
-using RaceVoice;
+using RaceVoice.Parser;
 
-namespace RaceVoiceLib.Parser
+namespace RaceVoice
 {
     public class RaceVoiceCsv : IDataTraceSource
     {

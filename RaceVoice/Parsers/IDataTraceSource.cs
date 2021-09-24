@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RaceVoiceLib.Parser
+namespace RaceVoice.Parser
 {
     public interface IDataTraceSource
     {

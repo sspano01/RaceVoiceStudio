@@ -115,9 +115,7 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\iRacingSdkWrapper.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\iRSDKSharp.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.dll
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.dll
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoiceLib.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\CsvHelper.xml
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\DotNetZip.xml
@@ -126,6 +124,9 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\FTD2XX_NET.xml
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Newtonsoft.Json.xml
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\System.ValueTuple.xml
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.AssemblyReference.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.SuggestedBindingRedirects.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.audiomixing.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.CanBusSettings.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.GpsSettings.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.licenseemail.resources
@@ -140,9 +141,7 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.Terminal.re
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.tracer.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.VoiceAdjust.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.GenerateResource.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.CoreCompileInputs.cache
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.CopyComplete
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.exe
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.pdb
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.CoreCompileInputs.cache
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.audiomixing.resources
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.AssemblyReference.cache

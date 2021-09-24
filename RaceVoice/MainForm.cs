@@ -9,7 +9,6 @@ using System.Collections;
 using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
-using RaceVoiceLib.Parser;
 using System.Runtime.CompilerServices;
 using System.CodeDom.Compiler;
 #if (!APP)
@@ -44,9 +43,21 @@ namespace RaceVoice
         public CarMetadata _carMetadata;
         public RaceVoicePCMain()
         {
+            bool ping_good = false;
+            sqldatabase sql = new sqldatabase();
             _carMetafile = globals.LocalFolder() + "//car.json";
             _carMetadata = CarMetadata.Load(_carMetafile);
-            rvcom = new racevoicecom();
+            globals.theUUID = HardwareInfo.GenerateUID();
+            ping_good = globals.IsOnlineTest();
+            if (ping_good)
+            {
+                globals.network_ok = true;
+                sql.ValidateSystem(_carMetadata);
+                _carMetadata.Save(_carMetafile);
+            }
+
+
+                rvcom = new racevoicecom();
 
         }
 
@@ -2749,4 +2760,6 @@ namespace RaceVoice
 #endif
 
     }
+#if APP
 }
+#endif

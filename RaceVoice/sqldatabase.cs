@@ -7,10 +7,12 @@ using System.Net.Sockets;
 
 #if (!APP)
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 #else
 using Xamarin.Forms;
+using MySqlConnector;
+using Xamarin.Essentials;
 #endif
-using MySql.Data.MySqlClient;
 
 namespace RaceVoice
 {
@@ -27,7 +29,13 @@ namespace RaceVoice
             int access_count = 0;
             string email_address = "none";
             string user_name = "";
+#if APP
+            string PHONE_VERSION = DeviceInfo.Manufacturer + " " + DeviceInfo.Model;
+            PHONE_VERSION = PHONE_VERSION.ToUpper();
+            connectionString = "Data Source=" + globals.racevoice_sqlserver + "; Initial Catalog = racevoice;User ID=root;Password=#RaceVoice01;connection timeout=30";
+#else
             connectionString = "Data Source=" + globals.racevoice_sqlserver + "; Initial Catalog = racevoice;Integrated Security=False;User ID=root;Password=#RaceVoice01;connection timeout=30";
+#endif
             MySqlConnection sqlConnection1 = new MySqlConnection(connectionString);
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader reader;
@@ -72,6 +80,7 @@ namespace RaceVoice
                 }
                 reader.Close();
                 sqlConnection1.Close();
+
 
                 try
                 {
@@ -129,6 +138,10 @@ namespace RaceVoice
                 if (match_uuid)
                 {
                     string combined = cm.HardwareData.Name + "[" + cm.HardwareData.Version + "]";
+#if APP
+
+                    combined = PHONE_VERSION;
+#endif
                     // update the access date and count
                     cmd.CommandText = "UPDATE license SET swversion = @swversion, unitversion = @unitversion Where uuid like '%" + uuid + "%'";
                     cmd.Parameters.AddWithValue("@unitversion", combined);
@@ -162,6 +175,39 @@ namespace RaceVoice
                 sqlConnection1.Close();
                     return true;
                 }
+
+#if APP
+                // temp patch, we need to make a user screen where they can enter their email and name for registeration and tie it into the code below
+                if (!match_uuid)
+                {
+                    string timedate = DateTime.Now.ToString("ddd, dd MMM yyy HH:mm:ss GMT");
+                    user_name = "RACEVOICE-APP";
+                    email_address = "RACEVOICE-APP";
+                    cmd.CommandText = "INSERT INTO license (name,uuid,lastaccess,accesscount,email,authorization,purchasedate,swversion,unitversion) VALUES (@name,@uuid,@lastaccess,@accesscount,@email,@authorization,@purchasedate,@swversion,@unitversion)";
+                    cmd.Parameters.AddWithValue("@name", user_name);
+                    cmd.Parameters.AddWithValue("@uuid", uuid);
+                    cmd.Parameters.AddWithValue("@lastaccess", timedate);
+                    cmd.Parameters.AddWithValue("@accesscount", 0);
+                    cmd.Parameters.AddWithValue("@email", email_address);
+                    cmd.Parameters.AddWithValue("@authorization", "VALID");
+                    cmd.Parameters.AddWithValue("@purchasedate", timedate);
+                    cmd.Parameters.AddWithValue("@swversion", globals.UIVersion);
+                    cmd.Parameters.AddWithValue("@unitversion", PHONE_VERSION);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ee)
+                    {
+
+
+                    }
+                    sqlConnection1.Close();
+                    return true;
+                }
+#else
 
                 if (match_email && !match_uuid)
                 {
@@ -206,12 +252,9 @@ namespace RaceVoice
                         globals.WriteLine(ee.Message);
                     }
                 }
+#endif
 
             }
-
-
-
-
             catch (Exception ee)
             {
 

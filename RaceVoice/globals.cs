@@ -32,7 +32,7 @@ namespace RaceVoice
 
         public static bool no_unit_check = false;
 
-        public static string UIVersion = "09-23-2021-A1";
+        public static string UIVersion = "09-24-2021-A2";
 
         public static string racevoice_http = "racevoice.com/downloads/";
 

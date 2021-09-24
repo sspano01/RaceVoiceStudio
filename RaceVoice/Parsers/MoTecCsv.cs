@@ -1,15 +1,16 @@
-﻿using RaceVoice;
-using System.Linq;
+﻿using CsvHelper;
+using Newtonsoft.Json;
+using RaceVoice.Parser;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using Newtonsoft.Json;
-using CsvHelper;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace RaceVoiceLib.Parser
+namespace RaceVoice
 {
-    public class AimCsv : IDataTraceSource
+    public class MoTecCsv : IDataTraceSource
     {
         private enum FileSection
         {
@@ -23,7 +24,7 @@ namespace RaceVoiceLib.Parser
         public IList<string> Units { get; private set; }
         public IList<IList<IList<double>>> LapValues { get; private set; }
 
-        public AimCsv()
+        public MoTecCsv()
         {
             Metadata = new Dictionary<string, IList<string>>();
             Headings = new List<string>();
@@ -35,26 +36,29 @@ namespace RaceVoiceLib.Parser
         {
             List<LapDataTrace> dataTrace = new List<LapDataTrace>(LapValues.Count);
 
+            double timeOffset = 0;
             foreach (var values in LapValues)
             {
                 List<DataTracePoint> points = values.Select(v => new DataTracePoint()
                 {
-                    LapDistance = v[1],
-                    Speed = v[11],
-                    Time = v[0],
-                    Lat = v[33],
-                    Lng = v[34],
-                    Rpm = (int)v[10],
-                    ThrottlePosition = v[12]
+                    LapDistance = v[11],
+                    Speed = v[6],
+                    Time = v[0] - timeOffset,
+                    Lat = v[3],
+                    Lng = v[4],
+                    Rpm = (int)v[21],
+                    ThrottlePosition = v[26]
                 }).ToList();
 
                 dataTrace.Add(new LapDataTrace(dataTrace.Count + 1, points));
+
+                timeOffset = values.Last()[0];
             }
 
             return dataTrace;
         }
 
-        public static AimCsv LoadCsvFile(string filename)
+        public static MoTecCsv LoadCsvFile(string filename)
         {
             using (var sr = new StreamReader(File.OpenRead(filename)))
             {
@@ -62,13 +66,13 @@ namespace RaceVoiceLib.Parser
             }
         }
 
-        public static AimCsv LoadCsvFile(StreamReader sr)
+        public static MoTecCsv LoadCsvFile(StreamReader sr)
         {
-            AimCsv aim = new AimCsv();
+            MoTecCsv motec = new MoTecCsv();
 
             FileSection section = FileSection.Metadata;
 
-            double lastTime = double.MaxValue;
+            int lapIndex = -1;
 
             using (var csv = new CsvReader(sr))
             {
@@ -79,16 +83,23 @@ namespace RaceVoiceLib.Parser
 
                     if (record.Length == 0)
                     {
+                        csv.Read();
+                        record = csv.Context.Record;
+                    }
+
+                    if (record.Length == 0)
+                    {
                         if (section == FileSection.Metadata)
                         {
                             section = FileSection.Headings;
-
-                            //The headings seem to appear twice in an aim csv file, so skip the first one
-                            csv.Read();
-                            record = csv.Context.Record;
                         }
                         else if (section == FileSection.Headings)
                         {
+                            lapIndex = motec.Headings.IndexOf("Lap Number");
+                            if (lapIndex == -1)
+                            {
+                                throw new InvalidOperationException("Invalid MoTec csv file. Couldn't find Lap Number heading.");
+                            }
                             section = FileSection.Values;
                         }
 
@@ -99,36 +110,31 @@ namespace RaceVoiceLib.Parser
                     switch (section)
                     {
                         case FileSection.Metadata:
-                            aim.Metadata.Add(record.First(), record.Skip(1).ToList());
+                            motec.Metadata.Add(record.First(), record.Skip(1).ToList());
                             break;
 
                         case FileSection.Headings:
-                            if (aim.Headings.Count == 0)
+                            if (motec.Headings.Count == 0)
                             {
-                                aim.Headings = record.ToList();
+                                motec.Headings = record.ToList();
                             }
                             else
                             {
-                                aim.Units = record.ToList();
-
-                                //Next there is some ordinal list. Not sure what this is for yet. Skip it!
-                                csv.Read();
-                                record = csv.Context.Record;
+                                motec.Units = record.ToList();
                             }
                             break;
 
                         case FileSection.Values:
                             try
                             {
-                                var values = record.Select(double.Parse).ToList();
-                                if (values[0] < lastTime)
+                                var lapNumber = (int)double.Parse(record[lapIndex]);
+                                if (motec.LapValues.Count == lapNumber)
                                 {
-                                    aim.LapValues.Add(new List<IList<double>>());
+                                    motec.LapValues.Add(new List<IList<double>>());
                                 }
-                                lastTime = values[0];
 
-                                IList<IList<double>> lapList = aim.LapValues.Last();
-                                lapList.Add(values);
+                                IList<IList<double>> lapList = motec.LapValues.Last();
+                                lapList.Add(record.Select(double.Parse).ToList());
                             }
                             catch
                             {
@@ -139,7 +145,7 @@ namespace RaceVoiceLib.Parser
                 }
             }
 
-            return aim;
+            return motec;
         }
     }
 }

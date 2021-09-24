@@ -166,6 +166,7 @@
     </Compile>
     <Compile Include="IntelHexFormatReader\MemoryBlock.cs" />
     <Compile Include="IntelHexFormatReader\MemoryCell.cs" />
+    <Compile Include="Models\DataTracePoint.cs" />
     <Compile Include="Models\DynamicsData.cs" />
     <Compile Include="Models\EcuType.cs" />
     <Compile Include="Models\EngineData.cs" />
@@ -178,13 +179,24 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\HardwareData.cs" />
+    <Compile Include="Models\LapDataTrace.cs" />
     <Compile Include="Models\MessageTrigger.cs" />
     <Compile Include="Models\PointD.cs" />
     <Compile Include="Models\SegmentDataModel.cs" />
     <Compile Include="Models\LapSegmentsModel.cs" />
     <Compile Include="Models\SessionDataModel.cs" />
     <Compile Include="Models\ShiftNotificationType.cs" />
+    <Compile Include="Models\TrackColor.cs" />
     <Compile Include="Models\TrackColorExtensions.cs" />
+    <Compile Include="Models\TrackModel.cs" />
+    <Compile Include="Models\TrackSegment.cs" />
+    <Compile Include="Models\TrackSpeechTag.cs" />
+    <Compile Include="Models\TrackTag.cs" />
+    <Compile Include="Models\Waypoint.cs" />
+    <Compile Include="Parsers\AimCsv.cs" />
+    <Compile Include="Parsers\IDataTraceSource.cs" />
+    <Compile Include="Parsers\MoTecCsv.cs" />
+    <Compile Include="Parsers\RaceVoiceCsv.cs" />
     <Compile Include="Preferences.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,12 +313,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="helmet_pdg_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RaceVoiceLib\RaceVoiceLib.csproj">
-      <Project>{cdcf4a53-b149-463f-8651-8f1bd342fc3e}</Project>
-      <Name>RaceVoiceLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="firmware\" />

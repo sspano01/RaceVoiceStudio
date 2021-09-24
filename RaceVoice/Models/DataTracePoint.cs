@@ -25,5 +25,25 @@ namespace RaceVoice
 
         [JsonProperty("br")]
         public double BrakePressureRear { get; set; }
+
+        [JsonProperty("lat")]
+        public double Lat { get; set; }
+
+        [JsonProperty("lng")]
+        public double Lng { get; set; }
+
+        [JsonProperty("rpm")]
+        public int Rpm { get; set; }
+
+        [JsonProperty("tp")]
+        public double ThrottlePosition { get; set; }
+
+        [JsonProperty("liG")]
+        public double LinearG { get; set; }
+
+        [JsonProperty("laG")]
+        public double LateralG { get; set; }
+
+
     }
 }

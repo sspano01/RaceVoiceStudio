@@ -1,8 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Management;
 using System.Security.Cryptography;
 using System.Text;
+
+#if APP
+using Plugin.DeviceInfo;
+
+namespace RaceVoice
+{
+    internal class HardwareInfo
+    {
+
+        public static string GenerateUID()
+        {
+            //Combine the IDs and get bytes
+            string appName = "RACEVOICE";
+            string _id = CrossDeviceInfo.Current.Id.ToString();
+            byte[] _byteIds = Encoding.UTF8.GetBytes(_id);
+
+            //Use MD5 to get the fixed length checksum of the ID string
+            MD5CryptoServiceProvider _md5 = new MD5CryptoServiceProvider();
+            byte[] _checksum = _md5.ComputeHash(_byteIds);
+
+            //Convert checksum into 4 ulong parts and use BASE36 to encode both
+            string _part1Id = BASE36.Encode(BitConverter.ToUInt32(_checksum, 0));
+            string _part2Id = BASE36.Encode(BitConverter.ToUInt32(_checksum, 4));
+            string _part3Id = BASE36.Encode(BitConverter.ToUInt32(_checksum, 8));
+            string _part4Id = BASE36.Encode(BitConverter.ToUInt32(_checksum, 12));
+
+            //Concat these 4 part into one string
+            return string.Format("{0}-{1}-{2}-{3}", _part1Id, _part2Id, _part3Id, _part4Id);
+        }
+
+    }
+}
+
+
+#else
+
+using System.Management;
 
 namespace RaceVoice
 {
@@ -144,3 +180,5 @@ namespace RaceVoice
         }
     }
 }
+
+#endif
