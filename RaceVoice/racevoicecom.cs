@@ -346,7 +346,7 @@ namespace RaceVoice
         {
             string message = "";
             int steps = 0;
-            globals.WriteLine("SENDING--->" + cmd);
+            if (!globals.firmware_download)            globals.WriteLine("SENDING--->" + cmd);
             _sp.Write(cmd + "\r");
             if (cmd.ToUpper().Contains("VERSION TALK")) return true;
             if (cmd.ToUpper().Contains("FLASH RESET")) return true;
@@ -1010,7 +1010,7 @@ namespace RaceVoice
                         get_version = true;
                     }
                     if (cmd.ToUpper().Contains("FWERASE")) do_firmware_update = true;
-                    globals.WriteLine("SENDING--->" + cmd);
+                    if (globals.firmware_download==false) globals.WriteLine("SENDING--->" + cmd);
                     int i;
                     cmd += "\r";
 

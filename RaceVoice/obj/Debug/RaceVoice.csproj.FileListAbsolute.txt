@@ -148,9 +148,7 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\DotNetZip.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\EmailValidation.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\FTD2XX_NET.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\Newtonsoft.Json.dll
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\RaceVoiceLib.dll
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\System.ValueTuple.dll
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\RaceVoiceLib.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\CsvHelper.xml
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\DotNetZip.pdb
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Debug\DotNetZip.xml
@@ -179,3 +177,4 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.SpeechTagDial
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.CoreCompileInputs.cache
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.audiomixing.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.AssemblyReference.cache
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Debug\RaceVoice.csproj.SuggestedBindingRedirects.cache

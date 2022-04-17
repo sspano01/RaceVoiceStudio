@@ -29,10 +29,10 @@ namespace RaceVoice
         public static string thePort = "";
         public static string theSerialNumber = "";
         public static string theUUID = "";
-
+        public static bool firmware_download = true;
         public static bool no_unit_check = false;
 
-        public static string UIVersion = "09-24-2021-A2";
+        public static string UIVersion = "04-17-2022-A1";
 
         public static string racevoice_http = "racevoice.com/downloads/";
 

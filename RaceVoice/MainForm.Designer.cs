@@ -1186,7 +1186,7 @@
             0,
             0});
             this.numMaxBrakeHz.Minimum = new decimal(new int[] {
-            100,
+            50,
             0,
             0,
             0});
@@ -1231,7 +1231,7 @@
             0,
             0});
             this.numMinBrakeHz.Minimum = new decimal(new int[] {
-            100,
+            50,
             0,
             0,
             0});

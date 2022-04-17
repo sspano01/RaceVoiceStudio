@@ -176,6 +176,7 @@ namespace RaceVoice
                 if (message.Contains("PASS") || (apply_patch==1 && message.Contains("DONE")))
                 {
                     isplash.setlabel("Downloading....");
+                    globals.firmware_download = true;
                     message = rvcom.SendSerial("fwupdate");
                     int sync = 0;
                     while (sync<20)
@@ -228,6 +229,7 @@ namespace RaceVoice
                                     message = rvcom.ReadLine();
                                     if (sync > 20)
                                     {
+                                        globals.firmware_download = false;
                                         MessageBox.Show("Error Writing Firmware - Line Sync Error(2)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         abort = true;
                                         break;
@@ -240,12 +242,17 @@ namespace RaceVoice
                             {
                                 if (message.Contains("VALID=0"))
                                 {
+                                    globals.firmware_download = false;
                                     MessageBox.Show("Error Writing Firmware", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     abort = true;
                                     break;
                                 }
                             }
-                            globals.WriteLine(ii + "/" + lineCount + " Reply->" + message);
+                            if (globals.firmware_download == false)
+                            { 
+                                globals.WriteLine(ii + "/" + lineCount + " Reply->" + message);
+
+                            }
                             double pct = Convert.ToDouble(ii) / Convert.ToDouble(lineCount);
                             pct *= Convert.ToDouble(100);
                             isplash.setbar(Convert.ToInt32(pct));
@@ -254,6 +261,7 @@ namespace RaceVoice
 
                     if (abort == false)
                     {
+                        globals.firmware_download = false;
                         isplash.setlabel("Updating....DO NOT REMOVE POWER FROM RACEVOICE");
                         Thread.Sleep(500);
                         message = rvcom.SendSerial("fwcommit",null,null);
