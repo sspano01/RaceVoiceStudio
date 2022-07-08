@@ -12,19 +12,19 @@
     0,
     0
   ],
-  "Rotation": 273,
+  "Rotation": 0,
   "Zoom": 90,
   "XPan": 0,
   "YPan": 0,
   "ClusterSize": 1,
   "UseCurveRendering": false,
   "SplitEnabledStates": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
   ],
   "SpeechTagEnabledStates": [
     false

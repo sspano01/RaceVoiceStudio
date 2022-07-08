@@ -1,7 +1,7 @@
 {
   "EngineData": {
-    "EcuType": 6,
-    "EcuName": "",
+    "EcuType": 5,
+    "EcuName": "Autosport Labs",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,

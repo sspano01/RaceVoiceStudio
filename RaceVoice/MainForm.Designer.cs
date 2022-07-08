@@ -78,12 +78,7 @@
             this.CanCapture = new System.Windows.Forms.ToolStripMenuItem();
             this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raceVoiceSIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.licenseRenewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.licenseCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.audioMixerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.licenseHideWarnings = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gotoRaceVoiceComToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -653,55 +648,17 @@
             // raceVoiceSIMToolStripMenuItem
             // 
             this.raceVoiceSIMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.licenseRenewToolStripMenuItem,
-            this.licenseCheckToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.audioMixerToolStripMenuItem,
-            this.toolStripSeparator7,
-            this.licenseHideWarnings});
+            this.audioMixerToolStripMenuItem});
             this.raceVoiceSIMToolStripMenuItem.Name = "raceVoiceSIMToolStripMenuItem";
             this.raceVoiceSIMToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.raceVoiceSIMToolStripMenuItem.Text = "RaceVoiceSIM";
             // 
-            // licenseRenewToolStripMenuItem
-            // 
-            this.licenseRenewToolStripMenuItem.Name = "licenseRenewToolStripMenuItem";
-            this.licenseRenewToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.licenseRenewToolStripMenuItem.Text = "License Renew";
-            this.licenseRenewToolStripMenuItem.Click += new System.EventHandler(this.licenseRenewToolStripMenuItem_Click);
-            // 
-            // licenseCheckToolStripMenuItem
-            // 
-            this.licenseCheckToolStripMenuItem.Name = "licenseCheckToolStripMenuItem";
-            this.licenseCheckToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.licenseCheckToolStripMenuItem.Text = "License Check";
-            this.licenseCheckToolStripMenuItem.Click += new System.EventHandler(this.licenseCheckToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(191, 6);
-            // 
             // audioMixerToolStripMenuItem
             // 
             this.audioMixerToolStripMenuItem.Name = "audioMixerToolStripMenuItem";
-            this.audioMixerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.audioMixerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.audioMixerToolStripMenuItem.Text = "Audio Mixer";
             this.audioMixerToolStripMenuItem.Click += new System.EventHandler(this.audioMixerToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(191, 6);
-            // 
-            // licenseHideWarnings
-            // 
-            this.licenseHideWarnings.CheckOnClick = true;
-            this.licenseHideWarnings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.licenseHideWarnings.Name = "licenseHideWarnings";
-            this.licenseHideWarnings.Size = new System.Drawing.Size(194, 22);
-            this.licenseHideWarnings.Text = "Hide License Warnings";
-            this.licenseHideWarnings.Click += new System.EventHandler(this.licenseHideWarnings_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1983,13 +1940,8 @@
         private System.Windows.Forms.Button btnSpeechTagDelete;
         private System.Windows.Forms.Timer heartbeat;
         private System.Windows.Forms.ToolStripMenuItem raceVoiceSIMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licenseRenewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licenseCheckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licenseHideWarnings;
         private System.Windows.Forms.ToolStripMenuItem CanCapture;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem audioMixerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.NumericUpDown numMaxBrakeHz;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;

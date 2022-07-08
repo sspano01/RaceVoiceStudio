@@ -1,7 +1,6 @@
 {
   "TrackName": "Road America",
   "DataBitfields": [
-    1,
     0,
     0,
     0,
@@ -10,7 +9,8 @@
     0,
     0,
     0,
-    1
+    0,
+    0
   ],
   "Rotation": 0,
   "Zoom": 90,

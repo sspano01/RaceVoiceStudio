@@ -8,11 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>RaceVoice</RootNamespace>
     <AssemblyName>RaceVoice</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -227,7 +228,6 @@
     </Compile>
     <Compile Include="Models\TrackMetadata.cs" />
     <Compile Include="Models\TrackPoint.cs" />
-    <Compile Include="sqldatabase.cs" />
     <Compile Include="Terminal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +278,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RealTimeView.resx">
       <DependentUpon>RealTimeView.cs</DependentUpon>

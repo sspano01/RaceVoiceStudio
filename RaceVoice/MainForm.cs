@@ -44,7 +44,6 @@ namespace RaceVoice
         public RaceVoicePCMain()
         {
             bool ping_good = false;
-            sqldatabase sql = new sqldatabase();
             _carMetafile = globals.LocalFolder() + "//car.json";
             _carMetadata = CarMetadata.Load(_carMetafile);
             globals.theUUID = HardwareInfo.GenerateUID();
@@ -52,7 +51,6 @@ namespace RaceVoice
             if (ping_good)
             {
                 globals.network_ok = true;
-                sql.ValidateSystem(_carMetadata);
                 _carMetadata.Save(_carMetafile);
             }
 
@@ -380,7 +378,6 @@ namespace RaceVoice
 
         private void CheckNewTracks(bool pushversions, bool force, string download_name)
         {
-            sqldatabase sql = new sqldatabase();
             FileDownloader fd = new FileDownloader();
             string path = globals.LocalFolder() + "\\";
             string line;
@@ -402,7 +399,6 @@ namespace RaceVoice
             {
                 globals.network_ok = true;
                 isplash.setbar(60);
-                sql.ValidateSystem(_carMetadata);
                 _carMetadata.Save(_carMetafile);
 
                 if (pushversions)
@@ -775,11 +771,6 @@ namespace RaceVoice
 
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
-            if (_carMetadata.HardwareData.HideWarnings.Contains("YES"))
-            {
-                licenseHideWarnings.Checked = true;
-                globals.license_hide_warnings = true;
-            }
 
             CheckNewTracks(false, false, "");
 
@@ -1394,8 +1385,6 @@ namespace RaceVoice
         {
             if (globals.iracing_mode)
             {
-                if (globals.AllowIracing())
-                {
                     try
                     {
                         irace.configure(_carMetadata, _trackMetadata, _trackModel);
@@ -1405,11 +1394,6 @@ namespace RaceVoice
                     {
                         MessageBox.Show(ee.Message);
                     }
-                }
-                else
-                {
-                    irace.LicenseMessage(false);
-                }
                 return;
             }
 
@@ -1798,19 +1782,9 @@ namespace RaceVoice
         private void AdjustUIForFeatures()
         {
             if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING)
-            {
-                if (globals.AllowIracing())
-                {
                     globals.iracing_mode = true;
-                }
                 else
-                {
                     globals.iracing_mode = false;
-                    irace.LicenseMessage(false);
-                    cmbEcuType.SelectedIndex = (int)EcuType.STANDALONE;
-                }
-            }
-            else globals.iracing_mode = false;
 
             if (globals.iracing_mode)
             {
@@ -2398,15 +2372,12 @@ namespace RaceVoice
             ReRender();
             globals.last_dash = (int)_carMetadata.EngineData.EcuType;
             btnSaveTrack.Enabled = false;
-            globals.AllowIracing();
-            irace.LicenseMessage(false);
-            if (globals.AllowIracing())
-            { 
                 try
                 {
                     if (globals.iracing_mode)
                     {
                         irace.configure(_carMetadata, _trackMetadata, _trackModel);
+                        irace.startit();
                     }
                 }
                 catch (Exception ee)
@@ -2414,23 +2385,6 @@ namespace RaceVoice
                     MessageBox.Show(ee.Message);
                 }
 
-                try
-                {
-                    irace.startit();
-                }
-                catch (Exception ee)
-                {
-                    MessageBox.Show(ee.Message);
-                }
-            }
-            else
-            {
-                if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING)
-                {
-                    cmbEcuType.SelectedIndex = (int)EcuType.STANDALONE;
-                }
-
-            }
 
 
 #endif
@@ -2653,59 +2607,17 @@ namespace RaceVoice
 
         private void heartbeat_Tick(object sender, EventArgs e)
         {
-            if (globals.AllowIracing())
+
+            if (globals.iracing_mode)
             {
-                if (globals.iracing_telemetry)
+                progressBar1.Value = globals.irace_hb;
+                if (globals.irace_track_distance > 0)
                 {
-                    if ((EcuType)cmbEcuType.SelectedIndex != EcuType.IRACING)
-                    {
-                        cmbEcuType.SelectedIndex = (int)EcuType.IRACING;
-                    }
+                    ReRender();
                 }
-                if (globals.iracing_mode)
-                {
-                    progressBar1.Value = globals.irace_hb;
-                }
-            }
-
-            if (globals.irace_track_distance>0)
-            {
-                ReRender();
-            }
+            } 
         }
 
-        private void licenseRenewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            irace.Renew();
-        }
-
-        private void licenseCheckToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            irace.LicenseMessage(true);
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void licenseHideWarnings_Click(object sender, EventArgs e)
-        {
-            if (licenseHideWarnings.Checked)
-            {
-                _carMetadata.HardwareData.HideWarnings = "YES";
-                globals.license_hide_warnings = true;
-                _carMetadata.Save(_carMetafile);
-
-            }
-            else
-            {
-                _carMetadata.HardwareData.HideWarnings = "NO";
-                globals.license_hide_warnings = false;
-                _carMetadata.Save(_carMetafile);
-
-            }
-        }
 
         private void CanCapture_Click(object sender, EventArgs e)
         {

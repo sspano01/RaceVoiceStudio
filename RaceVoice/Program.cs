@@ -22,7 +22,6 @@ namespace RaceVoice
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new splash(0));
                     Application.Run(new MainForm());
                 }
                 else

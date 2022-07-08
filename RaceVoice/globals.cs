@@ -68,10 +68,7 @@ namespace RaceVoice
         public static int MAX_TRACK_NAME = 48;
         public static string network_time="";
         public static string expire_time = "";
-        public static string iracing_node = "";
-        public static bool license_hide_warnings = false;
         public static bool iracing_node_error = false;
-        public static int license_days_left = 0;
         public static bool all_stop = false;
         public static int last_dash = -1;
 
@@ -458,47 +455,7 @@ namespace RaceVoice
         }
 
 #if !APP
-        public static bool AllowIracing()
-        {
-           
-                if (!globals.network_ok || globals.network_time.Length==0 || globals.expire_time.Length==0)
-                {
-                    return false;
-
-                }
-                DateTime current = Convert.ToDateTime(globals.network_time);
-                //                DateTime license = Convert.ToDateTime(globals.expire_time);
-                //Console.WriteLine("Expire=[" + globals.expire_time + "]");
-                DateTime license = Convert.ToDateTime(DateTime.ParseExact(globals.expire_time,"mm/dd/yyyy",CultureInfo.InvariantCulture));
-                double remain = (license - current).TotalDays;
-                license_days_left = (int)remain;
-
-                if (license_days_left <= 0) return false;
-
-                if (globals.iracing_node.ToUpper().Contains("ALL"))
-                {
-                    globals.iracing_node_error = false;
-                    return true;
-                }
-                else
-                {
-                    if (globals.theUUID.ToUpper().Contains(globals.iracing_node.ToUpper()) == false)
-                    {
-                        globals.iracing_node_error = true;
-                    }
-                    else
-                    {
-                        globals.iracing_node_error = false;
-                        return true;
-                    }
-                }
-                return false;
-
-        }
-
-
-    
-
+      
         
         public static bool IsRaceVoiceConnected()
         {
