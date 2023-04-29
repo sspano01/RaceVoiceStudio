@@ -1,39 +1,206 @@
 
-Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 4/17/2022 2:08:27 PM
+Processing C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.ci 4/29/2023 10:46:20 AM
 Log file: C:\RaceVoiceSoftware\RaceVoiceStudio\Installer\RaceVoice Studio.log 
 Generating Sources... 
 Compiling Gentee Sources... 
 Build setup file: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
 Adding temporary file(s) to EXE 
-C:\Users\Steve\AppData\Local\Temp\gentee01\english.lng 4/17/2022 2:08:28 PM 3273  46.01%
+C:\Users\steve\AppData\Local\Temp\gentee01\english.lng 4/29/2023 10:46:21 AM 3273  46.01%
+D:\Program Files (x86)\CreateInstall Free\res\leftimg\uninstall\uninstall - 1.bmp 3/20/2018 12:19:53 PM 20678  28.19%
+D:\Program Files (x86)\CreateInstall Free\res\logo\default - 1.bmp 3/20/2018 12:19:53 PM 7308  52.55%
 c:\RaceVoiceSoftware\RaceVoiceStudio\Logos\helmet.jpg 3/18/2020 10:25:33 AM 3002  94.97%
-C:\Program Files (x86)\CreateInstall Free\res\logo\default - 1.bmp 3/20/2018 12:19:53 PM 7308  52.55%
-C:\Program Files (x86)\CreateInstall Free\res\leftimg\install\install - 1.bmp 3/20/2018 12:19:53 PM 20678  33.44%
-C:\Program Files (x86)\CreateInstall Free\res\leftimg\uninstall\uninstall - 1.bmp 3/20/2018 12:19:53 PM 20678  28.19%
-Build setup file: C:\Users\Steve\AppData\Local\Temp\gentee01\uninstall.exe 
+D:\Program Files (x86)\CreateInstall Free\res\leftimg\install\install - 1.bmp 3/20/2018 12:19:53 PM 20678  33.44%
+Build setup file: C:\Users\steve\AppData\Local\Temp\gentee01\uninstall.exe 
 Adding uninstall file(s) to EXE 
-Code signing: C:\Users\Steve\AppData\Local\Temp\gentee01\uninstall.exe 
-Code signing result: 0  OK 
+Code signing: C:\Users\steve\AppData\Local\Temp\gentee01\uninstall.exe 
+Code signing result: 1  ERROR 
 Getting list of files 
 Packing files... 
 ================================ 
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico 6/27/2019 9:13:27 AM 39198  47.51%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftbusui.dll 6/27/2019 9:13:27 AM 168112  48.42%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftcserco.dll 6/27/2019 9:13:27 AM 74968  34.21%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx.lib 6/27/2019 9:13:27 AM 20260  20.70%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx64.dll 6/27/2019 9:13:27 AM 314552  33.21%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftdibus.sys 6/27/2019 9:13:27 AM 129448  45.01%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftlang.dll 6/27/2019 9:13:27 AM 274616  18.80%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftser2k.sys 6/27/2019 9:13:27 AM 89792  55.17%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftserui2.dll 6/27/2019 9:13:27 AM 65240  37.93%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftbusui.dll 6/27/2019 9:13:27 AM 155832  44.20%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftcserco.dll 6/27/2019 9:13:27 AM 78552  35.72%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.dll 6/27/2019 9:13:27 AM 271672  33.02%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.lib 6/27/2019 9:13:27 AM 22190  18.96%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftdibus.sys 6/27/2019 9:13:27 AM 105200  46.42%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftlang.dll 6/27/2019 9:13:27 AM 254264  18.68%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftser2k.sys 6/27/2019 9:13:27 AM 75896  58.10%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftserui2.dll 6/27/2019 9:13:27 AM 63192  36.84%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Area_27.csv 4/19/2022 1:26:23 PM 15330  35.06%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Area_27.json 4/29/2023 10:09:58 AM 370  52.97%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Arizona_Motorsports_Park.csv 4/19/2022 1:26:24 PM 8238  28.63%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Arizona_Motorsports_Park.json 4/29/2023 10:09:58 AM 419  12.64%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Atlanta_Motorsports_Park_Main.csv 4/19/2022 1:26:24 PM 36269  24.95%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Atlanta_Motorsports_Park_Main.json 4/29/2023 10:09:58 AM 424  8.49%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Atlanta_Motorsport_Park_Kart.csv 4/19/2022 1:26:24 PM 41599  24.51%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Atlanta_Motorsport_Park_Kart.json 4/29/2023 10:09:58 AM 415  12.53%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Autobahn_Country_Club_Full_Circuit.csv 4/19/2022 1:26:24 PM 17327  34.65%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Autobahn_Country_Club_Full_Circuit.json 4/29/2023 10:09:58 AM 393  20.61%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Autodromo_Jose_Carlos_Pace.csv 4/19/2022 1:26:25 PM 13601  33.77%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Autodromo_Jose_Carlos_Pace.json 4/29/2023 10:09:58 AM 393  19.08%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Auto_Club_Speedway_Sport_Cars.csv 4/19/2022 1:26:24 PM 7546  28.88%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Auto_Club_Speedway_Sport_Cars.json 4/29/2023 10:09:58 AM 408  13.48%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Barber_Motorsport_Park.csv 4/19/2022 1:26:25 PM 8040  28.02%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Barber_Motorsport_Park.json 4/29/2023 10:09:58 AM 353  12.18%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Blackhawk_Farms.csv 4/19/2022 1:26:25 PM 5617  29.53%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Blackhawk_Farms.json 4/29/2023 10:09:58 AM 382  11.51%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Brainerd_International_Raceway.csv 4/19/2022 1:26:25 PM 12007  34.23%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Brainerd_International_Raceway.json 4/29/2023 10:09:58 AM 381  21.52%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Brainerd_International_Raceway_Long_Track.csv 4/19/2022 1:26:25 PM 16014  22.28%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Brainerd_International_Raceway_Long_Track.json 4/29/2023 10:09:58 AM 404  11.38%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Buttonwillow_Raceway_Park.csv 4/19/2022 1:26:25 PM 8158  28.49%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Buttonwillow_Raceway_Park.json 4/29/2023 10:09:58 AM 376  11.70%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Calabogie_East.csv 4/19/2022 1:26:25 PM 8161  34.37%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Calabogie_East.json 4/29/2023 10:09:58 AM 357  15.68%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Calabogie_Full_Course.csv 4/19/2022 1:26:25 PM 15517  34.16%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Calabogie_Full_Course.json 4/29/2023 10:09:58 AM 368  15.21%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Carolina_Motorsports_Park.csv 4/19/2022 1:26:26 PM 6185  29.19%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Carolina_Motorsports_Park.json 4/29/2023 10:09:58 AM 408  11.27%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Charlotte_Motor_Speedway.csv 4/19/2022 1:26:26 PM 7503  29.06%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Charlotte_Motor_Speedway.json 4/29/2023 10:09:58 AM 443  10.38%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Chuckwalla_Valley_Raceway.csv 4/19/2022 1:26:26 PM 12893  33.01%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Chuckwalla_Valley_Raceway.json 4/29/2023 10:09:58 AM 396  14.14%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Circuit_de_la_Sarth_24_hours.csv 4/19/2022 1:26:27 PM 43652  39.25%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Circuit_de_la_Sarth_24_hours.json 4/29/2023 10:09:58 AM 423  18.91%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Circuit_Gilles_Villeneuve.csv 4/19/2022 1:26:26 PM 14297  35.01%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Circuit_Gilles_Villeneuve.json 4/29/2023 10:09:58 AM 364  17.58%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Circuit_Of_The_Americas.csv 4/19/2022 1:26:27 PM 108599  25.22%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Circuit_Of_The_Americas.json 4/29/2023 10:09:58 AM 382  15.44%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Club_Motorsports.csv 4/19/2022 1:26:27 PM 5540  29.16%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Club_Motorsports.json 4/29/2023 10:09:58 AM 355  13.52%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Daytona_International.csv 4/19/2022 1:26:27 PM 44391  36.24%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Daytona_International.json 4/29/2023 10:09:58 AM 416  13.94%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Dominion_Raceway.csv 4/19/2022 1:26:27 PM 10591  34.77%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Dominion_Raceway.json 4/29/2023 10:09:58 AM 351  16.52%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Exotics_Racing.csv 4/19/2022 1:26:28 PM 6963  32.19%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Exotics_Racing.json 4/29/2023 10:09:58 AM 329  18.54%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Firebird_International_Raceway.csv 4/19/2022 1:26:28 PM 3347  28.29%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Firebird_International_Raceway.json 4/29/2023 10:09:58 AM 389  14.13%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Giants_Despair_Hillclimb.csv 4/19/2022 1:26:28 PM 19490  34.95%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Giants_Despair_Hillclimb.json 4/29/2023 10:09:58 AM 335  17.01%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\GingerMan_Raceway.csv 4/19/2022 1:26:28 PM 5343  28.16%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\GingerMan_Raceway.json 4/29/2023 10:09:58 AM 404  14.35%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Grattan_Raceway.csv 4/19/2022 1:26:28 PM 4988  28.76%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Grattan_Raceway.json 4/29/2023 10:09:58 AM 378  11.37%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Hallett_Motor_Racing_Circuit.csv 4/19/2022 1:26:28 PM 4591  29.64%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Hallett_Motor_Racing_Circuit.json 4/29/2023 10:09:58 AM 407  12.77%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Heartland_Park_Topeka.csv 4/19/2022 1:26:29 PM 42054  26.61%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Heartland_Park_Topeka.json 4/29/2023 10:09:58 AM 408  50.24%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\High_Plains_Raceway.csv 4/19/2022 1:26:29 PM 8812  29.25%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\High_Plains_Raceway.json 4/29/2023 10:09:58 AM 414  11.35%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Homestead-Miami_RoadCourse_Chicane.csv 4/19/2022 1:26:29 PM 25120  30.19%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Homestead-Miami_RoadCourse_Chicane.json 4/29/2023 10:09:59 AM 441  18.82%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Homestead-Miami_Speedway.csv 4/19/2022 1:26:29 PM 61844  19.57%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Homestead-Miami_Speedway.json 4/29/2023 10:09:59 AM 424  12.02%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Inde_Motorsport_Ranch.csv 4/19/2022 1:26:29 PM 10656  29.25%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Inde_Motorsport_Ranch.json 4/29/2023 10:09:59 AM 428  11.21%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Inde_Motorsport_Ranch_2.csv 4/19/2022 1:26:30 PM 8361  0.41%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Inde_Motorsport_Ranch_2.json 4/29/2023 10:09:59 AM 402  11.44%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Indianapolis_F1.csv 4/19/2022 1:26:30 PM 12954  34.56%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Indianapolis_F1.json 4/29/2023 10:09:59 AM 422  15.16%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Indianapolis_GrandPrix.csv 4/19/2022 1:26:30 PM 12061  34.34%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Indianapolis_GrandPrix.json 4/29/2023 10:09:59 AM 433  13.85%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Laguna_Seca.csv 4/19/2022 1:26:30 PM 11587  33.77%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Laguna_Seca.json 4/29/2023 10:09:59 AM 374  13.90%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Limerock_Park.csv 4/19/2022 1:26:30 PM 17924  28.88%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Limerock_Park.json 4/29/2023 10:09:59 AM 372  18.27%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mid_Ohio_Club_Chicane.csv 4/19/2022 1:26:31 PM 11362  34.65%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mid_Ohio_Club_Chicane.json 4/29/2023 10:09:59 AM 392  14.03%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mid_Ohio_Sports.csv 4/19/2022 1:26:31 PM 11508  34.13%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mid_Ohio_Sports.json 4/29/2023 10:09:59 AM 402  13.68%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Miller_Motorsports_Park_(Utah).csv 4/19/2022 1:26:31 PM 15488  33.43%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Miller_Motorsports_Park_(Utah).json 4/29/2023 10:09:59 AM 389  17.73%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mission_Raceway.csv 4/19/2022 1:26:31 PM 7634  32.53%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mission_Raceway.json 4/29/2023 10:09:59 AM 362  14.64%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mont_Tremblant.csv 4/19/2022 1:26:31 PM 41062  34.69%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mont_Tremblant.json 4/29/2023 10:09:59 AM 425  16.00%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mosport_-_Canadian_Tire_Motorsport_Park.csv 4/19/2022 1:26:31 PM 11965  36.26%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Mosport_-_Canadian_Tire_Motorsport_Park.json 4/29/2023 10:09:59 AM 418  17.22%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\MSR_Cresson.csv 4/19/2022 1:26:30 PM 8534  32.90%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\MSR_Cresson.json 4/29/2023 10:09:59 AM 362  18.23%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\MSR_Houston.csv 4/19/2022 1:26:30 PM 5345  29.27%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\MSR_Houston.json 4/29/2023 10:09:59 AM 394  13.45%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NCM_Grand_Course.csv 4/19/2022 1:26:32 PM 15488  34.51%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NCM_Grand_Course.json 4/29/2023 10:09:59 AM 399  11.27%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Nelson_Ledges.csv 4/19/2022 1:26:32 PM 8333  34.99%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Nelson_Ledges.json 4/29/2023 10:09:59 AM 344  18.02%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\New_Hampshire_Motor_Speedway.csv 4/19/2022 1:26:33 PM 128247  33.65%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\New_Hampshire_Motor_Speedway.json 4/29/2023 10:09:59 AM 383  15.40%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\New_Hampshire_Motor_Speedway_Chicane.csv 4/19/2022 1:26:33 PM 120858  26.50%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\New_Hampshire_Motor_Speedway_Chicane.json 4/29/2023 10:09:59 AM 403  12.90%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NJMP_Lightning.csv 4/19/2022 1:26:32 PM 53383  23.45%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NJMP_Lightning.json 4/29/2023 10:09:59 AM 341  15.54%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NJMP_Thunderbolt.csv 4/19/2022 1:26:32 PM 28505  26.90%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NJMP_Thunderbolt.json 4/29/2023 10:09:59 AM 415  13.25%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Nola_Motorsports_Park.csv 4/19/2022 1:26:34 PM 13517  34.23%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Nola_Motorsports_Park.json 4/29/2023 10:09:59 AM 392  15.56%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NYST_New_York_Safety_Track.csv 4/19/2022 1:26:32 PM 10215  34.10%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\NYST_New_York_Safety_Track.json 4/29/2023 10:09:59 AM 413  18.64%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pacific_Raceways.csv 4/19/2022 1:26:34 PM 11594  33.24%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pacific_Raceways.json 4/29/2023 10:09:59 AM 367  16.34%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Palmer_Motorsports_Park.csv 4/19/2022 1:26:34 PM 11157  33.16%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Palmer_Motorsports_Park.json 4/29/2023 10:09:59 AM 418  13.63%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Palm_Beach_International_Raceway.csv 4/19/2022 1:26:34 PM 10369  33.68%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Palm_Beach_International_Raceway.json 4/29/2023 10:09:59 AM 371  18.32%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pittsburg_International.csv 4/19/2022 1:26:34 PM 76747  19.31%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pittsburg_International.json 4/29/2023 10:09:59 AM 414  13.04%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pocono_International_North.csv 4/19/2022 1:26:35 PM 51717  29.56%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pocono_International_North.json 4/29/2023 10:09:59 AM 389  14.39%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pocono_Internation_Full.csv 4/19/2022 1:26:35 PM 30699  28.82%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pocono_Internation_Full.json 4/29/2023 10:09:59 AM 434  48.15%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Portland_International_Raceway.csv 4/19/2022 1:26:35 PM 4540  30.15%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Portland_International_Raceway.json 4/29/2023 10:09:59 AM 397  13.60%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pueblo_Motorsports_Park.csv 4/19/2022 1:26:35 PM 11023  33.68%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Pueblo_Motorsports_Park.json 4/29/2023 10:09:59 AM 418  18.42%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Remlap(Palmer)_Motorsports_Park.csv 4/19/2022 1:26:35 PM 31550  28.49%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Remlap(Palmer)_Motorsports_Park.json 4/29/2023 10:09:59 AM 402  13.68%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Road_America.csv 4/19/2022 1:26:36 PM 5263  30.93%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Road_America.json 4/29/2023 10:09:59 AM 419  10.02%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Road_Atlanta.csv 4/19/2022 1:26:36 PM 28195  28.67%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Road_Atlanta.json 4/29/2023 10:09:59 AM 431  9.74%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Roebling_Road.csv 4/19/2022 1:26:36 PM 7535  27.84%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Roebling_Road.json 4/29/2023 10:09:59 AM 408  12.74%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Sebring_Full_Course.csv 4/19/2022 1:26:36 PM 60462  35.92%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Sebring_Full_Course.json 4/29/2023 10:09:59 AM 354  12.71%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Silverstone_GP.csv 4/19/2022 1:26:37 PM 17783  37.48%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Silverstone_GP.json 4/29/2023 10:09:59 AM 373  15.01%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Sonoma_Raceway.csv 4/19/2022 1:26:37 PM 7358  27.39%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Sonoma_Raceway.json 4/29/2023 10:09:59 AM 429  12.82%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Spa_Franchorchamps.csv 4/19/2022 1:26:37 PM 20637  38.64%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Spa_Franchorchamps.json 4/29/2023 10:09:59 AM 381  17.84%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Summit_Pointe_Raceway.csv 4/19/2022 1:26:37 PM 50254  20.27%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Summit_Pointe_Raceway.json 4/29/2023 10:09:59 AM 376  13.03%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Summit_Point_Shenandoah_NoCarousel.csv 4/19/2022 1:26:37 PM 9309  33.65%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Summit_Point_Shenandoah_NoCarousel.json 4/29/2023 10:09:59 AM 409  17.60%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Suzuka_Car_Circuit.csv 4/19/2022 1:26:37 PM 17194  34.66%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Suzuka_Car_Circuit.json 4/29/2023 10:09:59 AM 381  15.48%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Thompson_Motor_Speedway.csv 4/19/2022 1:26:38 PM 55800  23.41%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Thompson_Motor_Speedway.json 4/29/2023 10:09:59 AM 350  17.42%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Thunderhill_Long.csv 4/19/2022 1:26:38 PM 15151  26.48%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Thunderhill_Long.json 4/29/2023 10:09:59 AM 419  14.08%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Thunderhill_Short.csv 4/19/2022 1:26:38 PM 8693  26.92%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Thunderhill_Short.json 4/29/2023 10:09:59 AM 388  12.88%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Virgina_Internation_Raceway.csv 4/19/2022 1:26:38 PM 77996  20.04%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Virgina_Internation_Raceway.json 4/29/2023 10:09:59 AM 374  18.18%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Watkins_Glen_Long.csv 4/19/2022 1:26:39 PM 78729  19.60%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Watkins_Glen_Long.json 4/29/2023 10:09:59 AM 428  16.58%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Watkins_Glen_Short.csv 4/19/2022 1:26:39 PM 12008  35.61%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Watkins_Glen_Short.json 4/29/2023 10:09:59 AM 353  13.88%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Wild_Horse_Pass(EAST).csv 4/19/2022 1:26:39 PM 6415  34.55%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Wild_Horse_Pass(EAST).json 4/29/2023 10:09:59 AM 340  22.35%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Wild_Horse_Pass(WEST).csv 4/19/2022 1:26:39 PM 6121  32.87%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Wild_Horse_Pass(WEST).json 4/29/2023 10:09:59 AM 368  14.13%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Willow_Springs_International_Raceway.csv 4/19/2022 1:26:39 PM 4615  29.14%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks\Willow_Springs_International_Raceway.json 4/29/2023 10:09:59 AM 415  13.25%
+C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\ecus\spec_racer_ford_gen3.json 3/18/2020 10:25:33 AM 355  53.52%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftbusui.dll 6/27/2019 9:13:27 AM 168112  48.41%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftcserco.dll 6/27/2019 9:13:27 AM 74968  34.23%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx.lib 6/27/2019 9:13:27 AM 20260  20.73%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftd2xx64.dll 6/27/2019 9:13:27 AM 314552  47.79%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftdibus.sys 6/27/2019 9:13:27 AM 129448  45.85%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftlang.dll 6/27/2019 9:13:27 AM 274616  18.97%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftser2k.sys 6/27/2019 9:13:27 AM 89792  42.47%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\amd64\ftserui2.dll 6/27/2019 9:13:27 AM 65240  34.63%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftbusui.dll 6/27/2019 9:13:27 AM 155832  41.90%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftcserco.dll 6/27/2019 9:13:27 AM 78552  50.64%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.dll 6/27/2019 9:13:27 AM 271672  46.36%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftd2xx.lib 6/27/2019 9:13:27 AM 22190  18.93%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftdibus.sys 6/27/2019 9:13:27 AM 105200  47.75%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftlang.dll 6/27/2019 9:13:27 AM 254264  19.06%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftser2k.sys 6/27/2019 9:13:27 AM 75896  42.93%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\i386\ftserui2.dll 6/27/2019 9:13:27 AM 63192  31.88%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\Static\amd64\ftd2xx.lib 6/27/2019 9:13:27 AM 1129626  18.82%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\Static\i386\ftd2xx.lib 6/27/2019 9:13:27 AM 1027798  17.89%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\drivers\ftd2xx.h 6/27/2019 9:13:27 AM 40993  22.27%
@@ -56,8 +223,8 @@ c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\050819patch.hex 7/9/2
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\release.txt 9/23/2021 12:54:06 PM 5502  42.51%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\flag.png 6/27/2019 9:13:27 AM 1665  54.17%
 c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\car.png 5/9/2020 2:54:59 PM 2077  100.43%
-c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 4/17/2022 2:03:34 PM 922624  27.06%
-c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\bootstrap.min.css 3/18/2020 10:25:33 AM 121205  18.96%
+c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\bin\Release\RaceVoice.exe 4/29/2023 10:07:35 AM 863232  28.04%
+c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\bootstrap.min.css 3/18/2020 10:25:33 AM 121205  18.95%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\Chart.bundle.min.js 3/18/2020 10:25:33 AM 210428  33.01%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\charting.css 3/18/2020 10:25:33 AM 583  49.57%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\charting.js 3/18/2020 10:25:33 AM 10236  24.82%
@@ -71,8 +238,8 @@ c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\shared.js 3/18
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\tabledata.js 3/18/2020 10:25:33 AM 11199  17.42%
 c:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\charts\tables.html 3/18/2020 10:25:33 AM 8203  19.00%
 ================================ 
-All files: 53 [ 9257KB => 2932KB ] 
+All files: 220 [ 11129KB => 3535KB ] 
 Code signing: c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe 
-Code signing result: 0  OK 
-File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3085 KB 
-Finish Successful 4/17/2022 2:08:45 PM
+Code signing result: 1  ERROR 
+File Size c:\racevoicesoftware\racevoicestudio\Installer\RaceVoiceStudioInstaller.exe: 3677 KB 
+Finish Successful 4/29/2023 10:46:30 AM

@@ -1,7 +1,7 @@
 {
   "EngineData": {
     "EcuType": 5,
-    "EcuName": "Autosport Labs",
+    "EcuName": "",
     "OverRevEnabled": true,
     "OverRev": 8000,
     "ShiftNotificationType": 0,
@@ -18,7 +18,7 @@
     "Voltage": 11.5,
     "TrackSelectionIndex": 0,
     "TrackSelectionName": "Area 27",
-    "FindTrackByName": true
+    "FindTrackByName": false
   },
   "DynamicsData": {
     "AnnounceLateralGForce": false,
@@ -27,7 +27,7 @@
     "LinearGForceThreshold": 1.0,
     "ActiveWheelLockDetectionEnabled": false,
     "BrakeThresholdPsi": 100,
-    "WheelSpeedPercentDifference": 4,
+    "WheelSpeedPercentDifference": 5,
     "AnnounceSpeed": false,
     "SpeedThreshold": 105,
     "AnnounceBestLap": false,
@@ -42,12 +42,12 @@
   },
   "HardwareData": {
     "LicenseState": "1L3R5EK-1ATCYDE-I3BYXQ-1UWWDC8",
-    "Name": "AK06E47G",
+    "Name": "AB0KLUW0",
     "HideWarnings": "NONE",
     "FeatureCode": "11ZJW05-Q7HA2J-1EUR5M2-B2KO4K",
     "Version": "RACE VOICE-SA,  VERSION,  APRIL 17 2022, A1",
     "Volume": 5,
-    "SWVersion": "04-17-2022-A1",
+    "SWVersion": "04-29-2023-A1",
     "Pitch": 50,
     "GPSWindow": 1,
     "iRacingVolume": 80,

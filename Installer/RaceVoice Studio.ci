@@ -1,4 +1,4 @@
-﻿<project version = 9 civer = 8.7.0 winver = "2.12/6.2.9200" >
+﻿<project version = 9 civer = 8.10.1 winver = "2.12/6.2.9200" >
    <autorun >1</>
    <autoclose >1</>
    <compname ></>
@@ -121,6 +121,22 @@ Please make sure this computer has Internet Access before continuing</>
                      <rows >
                         <_ >
                            <filename >c:\racevoicesoftware\RaceVoiceStudio\RaceVoice\icons\helmet_pdg_icon.ico</>
+                           <recurse >1</>
+                           <justfile >0</>
+                           <emptydir >0</>
+                           <exclude ></>
+                           <comm ></>
+                        </>
+                        <_ >
+                           <filename >C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\Tracks</>
+                           <recurse >1</>
+                           <justfile >0</>
+                           <emptydir >0</>
+                           <exclude ></>
+                           <comm ></>
+                        </>
+                        <_ >
+                           <filename >C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\bin\Release\ecus</>
                            <recurse >1</>
                            <justfile >0</>
                            <emptydir >0</>
@@ -398,6 +414,7 @@ Please make sure this computer has Internet Access before continuing</>
             <selfdelete >0</>
             <allowinst >0</>
             <priv >0</>
+            <manfile ></>
          </>
       </>
    </>
@@ -453,6 +470,7 @@ Please make sure this computer has Internet Access before continuing</>
             <caption ></>
             <noadmin >0</>
             <priv >0</>
+            <manfile ></>
          </>
       </>
    </>
@@ -665,6 +683,7 @@ Please make sure this computer has Internet Access before continuing</>
             <caption ></>
             <noadmin >1</>
             <priv >0</>
+            <manfile ></>
          </>
       </>
    </>

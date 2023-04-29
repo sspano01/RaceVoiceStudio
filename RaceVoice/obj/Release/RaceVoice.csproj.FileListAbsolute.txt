@@ -110,7 +110,6 @@ C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.csproj.Sugg
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.audiomixing.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.CanBusSettings.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.GpsSettings.resources
-C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.licenseemail.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.MainForm.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.MessageTriggers.resources
 C:\RaceVoiceSoftware\RaceVoiceStudio\RaceVoice\obj\Release\RaceVoice.Preferences.resources

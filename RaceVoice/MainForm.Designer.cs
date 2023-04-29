@@ -82,7 +82,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gotoRaceVoiceComToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releaseNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cmbTracks = new System.Windows.Forms.ComboBox();
@@ -482,47 +481,43 @@
             // importTrackMapsToolStripMenuItem1
             // 
             this.importTrackMapsToolStripMenuItem1.Name = "importTrackMapsToolStripMenuItem1";
-            this.importTrackMapsToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.importTrackMapsToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.importTrackMapsToolStripMenuItem1.Text = "Import Track Maps";
             this.importTrackMapsToolStripMenuItem1.Click += new System.EventHandler(this.importTrackMapsToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // cloneCurrentTrackToolStripMenuItem
             // 
             this.cloneCurrentTrackToolStripMenuItem.Name = "cloneCurrentTrackToolStripMenuItem";
-            this.cloneCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.cloneCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.cloneCurrentTrackToolStripMenuItem.Text = "Clone Track";
             this.cloneCurrentTrackToolStripMenuItem.Click += new System.EventHandler(this.cloneCurrentTrackToolStripMenuItem_Click);
             // 
             // deleteTrackToolStripMenuItem
             // 
             this.deleteTrackToolStripMenuItem.Name = "deleteTrackToolStripMenuItem";
-            this.deleteTrackToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.deleteTrackToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.deleteTrackToolStripMenuItem.Text = "Delete Track";
             this.deleteTrackToolStripMenuItem.Click += new System.EventHandler(this.deleteTrackToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
             // 
             // restoreAllTracksToolStripMenuItem
             // 
             this.restoreAllTracksToolStripMenuItem.Name = "restoreAllTracksToolStripMenuItem";
-            this.restoreAllTracksToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.restoreAllTracksToolStripMenuItem.Text = "Restore All Tracks";
-            this.restoreAllTracksToolStripMenuItem.Click += new System.EventHandler(this.restoreAllTracksToolStripMenuItem_Click);
+            this.restoreAllTracksToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             // 
             // restoreCurrentTrackToolStripMenuItem
             // 
             this.restoreCurrentTrackToolStripMenuItem.Name = "restoreCurrentTrackToolStripMenuItem";
-            this.restoreCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.restoreCurrentTrackToolStripMenuItem.Text = "Restore Current Track";
-            this.restoreCurrentTrackToolStripMenuItem.Click += new System.EventHandler(this.restoreCurrentTrackToolStripMenuItem_Click);
+            this.restoreCurrentTrackToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             // 
             // chartsMenuItem
             // 
@@ -665,7 +660,6 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
             this.gotoRaceVoiceComToolStripMenuItem,
-            this.checkForUpdatesToolStripMenuItem,
             this.releaseNotesToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
@@ -674,28 +668,21 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // gotoRaceVoiceComToolStripMenuItem
             // 
             this.gotoRaceVoiceComToolStripMenuItem.Name = "gotoRaceVoiceComToolStripMenuItem";
-            this.gotoRaceVoiceComToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.gotoRaceVoiceComToolStripMenuItem.Text = "Goto RaceVoice.Com";
+            this.gotoRaceVoiceComToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.gotoRaceVoiceComToolStripMenuItem.Text = "Goto GitHUB Release";
             this.gotoRaceVoiceComToolStripMenuItem.Click += new System.EventHandler(this.gotoRaceVoiceComToolStripMenuItem_Click);
-            // 
-            // checkForUpdatesToolStripMenuItem
-            // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";
-            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // releaseNotesToolStripMenuItem
             // 
             this.releaseNotesToolStripMenuItem.Name = "releaseNotesToolStripMenuItem";
-            this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.releaseNotesToolStripMenuItem.Text = "Release Notes";
             this.releaseNotesToolStripMenuItem.Click += new System.EventHandler(this.releaseNotesToolStripMenuItem_Click);
             // 
@@ -1947,7 +1934,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown numMinBrakeHz;
         private System.Windows.Forms.ComboBox cmbBrakeThreshold;
-        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
     }
 }
 

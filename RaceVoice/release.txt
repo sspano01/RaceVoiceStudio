@@ -1,3 +1,7 @@
+04-29-23
+===================================
+Released as Freeware on GitHub
+
 04-26-19
 ===================================
 Additional exception fix on "600" value for out of range voice pitch

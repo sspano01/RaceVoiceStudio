@@ -145,471 +145,7 @@ namespace RaceVoice
 
 
     
-        private void QueueTrackForSending(string name)
-        {
-            if (_carMetadata.HardwareData.ShareNewTracks)
-            {
-                string ufile = globals.LocalFolder() + "\\uploads.txt";
-                name = name.Replace(' ', '_');
-                StreamWriter stream = new StreamWriter(ufile, true);
-                stream.WriteLine(name);
-                stream.Close();
-            }
-        }
-
-        private void SendNewTracksToServer()
-        {
-            if (_carMetadata.HardwareData.ShareNewTracks && globals.network_ok)
-            {
-                // are there any tracks that have been queded for upload?
-                // Read the file and display it line by line. 
-                email em = new email();
-                string line;
-                try
-                {
-                    string ufile = globals.LocalFolder() + "\\uploads.txt";
-                    System.IO.StreamReader file = new System.IO.StreamReader(ufile);
-                    if (file != null)
-                        while ((line = file.ReadLine()) != null)
-                        {
-                            em.EmailTrackFile(line);
-                        }
-                    file.Close();
-                    File.Delete(ufile);
-                }
-                catch (Exception ee)
-                {
-                    globals.WriteLine(ee.Message);
-                }
-            }
-        }
-
-
-        private void CheckNewUI()
-        {
-
-            FileDownloader fd = new FileDownloader();
-            string[] rui = new string[2000];
-            string path = globals.LocalFolder() + "\\";
-            string line;
-            int ri = 0;
-
-            try
-            {
-                // download the ecu files
-                fd.DownloadFile("ui.php", "remoteui.php");
-                // now load the data into an array
-                path = globals.LocalFolder() + "\\remoteui.php";
-                System.IO.StreamReader file = new System.IO.StreamReader(path);
-                while ((line = file.ReadLine()) != null)
-                {
-                    globals.WriteLine(line);
-                    rui[ri] = line;
-                    ri++;
-                }
-                file.Close();
-                System.IO.File.Delete(path);
-
-                // now find the latest file on the server
-                string[] ours = globals.UIVersion.Split('-');
-                string mm = ours[0];
-                string dd = ours[1];
-                string yy = ours[2];
-                DateTime ui_date = new DateTime(Convert.ToInt32(yy), Convert.ToInt32(mm), Convert.ToInt32(dd));
-                for (int i =0;i<ri;i++)
-                {
-                    string[] rs = rui[i].Split('_');
-
-                    mm = rs[1];
-                    dd = rs[2];
-                    yy = rs[3];
-                    if (yy.Length == 2) yy = "20" + yy;
-                    // any letters?
-                    bool skip = false;
-                    for (int j=0;j<yy.Length;j++)
-                    {
-                        if (yy[j] < '0' || yy[j] > '9') skip = true;
-                    }
-                    if (yy.Length > 4) skip = true;
-                    if (skip) continue;
-
-                    //yy = "2020";
-                    //mm = "06";
-                    DateTime rem_date = new DateTime(Convert.ToInt32(yy), Convert.ToInt32(mm), Convert.ToInt32(dd));
-
-                    Console.WriteLine("UI Date=" + ui_date.ToString() +" VS Remote Date="+rem_date.ToString());
-
-
-                    if (DateTime.Compare(rem_date,ui_date)>0)
-                    {
-
-                        DialogResult dr = MessageBox.Show("A new version of RaceVoiceStudio is available\r\nWould you like to update to the latest one?\r\n", "New Software", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (dr==DialogResult.Yes)
-                        {
-
-                            MessageBox.Show("Great, the RaceVoice.com webpage will open and you can download the installer from there.\r\n", "New Software", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            System.Diagnostics.Process.Start("https://www.racevoice.com/download/");
-                            Environment.Exit(0);
-                        }
-
-                        return;
-
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                globals.WriteLine(e.Message);
-                return;
-            }
-
-
-        }
-        private void CheckNewEcus(splash isplash)
-        {
-            FileDownloader fd = new FileDownloader();
-            string[] remoteecus = new string[2000];
-            string[] localecus = new string[2000];
-            string path = globals.LocalFolder() + "\\";
-            string line = "";
-            string emsg = "";
-            int ri = 0;
-            int li = 0;
-
-            try
-            {
-                // download the ecu files
-                fd.DownloadFile("ecus.php", "remoteecus.php");
-                // now load the data into an array
-                path = globals.LocalFolder() + "\\remoteecus.php";
-                System.IO.StreamReader file = new System.IO.StreamReader(path);
-                while ((line = file.ReadLine()) != null)
-                {
-                    globals.WriteLine(line);
-                    remoteecus[ri] = line;
-                    ri++;
-                }
-                file.Close();
-                System.IO.File.Delete(path);
-
-            }
-            catch (Exception e)
-            {
-                globals.WriteLine(e.Message);
-                return;
-            }
-
-            path = globals.LocalFolder() + "\\ecus";
-            // MessageBox.Show("!");
-            if (Directory.Exists(path) == false)
-            {
-                Directory.CreateDirectory(path);
-                Thread.Sleep(1000);
-            }
-            // Take a snapshot of the file system.
-            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
-
-            // This method assumes that the application has discovery permissions
-            // for all folders under the specified path.
-            IEnumerable<System.IO.FileInfo> fileList = dir.GetFiles("*.*", System.IO.SearchOption.AllDirectories);
-
-            //Create the query
-            IEnumerable<System.IO.FileInfo> fileQuery =
-            from file in fileList
-            where file.Extension == ".json"
-            orderby file.Name
-            select file;
-
-            //Execute the query. This might write out a lot of files!
-            foreach (System.IO.FileInfo fi in fileQuery)
-            {
-                string hash = globals.CalculateMD5(fi.FullName);
-                DateTime lastModified = System.IO.File.GetLastWriteTime(fi.FullName);
-                string tn = fi.Name + "," + hash + "," + lastModified.ToString("MM/dd/yyyy");
-                localecus[li] = tn;
-                li++;
-                globals.WriteLine("Local Scan->" + tn);
-            }
-
-
-            // now compare the files
-            for (int j = 0; j < ri; j++)
-            {
-                bool found = false;
-                string[] remecu = remoteecus[j].Split(',');
-                for (int k = 0; k < li; k++)
-                {
-                    string[] ecuseg = localecus[k].Split(',');
-                    globals.WriteLine("ECU Compare " + remecu[0] + " vs " + ecuseg[0]);
-                    if (ecuseg[0].ToUpper().Equals(remecu[0].ToUpper()))
-                    {
-                        globals.WriteLine("FOUND!");
-                        found = true;
-                        break;
-                    }
-                }
-
-                // found = false;
-                if (!found)
-                {
-                    globals.WriteLine(remecu[0] + "-->** NOT FOUND!");
-                    string remotefile = "\\ecus\\" + remecu[0];
-                    string localfile = "\\ecus\\" + remecu[0];
-                    globals.WriteLine("Downlad " + remotefile + "--->" + localfile);
-
-                    double pct = Convert.ToDouble(j) / Convert.ToDouble(ri);
-                    pct *= Convert.ToDouble(100);
-                    isplash.setbar(Convert.ToInt32(pct));
-                    isplash.setlabel("Downloading ECU map " + remecu[0]);
-                    string[] nice = remecu[0].Split('.');
-                    emsg += nice[0].Replace('_', ' ') + "\r\n";
-                    fd.DownloadFile(remotefile, localfile);
-
-                }
-            }
-
-            if (emsg.Length > 0)
-            {
-                DialogResult dr = FlexibleMessageBox.Show(emsg, "New ECUs Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void CheckNewTracks(bool pushversions, bool force, string download_name)
-        {
-            FileDownloader fd = new FileDownloader();
-            string path = globals.LocalFolder() + "\\";
-            string line;
-            int ri = 0;
-            int li = 0;
-            int changes = 0;
-            bool ping_good = false;
-            string[] remotetracks = new string[2000];
-            string[] localtracks = new string[2000];
-            string[] updates = new string[2000];
-            splash isplash = new splash(1);
-            isplash.Show();
-
-            globals.theUUID = HardwareInfo.GenerateUID();
-            isplash.setbar(30);
-            isplash.setlabel("Communicating ....");
-            ping_good = globals.IsOnlineTest();
-            if (ping_good)
-            {
-                globals.network_ok = true;
-                isplash.setbar(60);
-                _carMetadata.Save(_carMetafile);
-
-                if (pushversions)
-                {
-                    isplash.Close();
-                    return;
-                }
-                if (!globals.no_track_check)
-                {
-                    isplash.setbar(80);
-                    isplash.setlabel("Checking For Updates ....");
-                    CheckNewUI();
-                    CheckNewEcus(isplash);
-
-                    fd.DownloadFile("tracks.php", "remotetracks.php");
-                    //MessageBox.Show("hi");
-
-                    // now load the data into an array
-                    try
-                    {
-                        path += "remotetracks.php";
-                        System.IO.StreamReader file = new System.IO.StreamReader(path);
-                        while ((line = file.ReadLine()) != null)
-                        {
-                            globals.WriteLine(line);
-                            remotetracks[ri] = line;
-                            ri++;
-                        }
-                        file.Close();
-                        System.IO.File.Delete(path);
-
-                    }
-                    catch (Exception e)
-                    {
-                        globals.WriteLine(e.Message);
-                        isplash.Close();
-                        return;
-                    }
-
-                    path = globals.LocalFolder() + "\\tracks";
-                    // MessageBox.Show("!");
-                    if (Directory.Exists(path) == false)
-                    {
-                        Directory.CreateDirectory(path);
-                        Thread.Sleep(1000);
-                    }
-                    // Take a snapshot of the file system.
-                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
-
-                    // This method assumes that the application has discovery permissions
-                    // for all folders under the specified path.
-                    IEnumerable<System.IO.FileInfo> fileList = dir.GetFiles("*.*", System.IO.SearchOption.AllDirectories);
-
-                    //Create the query
-                    IEnumerable<System.IO.FileInfo> fileQuery =
-                    from file in fileList
-                    where file.Extension == ".csv"
-                    orderby file.Name
-                    select file;
-
-                    //Execute the query. This might write out a lot of files!
-                    foreach (System.IO.FileInfo fi in fileQuery)
-                    {
-                        string hash = globals.CalculateMD5(fi.FullName);
-                        DateTime lastModified = System.IO.File.GetLastWriteTime(fi.FullName);
-                        string tn = fi.Name + "," + hash + "," + lastModified.ToString("MM/dd/yyyy");
-                        localtracks[li] = tn;
-                        li++;
-                        globals.WriteLine("Local Scan->" + tn);
-                    }
-
-
-                }
-                else
-                {
-                    isplash.Close();
-                }
-
-
-            }
-            else
-            {
-                // ping fail...
-                isplash.Close();
-                return;
-
-            }
-
-            string[] remotes;
-            string[] locals;
-            bool found = false;
-            bool newer = false;
-            // any changes or new tracks??
-            string track_stat = "";
-            string track_msg = "Updates Are Available - Press YES to Update RaceVoice Studio";
-            found = newer = false;
-            for (int i = 0; i < ri; i++)
-            {
-                remotes = remotetracks[i].Split(',');
-                found = false;
-                newer = false;
-                for (int j = 0; j < li; j++)
-                {
-                    locals = localtracks[j].Split(',');
-                    if (locals[0].ToUpper() == remotes[0].ToUpper())
-                    {
-                        found = true;
-                        // first time registering, we load everything
-                        if (globals.virgin_load == false)
-                        {
-                            // is local newer?
-                            if (!globals.FileModifiedNewer(locals[0], locals[2], remotes[2], locals[1], remotes[1]))
-                            {
-                                newer = true;
-                            }
-                        }
-                    }
-                }
-
-                if (!found || newer)
-                {
-                    track_stat += "New Track: " + remotes[0] + "\r\n";
-                    updates[changes] = remotes[0];
-                    changes++;
-
-                }
-
-            }
-
-
-
-            if (force)
-            {
-                track_stat = "";
-                track_msg = "Synchronize Tracks";
-                updates = new string[100];
-                changes = 0;
-
-                for (int j = 0; j < ri; j++)
-                {
-
-                    remotes = remotetracks[j].Split(',');
-                    if (download_name.Length > 0)
-                    {
-                        if (download_name.ToUpper().Contains(remotes[0].ToUpper()))
-                        {
-                            updates[0] = remotes[0];
-                            track_stat += "Restore: " + remotes[0] + "\r\n";
-
-                            changes++;
-                            break;
-
-                        }
-                    }
-                }
-
-                if (track_stat.Length == 0)
-                {
-                    MessageBox.Show("The currently selected track is not available on the server", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-
-            if (track_stat.Length > 0)
-            {
-                DialogResult dr = DialogResult.Yes;
-                if (globals.virgin_load == false)
-                {
-                   dr = FlexibleMessageBox.Show(track_stat, track_msg, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                }
-                if (dr == DialogResult.Yes)
-                {
-                    isplash.setbar(0);
-                    for (int i = 0; i < changes; i++)
-                    {
-                        string remotefile = "";
-                        string localfile = "";
-                        isplash.setlabel("Downloading " + updates[i]);
-                        if (updates[i].ToUpper().Contains(".EXE") || updates[i].ToUpper().Contains(".HEX"))
-                        {
-                            remotefile = "tracks/" + updates[i];
-                            if (updates[i].ToUpper().Contains("EXE"))
-                            {
-                                localfile = updates[i] + ".new";
-                            }
-                            else
-                            {
-                                localfile = updates[i];
-                            }
-                        }
-                        else
-                        {
-                            remotefile = "tracks/" + updates[i];
-                            localfile = remotefile;
-                        }
-                        //if (updates[i].ToUpper().Contains("EXE")) continue;
-                        globals.WriteLine("Updating -> " + remotefile);
-                        fd.DownloadFile(remotefile, localfile);
-                        double pct = Convert.ToDouble(i) / Convert.ToDouble(changes);
-                        pct *= Convert.ToDouble(100);
-                        isplash.setbar(Convert.ToInt32(pct));
-                    }
-                    //isplash.setbar(Convert.ToInt32(100));
-                    isplash.Close();
-
-                }
-            }
-            //MessageBox.Show("HI");
-            isplash.Close();
-        }
-
+   
         private void UpdateTitle()
         {
             string debug = "";
@@ -702,7 +238,6 @@ namespace RaceVoice
 
                 }
             }
-            CheckNewTracks(true, false, "");
             UpdateTitle();
         }
 
@@ -772,10 +307,8 @@ namespace RaceVoice
             _carMetadata = CarMetadata.Load(_carMetafile);
             if (_carMetadata.HardwareData.Trace >= 1) globals.trace = true;
 
-            CheckNewTracks(false, false, "");
 
             PopulateTracks();
-            SendNewTracksToServer();
             ecuMetadata.PopulateECU(cmbEcuType);
 
             rvcom = new racevoicecom();
@@ -1335,7 +868,7 @@ namespace RaceVoice
 
         private void gotoRaceVoiceComToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.racevoice.com");
+            System.Diagnostics.Process.Start("https://github.com/sspano01/RaceVoiceStudio");
         }
 
 
@@ -1603,14 +1136,6 @@ namespace RaceVoice
 
 
 
-        private void restoreAllTracksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Download all available tracks from the server?", "Restore All Tracks", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                CheckNewTracks(false, true, "");
-            }
-        }
 
         private bool GotoTrackName(string track, bool selectit)
         {
@@ -1681,8 +1206,6 @@ namespace RaceVoice
                         MessageBox.Show("Import Success!\r\n" + track_name, "Track Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         PopulateTracks();
                         GotoTrackName(track_name, true);
-                        QueueTrackForSending(track_name + ".csv");
-                        SendNewTracksToServer();
                     }
                     else
                     {
@@ -1767,18 +1290,7 @@ namespace RaceVoice
 
         }
 
-        private void restoreCurrentTrackToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string current_track = "";
-            current_track = cmbTracks.Text;
-            DialogResult dr = MessageBox.Show("Download Track <" + current_track + "> from the server?", "Restore A Track", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                CheckNewTracks(false, true, globals.ToTrackName(current_track));
-            }
-        }
-
-     
+      
         private void AdjustUIForFeatures()
         {
             if ((EcuType)cmbEcuType.SelectedIndex == EcuType.IRACING)
@@ -2664,10 +2176,7 @@ namespace RaceVoice
 
         }
 
-        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CheckNewTracks(true, false, "");
-        }
+      
     }
 #endif
 

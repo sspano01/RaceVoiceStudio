@@ -1,2 +1,1 @@
-"c:\Program Files\Microsoft SDKs\Windows\V7.1\bin\SignTool.exe" sign /s my /sha1 C2C79C0BF6BCF0A48C73091565D0BFC1D898CABC /fd sha256 /tr http://sha256timestamp.ws.symantec.com/sha256/timestamp /v  %2
-
+"C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64\signtool.exe" sign /tr http://timestamp.digicert.com /td sha256 /fd sha256  /sha1 ea122336542f76dad1df5382bea3bb1688f3ac75 %v2

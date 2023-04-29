@@ -32,11 +32,8 @@ namespace RaceVoice
         public static bool firmware_download = true;
         public static bool no_unit_check = false;
 
-        public static string UIVersion = "04-17-2022-A1";
+        public static string UIVersion = "04-29-2023-A1";
 
-        public static string racevoice_http = "racevoice.com/downloads/";
-
-        public static string racevoice_sqlserver = "racevoicesql.servep2p.com";
 
         public static int force_firmware_update = 0;
         public static bool first_connected = false;
